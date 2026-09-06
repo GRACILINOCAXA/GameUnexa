@@ -1,0 +1,489 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mb-4">
+        <div class="card bg-secondary text-white p-4 border-0">
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-3 gap-2">
+                <h2 class="mb-0">👤 Perfil de {{ usuario.nome }}</h2>
+                <div class="btn-group" role="group">
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light btn-sm">🏠 Página Inicial</a>
+                    {% if session.get('user_email') == usuario.email %}
+                        <a href="{{ url_for('editar_perfil') }}" class="btn btn-primary btn-sm">✏️ Editar Perfil</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <hr class="bg-light">
+
+            <div class="mb-3">
+                <h6 class="text-white">🖼️ Foto de perfil</h6>
+                <div class="d-flex align-items-center gap-3">
+                    {% if usuario.foto_perfil %}
+                        <img src="{{ usuario.foto_perfil }}" alt="Foto de perfil de {{ usuario.nome }}" class="rounded-circle border border-info" style="width: 96px; height: 96px; object-fit: cover;" onerror="this.onerror=null;this.style.visibility='hidden';">
+                    {% else %}
+                        <div class="rounded-circle bg-info d-flex align-items-center justify-content-center text-dark fw-bold border border-info" style="width: 96px; height: 96px; font-size: 2rem;">
+                            {{ usuario.nome[:1]|upper }}
+                        </div>
+                    {% endif %}
+                    <div class="text-white-50 small">Cada usuário pode definir sua própria foto na edição do perfil.</div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <h6 class="text-white">📧 Email</h6>
+                <p class="lead mb-0">{{ usuario.email }}</p>
+            </div>
+
+            <div class="mb-3">
+                <h6 class="text-white">🎂 Idade</h6>
+                <p class="lead mb-0">{% if usuario.idade %}{{ usuario.idade }} anos{% else %}<em>Não informado</em>{% endif %}</p>
+            </div>
+
+            <div class="mb-3">
+                <h6 class="text-white-50">🎮 Gostos em Jogos</h6>
+                <p class="lead mb-0">{% if usuario.gosto_jogos %}{{ usuario.gosto_jogos }}{% else %}<em>Não informado</em>{% endif %}</p>
+            </div>
+
+            <div class="mb-3">
+                <h6 class="text-white-50">📱 Telefone</h6>
+                <p class="lead mb-0">{% if usuario.telefone %}{{ usuario.telefone }}{% else %}<em>Não informado</em>{% endif %}</p>
+            </div>
+
+            {% include '_perfil_discord.html' %}
+
+            {% include '_perfil_steam_status.html' %}
+
+            {% if session.get('user_email') == usuario.email %}
+                <div class="card bg-dark text-white p-3 border-secondary mb-3">
+                    <h6 class="mb-3">Editar informações rápidas</h6>
+                    <form action="{{ url_for('salvar_perfil') }}" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <div class="row g-3">
+                            <div class="col-12 col-md-4">
+                                <label class="form-label text-white">Idade</label>
+                                <input type="number" class="form-control form-control-sm" name="idade" min="10" max="120" value="{{ usuario.idade or '' }}">
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label class="form-label text-white">Telefone</label>
+                                <input type="text" class="form-control form-control-sm" name="telefone" value="{{ usuario.telefone or '' }}" placeholder="(XX) XXXXX-XXXX">
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label class="form-label text-white">Discord Tag</label>
+                                <input type="text" class="form-control form-control-sm" name="discord_tag" value="{{ usuario.discord_tag or '' }}" placeholder="Usuário#1234">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-white">Gosto de jogos</label>
+                                <textarea class="form-control form-control-sm" name="gosto_jogos" rows="2">{{ usuario.gosto_jogos or '' }}</textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-white">Servidor Discord</label>
+                                <input type="text" class="form-control form-control-sm" name="discord_server" value="{{ usuario.discord_server or '' }}" placeholder="Código do servidor ou link completo">
+                            </div>
+                            <div class="col-12">
+                                <div class="surface-panel p-3 border border-info">
+                                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-2">
+                                        <div>
+                                            <h6 class="mb-1">Steam</h6>
+                                            <p class="text-white-50 small mb-0">Conecte sua conta Steam e importe sua biblioteca automaticamente.</p>
+                                        </div>
+                                        <a href="{{ url_for('steam_conectar') }}" class="btn btn-info btn-sm">Conectar Steam</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex flex-wrap gap-2 align-items-center">
+                                <button type="submit" name="acao" value="salvar_perfil" class="btn btn-success btn-sm">Salvar informações</button>
+                                {% if usuario.discord_server %}
+                                    <a href="{{ url_for('abrir_discord') }}" class="btn btn-info btn-sm">Abrir Discord</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            {% endif %}
+
+            <hr class="bg-light">
+
+            <div class="mb-3">
+                <h5 class="mb-3">⭐ Avaliações (Reviews)</h5>
+                <div id="reviews-section">
+                    {% if reviews_usuario %}
+                        <div class="d-grid gap-3">
+                            {% for review in reviews_usuario %}
+                                <div class="surface-panel p-3">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div style="flex: 1;">
+                                            <h6 class="text-info mb-1">{{ review.titulo }}</h6>
+                                            <p class="text-white-50 small mb-2">{{ review.conteudo }}</p>
+                                            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                                                <div class="star-icons" aria-label="Avaliação de {{ review.nota }} de 5 estrelas">
+                                                    {% for i in range(1, 6) %}
+                                                        <span class="star-icon{{ ' active' if i <= review.nota else '' }}">★</span>
+                                                    {% endfor %}
+                                                </div>
+                                                <span class="badge bg-warning text-dark">{{ review.nota }}/5</span>
+                                                <small class="text-muted">{{ review.jogo_titulo }}</small>
+                                                <small class="text-muted">{{ review.data }}</small>
+                                                <small class="text-muted">{{ review.total_comentarios }} comentários</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-top border-secondary pt-3 mt-3">
+                                        <h6 class="text-white mb-3">Comentários</h6>
+                                        <div class="d-grid gap-2 mb-3">
+                                            {% for comentario in review.comentarios %}
+                                                <div class="bg-dark p-3 rounded border border-secondary mb-2">
+                                                    <div class="d-flex justify-content-between align-items-start gap-2">
+                                                        <div>
+                                                            <strong class="text-info d-block">{{ comentario.autor_nome }}</strong>
+                                                            <small class="text-muted">{{ comentario.data }}</small>
+                                                        </div>
+                                                        {% if comentario.autor_email == session.get('user_email') or session.get('is_admin') %}
+                                                            <form action="{{ url_for('deletar_comentario_review', comentario_id=comentario.id) }}" method="POST" class="ms-auto">
+                                                                <button type="submit" class="btn btn-link text-danger p-0 small text-decoration-none">🗑️</button>
+                                                            </form>
+                                                        {% endif %}
+                                                    </div>
+                                                    <p class="mb-0 mt-2 text-white-50">{{ comentario.texto }}</p>
+                                                </div>
+                                            {% else %}
+                                                <p class="text-white-50 small mb-0">Nenhum comentário nessa avaliação ainda.</p>
+                                            {% endfor %}
+                                        </div>
+                                        {% if session.get('user_email') %}
+                                            <form action="{{ url_for('comentar_review', review_id=review.id) }}" method="POST" class="d-grid gap-2">
+                                                <textarea name="texto" class="form-control bg-dark text-white border-secondary" rows="2" placeholder="Comente esta avaliação..." required></textarea>
+                                                <div class="d-flex justify-content-end">
+                                                    <button type="submit" class="btn btn-outline-info btn-sm">Comentar</button>
+                                                </div>
+                                            </form>
+                                        {% else %}
+                                            <p class="text-white-50 small mb-0">Faça login para comentar nesta avaliação.</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-white-50 mb-0"><em>Nenhuma avaliação ainda</em></p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <hr class="bg-light">
+
+            <div class="mb-3">
+                <h5 class="mb-3">📚 Avaliações da biblioteca</h5>
+                <div class="d-grid gap-3">
+                    {% for card in biblioteca_cards if card.item.avaliacao > 0 or card.item.comentario_avaliacao %}
+                        <div class="surface-panel p-3">
+                            <div class="d-flex justify-content-between align-items-start gap-3 flex-wrap">
+                                <div>
+                                    <h6 class="mb-1">{{ card.jogo.titulo }}</h6>
+                                    <p class="text-white-50 small mb-0">{{ card.jogo.desenvolvedora }} • {{ card.jogo.ano }}</p>
+                                </div>
+                                <span class="badge bg-warning text-dark">{% if card.item.avaliacao|float > 0 %}{{ '%.1f'|format(card.item.avaliacao|float) }}/5{% else %}Sem avaliação{% endif %}</span>
+                            </div>
+                            <div class="mt-3">
+                                <div class="star-icons mb-2" aria-hidden="true">
+                                    {% for i in range(1, 6) %}
+                                        <span class="star-icon{{ ' active' if card.item.avaliacao >= i else '' }}">★</span>
+                                    {% endfor %}
+                                </div>
+                                {% if card.item.comentario_avaliacao %}
+                                    <p class="mb-0 text-white-50">{{ card.item.comentario_avaliacao }}</p>
+                                {% else %}
+                                    <p class="mb-0 text-white-50"><em>Sem comentário nesta avaliação.</em></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <p class="text-white-50 mb-0"><em>Nenhuma avaliação da biblioteca ainda.</em></p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <hr class="bg-light">
+
+            <div class="mb-3">
+                <h5>👥 Amigos ({{ amigos|length }})</h5>
+                <div class="list-group mt-2">
+                    {% for amigo in amigos %}
+                        <a href="{{ url_for('perfil', email=amigo) }}" class="list-group-item list-group-item-action bg-dark text-info border-secondary">
+                            {{ usuarios[amigo].nome if usuarios.get(amigo) else amigo }}
+                        </a>
+                    {% else %}
+                        <p class="text-white-50 mb-0"><em>Nenhum amigo adicionado</em></p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% if session.get('user_email') and session.get('user_email') != usuario.email %}
+    <hr class="bg-light">
+    <div>
+        {% if sao_amigos %}
+            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2 p-2 bg-dark rounded border border-success">
+                <span class="text-success fw-bold">🤝 Vocês são amigos!</span>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="{{ url_for('conversa', email_amigo=usuario.email) }}" class="btn btn-sm btn-info">💬 Mensagem</a>
+                    <a href="{{ url_for('remover_amigo', email_amigo=usuario.email) }}" class="btn btn-sm btn-outline-danger">Remover Amigo</a>
+                </div>
+            </div>
+        {% elif tem_solicitacao_pendente %}
+            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2 p-2 bg-dark rounded border border-warning">
+                <span class="text-warning fw-bold">📩 Solicitação pendente</span>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="{{ url_for('aceitar_amizade', email_amigo=usuario.email) }}" class="btn btn-sm btn-success">✅ Aceitar</a>
+                    <a href="{{ url_for('recusar_amizade', email_amigo=usuario.email) }}" class="btn btn-sm btn-outline-danger">❌ Recusar</a>
+                </div>
+            </div>
+        {% else %}
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#usuariosAtivosParaAdicionar" aria-expanded="false" aria-controls="usuariosAtivosParaAdicionar">
+                    ➕ Adicionar como Amigo
+                </button>
+                <div class="collapse" id="usuariosAtivosParaAdicionar">
+                    <div class="card bg-dark text-white border-secondary p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h6 class="mb-1">Usuários ativos</h6>
+                                <small class="text-white-50">Clique em um usuário ativo para enviar a solicitação.</small>
+                            </div>
+                            <span class="badge bg-warning text-dark">{{ usuarios_ativos_disponiveis|length if usuarios_ativos_disponiveis else 0 }}</span>
+                        </div>
+
+                        <div class="list-group list-group-flush">
+                            {% for usuario_ativo in usuarios_ativos_disponiveis %}
+                                <a href="{{ url_for('adicionar_amigo', email_alvo=usuario_ativo.email) }}" class="list-group-item list-group-item-action bg-transparent text-white border-secondary d-flex justify-content-between align-items-center">
+                                    <span>{{ usuario_ativo.nome }}</span>
+                                    <span class="d-flex align-items-center gap-2 text-warning">
+                                        <span class="amigo-status-dot is-online"></span>
+                                        Ativo
+                                    </span>
+                                </a>
+                            {% else %}
+                                <p class="text-white-50 mb-0"><em>Nenhum usuário ativo disponível no momento.</em></p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card bg-secondary text-white p-3 border-0 mb-3">
+            <h5>💬 Comentários Recentes</h5>
+            <div class="mt-3">
+                {% set comentarios_usuario = comentarios | selectattr('email', 'equalto', usuario.email) | selectattr('visivel', 'equalto', true) | list %}
+                
+                {% for comentario in comentarios_usuario %}
+                    <div class="bg-dark p-2 mb-2 rounded border border-secondary">
+                        <p class="mb-1 small"><strong>{{ comentario.texto|truncate(50) }}</strong></p>
+                        <span class="text-muted d-block" style="font-size: 0.75rem;">Jogo ID: {{ comentario.jogo_id }}</span>
+                    </div>
+                {% else %}
+                    <p class="text-white-50 small mb-0"><em>Nenhum comentário visível</em></p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card bg-dark text-white p-3 border-secondary mb-3" id="hydra-games-section">
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start gap-2 mb-3">
+                <div>
+                    <h5 class="text-info mb-1">⚡ Jogos Hydra</h5>
+                    <p class="text-white-50 small mb-0">Exibe a biblioteca do cache local da Hydra vinculada a este PC.</p>
+                </div>
+                <form action="{{ url_for('hydra_detectar_sessao_local') }}" method="POST" class="m-0">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="btn btn-sm btn-outline-info">Carregar cache Hydra</button>
+                </form>
+            </div>
+
+            {% if hydra_contexto and hydra_contexto.configurado %}
+                {% if hydra_contexto.erro %}
+                    <div class="alert alert-warning py-2 mb-3">{{ hydra_contexto.erro }}</div>
+                {% endif %}
+
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    {% if hydra_contexto.usuario and hydra_contexto.usuario.displayName %}
+                        <span class="badge bg-dark border border-info text-info">{{ hydra_contexto.usuario.displayName }}</span>
+                    {% endif %}
+                    <span class="badge bg-dark border border-info text-info">{{ hydra_contexto.jogos|length }} jogos exibidos</span>
+                    <span class="badge bg-success">{{ hydra_contexto.jogos_totais }} na biblioteca</span>
+                </div>
+
+                <div class="alert alert-info py-2 mb-3">
+                    O GameUnexa lê a biblioteca do perfil Hydra informado. Se o endereço da sua instância for diferente, ajuste na tela de conexão.
+                </div>
+
+                {% if hydra_contexto.jogos %}
+                    <div class="d-grid gap-2">
+                        {% for jogo_hydra in hydra_contexto.jogos %}
+                            <div class="surface-panel p-2 d-flex gap-3 align-items-center sidebar-library-card">
+                                <img src="{{ jogo_hydra.cover_url }}" alt="Capa de {{ jogo_hydra.title }}" class="sidebar-library-cover" onerror='this.onerror=null;this.src="https://placehold.co/72x96/0f172a/38bdf8?text=Hydra";'>
+                                <div class="flex-grow-1">
+                                    <p class="mb-1 fw-semibold small text-white">{{ jogo_hydra.title }}</p>
+                                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                                        <p class="text-white-50 small mb-0">{{ '%.1f'|format((jogo_hydra.playTimeInSeconds or 0) / 3600) }}h jogadas</p>
+                                        <span class="badge bg-dark border border-info text-info text-uppercase">{{ jogo_hydra.shop }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="empty-state-card p-3">
+                        <p class="text-white-50 mb-0">Nenhum jogo retornou dessa conta Hydra ainda.</p>
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="empty-state-card p-3">
+                    <h6 class="mb-2">Carregue seu cache Hydra</h6>
+                    <p class="text-white-50 mb-0">Use o botão acima para importar os jogos do cache local da Hydra neste computador.</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="card bg-dark text-white p-3 border-secondary mb-3" id="steam-conquistas-section">
+            <h5 class="text-info mb-3">🎮 Conquistas Steam</h5>
+            {% if steam_contexto and steam_contexto.configurado %}
+                {% if steam_contexto.erro %}
+                    <div class="alert alert-warning py-2 mb-3">{{ steam_contexto.erro }}</div>
+                {% endif %}
+
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-dark border border-info text-info">{{ steam_contexto.jogos|length }} jogos carregados</span>
+                    {% if steam_contexto.conquistas %}
+                        <span class="badge bg-success">{{ steam_contexto.conquistas['unlocked'] }}/{{ steam_contexto.conquistas['total'] }} conquistas</span>
+                    {% endif %}
+                </div>
+
+                {% if steam_contexto.conquistas and steam_contexto.jogo_selecionado %}
+                    <div id="steam-achievements-panel" class="surface-panel p-3 border border-secondary mb-3">
+                        <div id="steam-achievements-compact" class="d-none">
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="{{ steam_contexto.jogo_selecionado.cover_url }}" alt="Capa de {{ steam_contexto.jogo_selecionado.name }}" style="width: 96px; height: 56px; object-fit: cover; border-radius: 12px;" onerror='this.onerror=null;this.src="https://placehold.co/96x56/0f172a/38bdf8?text=Steam";'>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">{{ steam_contexto.jogo_selecionado.name }}</h6>
+                                    <p class="text-white-50 small mb-0">{{ '%.1f'|format((steam_contexto.jogo_selecionado.playtime_forever or 0) / 60) }}h jogadas</p>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-outline-info steam-achievements-toggle">Ver conquistas</button>
+                            </div>
+                        </div>
+
+                        <div id="steam-achievements-expanded">
+                            <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                                <div>
+                                    <h6 class="mb-1">{{ steam_contexto.jogo_selecionado.name }}</h6>
+                                    <p class="text-white-50 small mb-0">Conquistas do jogo selecionado</p>
+                                </div>
+                                <div class="d-flex flex-column align-items-end gap-2">
+                                    <span class="badge bg-warning text-dark">{{ steam_contexto.conquistas['percent'] }}%</span>
+                                    <button type="button" class="btn btn-sm btn-outline-info steam-achievements-toggle">Minimizar conquistas</button>
+                                </div>
+                            </div>
+                            <div class="progress mb-3" style="height: 8px;">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: {{ steam_contexto.conquistas['percent'] }}%;" aria-valuenow="{{ steam_contexto.conquistas['percent'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-grid gap-2" id="steam-achievements-list">
+                                {% for conquista in steam_contexto.conquistas['achievements'] %}
+                                    <div class="d-flex align-items-center gap-3 p-2 bg-dark rounded border border-secondary">
+                                        <img src="{{ conquista.icon }}" alt="{{ conquista.title }}" style="width: 44px; height: 44px; object-fit: cover; border-radius: 10px;">
+                                        <div class="flex-grow-1">
+                                            <p class="mb-1 fw-semibold small">{{ conquista.title }}</p>
+                                            <p class="text-white-50 small mb-0">{{ conquista.description or 'Sem descrição disponível.' }}</p>
+                                        </div>
+                                        <span class="badge {{ 'bg-success' if conquista.unlocked else 'bg-secondary' }}">{{ 'Desbloqueada' if conquista.unlocked else 'Bloqueada' }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% elif steam_contexto.jogos %}
+                    <p class="text-white-50 small mb-3">Selecione um jogo acima para ver as conquistas na Steam.</p>
+                {% endif %}
+
+                <div class="d-grid gap-2 mb-3">
+                    {% for jogo_steam in steam_contexto.jogos[:4] %}
+                        {% if not steam_contexto.jogo_selecionado or jogo_steam.appid != steam_contexto.jogo_selecionado.appid %}
+                        <a href="{{ url_for('perfil', email=usuario.email, steam_appid=jogo_steam.appid) }}#steam-conquistas-section" class="surface-panel p-2 d-flex gap-3 align-items-center text-decoration-none sidebar-library-card">
+                            <img src="{{ jogo_steam.cover_url }}" alt="Capa de {{ jogo_steam.name }}" class="sidebar-library-cover" style="width: 72px; height: 40px; object-fit: cover; border-radius: 10px;" onerror='this.onerror=null;this.src="https://placehold.co/72x40/0f172a/38bdf8?text=Steam";'>
+                            <div class="flex-grow-1">
+                                <p class="mb-1 fw-semibold small text-white">{{ jogo_steam.name }}</p>
+                                <p class="text-white-50 small mb-0">{{ '%.1f'|format((jogo_steam.playtime_forever or 0) / 60) }}h jogadas</p>
+                            </div>
+                            <span class="badge bg-dark border border-info text-info">Ver conquistas</span>
+                        </a>
+                        {% endif %}
+                    {% else %}
+                        <div class="alert alert-info py-2 mb-0">Nenhum jogo retornou da Steam. Se sua biblioteca estiver privada, torne os detalhes do jogo públicos.</div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state-card p-3">
+                    <h6 class="mb-2">Conecte sua Steam</h6>
+                    <p class="text-white-50 mb-0">Use o login oficial da Steam via OpenID. O SteamID64 será a identificação principal e a API oficial complementa os dados.</p>
+                </div>
+            {% endif %}
+        </div>
+
+        {% if session.get('user_email') == usuario.email %}
+            <div class="card bg-dark text-white p-3 border-secondary">
+                <h5 class="text-info">📚 Minha Biblioteca</h5>
+                <p class="text-white-50 small">Adicione jogos à sua biblioteca local e conecte sua Steam para ver jogos e conquistas oficiais.</p>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-info btn-sm w-100">Ver Biblioteca</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    (function () {
+        const toggleButtons = document.querySelectorAll('.steam-achievements-toggle');
+        const achievementsList = document.getElementById('steam-achievements-list');
+        const panel = document.getElementById('steam-achievements-panel');
+        const compactView = document.getElementById('steam-achievements-compact');
+        const expandedView = document.getElementById('steam-achievements-expanded');
+
+        if (!toggleButtons.length || !panel || !compactView || !expandedView) {
+            return;
+        }
+
+        let collapsed = false;
+
+        const atualizarEstado = function () {
+            compactView.classList.toggle('d-none', !collapsed);
+            expandedView.classList.toggle('d-none', collapsed);
+
+            toggleButtons.forEach(function (button) {
+                button.textContent = collapsed ? 'Ver conquistas' : 'Minimizar conquistas';
+            });
+
+            if (achievementsList) {
+                achievementsList.classList.toggle('d-none', collapsed);
+            }
+
+            const progress = panel.querySelector('.progress');
+            if (progress) {
+                progress.classList.toggle('d-none', collapsed);
+            }
+        };
+
+        toggleButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                collapsed = !collapsed;
+                atualizarEstado();
+            });
+        });
+
+        atualizarEstado();
+    })();
+</script>
+{% endblock %}

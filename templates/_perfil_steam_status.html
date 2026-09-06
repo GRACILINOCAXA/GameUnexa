@@ -1,0 +1,719 @@
+{% set status_panel_data = montar_status_panel_data(usuario, request.headers.get('User-Agent')) %}
+
+<div id="steam-status-card" class="game-status-card p-3 mb-3" data-user-email="{{ usuario.email }}">
+    <div class="d-flex align-items-start justify-content-between gap-3 mb-3">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="game-status-icon">
+                        {% if usuario and usuario.foto_perfil %}
+                            <img src="{{ usuario.foto_perfil }}" alt="Foto de perfil de {{ usuario.nome }}" class="game-status-avatar" onerror="this.onerror=null;this.style.visibility='hidden';">
+                        {% else %}
+                            <i class="fa-solid fa-gamepad"></i>
+                        {% endif %}
+                    </span>
+                <h6 class="mb-0">🎮 Status de Jogo</h6>
+            </div>
+            <p class="mb-0 small text-white-50">Presença em tempo real · {{ status_panel_data.device }}</p>
+        </div>
+        <span id="steam-status-pill" class="game-status-pill {{ status_panel_data.status_class }}" title="{{ status_panel_data.updated_at_tooltip }}">
+            <i class="{{ status_panel_data.status_icon }}"></i> {{ status_panel_data.status_label }}
+        </span>
+    </div>
+
+    <div class="status-option-row mb-3">
+        {% for status_key, label, css in [('online', 'Online', 'status-online'), ('offline', 'Offline', 'status-offline'), ('absent', 'Ausente', 'status-absent'), ('busy', 'Ocupado', 'status-busy'), ('invisible', 'Invisível', 'status-invisible')] %}
+            <span class="status-option-pill {{ css }} {% if status_panel_data.status_key == status_key %}is-active{% endif %}">
+                {{ label }}
+            </span>
+        {% endfor %}
+    </div>
+
+    {% if usuario.steam_id64 or usuario.hydra_current_game or hydra_local_ativa %}
+        <div class="game-status-main-panel p-3 rounded-4 border border-info-subtle mb-3">
+            <div class="d-flex align-items-start gap-3">
+                <div class="game-cover-pill d-flex align-items-center justify-content-center" id="steam-current-game-cover-wrap"{% if not status_panel_data.jogo %} style="display: none;"{% endif %}>
+                    {% if status_panel_data.cover_url and status_panel_data.jogo %}
+                        <img id="steam-current-game-cover" src="{{ status_panel_data.cover_url }}" alt="Capa de {{ status_panel_data.jogo }}" loading="eager" decoding="async">
+                    {% else %}
+                        <i id="steam-current-game-cover-placeholder" class="fa-solid fa-image"></i>
+                    {% endif %}
+                </div>
+                <div class="flex-grow-1">
+                    <div class="text-info fw-semibold mb-1" id="steam-current-game-name">{{ status_panel_data.jogo or ('Nenhum jogo em execução' if status_panel_data.online else 'Offline') }}</div>
+                    <div class="small text-white-50 mb-2" id="steam-current-game-subtitle">
+                        {{ status_panel_data.estado_texto }} · Launcher {{ status_panel_data.launcher }}
+                    </div>
+                    <div class="d-flex flex-wrap gap-2" id="steam-launcher-badges">
+                        {% for badge in status_panel_data.launcher_badges %}
+                            <span class="launcher-badge">{{ badge }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3 d-flex align-items-center gap-2 text-white-50" id="steam-current-game-placeholder">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>{{ 'Conectado e pronto para sincronizar.' if not status_panel_data.jogo else '&nbsp;' }}</span>
+            </div>
+        </div>
+
+        <div class="row g-2 mb-3">
+            <div class="col-6">
+                <div class="meta-chip">
+                    <div class="meta-label">Última atividade</div>
+                    <div class="meta-value" id="steam-last-activity">{{ status_panel_data.last_activity }}</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="meta-chip">
+                    <div class="meta-label">Dispositivo</div>
+                    <div class="meta-value" id="steam-device">{{ status_panel_data.device }}</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="meta-chip">
+                    <div class="meta-label">Tempo online hoje</div>
+                    <div class="meta-value" id="steam-online-time">{{ status_panel_data.tempo_online }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div class="small text-white-50" id="steam-last-update">{{ status_panel_data.last_activity_timestamp }}</div>
+            {% if session.get('user_email') == usuario.email and usuario.steam_id64 %}
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-sm btn-info" id="steam-sync-btn" onclick="sincronizarStatusSteam()">
+                        <i class="fa-solid fa-rotate-right"></i> Sincronizar Status
+                    </button>
+                    <a href="{{ url_for('minha_biblioteca') }}" class="btn btn-sm btn-outline-light">Ver Biblioteca</a>
+                </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="alert alert-info mb-0" role="alert">
+            <p class="mb-2">🎮 <strong>Steam não conectada</strong></p>
+            <p class="small text-white-50 mb-2">Para ver seu status de jogo em tempo real, você precisa:</p>
+            <ol class="small text-white-50 mb-2">
+                <li>Conectar sua Steam via <strong>OpenID</strong></li>
+                <li>Permitir que "Jogo em Progresso" seja visível <em>(Configurações → Privacidade)</em></li>
+                <li>Conectar sua Steam no GameUnexa</li>
+            </ol>
+            {% if session.get('user_email') == usuario.email %}
+                <a href="{{ url_for('editar_perfil') }}" class="btn btn-sm btn-info mt-2">Conectar Steam</a>
+            {% else %}
+                <small class="text-white-50">Aguarde o usuário conectar sua Steam.</small>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+
+<style>
+.game-status-card {
+    background: linear-gradient(135deg, rgba(7, 14, 26, 0.98), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 40px rgba(2, 8, 23, 0.36), inset 0 1px 0 rgba(255,255,255,0.06);
+    backdrop-filter: blur(22px);
+    transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.game-status-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 50px rgba(14, 165, 233, 0.18);
+}
+
+.game-status-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.16);
+    color: #7dd3fc;
+    overflow: hidden;
+    flex: 0 0 2rem;
+}
+
+.game-status-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.game-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid transparent;
+}
+
+.status-online { background: rgba(22, 163, 74, 0.24); color: #bef264; border-color: rgba(74, 222, 128, 0.35); }
+.status-busy { background: rgba(249, 115, 22, 0.22); color: #fdba74; border-color: rgba(251, 191, 36, 0.3); }
+.status-offline { background: rgba(100, 116, 139, 0.24); color: #cbd5e1; border-color: rgba(148, 163, 184, 0.28); }
+.status-absent { background: rgba(234, 179, 8, 0.2); color: #fde68a; border-color: rgba(250, 204, 21, 0.28); }
+.status-invisible { background: rgba(226, 232, 240, 0.12); color: #e2e8f0; border-color: rgba(226, 232, 240, 0.2); }
+
+.status-option-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.status-option-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+.status-option-pill.is-active { color: #ffffff; box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.26); }
+
+.game-status-main-panel { background: rgba(2, 8, 23, 0.62); border-color: rgba(56, 189, 248, 0.18) !important; }
+.game-cover-pill {
+    width: 4.4rem; height: 5.8rem; flex: 0 0 4.4rem; overflow: hidden; border-radius: 0.9rem; background: linear-gradient(135deg, rgba(56,189,248,0.35), rgba(59,130,246,0.2)); color: #c7f9ff; font-size: 1.1rem;
+}
+.game-cover-pill img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.launcher-badge { display: inline-flex; align-items: center; padding: 0.25rem 0.55rem; border-radius: 999px; background: rgba(56, 189, 248, 0.14); color: #7dd3fc; font-size: 0.72rem; }
+.meta-chip { background: rgba(2, 8, 23, 0.48); border: 1px solid rgba(148, 163, 184, 0.16); border-radius: 0.95rem; padding: 0.75rem 0.8rem; min-height: 100%; }
+.meta-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #7dd3fc; margin-bottom: 0.25rem; }
+.meta-value { font-weight: 700; color: #f8fafc; }
+
+.status-card-enter { animation: statusPulse 560ms ease; }
+.status-card-slide { animation: statusSlide 560ms ease; }
+.status-card-fade { animation: statusFade 560ms ease; }
+@keyframes statusPulse { 0% { transform: scale(0.98); } 50% { transform: scale(1.01); } 100% { transform: scale(1); } }
+@keyframes statusSlide { 0% { transform: translateY(3px); opacity: 0.7; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes statusFade { 0% { opacity: 0.78; } 100% { opacity: 1; } }
+</style>
+
+<script>
+function _atualizarUISteam(data) {
+    try {
+        const card = document.getElementById('steam-status-card');
+        const badge = document.getElementById('steam-status-pill');
+        const lastActivityEl = document.getElementById('steam-last-activity');
+        const deviceEl = document.getElementById('steam-device');
+        const onlineTimeEl = document.getElementById('steam-online-time');
+        const lastUpdateEl = document.getElementById('steam-last-update');
+        const gameNameEl = document.getElementById('steam-current-game-name');
+        const gameCoverWrap = document.getElementById('steam-current-game-cover-wrap');
+        const launcherBadgesEl = document.getElementById('steam-launcher-badges');
+        const syncBtn = document.getElementById('steam-sync-btn');
+        if (!card) return;
+
+        const statusPanel = data.status_panel || {};
+        const novo_estado = statusPanel.status_key || (data.jogo ? 'busy' : (data.hydra_jogo ? 'busy' : (data.online ? 'online' : 'offline')));
+        const novo_jogo = (statusPanel.jogo || data.jogo || data.hydra_jogo || '').trim();
+        const estado_anterior = window._steam_current_state || null;
+        const jogo_anterior = window._steam_current_game || '';
+
+        if (novo_estado !== estado_anterior || novo_jogo !== jogo_anterior) {
+            window._steam_current_state = novo_estado;
+            window._steam_current_game = novo_jogo;
+            if (data.atualizado_em) {
+                window._steam_last_known_update = data.atualizado_em;
+            }
+        }
+
+        if (badge) {
+            badge.className = `game-status-pill ${statusPanel.status_class || 'status-offline'}`;
+            badge.innerHTML = `<i class="${statusPanel.status_icon || 'fa-solid fa-circle'}"></i> ${statusPanel.status_label || 'Offline'}`;
+            badge.title = statusPanel.updated_at_tooltip || 'Status atualizado';
+        }
+
+        if (lastActivityEl) {
+            lastActivityEl.textContent = statusPanel.last_activity || 'Nunca';
+        }
+
+        if (deviceEl) {
+            deviceEl.textContent = statusPanel.device || 'Desktop';
+        }
+
+        if (onlineTimeEl) {
+            onlineTimeEl.textContent = statusPanel.tempo_online || '0m';
+        }
+
+        if (lastUpdateEl) {
+            lastUpdateEl.textContent = statusPanel.last_activity_timestamp || 'Nunca';
+        }
+
+        if (gameNameEl && launcherBadgesEl) {
+            if (statusPanel.jogo) {
+                gameNameEl.textContent = statusPanel.jogo;
+                launcherBadgesEl.innerHTML = (statusPanel.launcher_badges || []).map(b => `<span class="launcher-badge">${b}</span>`).join('');
+            } else {
+                gameNameEl.textContent = statusPanel.online ? 'Nenhum jogo em execução' : 'Offline';
+                launcherBadgesEl.innerHTML = '';
+            }
+        }
+
+        if (gameCoverWrap) {
+            _atualizarCapaJogo(gameCoverWrap, statusPanel.cover_url, statusPanel.jogo);
+        }
+
+        if (syncBtn) {
+            syncBtn.innerHTML = '<i class="fa-solid fa-rotate-right"></i> Sincronizar Status';
+            syncBtn.disabled = false;
+        }
+
+        if (card) {
+            card.classList.remove('status-card-enter', 'status-card-slide', 'status-card-fade');
+            if (novo_estado === 'busy' && estado_anterior !== 'busy') {
+                card.classList.add('status-card-slide');
+            } else if (estado_anterior === 'offline' && novo_estado !== 'offline') {
+                card.classList.add('status-card-enter');
+            } else if (estado_anterior === 'busy' && novo_estado !== 'busy') {
+                card.classList.add('status-card-fade');
+            }
+            setTimeout(() => card.classList.remove('status-card-enter', 'status-card-slide', 'status-card-fade'), 650);
+        }
+
+        atualizarTimerSteam();
+    } catch (e) {
+        console.error('Erro ao atualizar UI Steam:', e);
+    }
+}
+
+function atualizarTimerSteam() {
+    try {
+        const timerEl = document.getElementById('steam-timer');
+        if (timerEl) {
+            const lastIso = window._steam_last_known_update || null;
+            if (!lastIso) {
+                timerEl.textContent = '';
+                return;
+            }
+            const then = new Date(lastIso);
+            if (!isFinite(then.getTime())) { timerEl.textContent = ''; return; }
+            const now = new Date();
+            const diff = Math.floor((now - then) / 1000);
+            const state = window._steam_current_state || 'offline';
+            if (state !== 'busy' && state !== 'online') {
+                timerEl.textContent = '';
+                return;
+            }
+            let text = '';
+            if (diff < 60) text = `${diff}s`;
+            else if (diff < 3600) text = `${Math.floor(diff/60)}m`;
+            else if (diff < 86400) text = `${Math.floor(diff/3600)}h`;
+            else text = `${Math.floor(diff/86400)}d`;
+            timerEl.textContent = state === 'busy' ? `🎮 Jogando há ${text}` : `● Online há ${text}`;
+        }
+    } catch (e) {
+        console.error('Erro no timer Steam:', e);
+    }
+}
+
+function sincronizarStatusSteam() {
+    if (window._steam_sync_in_progress) return;
+    window._steam_sync_in_progress = true;
+    const syncBtn = document.getElementById('steam-sync-btn');
+    if (syncBtn) {
+        syncBtn.disabled = true;
+        syncBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sincronizando...';
+    }
+
+    fetch(`/steam/sync-agora?ts=${Date.now()}`, { cache: 'no-store' })
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                _atualizarUISteam({
+                    jogo: data.jogo || '',
+                    hydra_jogo: data.hydra_jogo || '',
+                    online: data.online,
+                    atualizado_em: data.hydra_atualizado_em || data.atualizado_em,
+                    status_panel: data.status_panel || null,
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao sincronizar status:', error);
+        })
+        .finally(() => {
+            if (syncBtn) {
+                syncBtn.disabled = false;
+                syncBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ✓ Status atualizado';
+            }
+            window._steam_sync_in_progress = false;
+        });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+{% if usuario.steam_id64 or usuario.hydra_usuario or usuario.hydra_token or usuario.hydra_current_game %}
+            window._steam_sync_in_progress = false;
+            window._steam_last_known_update = '{{ usuario.steam_last_update or '' }}';
+            window._steam_contador_segundos = 0;
+            window._presenca_estado_anterior = null;
+            window._presenca_abortController = null;
+            
+            // Iniciar polling automático de presença
+            iniciarPollingAutomatico(5000);
+        
+        // Timer que incrementa contador
+        if (!window._steam_timer_interval) {
+            window._steam_timer_interval = setInterval(atualizarTimerSteam, 1000);
+        }
+
+        // Detector de visibility para ajustar polling
+        document.addEventListener('visibilitychange', function() {
+            console.log('[Presença] Visibility mudou:', document.hidden ? 'hidden' : 'visible');
+            if (!document.hidden && window._presenca_intervalo_atual > 5000) {
+                console.log('[Presença] Aba visível novamente, reduzindo intervalo para 5s');
+                pararPollingAutomatico();
+                iniciarPollingAutomatico(5000);
+            }
+        });
+
+        // Detector de focus window
+        window.addEventListener('focus', function() {
+            console.log('[Presença] Window focado');
+            if (window._presenca_intervalo_atual > 5000) {
+                pararPollingAutomatico();
+                iniciarPollingAutomatico(5000);
+            }
+        });
+
+        window.addEventListener('blur', function() {
+            console.log('[Presença] Window desfocado');
+            pararPollingAutomatico();
+            iniciarPollingAutomatico(15000);
+        });
+    {% endif %}
+});
+
+/**
+ * Inicia o polling automático de presença
+ * Chama /presenca/detectada a cada X segundos
+ */
+function iniciarPollingAutomatico(intervalo = 30000) {
+    try {
+        if (window._presenca_poll_timer) {
+            clearInterval(window._presenca_poll_timer);
+        }
+        
+        window._presenca_intervalo_atual = intervalo;
+        
+        // Fazer primeira chamada imediatamente
+        verificarPresencaAutomatica();
+        
+        // Depois repetir no intervalo
+        window._presenca_poll_timer = setInterval(() => {
+            verificarPresencaAutomatica(intervalo);
+        }, intervalo);
+        
+        console.log(`[Polling] Iniciado com intervalo de ${intervalo}ms`);
+    } catch (e) {
+        console.error('[Polling] Erro ao iniciar:', e);
+    }
+}
+
+/**
+ * Para o polling automático
+ */
+function pararPollingAutomatico() {
+    try {
+        if (window._presenca_poll_timer) {
+            clearInterval(window._presenca_poll_timer);
+            window._presenca_poll_timer = null;
+        }
+        
+        if (window._presenca_abortController) {
+            window._presenca_abortController.abort();
+            window._presenca_abortController = null;
+        }
+        
+        console.log('[Polling] Parado');
+    } catch (e) {
+        console.error('[Polling] Erro ao parar:', e);
+    }
+}
+
+/**
+ * Verifica presença automaticamente
+ */
+function verificarPresencaAutomatica() {
+    try {
+        // Se já está sincronizando, pula
+        if (window._steam_sync_in_progress) {
+            console.log('[Presença] Sync em progresso, pulando...');
+            return;
+        }
+
+        // Cancelar requisição anterior se houver
+        if (window._presenca_abortController) {
+            window._presenca_abortController.abort();
+        }
+        
+        window._presenca_abortController = new AbortController();
+
+        fetch(`/presenca/detectada?ts=${Date.now()}`, {
+            cache: 'no-store',
+            signal: window._presenca_abortController.signal,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.json();
+        })
+        .then(data => {
+            if (!data || data.erro) {
+                console.log('[Presença] Erro na resposta:', data?.erro || 'desconhecido');
+                return;
+            }
+            console.log('[Presença] Resposta /presenca/detectada:', data);
+
+            const mudouPresenca = 
+                !window._presenca_estado_anterior ||
+                window._presenca_estado_anterior.steam !== data.steam ||
+                window._presenca_estado_anterior.hydra !== data.hydra ||
+                window._presenca_estado_anterior.online !== data.online ||
+                window._presenca_estado_anterior.playing !== data.playing ||
+                window._presenca_estado_anterior.game_name !== data.game_name;
+
+            if (mudouPresenca) {
+                if (!window._presenca_estado_anterior && data.steam) {
+                    console.log('[Presença] Steam detectada');
+                }
+                if (data.playing && data.game_name) {
+                    console.log(`[Presença] Jogo iniciado: ${data.game_name}`);
+                }
+                if (window._presenca_estado_anterior && window._presenca_estado_anterior.playing && !data.playing) {
+                    console.log('[Presença] Jogo encerrado');
+                }
+                if (window._presenca_estado_anterior && window._presenca_estado_anterior.online && !data.online) {
+                    console.log('[Presença] Steam fechada');
+                }
+                console.log(`[Presença] Detectada: steam=${data.steam}, hydra=${data.hydra}, online=${data.online}, playing=${data.playing}, launcher="${data.launcher}"`);
+            }
+
+            // Atualizar estado anterior
+            window._presenca_estado_anterior = {
+                steam: data.steam,
+                hydra: data.hydra,
+                online: data.online,
+                playing: data.playing,
+                game_name: data.game_name,
+                timestamp: data.timestamp
+            };
+
+            // Atualizar UI com dados da presença
+            atualizarUISteamComPresenca(data);
+
+            // Se necessita sincronização, sincronizar automaticamente
+            if (data.necessita_sync && !window._steam_sync_in_progress) {
+                console.log('[Presença] Necessita sincronização automática, iniciando /steam/sync-agora');
+                sincronizarStatusSteam();
+            }
+
+        })
+        .catch(error => {
+            // Se foi abortado, não é erro
+            if (error.name === 'AbortError') {
+                console.log('[Presença] Requisição cancelada');
+                return;
+            }
+            console.error('[Presença] Erro ao verificar:', error);
+            // Mostrar último estado conhecido (não quebra interface)
+        });
+
+    } catch (e) {
+        console.error('[Presença] Erro fatal:', e);
+    }
+}
+
+/**
+ * Atualiza UI com dados de presença detectada
+ */
+function atualizarUISteamComPresenca(presencaData) {
+    try {
+        const card = document.getElementById('steam-status-card');
+        if (!card) return;
+
+        const badge = document.getElementById('steam-status-pill');
+        const launcherEl = document.getElementById('steam-current-game-name');
+        const gameCoverWrap = document.getElementById('steam-current-game-cover-wrap');
+        const launcherBadgesEl = document.getElementById('steam-launcher-badges');
+        const subtitleEl = document.getElementById('steam-current-game-subtitle');
+        const placeholderEl = document.getElementById('steam-current-game-placeholder');
+        const deviceEl = document.getElementById('steam-device');
+        const lastActivityEl = document.getElementById('steam-last-activity');
+        const onlineTimeEl = document.getElementById('steam-online-time');
+
+        // Determinar status baseado em presença
+        let statusClass = 'status-offline';
+        let statusIcon = 'fa-solid fa-circle';
+        let statusLabel = 'Offline';
+
+        if (presencaData.online) {
+            if (presencaData.launcher === 'steam' && !presencaData.playing) {
+                statusClass = 'status-online';
+                statusIcon = presencaData.launcher_icon || 'fa-brands fa-steam';
+                statusLabel = 'Na Steam';
+            } else if (presencaData.launcher === 'hydra' && !presencaData.playing) {
+                statusClass = 'status-online';
+                statusIcon = presencaData.launcher_icon || 'fa-solid fa-fire';
+                statusLabel = 'No Hydra Launcher';
+            } else {
+                statusClass = 'status-online';
+                statusIcon = 'fa-solid fa-circle-dot';
+                statusLabel = 'Online';
+            }
+        }
+
+        // Icone de launcher específico quando não há jogo em andamento
+        if (!presencaData.playing) {
+            if (presencaData.launcher === 'steam') {
+                statusIcon = presencaData.launcher_icon || 'fa-brands fa-steam';
+            } else if (presencaData.launcher === 'hydra') {
+                statusIcon = presencaData.launcher_icon || 'fa-solid fa-fire';
+            }
+        }
+
+        // Atualizar badge
+        if (badge) {
+            badge.className = `game-status-pill ${statusClass}`;
+            badge.innerHTML = `<i class="${statusIcon}"></i> ${statusLabel}`;
+        }
+
+        // Atualizar dispositivo
+        if (deviceEl) {
+            deviceEl.textContent = presencaData.device || 'Desktop';
+        }
+
+        // Atualizar última atividade
+        if (lastActivityEl) {
+            lastActivityEl.textContent = presencaData.ultima_atividade || 'Nunca';
+        }
+
+        // Atualizar tempo online
+        if (onlineTimeEl && presencaData.online) {
+            const segundos = presencaData.tempo_online || 0;
+            let texto = '';
+            if (segundos < 60) {
+                texto = `${segundos}s`;
+            } else if (segundos < 3600) {
+                texto = `${Math.floor(segundos / 60)}min`;
+            } else if (segundos < 86400) {
+                const horas = Math.floor(segundos / 3600);
+                const mins = Math.floor((segundos % 3600) / 60);
+                texto = mins ? `${horas}h ${mins}min` : `${horas}h`;
+            } else {
+                texto = `${Math.floor(segundos / 86400)}d`;
+            }
+            onlineTimeEl.textContent = texto;
+        }
+
+        // Atualizar nome do jogo se disponível
+        const gameData = presencaData.game || {};
+        const nomeDoJogo = (gameData.name || presencaData.game_name || presencaData.jogo || presencaData.hydra_jogo || '').trim();
+        const jogoRodando = gameData.running === true || (presencaData.playing && !!nomeDoJogo);
+        const fonteJogo = gameData.source || (presencaData.launcher === 'steam' ? 'Steam' : presencaData.launcher === 'hydra' ? 'Hydra' : 'Local');
+
+        if (gameCoverWrap) {
+            _atualizarCapaJogo(gameCoverWrap, presencaData.cover, jogoRodando ? nomeDoJogo : '');
+        }
+
+        if (launcherEl) {
+            if (jogoRodando && nomeDoJogo) {
+                launcherEl.textContent = nomeDoJogo;
+            } else if (presencaData.launcher === 'steam') {
+                launcherEl.textContent = 'Steam';
+            } else if (presencaData.launcher === 'hydra') {
+                launcherEl.textContent = 'Hydra Launcher';
+            } else {
+                launcherEl.textContent = presencaData.online ? 'Nenhum jogo em execução' : 'Offline';
+            }
+        }
+
+        if (launcherBadgesEl) {
+            launcherBadgesEl.innerHTML = jogoRodando
+                ? `<span class="launcher-badge">${fonteJogo}</span>`
+                : '';
+        }
+
+        if (subtitleEl) {
+            if (jogoRodando && nomeDoJogo) {
+                subtitleEl.textContent = `Jogando agora · ${fonteJogo}`;
+            } else if (presencaData.launcher === 'steam') {
+                subtitleEl.textContent = 'Na Steam';
+            } else if (presencaData.launcher === 'hydra') {
+                subtitleEl.textContent = 'No Hydra Launcher';
+            } else if (presencaData.online) {
+                subtitleEl.textContent = 'Online';
+            } else {
+                subtitleEl.textContent = 'Offline';
+            }
+        }
+
+        if (placeholderEl) {
+            placeholderEl.style.display = jogoRodando && nomeDoJogo ? 'none' : 'flex';
+        }
+
+        if (jogoRodando && nomeDoJogo) {
+            console.log(`[Presença] Atualizando UI para jogo: ${nomeDoJogo}`);
+        }
+
+        // Animar se mudou de estado
+        if (window._presenca_estado_anterior) {
+            const mudouParaOnline = !window._presenca_estado_anterior.online && presencaData.online;
+            const mudouParaOffline = window._presenca_estado_anterior.online && !presencaData.online;
+
+            if (mudouParaOnline) {
+                card.classList.add('status-card-enter');
+                setTimeout(() => card.classList.remove('status-card-enter'), 560);
+            } else if (mudouParaOffline) {
+                card.classList.add('status-card-fade');
+                setTimeout(() => card.classList.remove('status-card-fade'), 560);
+            }
+        }
+
+    } catch (e) {
+        console.error('[UI] Erro ao atualizar com presença:', e);
+    }
+}
+
+function _atualizarCapaJogo(container, coverUrl, gameName) {
+    const url = (coverUrl || '').trim();
+    const nome = (gameName || '').trim();
+    container.replaceChildren();
+    container.style.display = url && nome ? 'flex' : 'none';
+    if (!url || !nome) {
+        const placeholder = document.createElement('i');
+        placeholder.className = 'fa-solid fa-image';
+        placeholder.id = 'steam-current-game-cover-placeholder';
+        container.appendChild(placeholder);
+        return;
+    }
+
+    const image = document.createElement('img');
+    image.id = 'steam-current-game-cover';
+    image.src = url;
+    image.alt = `Capa de ${nome}`;
+    image.loading = 'eager';
+    image.decoding = 'async';
+    image.onerror = () => _atualizarCapaJogo(container, '', '');
+    container.appendChild(image);
+}
+
+function schedulePolling(ms) {
+    try {
+        if (window._steam_poll_timer) {
+            clearInterval(window._steam_poll_timer);
+            window._steam_poll_timer = null;
+        }
+        window._steam_poll_timer = setInterval(sincronizarStatusSteam, ms);
+    } catch (e) {
+        console.error('Erro ao agendar polling Steam (fallback):', e);
+    }
+}
+
+/**
+ * Limpar polling ao sair da página
+ */
+window.addEventListener('unload', () => {
+    pararPollingAutomatico();
+});
+</script>

@@ -1,0 +1,767 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-9">
+        <div class="surface-panel p-3 p-md-4">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                <div>
+                    <h3 class="mb-1">💬 Conversa com {{ amigo.nome }}</h3>
+                    <p class="mb-0 text-white-50">{{ amigo.email }} • Online agora • Último acesso há poucos minutos</p>
+                </div>
+                <a href="{{ url_for('perfil', email=amigo.email) }}" class="btn btn-outline-info btn-sm">Voltar ao Perfil</a>
+            </div>
+
+            <div class="chat-shell rounded-4 p-3 p-md-4">
+                <div class="d-flex justify-content-between align-items-center mb-3 gap-2 flex-wrap">
+                    <div class="text-white-50 small">Digite para filtrar mensagens</div>
+                    <input id="chatSearch" type="text" class="form-control form-control-sm" placeholder="Pesquisar mensagens" style="max-width: 280px;">
+                </div>
+                <div id="chatMessages" class="chat-messages">
+                    {% if mensagens %}
+                        {% for msg in mensagens %}
+                            {% set autor = usuarios.get(msg.email_remetente) %}
+                            <div class="message-row {% if msg.email_remetente == session.get('user_email') %}mine{% else %}their{% endif %}" data-message-id="{{ msg.id }}" data-message-text="{{ msg.conteudo | e }}">
+                                <div class="message-bubble">
+                                    {% if msg.reply_to_id %}
+                                        <div class="reply-preview">↩ {{ msg.reply_to_conteudo or 'Mensagem respondida' }}</div>
+                                    {% endif %}
+                                    {% if msg.email_remetente != session.get('user_email') %}
+                                        <div class="message-author">{{ autor.nome if autor else msg.email_remetente }}</div>
+                                    {% endif %}
+                                    {% if msg.status == 'cancelada' %}
+                                        <div class="message-text text-white-50">{% if msg.email_remetente == session.get('user_email') %}Você cancelou esta mensagem.{% else %}Esta mensagem foi cancelada.{% endif %}</div>
+                                    {% else %}
+                                        {% if msg.anexo_url %}
+                                            {% if msg.anexo_tipo == 'image' %}
+                                                <a href="{{ msg.anexo_url }}" target="_blank" rel="noopener"><img src="{{ msg.anexo_url }}" alt="{{ msg.anexo_nome }}" class="chat-attachment-image"></a>
+                                            {% else %}
+                                                <div class="chat-attachment-file">
+                                                    <strong>{{ msg.anexo_nome }}</strong>
+                                                    <a href="{{ msg.anexo_url }}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light mt-2">Baixar</a>
+                                                </div>
+                                            {% endif %}
+                                        {% endif %}
+                                        <div class="message-text">{{ msg.conteudo }}</div>
+                                    {% endif %}
+                                    <div class="message-meta">
+                                        <span>{{ msg.data_envio.strftime('%d/%m/%Y %H:%M') }}</span>
+                                        <span>• {{ msg.status|default('sent') }}</span>
+                                    </div>
+                                    {% if msg.email_remetente == session.get('user_email') %}
+                                        <button type="button" class="msg-context-btn" data-message-id="{{ msg.id }}" title="Mais opções">⋯</button>
+                                    {% endif %}
+                                    {% if msg.status != 'cancelada' %}
+                                    <div class="reaction-bar reaction-bar-inline">
+                                        {% if msg.reacoes %}
+                                            {% for emoji, qtd in msg.reacoes.items() %}
+                                                <button type="button" class="reaction-btn{% if msg.reacoes_por_usuario.get(session.get('user_email','').lower()) == emoji %} active{% endif %}" data-reaction="{{ emoji }}" data-message-id="{{ msg.id }}">{{ emoji }} <span class="reaction-count">{{ qtd }}</span></button>
+                                            {% endfor %}
+                                        {% endif %}
+                                        <button type="button" class="reaction-btn reaction-picker-btn" data-open-picker="{{ msg.id }}" title="Adicionar reação">➕</button>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="empty-state-card text-center py-5">
+                            <p>Nenhuma mensagem ainda. Envie a primeira mensagem para {{ amigo.nome }}.</p>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="chat-composer mt-3">
+                    <div id="replyPreview" class="reply-preview-panel d-none"></div>
+                    <div id="previewBox" class="preview-box d-none"></div>
+                    <div id="pendingQueue" class="pending-queue"></div>
+                    <div class="composer-actions">
+                        <button type="button" class="composer-icon" data-action="emoji" title="Emojis">😊</button>
+                        <button type="button" class="composer-icon" data-action="image" title="Imagem">🖼️</button>
+                        <button type="button" class="composer-icon" data-action="file" title="Arquivo">📎</button>
+                        <button type="button" class="composer-icon" data-action="gif" title="GIF">🎮</button>
+                        <button type="button" class="composer-icon" data-action="sticker" title="Figurinhas">🎭</button>
+                    </div>
+                    <div id="emojiPicker" class="emoji-picker d-none">
+                        <div class="emoji-picker-search">
+                            <input type="text" id="emojiSearch" class="form-control form-control-sm" placeholder="Pesquisar emoji...">
+                        </div>
+                        <div class="emoji-picker-categories">
+                            <button type="button" class="emoji-category-btn active" data-category="recent">🕘</button>
+                            <button type="button" class="emoji-category-btn" data-category="favorites">⭐</button>
+                            <button type="button" class="emoji-category-btn" data-category="smileys">😀</button>
+                            <button type="button" class="emoji-category-btn" data-category="emotions">🥰</button>
+                            <button type="button" class="emoji-category-btn" data-category="people">👍</button>
+                            <button type="button" class="emoji-category-btn" data-category="animals">🐶</button>
+                            <button type="button" class="emoji-category-btn" data-category="food">🍕</button>
+                            <button type="button" class="emoji-category-btn" data-category="sports">⚽</button>
+                            <button type="button" class="emoji-category-btn" data-category="objects">🚗</button>
+                            <button type="button" class="emoji-category-btn" data-category="places">🌍</button>
+                            <button type="button" class="emoji-category-btn" data-category="games">🎮</button>
+                            <button type="button" class="emoji-category-btn" data-category="symbols">❤️</button>
+                            <button type="button" class="emoji-category-btn" data-category="flags">🚩</button>
+                        </div>
+                        <div id="emojiPickerGrid" class="emoji-picker-grid"></div>
+                    </div>
+                    <form id="chatForm" class="d-flex flex-column gap-2" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" id="replyToId" name="reply_to_id">
+                        <input type="hidden" id="replyToContent" name="reply_to_conteudo">
+                        <textarea id="conteudo" name="conteudo" rows="3" class="form-control" placeholder="Escreva sua mensagem..." required></textarea>
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div id="typingIndicator" class="text-white-50 small">Digitando...</div>
+                            <div class="text-white-50 small">ENTER envia • SHIFT+ENTER quebra linha</div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </form>
+                    <input type="file" id="imageInput" accept="image/png,image/jpeg,image/jpg,image/webp" class="d-none">
+                    <input type="file" id="fileInput" accept=".pdf,.zip,.rar,.docx,.txt,.png,.jpg,.jpeg,.webp,.mp4" class="d-none">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const chatMessages = document.getElementById('chatMessages');
+    const chatForm = document.getElementById('chatForm');
+    const contentInput = document.getElementById('conteudo');
+    const searchInput = document.getElementById('chatSearch');
+    const replyPreview = document.getElementById('replyPreview');
+    const emojiPicker = document.getElementById('emojiPicker');
+    const emojiSearch = document.getElementById('emojiSearch');
+    const emojiPickerGrid = document.getElementById('emojiPickerGrid');
+    const typingIndicator = document.getElementById('typingIndicator');
+    const replyToId = document.getElementById('replyToId');
+    const replyToContent = document.getElementById('replyToContent');
+    const previewBox = document.getElementById('previewBox');
+    const imageInput = document.getElementById('imageInput');
+    const fileInput = document.getElementById('fileInput');
+    const pendingQueue = document.getElementById('pendingQueue');
+    let pendingFile = null;
+    let pendingType = null;
+    let lastMessageId = Number(document.querySelector('.message-row')?.dataset.messageId || '0');
+    let activeMessageId = null;
+    const pendingTimers = new Map();
+    const emojiCatalog = [
+        { category: 'recent', emoji: '👍' }, { category: 'recent', emoji: '❤️' }, { category: 'recent', emoji: '😂' }, { category: 'recent', emoji: '🔥' },
+        { category: 'smileys', emoji: '😀' }, { category: 'smileys', emoji: '😄' }, { category: 'smileys', emoji: '😃' }, { category: 'smileys', emoji: '😆' }, { category: 'smileys', emoji: '😅' }, { category: 'smileys', emoji: '😂' }, { category: 'smileys', emoji: '🤣' }, { category: 'smileys', emoji: '😊' }, { category: 'smileys', emoji: '😇' }, { category: 'smileys', emoji: '🙂' }, { category: 'smileys', emoji: '🙃' }, { category: 'smileys', emoji: '😉' }, { category: 'smileys', emoji: '😌' }, { category: 'smileys', emoji: '😍' }, { category: 'smileys', emoji: '🥰' }, { category: 'smileys', emoji: '😎' }, { category: 'smileys', emoji: '🤩' }, { category: 'smileys', emoji: '😏' }, { category: 'smileys', emoji: '😐' }, { category: 'smileys', emoji: '😑' }, { category: 'smileys', emoji: '😶' }, { category: 'smileys', emoji: '🙄' }, { category: 'smileys', emoji: '😮' }, { category: 'smileys', emoji: '😯' }, { category: 'smileys', emoji: '😲' }, { category: 'smileys', emoji: '😳' }, { category: 'smileys', emoji: '🥵' }, { category: 'smileys', emoji: '🥶' }, { category: 'smileys', emoji: '😱' }, { category: 'smileys', emoji: '😨' }, { category: 'smileys', emoji: '😰' }, { category: 'smileys', emoji: '😢' }, { category: 'smileys', emoji: '😭' }, { category: 'smileys', emoji: '😤' }, { category: 'smileys', emoji: '😡' }, { category: 'smileys', emoji: '🤬' }, { category: 'smileys', emoji: '😪' }, { category: 'smileys', emoji: '😴' }, { category: 'smileys', emoji: '🤤' }, { category: 'smileys', emoji: '😷' }, { category: 'smileys', emoji: '🤒' }, { category: 'smileys', emoji: '🤕' }, { category: 'smileys', emoji: '🤢' }, { category: 'smileys', emoji: '🤮' }, { category: 'smileys', emoji: '🤧' }, { category: 'smileys', emoji: '🥴' }, { category: 'smileys', emoji: '🥺' }, { category: 'smileys', emoji: '🫠' }, { category: 'smileys', emoji: '🫥' }, { category: 'smileys', emoji: '🤠' }, { category: 'smileys', emoji: '😈' }, { category: 'smileys', emoji: '💀' }, { category: 'smileys', emoji: '☠️' }, { category: 'smileys', emoji: '🤡' }, { category: 'smileys', emoji: '👻' }, { category: 'smileys', emoji: '👽' }, { category: 'smileys', emoji: '👾' }, { category: 'smileys', emoji: '🤖' },
+        { category: 'emotions', emoji: '❤️' }, { category: 'emotions', emoji: '💛' }, { category: 'emotions', emoji: '💚' }, { category: 'emotions', emoji: '💙' }, { category: 'emotions', emoji: '💜' }, { category: 'emotions', emoji: '🖤' }, { category: 'emotions', emoji: '💔' }, { category: 'emotions', emoji: '❣️' }, { category: 'emotions', emoji: '💕' }, { category: 'emotions', emoji: '💞' }, { category: 'emotions', emoji: '💓' }, { category: 'emotions', emoji: '💗' }, { category: 'emotions', emoji: '💖' }, { category: 'emotions', emoji: '💘' }, { category: 'emotions', emoji: '💝' }, { category: 'emotions', emoji: '💟' }, { category: 'emotions', emoji: '💌' }, { category: 'emotions', emoji: '💤' }, { category: 'emotions', emoji: '💢' }, { category: 'emotions', emoji: '💥' }, { category: 'emotions', emoji: '💫' }, { category: 'emotions', emoji: '💦' }, { category: 'emotions', emoji: '💨' }, { category: 'emotions', emoji: '🕊️' }, { category: 'emotions', emoji: '💫' },
+        { category: 'people', emoji: '👍' }, { category: 'people', emoji: '👎' }, { category: 'people', emoji: '👌' }, { category: 'people', emoji: '✌️' }, { category: 'people', emoji: '🤝' }, { category: 'people', emoji: '🙏' }, { category: 'people', emoji: '💪' }, { category: 'people', emoji: '👊' }, { category: 'people', emoji: '🤛' }, { category: 'people', emoji: '🤜' }, { category: 'people', emoji: '🤞' }, { category: 'people', emoji: '🤟' }, { category: 'people', emoji: '🤘' }, { category: 'people', emoji: '🤙' }, { category: 'people', emoji: '👈' }, { category: 'people', emoji: '👉' }, { category: 'people', emoji: '👆' }, { category: 'people', emoji: '🖕' }, { category: 'people', emoji: '👇' }, { category: 'people', emoji: '☝️' }, { category: 'people', emoji: '👏' }, { category: 'people', emoji: '🙌' }, { category: 'people', emoji: '🫶' }, { category: 'people', emoji: '🤲' }, { category: 'people', emoji: '🤝' }, { category: 'people', emoji: '💅' }, { category: 'people', emoji: '🤳' }, { category: 'people', emoji: '💍' }, { category: 'people', emoji: '💄' }, { category: 'people', emoji: '👶' }, { category: 'people', emoji: '👦' }, { category: 'people', emoji: '👧' }, { category: 'people', emoji: '👨' }, { category: 'people', emoji: '👩' }, { category: 'people', emoji: '🧑' }, { category: 'people', emoji: '👱' }, { category: 'people', emoji: '👮' }, { category: 'people', emoji: '🧑‍🚒' }, { category: 'people', emoji: '👩‍💻' }, { category: 'people', emoji: '👨‍💻' }, { category: 'people', emoji: '🧑‍🎓' }, { category: 'people', emoji: '👨‍🎓' }, { category: 'people', emoji: '👩‍🎓' },
+        { category: 'animals', emoji: '🐶' }, { category: 'animals', emoji: '🐱' }, { category: 'animals', emoji: '🐭' }, { category: 'animals', emoji: '🐹' }, { category: 'animals', emoji: '🐰' }, { category: 'animals', emoji: '🦊' }, { category: 'animals', emoji: '🐻' }, { category: 'animals', emoji: '🐼' }, { category: 'animals', emoji: '🐨' }, { category: 'animals', emoji: '🐯' }, { category: 'animals', emoji: '🦁' }, { category: 'animals', emoji: '🐮' }, { category: 'animals', emoji: '🐷' }, { category: 'animals', emoji: '🐸' }, { category: 'animals', emoji: '🐵' }, { category: 'animals', emoji: '🙈' }, { category: 'animals', emoji: '🙉' }, { category: 'animals', emoji: '🙊' }, { category: 'animals', emoji: '🐒' }, { category: 'animals', emoji: '🐔' }, { category: 'animals', emoji: '🐧' }, { category: 'animals', emoji: '🐦' }, { category: 'animals', emoji: '🐤' }, { category: 'animals', emoji: '🐣' }, { category: 'animals', emoji: '🐥' }, { category: 'animals', emoji: '🦆' }, { category: 'animals', emoji: '🦅' }, { category: 'animals', emoji: '🦉' }, { category: 'animals', emoji: '🦇' }, { category: 'animals', emoji: '🐺' }, { category: 'animals', emoji: '🐗' }, { category: 'animals', emoji: '🐴' }, { category: 'animals', emoji: '🦄' }, { category: 'animals', emoji: '🐝' }, { category: 'animals', emoji: '🪱' }, { category: 'animals', emoji: '🐛' }, { category: 'animals', emoji: '🦋' }, { category: 'animals', emoji: '🐌' }, { category: 'animals', emoji: '🐞' }, { category: 'animals', emoji: '🐜' }, { category: 'animals', emoji: '🪲' }, { category: 'animals', emoji: '🐢' }, { category: 'animals', emoji: '🦎' }, { category: 'animals', emoji: '🐍' }, { category: 'animals', emoji: '🦖' }, { category: 'animals', emoji: '🦕' }, { category: 'animals', emoji: '🐙' }, { category: 'animals', emoji: '🦑' }, { category: 'animals', emoji: '🦐' }, { category: 'animals', emoji: '🦞' }, { category: 'animals', emoji: '🦀' }, { category: 'animals', emoji: '🐠' }, { category: 'animals', emoji: '🐟' }, { category: 'animals', emoji: '🐡' }, { category: 'animals', emoji: '🦈' }, { category: 'animals', emoji: '🐳' }, { category: 'animals', emoji: '🐋' }, { category: 'animals', emoji: '🐬' }, { category: 'animals', emoji: '🐊' }, { category: 'animals', emoji: '🐅' }, { category: 'animals', emoji: '🐆' }, { category: 'animals', emoji: '🦓' }, { category: 'animals', emoji: '🦍' }, { category: 'animals', emoji: '🦧' }, { category: 'animals', emoji: '🐘' }, { category: 'animals', emoji: '🦛' }, { category: 'animals', emoji: '🦘' }, { category: 'animals', emoji: '🦡' }, { category: 'animals', emoji: '🐪' }, { category: 'animals', emoji: '🐫' }, { category: 'animals', emoji: '🦙' }, { category: 'animals', emoji: '🦒' }, { category: 'animals', emoji: '🐃' }, { category: 'animals', emoji: '🐂' }, { category: 'animals', emoji: '🐄' }, { category: 'animals', emoji: '🐎' }, { category: 'animals', emoji: '🐖' }, { category: 'animals', emoji: '🐏' }, { category: 'animals', emoji: '🐑' }, { category: 'animals', emoji: '🐐' }, { category: 'animals', emoji: '🦌' }, { category: 'animals', emoji: '🐕' }, { category: 'animals', emoji: '🐩' }, { category: 'animals', emoji: '🦮' }, { category: 'animals', emoji: '🐈' }, { category: 'animals', emoji: '🐓' }, { category: 'animals', emoji: '🦃' }, { category: 'animals', emoji: '🕊️' }, { category: 'animals', emoji: '🦜' }, { category: 'animals', emoji: '🦢' }, { category: 'animals', emoji: '🦩' }, { category: 'animals', emoji: '🦚' }, { category: 'animals', emoji: '🦥' }, { category: 'animals', emoji: '🦦' }, { category: 'animals', emoji: '🦨' }, { category: 'animals', emoji: '🦥' },
+        { category: 'food', emoji: '🍕' }, { category: 'food', emoji: '🍔' }, { category: 'food', emoji: '🍟' }, { category: 'food', emoji: '🌭' }, { category: 'food', emoji: '🍿' }, { category: 'food', emoji: '🧂' }, { category: 'food', emoji: '🥐' }, { category: 'food', emoji: '🥨' }, { category: 'food', emoji: '🥯' }, { category: 'food', emoji: '🍳' }, { category: 'food', emoji: '🥞' }, { category: 'food', emoji: '🧇' }, { category: 'food', emoji: '🍖' }, { category: 'food', emoji: '🍗' }, { category: 'food', emoji: '🥩' }, { category: 'food', emoji: '🥓' }, { category: 'food', emoji: '🍔' }, { category: 'food', emoji: '🍟' }, { category: 'food', emoji: '🍕' }, { category: 'food', emoji: '🌮' }, { category: 'food', emoji: '🌯' }, { category: 'food', emoji: '🥪' }, { category: 'food', emoji: '🥙' }, { category: 'food', emoji: '🧆' }, { category: 'food', emoji: '🥚' }, { category: 'food', emoji: '🍝' }, { category: 'food', emoji: '🍜' }, { category: 'food', emoji: '🍲' }, { category: 'food', emoji: '🥘' }, { category: 'food', emoji: '🍣' }, { category: 'food', emoji: '🍤' }, { category: 'food', emoji: '🍥' }, { category: 'food', emoji: '🥮' }, { category: 'food', emoji: '🍢' }, { category: 'food', emoji: '🍡' }, { category: 'food', emoji: '🍦' }, { category: 'food', emoji: '🍧' }, { category: 'food', emoji: '🎂' }, { category: 'food', emoji: '🍰' }, { category: 'food', emoji: '🧁' }, { category: 'food', emoji: '🥧' }, { category: 'food', emoji: '🍪' }, { category: 'food', emoji: '🍩' }, { category: 'food', emoji: '🍮' }, { category: 'food', emoji: '🍭' }, { category: 'food', emoji: '🍬' }, { category: 'food', emoji: '🍫' }, { category: 'food', emoji: '🍿' }, { category: 'food', emoji: '☕' }, { category: 'food', emoji: '🫖' }, { category: 'food', emoji: '🍺' }, { category: 'food', emoji: '🍷' }, { category: 'food', emoji: '🍸' }, { category: 'food', emoji: '🍹' }, { category: 'food', emoji: '🍾' }, { category: 'food', emoji: '🥂' }, { category: 'food', emoji: '🍶' }, { category: 'food', emoji: '🧊' }, { category: 'food', emoji: '🥄' }, { category: 'food', emoji: '🍴' }, { category: 'food', emoji: '🥢' }, { category: 'food', emoji: '🍽️' }, { category: 'food', emoji: '🥣' }, { category: 'food', emoji: '🥗' }, { category: 'food', emoji: '🥟' }, { category: 'food', emoji: '🥠' }, { category: 'food', emoji: '🥡' }, { category: 'food', emoji: '🧋' }, { category: 'food', emoji: '🧃' }, { category: 'food', emoji: '🥤' }, { category: 'food', emoji: '🧉' }, { category: 'food', emoji: '🧊' },
+        { category: 'sports', emoji: '⚽' }, { category: 'sports', emoji: '🏀' }, { category: 'sports', emoji: '🏈' }, { category: 'sports', emoji: '⚾' }, { category: 'sports', emoji: '🥎' }, { category: 'sports', emoji: '🎾' }, { category: 'sports', emoji: '🏐' }, { category: 'sports', emoji: '🏉' }, { category: 'sports', emoji: '🥏' }, { category: 'sports', emoji: '🎱' }, { category: 'sports', emoji: '🪀' }, { category: 'sports', emoji: '🏓' }, { category: 'sports', emoji: '🏸' }, { category: 'sports', emoji: '🏒' }, { category: 'sports', emoji: '🏑' }, { category: 'sports', emoji: '🥍' }, { category: 'sports', emoji: '🏏' }, { category: 'sports', emoji: '🪃' }, { category: 'sports', emoji: '🥅' }, { category: 'sports', emoji: '⛳' }, { category: 'sports', emoji: '🏌️' }, { category: 'sports', emoji: '🏂' }, { category: 'sports', emoji: '🏄' }, { category: 'sports', emoji: '🏊' }, { category: 'sports', emoji: '🤽' }, { category: 'sports', emoji: '🚣' }, { category: 'sports', emoji: '🧗' }, { category: 'sports', emoji: '🏇' }, { category: 'sports', emoji: '🪂' }, { category: 'sports', emoji: '🏋️' }, { category: 'sports', emoji: '🤸' }, { category: 'sports', emoji: '🤼' }, { category: 'sports', emoji: '🤽' }, { category: 'sports', emoji: '🤾' }, { category: 'sports', emoji: '🏌️' }, { category: 'sports', emoji: '🏌️‍♂️' }, { category: 'sports', emoji: '🏌️‍♀️' }, { category: 'sports', emoji: '🤺' }, { category: 'sports', emoji: '⛸️' }, { category: 'sports', emoji: '🥌' }, { category: 'sports', emoji: '🎣' }, { category: 'sports', emoji: '🎽' }, { category: 'sports', emoji: '🎿' }, { category: 'sports', emoji: '🛷' }, { category: 'sports', emoji: '🥌' }, { category: 'sports', emoji: '🎯' },
+        { category: 'objects', emoji: '🚗' }, { category: 'objects', emoji: '🚕' }, { category: 'objects', emoji: '🚙' }, { category: 'objects', emoji: '🚌' }, { category: 'objects', emoji: '🚎' }, { category: 'objects', emoji: '🏎️' }, { category: 'objects', emoji: '🚓' }, { category: 'objects', emoji: '🚑' }, { category: 'objects', emoji: '🚒' }, { category: 'objects', emoji: '🚐' }, { category: 'objects', emoji: '🛻' }, { category: 'objects', emoji: '🚚' }, { category: 'objects', emoji: '🚛' }, { category: 'objects', emoji: '🚜' }, { category: 'objects', emoji: '🛵' }, { category: 'objects', emoji: '🏍️' }, { category: 'objects', emoji: '🛺' }, { category: 'objects', emoji: '🚲' }, { category: 'objects', emoji: '🛴' }, { category: 'objects', emoji: '🛹' }, { category: 'objects', emoji: '🚂' }, { category: 'objects', emoji: '🚃' }, { category: 'objects', emoji: '🚄' }, { category: 'objects', emoji: '🚅' }, { category: 'objects', emoji: '🚆' }, { category: 'objects', emoji: '🚇' }, { category: 'objects', emoji: '🚊' }, { category: 'objects', emoji: '🚉' }, { category: 'objects', emoji: '🚁' }, { category: 'objects', emoji: '🛩️' }, { category: 'objects', emoji: '🛫' }, { category: 'objects', emoji: '🛬' }, { category: 'objects', emoji: '💺' }, { category: 'objects', emoji: '🚀' }, { category: 'objects', emoji: '🛸' }, { category: 'objects', emoji: '🛰️' }, { category: 'objects', emoji: '🚦' }, { category: 'objects', emoji: '🚧' }, { category: 'objects', emoji: '⛽' }, { category: 'objects', emoji: '🚨' }, { category: 'objects', emoji: '🛑' }, { category: 'objects', emoji: '🚪' }, { category: 'objects', emoji: '🛗' }, { category: 'objects', emoji: '🪑' }, { category: 'objects', emoji: '🛋️' }, { category: 'objects', emoji: '🧸' }, { category: 'objects', emoji: '📱' }, { category: 'objects', emoji: '💻' }, { category: 'objects', emoji: '🖥️' }, { category: 'objects', emoji: '⌨️' }, { category: 'objects', emoji: '🖨️' }, { category: 'objects', emoji: '🧮' }, { category: 'objects', emoji: '📷' }, { category: 'objects', emoji: '🎥' }, { category: 'objects', emoji: '📼' }, { category: 'objects', emoji: '📺' }, { category: 'objects', emoji: '📻' }, { category: 'objects', emoji: '🎧' }, { category: 'objects', emoji: '🎤' }, { category: 'objects', emoji: '🎮' }, { category: 'objects', emoji: '🕹️' }, { category: 'objects', emoji: '🎲' }, { category: 'objects', emoji: '🧩' }, { category: 'objects', emoji: '🧰' }, { category: 'objects', emoji: '🔧' }, { category: 'objects', emoji: '🔨' }, { category: 'objects', emoji: '⚒️' }, { category: 'objects', emoji: '🪓' }, { category: 'objects', emoji: '🔩' }, { category: 'objects', emoji: '💣' }, { category: 'objects', emoji: '🪜' }, { category: 'objects', emoji: '🪝' }, { category: 'objects', emoji: '🧲' }, { category: 'objects', emoji: '🪄' }, { category: 'objects', emoji: '🔮' }, { category: 'objects', emoji: '🪄' },
+        { category: 'places', emoji: '🌍' }, { category: 'places', emoji: '🌎' }, { category: 'places', emoji: '🌏' }, { category: 'places', emoji: '🌐' }, { category: 'places', emoji: '🏙️' }, { category: 'places', emoji: '🌆' }, { category: 'places', emoji: '🌇' }, { category: 'places', emoji: '🏔️' }, { category: 'places', emoji: '⛰️' }, { category: 'places', emoji: '🌋' }, { category: 'places', emoji: '🗻' }, { category: 'places', emoji: '🏕️' }, { category: 'places', emoji: '🏖️' }, { category: 'places', emoji: '🏜️' }, { category: 'places', emoji: '🏝️' }, { category: 'places', emoji: '🏞️' }, { category: 'places', emoji: '🌅' }, { category: 'places', emoji: '🌄' }, { category: 'places', emoji: '🌠' }, { category: 'places', emoji: '🌌' }, { category: 'places', emoji: '🎑' }, { category: 'places', emoji: '🗾' }, { category: 'places', emoji: '🌋' }, { category: 'places', emoji: '🏟️' }, { category: 'places', emoji: '🏛️' }, { category: 'places', emoji: '⛪' }, { category: 'places', emoji: '🕌' }, { category: 'places', emoji: '🛕' }, { category: 'places', emoji: '🕍' }, { category: 'places', emoji: '⛩️' }, { category: 'places', emoji: '🛣️' }, { category: 'places', emoji: '🛤️' }, { category: 'places', emoji: '🚗' }, { category: 'places', emoji: '🚢' }, { category: 'places', emoji: '🛳️' }, { category: 'places', emoji: '✈️' }, { category: 'places', emoji: '🛩️' }, { category: 'places', emoji: '🚀' }, { category: 'places', emoji: '🛸' }, { category: 'places', emoji: '⛵' }, { category: 'places', emoji: '🚤' }, { category: 'places', emoji: '🛶' }, { category: 'places', emoji: '🚲' }, { category: 'places', emoji: '🛴' }, { category: 'places', emoji: '🛵' }, { category: 'places', emoji: '🏰' }, { category: 'places', emoji: '🏯' }, { category: 'places', emoji: '🗼' }, { category: 'places', emoji: '🗽' }, { category: 'places', emoji: '🎡' }, { category: 'places', emoji: '🎢' }, { category: 'places', emoji: '🎠' }, { category: 'places', emoji: '⛲' }, { category: 'places', emoji: '⛱️' }, { category: 'places', emoji: '🏖️' }, { category: 'places', emoji: '🌁' }, { category: 'places', emoji: '🌉' },
+        { category: 'games', emoji: '🎮' }, { category: 'games', emoji: '🕹️' }, { category: 'games', emoji: '🎲' }, { category: 'games', emoji: '🧩' }, { category: 'games', emoji: '🎰' }, { category: 'games', emoji: '🎳' }, { category: 'games', emoji: '🎯' }, { category: 'games', emoji: '🎮' }, { category: 'games', emoji: '🧠' }, { category: 'games', emoji: '🛸' }, { category: 'games', emoji: '👾' }, { category: 'games', emoji: '🎮' },
+        { category: 'symbols', emoji: '❤️' }, { category: 'symbols', emoji: '💯' }, { category: 'symbols', emoji: '💢' }, { category: 'symbols', emoji: '💥' }, { category: 'symbols', emoji: '💫' }, { category: 'symbols', emoji: '💦' }, { category: 'symbols', emoji: '💨' }, { category: 'symbols', emoji: '🕉️' }, { category: 'symbols', emoji: '✝️' }, { category: 'symbols', emoji: '☪️' }, { category: 'symbols', emoji: '☸️' }, { category: 'symbols', emoji: '✡️' }, { category: 'symbols', emoji: '☯️' }, { category: 'symbols', emoji: '☮️' }, { category: 'symbols', emoji: '☢️' }, { category: 'symbols', emoji: '☣️' }, { category: 'symbols', emoji: '⬆️' }, { category: 'symbols', emoji: '⬇️' }, { category: 'symbols', emoji: '➡️' }, { category: 'symbols', emoji: '⬅️' }, { category: 'symbols', emoji: '↕️' }, { category: 'symbols', emoji: '↔️' }, { category: 'symbols', emoji: '↩️' }, { category: 'symbols', emoji: '↪️' }, { category: 'symbols', emoji: '⤴️' }, { category: 'symbols', emoji: '⤵️' }, { category: 'symbols', emoji: '🔃' }, { category: 'symbols', emoji: '🔄' }, { category: 'symbols', emoji: '🔁' }, { category: 'symbols', emoji: '🔂' }, { category: 'symbols', emoji: '▶️' }, { category: 'symbols', emoji: '◀️' }, { category: 'symbols', emoji: '🔼' }, { category: 'symbols', emoji: '🔽' }, { category: 'symbols', emoji: '⏩' }, { category: 'symbols', emoji: '⏪' }, { category: 'symbols', emoji: '⏫' }, { category: 'symbols', emoji: '⏬' }, { category: 'symbols', emoji: '⏯️' }, { category: 'symbols', emoji: '🔍' }, { category: 'symbols', emoji: '🆗' }, { category: 'symbols', emoji: '🆕' }, { category: 'symbols', emoji: '🆙' }, { category: 'symbols', emoji: '🆒' }, { category: 'symbols', emoji: '🆓' }, { category: 'symbols', emoji: '🆖' }, { category: 'symbols', emoji: '📛' }, { category: 'symbols', emoji: '⚠️' }, { category: 'symbols', emoji: '☑️' }, { category: 'symbols', emoji: '✔️' }, { category: 'symbols', emoji: '✖️' }, { category: 'symbols', emoji: '❌' }, { category: 'symbols', emoji: '❗' }, { category: 'symbols', emoji: '❓' }, { category: 'symbols', emoji: '❕' }, { category: 'symbols', emoji: '❔' }, { category: 'symbols', emoji: '💯' }, { category: 'symbols', emoji: '🔟' }, { category: 'symbols', emoji: '🔢' }, { category: 'symbols', emoji: '🔣' }, { category: 'symbols', emoji: '🔤' }, { category: 'symbols', emoji: '🅰️' }, { category: 'symbols', emoji: '🅱️' }, { category: 'symbols', emoji: '🅾️' }, { category: 'symbols', emoji: '💠' }, { category: 'symbols', emoji: '♻️' }, { category: 'symbols', emoji: '⚛️' }, { category: 'symbols', emoji: '🧲' }, { category: 'symbols', emoji: '⚛️' },
+        { category: 'flags', emoji: '🚩' }, { category: 'flags', emoji: '🏁' }, { category: 'flags', emoji: '🚩' }, { category: 'flags', emoji: '🎌' }, { category: 'flags', emoji: '🏴' }, { category: 'flags', emoji: '🏳️' }, { category: 'flags', emoji: '🏴‍☠️' }, { category: 'flags', emoji: '🇺🇸' }, { category: 'flags', emoji: '🇧🇷' }, { category: 'flags', emoji: '🇨🇦' }, { category: 'flags', emoji: '🇪🇺' }, { category: 'flags', emoji: '🇯🇵' }, { category: 'flags', emoji: '🇰🇷' }, { category: 'flags', emoji: '🇨🇳' }, { category: 'flags', emoji: '🇬🇧' }, { category: 'flags', emoji: '🇫🇷' }, { category: 'flags', emoji: '🇩🇪' }, { category: 'flags', emoji: '🇮🇹' }, { category: 'flags', emoji: '🇪🇸' }, { category: 'flags', emoji: '🇲🇽' }, { category: 'flags', emoji: '🇦🇷' }, { category: 'flags', emoji: '🇨🇴' }, { category: 'flags', emoji: '🇵🇹' }, { category: 'flags', emoji: '🇳🇴' }, { category: 'flags', emoji: '🇸🇪' }, { category: 'flags', emoji: '🇩🇰' }, { category: 'flags', emoji: '🇳🇿' }, { category: 'flags', emoji: '🇦🇺' }, { category: 'flags', emoji: '🇿🇦' }, { category: 'flags', emoji: '🇮🇳' }, { category: 'flags', emoji: '🇷🇺' }, { category: 'flags', emoji: '🇨🇭' }, { category: 'flags', emoji: '🇦🇹' }, { category: 'flags', emoji: '🇳🇱' }, { category: 'flags', emoji: '🇧🇪' }, { category: 'flags', emoji: '🇵🇱' }, { category: 'flags', emoji: '🇵🇹' }, { category: 'flags', emoji: '🇹🇷' }, { category: 'flags', emoji: '🇲🇾' }, { category: 'flags', emoji: '🇸🇬' }, { category: 'flags', emoji: '🇭🇰' }, { category: 'flags', emoji: '🇹🇼' }, { category: 'flags', emoji: '🇯🇲' }, { category: 'flags', emoji: '🇨🇺' }, { category: 'flags', emoji: '🇵🇷' },
+    ];
+    const recentEmojis = JSON.parse(localStorage.getItem('gamelink-chat-recent-emojis') || '[]');
+    const favoriteEmojis = JSON.parse(localStorage.getItem('gamelink-chat-favorite-emojis') || '[]');
+    let currentCategory = 'recent';
+
+    function scrollToBottom() {
+        if (chatMessages) {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    }
+
+    function escapeHtml(value) {
+        return String(value || '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    }
+
+    function updateTypingIndicator() {
+        if (typingIndicator) {
+            typingIndicator.textContent = 'Digitando...';
+        }
+        window.clearTimeout(window.typingTimer);
+        window.typingTimer = window.setTimeout(() => {
+            if (typingIndicator) {
+                typingIndicator.textContent = 'Online agora';
+            }
+        }, 900);
+    }
+
+    function renderMessageMarkup(message) {
+        const isMine = message.email_remetente === '{{ session.get("user_email") }}';
+        const bubbleText = escapeHtml(message.conteudo || 'Mensagem enviada');
+        const reactions = Object.entries(message.reacoes || {}).map(([emoji, count]) => `<button type="button" class="reaction-btn${message.user_reaction === emoji ? ' active' : ''}" data-reaction="${emoji}" data-message-id="${message.id}">${emoji} <span class="reaction-count">${count}</span></button>`).join('');
+        let markup = `<div class="message-bubble">`;
+        if (message.reply_to_conteudo) {
+            markup += `<div class="reply-preview">↩ ${escapeHtml(message.reply_to_conteudo)}</div>`;
+        }
+        if (message.status === 'cancelada') {
+            markup += `<div class="message-text text-white-50">${isMine ? 'Você cancelou esta mensagem.' : 'Esta mensagem foi cancelada.'}</div>`;
+        } else {
+            if (message.anexo_url) {
+                if (message.anexo_tipo === 'image') {
+                    markup += `<a href="${message.anexo_url}" target="_blank" rel="noopener"><img src="${message.anexo_url}" alt="${escapeHtml(message.anexo_nome || 'Anexo')}" class="chat-attachment-image"></a>`;
+                } else {
+                    markup += `<div class="chat-attachment-file"><strong>${escapeHtml(message.anexo_nome || 'Arquivo')}</strong><a href="${message.anexo_url}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light mt-2">Baixar</a></div>`;
+                }
+            }
+            markup += `<div class="message-text">${bubbleText}</div>`;
+        }
+        markup += `${reactions ? `<div class="reaction-bar reaction-bar-inline">${reactions}</div>` : ''}<div class="message-meta"><span>${new Date(message.data_envio).toLocaleString('pt-BR')}</span><span>• ${message.status || 'sent'}</span></div></div>`;
+        const row = document.createElement('div');
+        row.className = `message-row ${isMine ? 'mine' : 'their'}`;
+        row.dataset.messageId = message.id;
+        row.dataset.messageText = message.conteudo || '';
+        row.dataset.messageStatus = message.status || 'sent';
+        row.innerHTML = markup;
+        return row;
+    }
+
+    function appendMessage(message) {
+        if (!chatMessages) {
+            return;
+        }
+        const row = renderMessageMarkup(message);
+        chatMessages.appendChild(row);
+        lastMessageId = Math.max(lastMessageId, Number(message.id || 0));
+        scrollToBottom();
+    }
+
+    function renderPendingQueue(items) {
+        if (!pendingQueue) {
+            return;
+        }
+        pendingQueue.innerHTML = '';
+        if (!items.length) {
+            return;
+        }
+        items.forEach((item) => {
+            const row = document.createElement('div');
+            row.className = 'pending-item';
+            row.innerHTML = `
+                <div>
+                    <strong>✓ Mensagem pronta para envio</strong>
+                    <div class="small text-white-50">${escapeHtml(item.conteudo || 'Mensagem')}</div>
+                </div>
+                <div class="pending-actions">
+                    <span class="pending-timer">Enviando em ${item.seconds ?? 5}...</span>
+                    <button type="button" class="pending-cancel" data-cancel-pending="${item.pendingId}">Cancelar</button>
+                </div>
+            `;
+            pendingQueue.appendChild(row);
+        });
+    }
+
+    function updatePendingQueue() {
+        fetch(`/conversa/{{ amigo.email }}/mensagens/pendentes`, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.ok) {
+                    renderPendingQueue(result.pendentes.map((item) => ({ ...item, seconds: 5 })));
+                }
+            })
+            .catch(() => {});
+    }
+
+    function startPendingCountdown(pendingId) {
+        if (pendingTimers.has(pendingId)) {
+            clearInterval(pendingTimers.get(pendingId));
+        }
+        let seconds = 5;
+        const timer = window.setInterval(() => {
+            seconds -= 1;
+            const item = pendingQueue?.querySelector(`[data-cancel-pending="${pendingId}"]`)?.closest('.pending-item');
+            if (!item) {
+                clearInterval(timer);
+                pendingTimers.delete(pendingId);
+                return;
+            }
+            const timerLabel = item.querySelector('.pending-timer');
+            if (timerLabel) {
+                timerLabel.textContent = `Enviando em ${Math.max(seconds, 0)}...`;
+            }
+            if (seconds <= 0) {
+                clearInterval(timer);
+                pendingTimers.delete(pendingId);
+                item.remove();
+            }
+        }, 1000);
+        pendingTimers.set(pendingId, timer);
+    }
+
+    function renderPreview() {
+        if (!pendingFile) {
+            previewBox.classList.add('d-none');
+            previewBox.innerHTML = '';
+            return;
+        }
+        previewBox.classList.remove('d-none');
+        const label = pendingType === 'image' ? 'Imagem selecionada' : 'Arquivo selecionado';
+        previewBox.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center">
+                <strong>${label}</strong>
+                <button type="button" class="btn btn-sm btn-outline-light" data-clear-preview>Remover</button>
+            </div>
+            <div class="mt-2">${escapeHtml(pendingFile.name)}</div>
+        `;
+    }
+
+    function setReplyPreview(messageText) {
+        if (!messageText) {
+            replyPreview.classList.add('d-none');
+            replyPreview.innerHTML = '';
+            return;
+        }
+        replyPreview.classList.remove('d-none');
+        replyPreview.innerHTML = `<div class="d-flex justify-content-between align-items-center"><strong>Respondendo</strong><button type="button" class="btn btn-sm btn-outline-light" data-clear-reply>Cancelar</button></div><div class="mt-2">${escapeHtml(messageText)}</div>`;
+    }
+
+    function updateRecentEmojis(emoji) {
+        const unique = [emoji, ...recentEmojis.filter((item) => item !== emoji)].slice(0, 12);
+        localStorage.setItem('gamelink-chat-recent-emojis', JSON.stringify(unique));
+        return unique;
+    }
+
+    function updateFavoriteEmojis(emoji) {
+        const unique = [emoji, ...favoriteEmojis.filter((item) => item !== emoji)].slice(0, 8);
+        localStorage.setItem('gamelink-chat-favorite-emojis', JSON.stringify(unique));
+        return unique;
+    }
+
+    function renderEmojiPicker(category = currentCategory) {
+        if (!emojiPickerGrid) {
+            return;
+        }
+        const query = (emojiSearch?.value || '').trim().toLowerCase();
+        let items = emojiCatalog.filter((item) => item.category === category || category === 'recent' && recentEmojis.includes(item.emoji));
+        if (category === 'recent') {
+            items = recentEmojis.length ? recentEmojis.map((emoji) => ({ category: 'recent', emoji })) : emojiCatalog.filter((item) => item.category === 'smileys').slice(0, 20);
+        }
+        if (category === 'favorites') {
+            items = favoriteEmojis.length ? favoriteEmojis.map((emoji) => ({ category: 'favorites', emoji })) : emojiCatalog.filter((item) => item.category === 'smileys').slice(0, 20);
+        }
+        if (query) {
+            items = items.filter((item) => item.emoji.toLowerCase().includes(query) || item.emoji === query);
+        }
+        if (!items.length) {
+            emojiPickerGrid.innerHTML = '<div class="emoji-empty">Nenhum emoji encontrado.</div>';
+            return;
+        }
+        emojiPickerGrid.innerHTML = items.map((item) => `<button type="button" class="emoji-option" data-emoji="${item.emoji}" title="${item.emoji}">${item.emoji}</button>`).join('');
+    }
+
+    function showMessageActions(messageId, sourceElement) {
+        const existing = document.querySelector('.message-actions-menu');
+        if (existing) existing.remove();
+        const row = document.querySelector(`.message-row[data-message-id="${messageId}"]`);
+        const isMine = row?.classList.contains('mine');
+        const isCanceled = row?.dataset.messageStatus === 'cancelada';
+        const menu = document.createElement('div');
+        menu.className = 'message-actions-menu';
+        const actions = [
+            { action: 'reply', label: 'Responder' },
+            { action: 'copy', label: 'Copiar' },
+            { action: 'delete', label: 'Excluir apenas para mim' },
+        ];
+        if (isMine && !isCanceled) {
+            actions.splice(2, 0, { action: 'edit', label: 'Editar' }, { action: 'cancel', label: 'Cancelar mensagem' });
+        }
+        menu.innerHTML = actions.map((item) => `<button type="button" class="dropdown-item" data-action="${item.action}">${item.label}</button>`).join('');
+        document.body.appendChild(menu);
+        const rect = sourceElement?.getBoundingClientRect() || row?.getBoundingClientRect();
+        if (rect) {
+            menu.style.top = `${rect.bottom + window.scrollY + 6}px`;
+            menu.style.left = `${Math.min(rect.right + window.scrollX - 180, window.innerWidth - 200)}px`;
+        }
+        return menu;
+    }
+
+    function hideMessageActions() {
+        document.querySelectorAll('.message-actions-menu').forEach((menu) => menu.remove());
+    }
+
+    document.addEventListener('contextmenu', (event) => {
+        const messageRow = event.target.closest('.message-row');
+        if (messageRow && messageRow.dataset.messageId) {
+            event.preventDefault();
+            const messageId = messageRow.dataset.messageId;
+            hideMessageActions();
+            const menu = showMessageActions(messageId, messageRow);
+            menu.querySelector('[data-action="reply"]').addEventListener('click', () => {
+                replyToId.value = messageId;
+                replyToContent.value = messageRow.dataset.messageText || '';
+                setReplyPreview(messageRow.dataset.messageText || '');
+                contentInput.focus();
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="copy"]').addEventListener('click', async () => {
+                await navigator.clipboard.writeText(messageRow.dataset.messageText || '');
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="cancel"]').addEventListener('click', async () => {
+                const confirmed = window.confirm('Cancelar esta mensagem para todos?');
+                if (!confirmed) {
+                    hideMessageActions();
+                    return;
+                }
+                const response = await fetch(`/conversa/{{ amigo.email }}/mensagem/${messageId}/cancelar`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content }
+                });
+                const result = await response.json();
+                if (result.ok) {
+                    const existing = document.querySelector(`.message-row[data-message-id="${messageId}"]`);
+                    if (existing) {
+                        existing.replaceWith(renderMessageMarkup(result.mensagem));
+                    }
+                }
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="delete"]').addEventListener('click', () => {
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="edit"]').addEventListener('click', () => {
+                hideMessageActions();
+            });
+        }
+    });
+
+    document.addEventListener('click', async (event) => {
+        const contextButton = event.target.closest('.msg-context-btn');
+        if (contextButton) {
+            event.stopPropagation();
+            const messageId = contextButton.dataset.messageId;
+            hideMessageActions();
+            const menu = showMessageActions(messageId, contextButton);
+            menu.querySelector('[data-action="reply"]').addEventListener('click', () => {
+                const row = document.querySelector(`.message-row[data-message-id="${messageId}"]`);
+                if (row) {
+                    replyToId.value = messageId;
+                    replyToContent.value = row.dataset.messageText || '';
+                    setReplyPreview(row.dataset.messageText || '');
+                    contentInput.focus();
+                }
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="copy"]').addEventListener('click', async () => {
+                const row = document.querySelector(`.message-row[data-message-id="${messageId}"]`);
+                if (row) {
+                    await navigator.clipboard.writeText(row.dataset.messageText || '');
+                }
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="cancel"]').addEventListener('click', async () => {
+                const confirmed = window.confirm('Cancelar esta mensagem para todos?');
+                if (!confirmed) {
+                    hideMessageActions();
+                    return;
+                }
+                const response = await fetch(`/conversa/{{ amigo.email }}/mensagem/${messageId}/cancelar`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content }
+                });
+                const result = await response.json();
+                if (result.ok) {
+                    const existing = document.querySelector(`.message-row[data-message-id="${messageId}"]`);
+                    if (existing) {
+                        existing.replaceWith(renderMessageMarkup(result.mensagem));
+                    }
+                }
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="delete"]').addEventListener('click', () => {
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="edit"]').addEventListener('click', () => {
+                hideMessageActions();
+            });
+            return;
+        }
+
+        const reactionButton = event.target.closest('.reaction-btn');
+        if (reactionButton) {
+            const messageRow = reactionButton.closest('.message-row');
+            const messageId = messageRow?.dataset.messageId;
+            if (reactionButton.classList.contains('reaction-picker-btn')) {
+                activeMessageId = reactionButton.dataset.openPicker || messageId;
+                emojiPicker.classList.remove('d-none');
+                renderEmojiPicker(currentCategory);
+                contentInput.focus();
+                return;
+            }
+            if (messageId) {
+                const response = await fetch(`/conversa/{{ amigo.email }}/mensagem/${messageId}/reagir`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content },
+                    body: JSON.stringify({ emoji: reactionButton.dataset.reaction })
+                });
+                const result = await response.json();
+                if (result.ok) {
+                    const row = messageRow;
+                    row.replaceWith(renderMessageMarkup(result.mensagem));
+                }
+            }
+            return;
+        }
+
+        const clickedMessage = event.target.closest('.message-row');
+        if (clickedMessage && !event.target.closest('a,button,.message-actions-menu')) {
+            replyToId.value = clickedMessage.dataset.messageId || '';
+            replyToContent.value = clickedMessage.dataset.messageText || '';
+            setReplyPreview(clickedMessage.dataset.messageText || '');
+            contentInput.focus();
+            return;
+        }
+        if (event.target.closest('.message-row') && event.target.closest('.message-row').dataset.messageId && event.target.closest('.message-row').dataset.messageId === activeMessageId) {
+            hideMessageActions();
+            activeMessageId = null;
+            return;
+        }
+        if (event.target.closest('.message-row') && event.target.closest('.message-row').dataset.messageId) {
+            const row = event.target.closest('.message-row');
+            const messageId = row.dataset.messageId;
+            hideMessageActions();
+            const menu = showMessageActions(messageId);
+            menu.querySelector('[data-action="reply"]').addEventListener('click', () => {
+                replyToId.value = messageId;
+                replyToContent.value = row.dataset.messageText || '';
+                setReplyPreview(row.dataset.messageText || '');
+                contentInput.focus();
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="copy"]').addEventListener('click', async () => {
+                const text = row.dataset.messageText || '';
+                await navigator.clipboard.writeText(text);
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="cancel"]').addEventListener('click', async () => {
+                const confirmed = window.confirm('Cancelar esta mensagem para todos?');
+                if (!confirmed) {
+                    hideMessageActions();
+                    return;
+                }
+                const response = await fetch(`/conversa/{{ amigo.email }}/mensagem/${messageId}/cancelar`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content }
+                });
+                const result = await response.json();
+                if (result.ok) {
+                    const existing = document.querySelector(`.message-row[data-message-id="${messageId}"]`);
+                    if (existing) {
+                        existing.replaceWith(renderMessageMarkup(result.mensagem));
+                    }
+                }
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="delete"]').addEventListener('click', () => {
+                hideMessageActions();
+            });
+            menu.querySelector('[data-action="edit"]').addEventListener('click', () => {
+                hideMessageActions();
+            });
+            activeMessageId = messageId;
+            return;
+        }
+        if (clickedMessage && !event.target.closest('a,button')) {
+            replyToId.value = clickedMessage.dataset.messageId || '';
+            replyToContent.value = clickedMessage.dataset.messageText || '';
+            setReplyPreview(clickedMessage.dataset.messageText || '');
+            contentInput.focus();
+            return;
+        }
+        if (event.target.matches('[data-clear-preview]')) {
+            pendingFile = null;
+            pendingType = null;
+            renderPreview();
+        }
+        if (event.target.matches('[data-clear-reply]')) {
+            replyToId.value = '';
+            replyToContent.value = '';
+            setReplyPreview('');
+        }
+        if (event.target.matches('[data-cancel-pending]')) {
+            const pendingId = event.target.dataset.cancelPending;
+            fetch(`/conversa/{{ amigo.email }}/mensagem/pendente/${pendingId}/cancelar`, {
+                method: 'POST',
+                headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content }
+            }).then(() => {
+                updatePendingQueue();
+            });
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.message-actions-menu') && !event.target.closest('.message-row')) {
+            hideMessageActions();
+        }
+    });
+
+    document.querySelectorAll('.composer-icon').forEach((button) => {
+        button.addEventListener('click', () => {
+            const action = button.dataset.action;
+            if (action === 'image') {
+                imageInput.click();
+            } else if (action === 'file') {
+                fileInput.click();
+            } else if (action === 'emoji') {
+                emojiPicker.classList.toggle('d-none');
+                renderEmojiPicker(currentCategory);
+                contentInput.focus();
+            } else {
+                contentInput.value += action === 'gif' ? '🎮' : '🎭';
+                contentInput.focus();
+            }
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        const emojiButton = event.target.closest('.emoji-option');
+        if (emojiButton) {
+            const emoji = emojiButton.dataset.emoji || emojiButton.textContent.trim();
+            updateRecentEmojis(emoji);
+            if (!favoriteEmojis.includes(emoji)) {
+                favoriteEmojis.unshift(emoji);
+                localStorage.setItem('gamelink-chat-favorite-emojis', JSON.stringify(favoriteEmojis.slice(0, 8)));
+            }
+            if (activeMessageId) {
+                fetch(`/conversa/{{ amigo.email }}/mensagem/${activeMessageId}/reagir`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content },
+                    body: JSON.stringify({ emoji })
+                }).then(async (response) => {
+                    const result = await response.json();
+                    if (result.ok) {
+                        const messageRow = document.querySelector(`.message-row[data-message-id="${activeMessageId}"]`);
+                        if (messageRow) {
+                            messageRow.replaceWith(renderMessageMarkup(result.mensagem));
+                        }
+                    }
+                });
+            } else {
+                contentInput.value += emoji;
+            }
+            activeMessageId = null;
+            emojiPicker.classList.add('d-none');
+            contentInput.focus();
+        }
+    });
+
+    document.querySelectorAll('.emoji-category-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+            currentCategory = button.dataset.category;
+            document.querySelectorAll('.emoji-category-btn').forEach((item) => item.classList.toggle('active', item === button));
+            renderEmojiPicker(currentCategory);
+        });
+    });
+
+    if (emojiSearch) {
+        emojiSearch.addEventListener('input', () => renderEmojiPicker(currentCategory));
+    }
+
+    imageInput.addEventListener('change', (event) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            pendingFile = file;
+            pendingType = 'image';
+            renderPreview();
+        }
+    });
+
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            pendingFile = file;
+            pendingType = 'file';
+            renderPreview();
+        }
+    });
+
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        document.querySelectorAll('.message-row').forEach((row) => {
+            const text = (row.dataset.messageText || '').toLowerCase();
+            row.style.display = text.includes(query) ? '' : 'none';
+        });
+    });
+
+    contentInput.addEventListener('input', updateTypingIndicator);
+    contentInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            chatForm.requestSubmit();
+        }
+    });
+
+    chatForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const body = new FormData(chatForm);
+        if (pendingFile) {
+            body.set(pendingType === 'image' ? 'imagem' : 'anexo', pendingFile);
+        }
+        const response = await fetch('{{ url_for("enviar_mensagem", email_destino=amigo.email) }}', {
+            method: 'POST',
+            headers: { 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content },
+            body
+        });
+        const result = await response.json();
+        if (result.ok) {
+            contentInput.value = '';
+            pendingFile = null;
+            pendingType = null;
+            renderPreview();
+            replyToId.value = '';
+            replyToContent.value = '';
+            setReplyPreview('');
+            if (result.pending_id) {
+                const pendingMessage = {
+                    pendingId: result.pending_id,
+                    conteudo: result.mensagem.conteudo,
+                    seconds: 5,
+                };
+                const existing = [...(pendingQueue?.children || [])];
+                if (!existing.length) {
+                    renderPendingQueue([pendingMessage]);
+                } else {
+                    const items = [...existing].map((item) => ({
+                        pendingId: item.querySelector('[data-cancel-pending]')?.dataset.cancelPending || result.pending_id,
+                        conteudo: item.querySelector('strong')?.textContent || 'Mensagem',
+                        seconds: 5,
+                    }));
+                    items.push(pendingMessage);
+                    renderPendingQueue(items);
+                }
+                startPendingCountdown(result.pending_id);
+            } else {
+                appendMessage(result.mensagem);
+            }
+        }
+    });
+
+    async function carregarMensagensNovas() {
+        const response = await fetch(`/conversa/{{ amigo.email }}/mensagens`, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+        const result = await response.json();
+        if (result.ok) {
+            const ids = new Set(result.mensagens.map((message) => Number(message.id)));
+            document.querySelectorAll('.message-row').forEach((row) => {
+                if (!ids.has(Number(row.dataset.messageId))) {
+                    return;
+                }
+            });
+            result.mensagens.forEach((message) => {
+                const existingRow = document.querySelector(`.message-row[data-message-id="${message.id}"]`);
+                if (existingRow) {
+                    existingRow.replaceWith(renderMessageMarkup(message));
+                } else {
+                    appendMessage(message);
+                }
+            });
+            lastMessageId = Math.max(...result.mensagens.map((message) => Number(message.id || 0)), lastMessageId);
+        }
+    }
+
+    window.setInterval(() => {
+        carregarMensagensNovas().catch(() => {});
+        updatePendingQueue().catch(() => {});
+    }, 3000);
+
+    updatePendingQueue();
+    scrollToBottom();
+</script>
+{% endblock %}

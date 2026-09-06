@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+    <div class="row g-4">
+        <div class="col-12 col-lg-7">
+            <div class="surface-panel p-4 h-100">
+                <p class="text-info text-uppercase small fw-bold mb-2">GameUnexa</p>
+                <h1 class="h3 mb-3">🎮 Steam</h1>
+                <p class="text-white-50">Conecte sua conta Steam para incorporar seus jogos à biblioteca unificada do GameUnexa.</p>
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    <a href="{{ url_for('steam_conectar') }}" class="btn btn-info">Conectar com Steam</a>
+                    {% if steam_configurada %}
+                    <form action="{{ url_for('sincronizar_steam') }}" method="POST" class="d-inline">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-outline-info">Sincronizar Steam</button>
+                    </form>
+                    {% endif %}
+                </div>
+                <div class="row g-3">
+                    <div class="col-6"><div class="stat-chip"><span>Estado</span><strong>{{ 'Conectada' if steam_configurada else 'Não configurada' }}</strong></div></div>
+                    <div class="col-6"><div class="stat-chip"><span>Jogos na biblioteca</span><strong>{{ jogos_steam }}</strong></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-5">
+            <div class="surface-panel p-4 h-100">
+                <h2 class="h5 mb-3">Configurar manualmente</h2>
+                <form method="POST" action="{{ url_for('steam_configuracao') }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <label class="form-label" for="steam_id64">SteamID64</label>
+                    <input class="form-control mb-3" id="steam_id64" name="steam_id64" inputmode="numeric" pattern="[0-9]{17}" value="{{ usuario.steam_id64 or '' }}" placeholder="17 dígitos">
+                    <label class="form-label" for="steam_api_key">Steam API Key</label>
+                    <input class="form-control mb-2" id="steam_api_key" name="steam_api_key" type="password" autocomplete="new-password" placeholder="Cole sua chave; nunca será exibida">
+                    <small class="text-white-50 d-block mb-3">A chave é enviada somente ao backend e não aparece na página.</small>
+                    <button type="submit" class="btn btn-outline-light">Salvar configuração</button>
+                </form>
+                <hr class="border-secondary my-4">
+                <h2 class="h5 mb-2">Como obter a API Key</h2>
+                <p class="text-white-50 small">Entre na Steam, informe o domínio solicitado e copie a chave gerada.</p>
+                <a class="btn btn-sm btn-outline-info" href="https://steamcommunity.com/dev/apikey" target="_blank" rel="noopener noreferrer">Abrir página oficial</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

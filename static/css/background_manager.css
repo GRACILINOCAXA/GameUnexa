@@ -1,0 +1,128 @@
+.gamelink-background { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; opacity: 1; transition: opacity .5s ease; }
+body > *:not(.gamelink-background) { position: relative; z-index: 1; }
+body > nav.navbar { z-index: 1055; }
+body > .modal { z-index: 1055; }
+body > .modal-backdrop { z-index: 1040; }
+body:has(.gamelink-background) { background: transparent !important; }
+.gamelink-background.is-transitioning { opacity: .35; }
+.gamelink-background-canvas, .gamelink-background-media { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; pointer-events: none; transition: opacity .5s ease, filter .5s ease; }
+.gamelink-background-canvas { display: block; }
+.gamelink-background-media { opacity: .9; }
+.gamelink-background-media.is-fading { opacity: 0; }
+.gamelink-background.is-default { opacity: .98; }
+.background-modal .modal-content { background: #091222; border: 1px solid rgba(125, 211, 252, .28); box-shadow: 0 28px 90px rgba(0, 0, 0, .55); }
+.background-modal .modal-body { padding: 0; }
+.background-tabs { display: flex; gap: .35rem; overflow-x: auto; padding: .8rem; border-bottom: 1px solid rgba(148, 163, 184, .18); }
+.background-tabs button { border: 1px solid transparent; border-radius: 10px; background: transparent; color: #cbd5e1; padding: .55rem .75rem; white-space: nowrap; }
+.background-tabs button.active, .background-tabs button:hover { color: #fff; background: rgba(56, 189, 248, .15); border-color: rgba(56, 189, 248, .35); }
+.background-panel { display: none; padding: 1.1rem; }
+.background-panel.active { display: block; }
+.background-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .85rem; }
+.background-grid .form-control, .background-grid .form-select { min-width: 0; }
+.background-choice { display: grid; gap: .35rem; padding: .85rem; min-height: 88px; border: 1px solid rgba(148, 163, 184, .18); border-radius: 12px; background: rgba(15, 23, 42, .75); cursor: pointer; }
+.background-choice:has(input:checked) { border-color: #38bdf8; box-shadow: 0 0 0 2px rgba(56, 189, 248, .15); }
+.background-choice input { accent-color: #38bdf8; }
+.background-status { min-height: 1.4rem; font-size: .85rem; }
+.background-status.is-success { color: #86efac; }
+.background-status.is-error { color: #fca5a5; }
+.wallpaper-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .7rem; }
+.wallpaper-gallery button { min-height: 90px; padding: .55rem; border: 1px solid rgba(148, 163, 184, .2); border-radius: 10px; color: white; background: linear-gradient(135deg, #0f172a, #164e63); text-align: left; }
+.wallpaper-gallery button:hover { border-color: #38bdf8; transform: translateY(-1px); }
+@media (max-width: 575px) { .background-modal .modal-dialog { margin: .35rem; } .background-panel { padding: .85rem; } }
+
+/* Normalize card/alert/login colors to ensure consistent contrast */
+.card, .login-card, .game-status-card, .surface-panel, .sidebar-panel, .glow-card, .alert {
+	color: var(--text-main) !important;
+	background-blend-mode: normal;
+}
+
+/* Override Bootstrap text-dark inside cards that caused washed-out tones */
+.card.text-dark, .card.text-dark label, .card.text-dark .form-control, .card.text-dark .form-text, .card.text-dark .help-text {
+	color: var(--text-main) !important;
+}
+
+/* Form controls inside cards: darker inputs and readable placeholders */
+.card .form-control, .login-card .form-control {
+	background: rgba(7, 17, 31, 0.96) !important;
+	color: var(--text-main) !important;
+	border-color: rgba(148, 163, 184, 0.26) !important;
+}
+.card .form-control::placeholder, .login-card .form-control::placeholder {
+	color: rgba(255,255,255,0.6) !important;
+}
+
+/* Buttons and links inside cards use the accent for visibility */
+.card a, .card .btn, .game-status-card a, .login-card a {
+	color: var(--accent) !important;
+}
+
+/* Specific adjustments for steam status panel elements */
+.game-status-card .meta-value, .game-status-card .meta-label, .game-status-card .launcher-badge {
+	color: var(--text-main) !important;
+}
+
+/* Ensure alerts have legible text on dark backgrounds */
+.alert {
+	background: linear-gradient(180deg, rgba(15,23,42,0.9), rgba(7,14,26,0.88));
+	border-color: rgba(148,163,184,0.12) !important;
+}
+
+/* Enforce darker card backgrounds and stronger label/button contrast */
+.card, .login-card, .game-status-card, .surface-panel, .glow-card, .sidebar-panel {
+	background: var(--bg-card, rgba(15,23,42,0.96)) !important;
+	color: var(--text-main, #f8fafc) !important;
+	border-color: var(--border-soft, rgba(148,163,184,0.18)) !important;
+}
+
+/* Make labels and helper text readable */
+.card label, .login-card label, .card .form-text, .card .help-text {
+	color: rgba(226,232,240,0.92) !important;
+	font-weight: 600;
+}
+
+/* Inputs: ensure dark field with high-contrast text */
+.card .form-control, .login-card .form-control {
+	background: rgba(7, 17, 31, 0.98) !important;
+	color: var(--text-main, #f8fafc) !important;
+	border-color: rgba(148,163,184,0.26) !important;
+}
+.card .form-control::placeholder, .login-card .form-control::placeholder {
+	color: rgba(255,255,255,0.65) !important;
+}
+
+/* Primary buttons inside login/card: stronger contrast */
+.login-card .btn-primary {
+	background: linear-gradient(135deg, #38bdf8, #0ea5e9) !important;
+	border-color: rgba(14,165,233,0.6) !important;
+	color: #03111f !important;
+	font-weight: 700;
+}
+
+/* Generic primary buttons: ensure readable text */
+.btn-primary {
+	color: #ffffff !important;
+}
+
+/* Links inside cards use accent for visibility */
+.card a, .login-card a, .game-status-card a { color: var(--accent, #38bdf8) !important; }
+
+/* Steam status specific tweaks */
+.game-status-card .meta-label { color: var(--accent, #38bdf8) !important; }
+.game-status-card .meta-value { color: var(--text-main, #f8fafc) !important; font-weight:700; }
+
+/* Ensure primary buttons (including disabled) have readable text */
+.btn-primary, .login-card .btn-primary {
+	color: #03111f !important;
+	text-shadow: none !important;
+	font-weight: 700 !important;
+}
+.btn-primary:hover, .login-card .btn-primary:hover {
+	color: #03111f !important;
+}
+.btn-primary:disabled, .btn-primary[disabled], .btn:disabled, button[disabled].btn-primary {
+	opacity: 1 !important;
+	filter: none !important;
+	color: rgba(3,17,31,0.98) !important;
+	background: linear-gradient(135deg,#38bdf8,#0ea5e9) !important;
+	border-color: rgba(14,165,233,0.6) !important;
+}

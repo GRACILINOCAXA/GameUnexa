@@ -1,0 +1,32 @@
+{% extends 'emails/base.html' %}
+{% block content %}
+  <h2 style="margin:0 0 16px;font-size:24px;color:#ffffff;">{{ titulo }}</h2>
+  <div style="color:#cbd5e1;line-height:1.7;">
+    {% if mensagem_confirmacao %}
+      <p style="margin-bottom:18px;color:#f8fafc;">{{ mensagem_confirmacao }}</p>
+    {% endif %}
+    <p><strong>Protocolo:</strong> {{ protocolo }}</p>
+    <p><strong>Usuário:</strong> {{ usuario }}</p>
+    {% if usuario_email %}<p><strong>E-mail:</strong> {{ usuario_email }}</p>{% endif %}
+    {% if usuario_id is not none %}<p><strong>ID do usuário:</strong> {{ usuario_id }}</p>{% endif %}
+    <p><strong>Categoria:</strong> {{ categoria }}</p>
+    <p><strong>Prioridade:</strong> {{ prioridade }}</p>
+    <p><strong>Título:</strong> {{ titulo_chamado }}</p>
+    <p><strong>Descrição:</strong><br/>{{ descricao }}</p>
+    <p><strong>Sistema Operacional:</strong> {{ sistema_operacional }}</p>
+    <p><strong>Browser:</strong> {{ browser }}</p>
+    {% if ip %}<p><strong>IP:</strong> {{ ip }}</p>{% endif %}
+    <p><strong>Data:</strong> {{ data }}</p>
+    <p><strong>Hora:</strong> {{ hora }}</p>
+    {% if anexos %}
+      <p><strong>Anexos:</strong></p>
+      <ul>
+        {% for anexo in anexos %}
+          <li>{{ anexo }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <p style="margin-top:20px;"><a href="{{ link }}" style="display:inline-block;padding:12px 18px;border-radius:999px;background:#2563eb;color:#ffffff;text-decoration:none;font-weight:700;">Ver chamado</a></p>
+  </div>
+  <p style="margin-top:18px;color:#94a3b8;line-height:1.6;">Caso haja anexos, acesse o painel do chamado para visualizar os detalhes.</p>
+{% endblock %}
