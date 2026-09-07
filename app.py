@@ -5250,7 +5250,7 @@ def cadastro():
                     email_pendente_mascarado=_mascarar_email(pendente['email']),
                 )
 
-            email = pendente['email']
+            email = _normalizar_email(pendente['email'])
             nome = pendente['nome']
             senha = pendente['senha']
             if email in USUARIOS_DB:
@@ -5341,8 +5341,13 @@ def login():
     if request.method == 'POST':
         email = _normalizar_email(request.form['email'])
         senha = request.form['senha']
+        app.logger.info('[AUTH] Login iniciado: email=%s', email)
         user = USUARIOS_DB.get(email)
+        app.logger.info('[AUTH] Usuário encontrado: %s', 'SIM' if user else 'NÃO')
+        if user:
+            app.logger.info('[AUTH] Hash encontrado: %s', 'SIM' if user.senha_esta_hasheada() else 'NÃO')
         if user and user.verificar_senha(senha):
+            app.logger.info('[AUTH] Verificação da senha: OK')
             if not user.senha_esta_hasheada():
                 user.definir_senha(senha)
                 persistir_usuario(user)
@@ -5352,7 +5357,9 @@ def login():
             session['is_admin'] = isinstance(user, Admin)
             session['csrf_token'] = secrets.token_hex(32)
             ONLINE_USERS.add(user.email)
+            app.logger.info('[AUTH] Sessão criada: SIM')
             return redirect(url_for('dashboard'))
+        app.logger.warning('[AUTH] Verificação da senha: FALHOU')
         flash("Credenciais inválidas.", "danger")
     return render_template('login.html')
 

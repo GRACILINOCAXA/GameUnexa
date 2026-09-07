@@ -3,7 +3,7 @@ import json
 import sqlite3
 from datetime import datetime
 from werkzeug.security import generate_password_hash
-from modelos.usuario import obter_senha_admin_padrao
+from modelos.usuario import normalizar_email, obter_senha_admin_padrao
 from modelos.suporte import CATEGORIAS_SUPORTE, STATUS_SUPORTE_INICIAIS
 from paths import DB_PATH, SUPPORT_UPLOAD_DIR
 
@@ -971,9 +971,12 @@ def persistir_usuario(user):
         cursor = conn.cursor()
         cursor.execute('PRAGMA table_info(usuarios)')
         colunas = {row[1] for row in cursor.fetchall()}
+        email_normalizado = normalizar_email(getattr(user, 'email', ''))
+        if hasattr(user, 'email'):
+            user.email = email_normalizado
 
         campos_insert = ['nome', 'email', 'password']
-        valores_insert = [user.nome, user.email, user._Usuario__password if hasattr(user, '_Usuario__password') else '']
+        valores_insert = [user.nome, email_normalizado, user._Usuario__password if hasattr(user, '_Usuario__password') else '']
 
         if 'token_recuperacao' in colunas:
             campos_insert.append('token_recuperacao')

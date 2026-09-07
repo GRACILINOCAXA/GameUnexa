@@ -9,6 +9,10 @@ from excecao import AutenticacaoError
 USUARIOS_DB = {}
 
 
+def normalizar_email(email: str) -> str:
+    return (email or '').strip().lower()
+
+
 def obter_senha_admin_padrao() -> str:
     return os.environ.get('ADMIN_PASSWORD') or secrets.token_urlsafe(32)
 
@@ -18,7 +22,7 @@ class Usuario(EntidadeBase):
     def __init__(self, id_entidade: int, nome: str, email: str, password: str):
         super().__init__(id_entidade)
         self.nome = nome
-        self.email = email
+        self.email = normalizar_email(email)
         self.__password = ''
         if password:
             if self.senha_esta_hasheada(password):
