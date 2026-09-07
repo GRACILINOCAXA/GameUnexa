@@ -461,11 +461,19 @@ def _carregar_env_local() -> None:
 
 _carregar_env_local()
 
+_SECRET_KEY = os.environ.get('SECRET_KEY')
+if not _SECRET_KEY:
+    if IS_VERCEL:
+        raise RuntimeError('SECRET_KEY deve ser configurada no ambiente da Vercel.')
+    _SECRET_KEY = 'gamelink-local-development-secret'
+
 app.config.update(
-    SECRET_KEY=os.environ.get('SECRET_KEY') or secrets.token_hex(32),
+    SECRET_KEY=_SECRET_KEY,
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE='Lax',
     SESSION_COOKIE_SECURE=(
+        IS_VERCEL
+        or
         os.environ.get('SESSION_COOKIE_SECURE', '0').strip().lower() in {'1', 'true', 'yes', 'on'}
         or os.environ.get('FLASK_ENV', '').strip().lower() in {'production', 'prod'}
     ),
@@ -1074,7 +1082,8 @@ def _proteger_sessoes_e_csrf():
                 )
                 return None
             app.logger.warning(
-                '[CSRF] Requisição inválida para %s: token presente=%s, session_has_token=%s',
+                '[CSRF] Requisição inválida: method=%s path=%s token presente=%s, session_has_token=%s',
+                request.method,
                 request.path,
                 bool(token),
                 'csrf_token' in session,
