@@ -666,6 +666,19 @@ def _normalizar_email(email: str) -> str:
     return (email or '').strip().lower()
 
 
+def _mascarar_email(email: str) -> str:
+    valor = _normalizar_email(email)
+    if not valor or '@' not in valor:
+        return valor
+    local, dominio = valor.split('@', 1)
+    if len(local) <= 1:
+        return f'{local or "*"}@{dominio}'
+    if len(local) == 2:
+        return f'{local[0]}*@{dominio}'
+    mascarado = f'{local[0]}{"*" * min(6, max(1, len(local) - 1))}'
+    return f'{mascarado}@{dominio}'
+
+
 def _gerar_codigo_verificacao() -> str:
     return f'{secrets.randbelow(1000000):06d}'
 
@@ -697,6 +710,7 @@ def _cadastro_pendente_valido() -> dict | None:
         return None
     if pendente.get('expira_em', 0) < time.time():
         session.pop('cadastro_pendente', None)
+        session.pop('cadastro_ultimo_envio', None)
         return None
     return pendente
 
@@ -5160,14 +5174,26 @@ def cadastro():
         if acao in {'verificar', 'reenviar'}:
             pendente = _cadastro_pendente_valido()
             if not pendente:
-                flash('Sua verificação expirou. Faça o cadastro novamente.', 'warning')
+                flash('Este código expirou. Solicite um novo código.', 'warning')
                 return render_template('cadastro.html', verificacao_pendente=False)
 
             if acao == 'reenviar':
+                agora = time.time()
+                ultimo_envio = float(session.get('cadastro_ultimo_envio', 0) or 0)
+                if agora - ultimo_envio < 30:
+                    flash('Aguarde alguns segundos antes de solicitar outro código.', 'warning')
+                    return render_template(
+                        'cadastro.html',
+                        verificacao_pendente=True,
+                        email_pendente=pendente['email'],
+                        email_pendente_mascarado=_mascarar_email(pendente['email']),
+                    )
+
                 novo_codigo = _gerar_codigo_verificacao()
                 pendente['codigo'] = novo_codigo
-                pendente['expira_em'] = time.time() + 600
+                pendente['expira_em'] = agora + 600
                 session['cadastro_pendente'] = pendente
+                session['cadastro_ultimo_envio'] = agora
                 try:
                     if _enviar_codigo_verificacao_email(pendente['email'], novo_codigo, pendente['nome']):
                         flash('Novo código enviado para seu e-mail.', 'info')
@@ -5178,18 +5204,30 @@ def cadastro():
                 except Exception as exc:
                     flash(f'Não foi possível reenviar o código: {exc}', 'danger')
                     codigo_local = pendente.get('codigo')
-                return render_template('cadastro.html', verificacao_pendente=True, email_pendente=pendente['email'], codigo_local=codigo_local)
+                return render_template(
+                    'cadastro.html',
+                    verificacao_pendente=True,
+                    email_pendente=pendente['email'],
+                    email_pendente_mascarado=_mascarar_email(pendente['email']),
+                    codigo_local=codigo_local,
+                )
 
             codigo_informado = (request.form.get('codigo_verificacao') or '').strip()
             if codigo_informado != pendente.get('codigo'):
                 flash('Código de verificação inválido.', 'danger')
-                return render_template('cadastro.html', verificacao_pendente=True, email_pendente=pendente['email'])
+                return render_template(
+                    'cadastro.html',
+                    verificacao_pendente=True,
+                    email_pendente=pendente['email'],
+                    email_pendente_mascarado=_mascarar_email(pendente['email']),
+                )
 
             email = pendente['email']
             nome = pendente['nome']
             senha = pendente['senha']
             if email in USUARIOS_DB:
                 session.pop('cadastro_pendente', None)
+                session.pop('cadastro_ultimo_envio', None)
                 flash('E-mail já cadastrado!', 'danger')
                 return render_template('cadastro.html', verificacao_pendente=False)
 
@@ -5215,36 +5253,60 @@ def cadastro():
                 background=True,
             )
             session.pop('cadastro_pendente', None)
+            session.pop('cadastro_ultimo_envio', None)
             flash('E-mail verificado. Cadastro concluído!', 'success')
             return redirect(url_for('login'))
 
-        nome = request.form['nome'].strip()
-        email = _normalizar_email(request.form['email'])
-        senha = request.form['senha']
+        nome = request.form.get('nome', '').strip()
+        email = _normalizar_email(request.form.get('email', ''))
+        senha = request.form.get('senha', '')
+        if not nome or not email or not senha:
+            flash('Preencha nome, e-mail e senha para continuar.', 'danger')
+            return render_template('cadastro.html', verificacao_pendente=False)
         if email in USUARIOS_DB:
-            flash("E-mail já cadastrado!", "danger")
-        else:
-            codigo = _gerar_codigo_verificacao()
-            session['cadastro_pendente'] = {
-                'nome': nome,
-                'email': email,
-                'senha': senha,
-                'codigo': codigo,
-                'expira_em': time.time() + 600,
-            }
-            try:
-                if _enviar_codigo_verificacao_email(email, codigo, nome):
-                    flash('Enviamos um código de verificação para o seu e-mail.', 'info')
-                    codigo_local = None
-                else:
-                    flash('SMTP não configurado. O código foi exibido localmente para teste.', 'warning')
-                    codigo_local = codigo
-                return render_template('cadastro.html', verificacao_pendente=True, email_pendente=email, codigo_local=codigo_local)
-            except Exception as exc:
-                flash(f'Não foi possível enviar o e-mail de verificação: {exc}', 'danger')
-                return render_template('cadastro.html', verificacao_pendente=True, email_pendente=email, codigo_local=codigo)
+            flash('E-mail já cadastrado!', 'danger')
+            return render_template('cadastro.html', verificacao_pendente=False)
+
+        codigo = _gerar_codigo_verificacao()
+        session['cadastro_pendente'] = {
+            'nome': nome,
+            'email': email,
+            'senha': senha,
+            'codigo': codigo,
+            'expira_em': time.time() + 600,
+        }
+        session['cadastro_ultimo_envio'] = time.time()
+        try:
+            if _enviar_codigo_verificacao_email(email, codigo, nome):
+                flash('Enviamos um código de verificação para seu e-mail.', 'info')
+                codigo_local = None
+            else:
+                flash('SMTP não configurado. O código foi exibido localmente para teste.', 'warning')
+                codigo_local = codigo
+            return render_template(
+                'cadastro.html',
+                verificacao_pendente=True,
+                email_pendente=email,
+                email_pendente_mascarado=_mascarar_email(email),
+                codigo_local=codigo_local,
+            )
+        except Exception as exc:
+            flash(f'Não foi possível enviar o e-mail de verificação: {exc}', 'danger')
+            return render_template(
+                'cadastro.html',
+                verificacao_pendente=True,
+                email_pendente=email,
+                email_pendente_mascarado=_mascarar_email(email),
+                codigo_local=codigo,
+            )
     pendente = _cadastro_pendente_valido()
-    return render_template('cadastro.html', verificacao_pendente=bool(pendente), email_pendente=(pendente or {}).get('email'), codigo_local=(pendente or {}).get('codigo'))
+    return render_template(
+        'cadastro.html',
+        verificacao_pendente=bool(pendente),
+        email_pendente=(pendente or {}).get('email'),
+        email_pendente_mascarado=_mascarar_email((pendente or {}).get('email') or ''),
+        codigo_local=(pendente or {}).get('codigo'),
+    )
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
