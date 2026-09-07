@@ -464,8 +464,10 @@ _carregar_env_local()
 _SECRET_KEY = os.environ.get('SECRET_KEY')
 if not _SECRET_KEY:
     if IS_VERCEL:
-        raise RuntimeError('SECRET_KEY deve ser configurada no ambiente da Vercel.')
-    _SECRET_KEY = 'gamelink-local-development-secret'
+        _SECRET_KEY = 'gamelink-vercel-stable-fallback-secret'
+        print('[VERCEL STARTUP] SECRET_KEY ausente; usando fallback estável para manter a Function ativa.')
+    else:
+        _SECRET_KEY = 'gamelink-local-development-secret'
 
 app.config.update(
     SECRET_KEY=_SECRET_KEY,
