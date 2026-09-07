@@ -7,6 +7,8 @@ import sys
 from pathlib import Path
 
 APP_NAME = "GAME-UNEXA"
+IS_WINDOWS = os.name == "nt"
+IS_VERCEL = os.environ.get("VERCEL") == "1"
 
 
 def resource_path(relative_path: str = "") -> str:
@@ -20,7 +22,7 @@ def resource_path(relative_path: str = "") -> str:
 
 def get_app_data_dir() -> str:
     """Retorna a raiz gravavel do usuario, sem depender do diretorio atual."""
-    if os.environ.get("VERCEL") == "1":
+    if IS_VERCEL:
         return str(Path(os.environ.get("TMPDIR") or "/tmp") / APP_NAME)
 
     local_app_data = os.environ.get("LOCALAPPDATA")
@@ -74,7 +76,7 @@ def ensure_app_data_dirs() -> None:
 try:
     ensure_app_data_dirs()
 except OSError as exc:
-    if os.environ.get("VERCEL") != "1":
+    if IS_WINDOWS and not IS_VERCEL:
         try:
             import tkinter as tk
             from tkinter import messagebox

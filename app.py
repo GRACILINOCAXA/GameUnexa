@@ -497,15 +497,16 @@ try:
     ensure_app_data_dirs()
 except OSError as exc:
     print(str(exc), file=sys.stderr)
-    try:
-        import tkinter as tk
-        from tkinter import messagebox
-        root = tk.Tk()
-        root.withdraw()
-        messagebox.showerror('GAME-UNEXA', str(exc))
-        root.destroy()
-    except Exception:
-        pass
+    if IS_WINDOWS and not IS_VERCEL:
+        try:
+            import tkinter as tk
+            from tkinter import messagebox
+            root = tk.Tk()
+            root.withdraw()
+            messagebox.showerror('GAME-UNEXA', str(exc))
+            root.destroy()
+        except Exception:
+            pass
     raise SystemExit(1) from exc
 
 # Inicializa o banco de dados SQLite se ainda não existir
@@ -1073,14 +1074,6 @@ def _proteger_sessoes_e_csrf():
     if request.method in {'POST', 'PUT', 'DELETE', 'PATCH'}:
         token = request.form.get('csrf_token') or request.headers.get('X-CSRF-Token')
         if not token or not secrets.compare_digest(token, session.get('csrf_token', '')):
-            if request.path == '/hydra/detectar-sessao' and session.get('user_email'):
-                app.logger.warning(
-                    '[CSRF] Ignorando validação CSRF para Hydra Cache local em %s: token presente=%s, session_has_token=%s',
-                    request.path,
-                    bool(token),
-                    'csrf_token' in session,
-                )
-                return None
             app.logger.warning(
                 '[CSRF] Requisição inválida: method=%s path=%s token presente=%s, session_has_token=%s',
                 request.method,
@@ -5267,7 +5260,7 @@ def login():
             session['user_email'] = user.email
             session['user_nome'] = user.nome
             session['is_admin'] = isinstance(user, Admin)
-            session['csrf_token'] = _gerar_csrf_token()
+            session['csrf_token'] = secrets.token_hex(32)
             ONLINE_USERS.add(user.email)
             return redirect(url_for('dashboard'))
         flash("Credenciais inválidas.", "danger")

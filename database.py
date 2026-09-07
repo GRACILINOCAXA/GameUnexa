@@ -595,7 +595,11 @@ def init_db():
     print(f'Arquivo SQLite: {os.path.abspath(DB_PATH)}')
     print('================================')
     conn = get_connection()
-    conn.execute('PRAGMA journal_mode = WAL;')
+    try:
+        conn.execute('PRAGMA journal_mode = WAL;')
+    except sqlite3.OperationalError:
+        # Alguns filesystems serverless nao permitem alterar o journal.
+        conn.execute('PRAGMA journal_mode = DELETE;')
     conn.executescript(SCHEMA)
     _ensure_usuario_columns(conn)
     _ensure_biblioteca_columns(conn)
