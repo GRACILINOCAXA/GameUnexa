@@ -52,6 +52,32 @@ IS_WINDOWS = os.name == 'nt'
 IS_VERCEL = os.environ.get('VERCEL') == '1'
 ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL') or 'admin@gamelink.com'
 
+
+def is_desktop_gameunexa() -> bool:
+    return IS_WINDOWS and not IS_VERCEL
+
+
+def is_web_gameunexa() -> bool:
+    return not is_desktop_gameunexa()
+
+
+def format_folder_label(display_name: str, folder_path: str = '') -> str:
+    label_name = (display_name or 'Pasta').strip() or 'Pasta'
+    safe_path = (folder_path or '').strip()
+    if safe_path:
+        return f"📁 {label_name}\n{safe_path}"
+    return f"📁 {label_name}\nPasta selecionada no computador"
+
+
+def build_browser_library_reference(display_name: str, folder_path: str = '') -> str:
+    safe_name = (display_name or 'Pasta').strip() or 'Pasta'
+    safe_path = (folder_path or '').strip()
+    if safe_path.startswith('browser:'):
+        return safe_path
+    if safe_path:
+        return f"browser:{safe_name}|{safe_path}"
+    return f"browser:{safe_name}|{safe_name}"
+
 from paths import CACHE_DIR, ENV_PATH, UPLOADS_DIR, SUPPORT_UPLOAD_DIR, ensure_app_data_dirs, resource_path, TEMP_DIR
 from excecao import GameLinkException, AutenticacaoError, OperacaoInvalidaError
 from steam_audit import (
@@ -7808,8 +7834,12 @@ def _scan_biblioteca_automatica(email: str) -> None:
     with _AUTO_LIBRARY_STATUS_LOCK:
         _AUTO_LIBRARY_STATUS[email] = {'status': 'scanning', 'found': 0, 'error': ''}
     try:
+        server_folders = [
+            folder for folder in (getattr(user, 'auto_library_folders', []) or [])
+            if not str(folder).strip().lower().startswith('browser:')
+        ]
         registros = scan_automatic_library(
-            getattr(user, 'auto_library_folders', []) or [],
+            server_folders,
             include_steam=True,
             steam_root=getattr(user, 'steam_library_path', '') or '',
         )
@@ -7872,6 +7902,8 @@ def biblioteca_automatica_config():
         'scan_status': scan_status.get('status', 'idle'),
         'scan_found': scan_status.get('found', 0),
         'scan_error': scan_status.get('error', ''),
+        'desktop_mode': is_desktop_gameunexa(),
+        'web_mode': is_web_gameunexa(),
     })
 
 
@@ -7879,8 +7911,77 @@ def biblioteca_automatica_config():
 def selecionar_pasta_biblioteca_automatica():
     if not session.get('user_email'):
         return jsonify({'ok': False, 'erro': 'login'}), 401
-    pasta = _escolher_pasta_windows()
-    return jsonify({'ok': True, 'pasta': pasta})
+    try:
+        if is_desktop_gameunexa():
+            pasta = _escolher_pasta_windows()
+            if not pasta:
+                return jsonify({'ok': False, 'erro': 'Seleção cancelada.'}), 400
+            return jsonify({'ok': True, 'pasta': pasta, 'mode': 'desktop'})
+        return jsonify({'ok': False, 'erro': 'Seleção direta de pasta não está disponível no navegador. Use o seletor do navegador.', 'mode': 'web'}), 400
+    except Exception as exc:
+        app.logger.warning('[auto-library] selecionar_pasta_biblioteca_automatica: %s', exc)
+        return jsonify({'ok': False, 'erro': 'Não foi possível abrir o seletor de pasta.'}), 400
+
+
+@app.route('/api/library/select-folder', methods=['POST'])
+def api_library_select_folder():
+    if not session.get('user_email'):
+        return jsonify({'ok': False, 'erro': 'login'}), 401
+    if is_desktop_gameunexa():
+        pasta = _escolher_pasta_windows()
+        if not pasta:
+            return jsonify({'ok': False, 'erro': 'Seleção cancelada.'}), 400
+        return jsonify({'ok': True, 'folder': pasta, 'display': format_folder_label('Pasta selecionada', pasta), 'mode': 'desktop'})
+    return jsonify({'ok': False, 'erro': 'Seleção de pasta do navegador deve ocorrer no frontend com showDirectoryPicker().', 'mode': 'web'}), 400
+
+
+@app.route('/api/library/local/import', methods=['POST'])
+def api_library_local_import():
+    meu_email = session.get('user_email')
+    if not meu_email:
+        return jsonify({'ok': False, 'erro': 'login'}), 401
+
+    payload = request.get_json(silent=True) or {}
+    games = payload.get('games') if isinstance(payload, dict) else None
+    if not isinstance(games, list):
+        return jsonify({'ok': False, 'erro': 'Lista de jogos inválida.'}), 400
+
+    registros = []
+    for item in games:
+        if not isinstance(item, dict):
+            continue
+        nome = (item.get('name') or item.get('nome') or '').strip()
+        if not nome:
+            continue
+
+        library_root = (item.get('path') or item.get('library_root') or item.get('folder') or '').strip()
+        exe_name = (item.get('executable') or item.get('exe_name') or item.get('executable_name') or '').strip()
+        exe_path = (item.get('executable_path') or item.get('exe_path') or exe_name).strip()
+
+        registros.append({
+            'nome': nome,
+            'launcher': 'manual',
+            'appid': str(item.get('appid') or '').strip(),
+            'library_root': library_root,
+            'game_folder': library_root,
+            'exe_name': exe_name,
+            'exe_path': exe_path,
+            'installed': True,
+            'favorite': bool(item.get('favorite')),
+            'last_scan': datetime.now().isoformat(timespec='seconds'),
+            'hash': '',
+        })
+
+    if not registros:
+        return jsonify({'ok': False, 'erro': 'Nenhum jogo válido foi encontrado para importação.'}), 400
+
+    total_biblioteca = _persistir_jogos_descobertos(meu_email, registros, 'manual')
+    total_installed = persistir_registros_instalados(meu_email, registros, 'manual')
+    user = USUARIOS_DB.get((meu_email or '').strip().lower())
+    if user is not None:
+        user.auto_last_scan = datetime.now().isoformat(timespec='seconds')
+        persistir_usuario(user)
+    return jsonify({'ok': True, 'imported': total_biblioteca, 'installed': total_installed, 'total': max(total_biblioteca, total_installed)})
 
 
 @app.route('/jogar/biblioteca-automatica/scan', methods=['POST'])
