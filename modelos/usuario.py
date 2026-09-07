@@ -1,4 +1,5 @@
 import os
+import secrets
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from modelos.base import EntidadeBase
@@ -9,7 +10,7 @@ USUARIOS_DB = {}
 
 
 def obter_senha_admin_padrao() -> str:
-    return os.environ.get('ADMIN_PASSWORD') or 'GameLink@Admin#2026'
+    return os.environ.get('ADMIN_PASSWORD') or secrets.token_urlsafe(32)
 
 
 class Usuario(EntidadeBase):

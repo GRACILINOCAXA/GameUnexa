@@ -47,6 +47,11 @@ from pathlib import Path
 from uuid import uuid4
 import secrets
 import sqlite3
+
+IS_WINDOWS = os.name == 'nt'
+IS_VERCEL = os.environ.get('VERCEL') == '1'
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL') or 'admin@gamelink.com'
+
 from paths import CACHE_DIR, ENV_PATH, UPLOADS_DIR, SUPPORT_UPLOAD_DIR, ensure_app_data_dirs, resource_path, TEMP_DIR
 from excecao import GameLinkException, AutenticacaoError, OperacaoInvalidaError
 from steam_audit import (
@@ -62,13 +67,37 @@ from steam_audit import (
 )
 from steam_api import obter_jogos, obter_perfil, obter_status, obter_jogo
 from steam_api import obter_jogos, obter_perfil, obter_status, obter_jogo, obter_estatisticas_jogo, formatar_playtime
-from steam_local import listar_jogos_instalados
 from library_manager import unificar_biblioteca, scan_library_root, persistir_registros_instalados
-from automatic_library import scan_automatic_library, scan_local_folders
 from launcher_manager import LauncherManager
-from process_detector import inicializar_detector, parar_detector, obter_detector
 from presenca_sync import callback_mudanca_presenca, callback_mudanca_presenca_global
 import time
+
+if IS_WINDOWS:
+    from steam_local import listar_jogos_instalados
+    from automatic_library import scan_automatic_library, scan_local_folders
+    from folder_picker import select_folder
+    from process_detector import inicializar_detector, parar_detector, obter_detector
+else:
+    def listar_jogos_instalados(*args, **kwargs):
+        return []
+
+    def scan_automatic_library(*args, **kwargs):
+        return []
+
+    def scan_local_folders(*args, **kwargs):
+        return []
+
+    def select_folder() -> str:
+        return ''
+
+    def inicializar_detector(*args, **kwargs):
+        return None
+
+    def parar_detector(*args, **kwargs):
+        return None
+
+    def obter_detector(*args, **kwargs):
+        return None
 
 # Cache global para rastrear estado de presença e saber se necessita sincronização
 _CACHE_ESTADO_PRESENCA = {}  # {email: {'steam': bool, 'hydra': bool, 'timestamp': float}}
@@ -86,11 +115,15 @@ from modelos.suporte import (
     gerar_codigo_suporte,
 )
 
-try:
-    import webview
-except Exception as exc:
+if IS_WINDOWS and not IS_VERCEL:
+    try:
+        import webview
+    except Exception as exc:
+        webview = None
+        WEBVIEW_IMPORT_ERROR = exc
+else:
     webview = None
-    WEBVIEW_IMPORT_ERROR = exc
+    WEBVIEW_IMPORT_ERROR = None
 from database import (
     init_db,
     get_connection,
@@ -779,10 +812,10 @@ def _salvar_usuario_no_banco(user) -> None:
 def _garantir_admin_no_banco() -> None:
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute('SELECT COUNT(*) FROM usuarios WHERE email = ?', ('admin@gamelink.com',))
+    cursor.execute('SELECT COUNT(*) FROM usuarios WHERE email = ?', (ADMIN_EMAIL,))
     if cursor.fetchone()[0] == 0:
         senha_admin = obter_senha_admin_padrao()
-        admin_obj = Admin(1, 'Caxa', 'admin@gamelink.com', senha_admin, nivel_acesso=5)
+        admin_obj = Admin(1, 'Caxa', ADMIN_EMAIL, senha_admin, nivel_acesso=5)
         admin_obj.definir_senha(senha_admin)
         cursor.execute(
             'INSERT INTO usuarios (id, nome, email, password, is_admin) VALUES (?, ?, ?, ?, ?)',
@@ -3778,54 +3811,9 @@ LAUNCHER_MANAGER = LauncherManager(logger=_registrar_log)
 
 
 def _escolher_pasta_windows() -> str:
-    try:
-        if os.name == 'nt' and webview is not None:
-            if getattr(webview, 'windows', None):
-                resultado = webview.windows[0].create_file_dialog(webview.FOLDER_DIALOG)
-                if isinstance(resultado, (list, tuple)):
-                    return resultado[0] if resultado else ''
-                if resultado:
-                    return str(resultado)
-    except Exception as exc:
-        _registrar_log(f'Erro ao abrir diálogo pywebview: {exc}')
+    """Compatibilidade interna para o seletor Win32 SHBrowseForFolderW/SHGetPathFromIDListW."""
+    return select_folder()
 
-    try:
-        if os.name == 'nt':
-            import json
-            import sys
-            import tempfile
-            import time
-            from pathlib import Path
-
-            temp_dir = Path(tempfile.mkdtemp(prefix='gamelink-picker-', dir=str(TEMP_DIR)))
-            temp_file = temp_dir / 'selection.json'
-            script = r'''
-import json
-import os
-import sys
-import tkinter as tk
-from tkinter import filedialog
-
-root = tk.Tk()
-root.withdraw()
-root.attributes("-topmost", True)
-pasta = filedialog.askdirectory(title="Selecionar pasta")
-root.destroy()
-with open(sys.argv[1], "w", encoding="utf-8") as handle:
-    json.dump({"path": pasta or ""}, handle)
-'''
-            subprocess.run([sys.executable, '-c', script, str(temp_file)], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            for _ in range(40):
-                if temp_file.exists():
-                    break
-                time.sleep(0.1)
-            if temp_file.exists():
-                with temp_file.open('r', encoding='utf-8') as handle:
-                    data = json.load(handle)
-                return str(data.get('path') or '')
-    except Exception as exc:
-        _registrar_log(f'Erro ao abrir seletor de pasta: {exc}')
-    return ''
 
 def _escolher_executavel_windows() -> str:
     """Abre o seletor nativo para escolher somente um executável."""
@@ -3844,38 +3832,22 @@ def _escolher_executavel_windows() -> str:
 
     try:
         if os.name == 'nt':
-            import json
-            import sys
-            import tempfile
-            import time
-            from pathlib import Path
+            import tkinter as tk
+            from tkinter import filedialog
 
-            temp_dir = Path(tempfile.mkdtemp(prefix='gamelink-picker-', dir=str(TEMP_DIR)))
-            temp_file = temp_dir / 'selection.json'
-            script = r'''
-import json
-import sys
-import tkinter as tk
-from tkinter import filedialog
-
-root = tk.Tk()
-root.withdraw()
-root.attributes("-topmost", True)
-arquivo = filedialog.askopenfilename(title="Selecionar executável", filetypes=[("Executáveis", "*.exe")])
-root.destroy()
-with open(sys.argv[1], "w", encoding="utf-8") as handle:
-    json.dump({"path": arquivo or ""}, handle)
-'''
-            subprocess.run([sys.executable, '-c', script, str(temp_file)], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            for _ in range(40):
-                if temp_file.exists():
-                    break
-                time.sleep(0.1)
-            if temp_file.exists():
-                with temp_file.open('r', encoding='utf-8') as handle:
-                    return str(json.load(handle).get('path') or '')
+            root = tk.Tk()
+            root.withdraw()
+            root.attributes('-topmost', True)
+            try:
+                arquivo = filedialog.askopenfilename(
+                    title='Selecionar executável',
+                    filetypes=[('Executáveis', '*.exe')],
+                )
+            finally:
+                root.destroy()
+            return str(arquivo or '').strip()
     except Exception as exc:
-        _registrar_log(f'Erro ao abrir seletor de executável: {exc}')
+        _registrar_log(f'Erro ao abrir seletor de executável via Tk: {exc}')
     return ''
 
 
@@ -4500,6 +4472,16 @@ def _iniciar_jogo(item) -> dict:
     return resultado
 
 
+def _steam_normalizar_appid(valor) -> str:
+    texto = str(valor or '').strip()
+    if not texto:
+        return ''
+    try:
+        return str(int(float(texto)))
+    except (TypeError, ValueError):
+        return ''
+
+
 def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str | None]:
     _garantir_biblioteca_db_consistente()
     user = USUARIOS_DB.get(meu_email)
@@ -4510,37 +4492,66 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
     raiz_steam = (getattr(user, 'steam_library_path', '') or '').strip() or None
     jogos_manifest = listar_jogos_instalados(steam_root=raiz_steam, force=True)
     jogos_api = steam_contexto.get('jogos', []) or []
-    api_por_appid = {
-        str(jogo.get('appid') or ''): jogo
-        for jogo in jogos_api
-        if str(jogo.get('appid') or '').strip()
-    }
-    jogos_conectados = []
-    for jogo_local in jogos_manifest:
-        appid = str(jogo_local.get('appid') or '').strip()
-        jogo_api = api_por_appid.get(appid, {})
-        jogos_conectados.append({**jogo_api, **jogo_local})
-    appids_manifest = {str(jogo.get('appid') or '') for jogo in jogos_manifest}
-    jogos_conectados.extend(
-        jogo for jogo in jogos_api
-        if str(jogo.get('appid') or '') not in appids_manifest
-    )
+
+    jogos_por_appid: dict[str, dict] = {}
+    for jogo in jogos_manifest + jogos_api:
+        appid = _steam_normalizar_appid(jogo.get('appid') or jogo.get('id'))
+        if not appid:
+            continue
+        atual = jogos_por_appid.get(appid) or {}
+        jogos_por_appid[appid] = {**atual, **jogo, 'appid': int(appid)}
+
+    jogos_conectados = list(jogos_por_appid.values())
     steam_contexto['jogos'] = jogos_conectados
+
     if not jogos_conectados:
         return 0, 0, steam_contexto.get('erro') or 'Nenhum jogo encontrado nos manifests locais ou na biblioteca Steam.'
 
     steam_id64 = steam_contexto.get('steam_id64', '')
     jogos_encontrados = len(jogos_conectados)
-    
+    current_appids = {str(jogo.get('appid') or '').strip() for jogo in jogos_conectados if str(jogo.get('appid') or '').strip()}
+
+    print(f'[STEAM IMPORT] user={meu_email} steam_id64={steam_id64} api={len(jogos_api)} manifest={len(jogos_manifest)} unidos={len(jogos_conectados)}')
+    print(f'[STEAM IMPORT] AppIDs atuais: {sorted(map(int, current_appids))[:10]} ... total={len(current_appids)}')
+
+    removidos_steam = 0
+    for item in list(BIBLIOTECA_DB.values()):
+        if item.email_usuario != meu_email:
+            continue
+
+        origem = (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower()
+        codigo = _steam_normalizar_appid(getattr(item, 'codigo_origem', '') or getattr(item, 'jogo_id', ''))
+        if getattr(item, 'manual_override', False) and not codigo:
+            continue
+
+        if origem == 'steam' or codigo:
+            if codigo and codigo not in current_appids:
+                BIBLIOTECA_DB.pop(f"{meu_email}_{item.jogo_id}", None)
+                try:
+                    remover_biblioteca_item(meu_email, item.jogo_id)
+                except Exception:
+                    pass
+                removidos_steam += 1
+                continue
+
+            if not codigo and origem == 'steam' and not str(item.jogo_id).strip().isdigit():
+                BIBLIOTECA_DB.pop(f"{meu_email}_{item.jogo_id}", None)
+                try:
+                    remover_biblioteca_item(meu_email, item.jogo_id)
+                except Exception:
+                    pass
+                removidos_steam += 1
+    print(f'[STEAM IMPORT] removidos_stale={removidos_steam}')
+
     log_import_iniciado(meu_email, steam_id64, jogos_encontrados)
 
     jogos_importados = 0
     jogos_ja_existiam = 0
-    jogos_com_erro = 0
+    produtos_validos = []
     appids_importados = []
     appids_atualizados = []
 
-    for jogo_steam in steam_contexto.get('jogos', []):
+    for jogo_steam in jogos_conectados:
         appid = int(jogo_steam.get('appid') or 0)
         if not appid:
             continue
@@ -4556,7 +4567,14 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
 
             chave_biblioteca = f"{meu_email}_{appid}"
             item_existente = BIBLIOTECA_DB.get(chave_biblioteca)
-            
+            if item_existente is None:
+                item_existente = next(
+                    (item for item in BIBLIOTECA_DB.values()
+                     if item.email_usuario == meu_email and str(getattr(item, 'codigo_origem', '') or '').strip() == str(appid)
+                     and (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower() == 'steam'),
+                    None,
+                )
+
             if item_existente is not None:
                 jogos_ja_existiam += 1
                 horas_jogadas = int(round((jogo_steam.get('playtime_forever') or 0) / 60))
@@ -4565,9 +4583,12 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
                 item_existente.origem = 'steam'
                 item_existente.launcher = 'steam'
                 item_existente.codigo_origem = str(appid)
+                item_existente.jogo_id = appid
+                item_existente.email_usuario = meu_email
                 persistir_biblioteca_item(item_existente)
                 log_jogo_atualizado_biblioteca(meu_email, appid, jogo_steam.get('name', 'Desconhecido'), horas_jogadas)
                 appids_atualizados.append(appid)
+                produtos_validos.append(appid)
                 continue
 
             novo_id_biblioteca = max([b.id for b in BIBLIOTECA_DB.values()], default=0) + 1
@@ -4582,25 +4603,28 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
             jogos_importados += 1
             log_jogo_adicionado_biblioteca(meu_email, appid, jogo_steam.get('name', 'Desconhecido'), horas_jogadas)
             appids_importados.append(appid)
-            
+            produtos_validos.append(appid)
+
         except Exception as e:
-            jogos_com_erro += 1
             log_jogo_import_erro(meu_email, appid, str(e))
             continue
 
-    # Valida o resultado final no banco
     biblioteca_usuario = GerenciadorBiblioteca.obter_biblioteca(meu_email)
-    quantidade_banco = len(biblioteca_usuario)
-    appids_banco = [item.jogo_id for item in biblioteca_usuario]
-    
+    biblioteca_steam = [
+        item for item in biblioteca_usuario
+        if (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower() == 'steam'
+    ]
+    quantidade_banco = len(biblioteca_steam)
+    appids_banco = [int(str(getattr(item, 'codigo_origem', '') or getattr(item, 'jogo_id', '')).strip()) for item in biblioteca_steam if str(getattr(item, 'codigo_origem', '') or getattr(item, 'jogo_id', '')).strip().isdigit()]
+
+    print(f'[STEAM IMPORT] banco_steam_final={quantidade_banco} appids={appids_banco[:10]}')
     log_validacao_banco_dados(meu_email, steam_id64, quantidade_banco, appids_banco)
 
-    # Calcula discrepâncias
-    jogos_perdidos = jogos_encontrados - jogos_importados - jogos_ja_existiam
+    jogos_perdidos = max(0, jogos_encontrados - len(set(appids_banco) | set(produtos_validos)))
     if jogos_perdidos > 0:
-        appids_encontrados = [int(j.get('appid', 0)) for j in steam_contexto.get('jogos', [])]
+        appids_encontrados = [int(j.get('appid', 0)) for j in jogos_conectados if str(j.get('appid', 0)).strip()]
         appids_nao_importados = [aid for aid in appids_encontrados if aid not in appids_importados and aid not in appids_atualizados]
-        log_discrepancia('ENCONTRADOS', jogos_encontrados, 'IMPORTADOS', jogos_importados + jogos_ja_existiam, appids_nao_importados)
+        log_discrepancia('ENCONTRADOS', jogos_encontrados, 'IMPORTADOS', len(set(appids_banco) | set(produtos_validos)), appids_nao_importados)
 
     log_import_finalizado(meu_email, steam_id64, jogos_encontrados, jogos_importados, jogos_ja_existiam, jogos_perdidos)
 
@@ -5115,8 +5139,9 @@ if not JOGOS_DB:
     persistir_jogo(j2, [c1])
     persistir_jogo(j3, [c2])
 
-    if "admin@gamelink.com" not in USUARIOS_DB:
-        admin = Admin(1, "Caxa", "admin@gamelink.com", "admin123", nivel_acesso=5)
+    if ADMIN_EMAIL not in USUARIOS_DB:
+        admin_password = obter_senha_admin_padrao()
+        admin = Admin(1, "Caxa", ADMIN_EMAIL, admin_password, nivel_acesso=5)
         USUARIOS_DB[admin.email.lower()] = admin
         persistir_usuario(admin)
 
@@ -7789,8 +7814,6 @@ def selecionar_pasta_biblioteca_automatica():
     if not session.get('user_email'):
         return jsonify({'ok': False, 'erro': 'login'}), 401
     pasta = _escolher_pasta_windows()
-    if not pasta:
-        return jsonify({'ok': False, 'erro': 'pasta-nao-selecionada'}), 400
     return jsonify({'ok': True, 'pasta': pasta})
 
 
@@ -8908,15 +8931,24 @@ def api_amigos(email):
 from threading import Event, Thread
 import webbrowser
 
-try:
-    import webview
-except Exception as exc:
+if IS_WINDOWS and not IS_VERCEL:
+    try:
+        import webview
+    except Exception as exc:
+        webview = None
+        WEBVIEW_IMPORT_ERROR = exc
+else:
     webview = None
-    WEBVIEW_IMPORT_ERROR = exc
+    WEBVIEW_IMPORT_ERROR = None
 
 
 def iniciar_flask():
     app.run(host='127.0.0.1', port=5000, debug=False, use_reloader=False)
+
+
+class DesktopApi:
+    def select_folder(self) -> str:
+        return select_folder()
 
 
 if __name__ == '__main__':
@@ -8942,7 +8974,8 @@ if __name__ == '__main__':
                 'GameUnexa',
                 'http://127.0.0.1:5000/login',
                 width=1400,
-                height=900
+                height=900,
+                js_api=DesktopApi(),
             )
             webview.start()
         except Exception as exc:

@@ -20,6 +20,9 @@ def resource_path(relative_path: str = "") -> str:
 
 def get_app_data_dir() -> str:
     """Retorna a raiz gravavel do usuario, sem depender do diretorio atual."""
+    if os.environ.get("VERCEL") == "1":
+        return str(Path(os.environ.get("TMPDIR") or "/tmp") / APP_NAME)
+
     local_app_data = os.environ.get("LOCALAPPDATA")
     if local_app_data:
         return str(Path(local_app_data) / APP_NAME)
@@ -71,14 +74,15 @@ def ensure_app_data_dirs() -> None:
 try:
     ensure_app_data_dirs()
 except OSError as exc:
-    try:
-        import tkinter as tk
-        from tkinter import messagebox
-        root = tk.Tk()
-        root.withdraw()
-        messagebox.showerror(APP_NAME, str(exc))
-        root.destroy()
-    except Exception:
-        pass
+    if os.environ.get("VERCEL") != "1":
+        try:
+            import tkinter as tk
+            from tkinter import messagebox
+            root = tk.Tk()
+            root.withdraw()
+            messagebox.showerror(APP_NAME, str(exc))
+            root.destroy()
+        except Exception:
+            pass
     raise SystemExit(1) from exc
 
