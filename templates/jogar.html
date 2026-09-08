@@ -1,0 +1,793 @@
+{% extends 'base.html' %}
+{% block content %}
+<div data-library-view="2d">
+<style>
+    .jogar-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 0 0 1.5rem;
+        padding: 1rem 1.25rem;
+        border: 1px solid rgba(56, 189, 248, 0.25);
+        border-radius: 12px;
+        background: rgba(5, 18, 36, 0.72);
+    }
+    .jogar-pagination-info {
+        color: rgba(226, 232, 240, 0.72);
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+    .jogar-pagination-info strong {
+        color: #67e8f9;
+    }
+    .jogar-page-list {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+    .jogar-page-button {
+        min-width: 2.25rem;
+        height: 2.25rem;
+        padding: 0 0.65rem;
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        border-radius: 7px;
+        background: rgba(15, 32, 55, 0.9);
+        color: #e2e8f0;
+        font-weight: 600;
+    }
+    .jogar-page-button:hover:not(:disabled),
+    .jogar-page-button.active {
+        border-color: #22d3ee;
+        background: #0891b2;
+        color: #fff;
+    }
+    .jogar-page-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+    }
+    .jogar-modal-config {
+        max-width: 760px;
+    }
+    .jogar-modal-config .modal-body {
+        padding: 1.1rem 1.1rem 0.85rem;
+    }
+    .jogar-config-block {
+        background: rgba(15, 23, 42, 0.68);
+        border: 1px solid rgba(34, 197, 94, 0.24);
+        border-radius: 0.9rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .jogar-config-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.75rem;
+    }
+    .jogar-config-header .form-check.form-switch {
+        margin-left: auto;
+        margin-bottom: 0;
+    }
+    .jogar-config-input {
+        min-width: 0;
+        flex: 1 1 auto;
+    }
+    .jogar-config-link {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0;
+        font-size: 0.8rem;
+        text-align: left;
+        text-decoration: none;
+    }
+    .jogar-config-link:hover {
+        text-decoration: underline;
+    }
+    @media (max-width: 640px) {
+        .jogar-pagination {
+            align-items: stretch;
+            flex-direction: column;
+        }
+        .jogar-pagination-info {
+            text-align: center;
+        }
+        .jogar-page-list {
+            justify-content: center;
+        }
+        .jogar-config-header {
+            align-items: flex-start;
+        }
+    }
+</style>
+<div class="container py-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <h2 class="fw-bold mb-1">🎮 Jogar</h2>
+            <p class="text-white-50 mb-0">Inicie Steam, Hydra ou executáveis diretamente pelo GameUnexa, usando a sua biblioteca existente.</p>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+            <div class="library-view-picker position-relative" data-library-view-picker>
+                <button type="button" class="btn btn-outline-info" data-library-view-toggle aria-expanded="false">Configurações <span data-library-view-label>2D</span> ▼</button>
+                <div class="dropdown-menu dropdown-menu-end p-1" data-library-view-menu hidden>
+                    <button type="button" class="dropdown-item active" data-library-view-option="2d" aria-selected="true">2D</button>
+                    <button type="button" class="dropdown-item" data-library-view-option="3d" aria-selected="false">3D</button>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-info" id="btn-atualizar-biblioteca">🔄 Atualizar Biblioteca</button>
+            <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#configuracoesLauncherModal">⚙️</button>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light">Voltar ao painel</a>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-12 col-lg-6">
+            <div class="surface-panel p-3">
+                <label class="form-label text-white">Pesquisar</label>
+                <input type="text" id="jogar-search" class="form-control" placeholder="Nome, gênero, Steam, Hydra, instalado...">
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="surface-panel p-3">
+                <label class="form-label text-white">Filtros</label>
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-sm btn-outline-light active" data-jogar-filter="all">Todos</button>
+                    <button type="button" class="btn btn-sm btn-outline-info" data-jogar-filter="steam">Steam</button>
+                    <button type="button" class="btn btn-sm btn-outline-primary" data-jogar-filter="hydra">Hydra</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-jogar-filter="manual">Manual</button>
+                    <button type="button" class="btn btn-sm btn-outline-warning" data-jogar-filter="favoritos">Favoritos</button>
+                    <button type="button" class="btn btn-sm btn-outline-success" data-jogar-filter="recentes">Recentes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="configuracoesLauncherModal" tabindex="-1" aria-labelledby="configuracoesLauncherModalLabel" aria-hidden="true">
+        <div class="modal-dialog jogar-modal-config">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="configuracoesLauncherModalLabel">Bibliotecas automáticas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="jogar-config-block" id="biblioteca-automatica-config">
+                        <div class="jogar-config-header">
+                            <div>
+                                <h6 class="text-success mb-1">Biblioteca Automática</h6>
+                                <p class="text-white-50 small mb-0">Detecta instalações Steam e jogos nas pastas escolhidas.</p>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="auto-library-enabled">
+                                <label class="form-check-label" for="auto-library-enabled">Ativar</label>
+                            </div>
+                        </div>
+                        <label class="form-label mt-3" for="auto-library-folder">Pasta local</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control jogar-config-input" id="auto-library-folder" placeholder="Selecione uma pasta" readonly>
+                            <button type="button" class="btn btn-outline-success" id="auto-library-add-folder">Adicionar</button>
+                        </div>
+                        <button type="button" class="btn btn-link btn-sm text-success px-0 mt-1 jogar-config-link" id="auto-library-choose-folder">Escolher pelo Windows</button>
+                        <div class="small text-white-50 mt-2" id="auto-library-folders">Nenhuma pasta local adicionada.</div>
+                        <div class="d-flex flex-wrap gap-3 small mt-3" id="auto-library-status">Nenhum scan realizado.</div>
+                        <button type="button" class="btn btn-success btn-sm mt-3" id="auto-library-scan">Escanear agora</button>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Biblioteca Steam</label>
+                        <input type="text" id="steam-library-path" class="form-control" value="{{ user.steam_library_path or '' }}" placeholder="Ex.: D:/SteamLibrary" readonly>
+                        <button type="button" class="btn btn-outline-info btn-sm mt-2" data-configure-launcher="steam">Selecionar pasta da Steam</button>
+                        <button type="button" class="btn btn-info btn-sm mt-2" id="steam-local-list-button">Listar manifests</button>
+                        <div id="steam-local-list" class="small mt-3" aria-live="polite">Selecione uma biblioteca Steam para listar os jogos.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Biblioteca Hydra</label>
+                        <input type="text" id="hydra-library-path" class="form-control" value="{{ user.hydra_library_path or '' }}" placeholder="Ex.: C:/Games/Hydra" readonly>
+                        <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-configure-launcher="hydra">Selecionar pasta da Hydra</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="jogar-pagination" id="jogar-pagination" aria-label="Paginação dos jogos" hidden>
+        <div class="jogar-pagination-info">
+            Página <strong id="jogar-current-page">1</strong> de <strong id="jogar-total-pages">1</strong>
+            <span class="d-none d-sm-inline">· <span id="jogar-visible-count">0</span> jogos nesta página</span>
+        </div>
+        <div class="jogar-page-list">
+            <button type="button" class="jogar-page-button" id="jogar-prev-page" aria-label="Página anterior">‹</button>
+            <div class="jogar-page-list" id="jogar-page-numbers"></div>
+            <button type="button" class="jogar-page-button" id="jogar-next-page" aria-label="Próxima página">›</button>
+        </div>
+    </nav>
+
+    <div class="row g-4" id="jogar-grid">
+        {% for card in cards %}
+        <div class="col-12 col-md-6 col-xl-4 jogar-card" data-origin="{{ card.origem }}" data-favorito="{{ 'true' if card.favorito else 'false' }}" data-recente="{{ 'true' if card.recente else 'false' }}" data-title="{{ card.jogo.titulo|lower }}" data-generator="{{ card.jogo.genero|lower }}">
+            <div class="surface-panel p-3 h-100 d-flex flex-column gap-3 launcher-card">
+                <div class="position-relative">
+                    <img src="{{ card.capa_url or card.capa_fallback }}" alt="{{ card.jogo.titulo }}" class="img-fluid rounded-3 w-100" style="height: 180px; object-fit: cover;" onerror='this.onerror=null;this.src={{ card.capa_fallback|tojson }};'>
+                    {% if card.favorito %}
+                    <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark">⭐</span>
+                    {% endif %}
+                </div>
+                <div>
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                        <h5 class="mb-1">{{ card.jogo.titulo }}</h5>
+                        <button type="button" class="btn btn-link p-0 text-warning" data-toggle-favorito="{{ card.jogo.id }}" aria-label="Favoritar">{% if card.favorito %}★{% else %}☆{% endif %}</button>
+                    </div>
+                    <p class="text-white-50 small mb-1">{{ card.jogo.genero }} · {{ card.jogo.desenvolvedora }}</p>
+                    <div class="d-flex flex-wrap gap-2 mb-2">
+                        <span class="badge bg-dark border border-info text-info">{{ card.origem|title }}</span>
+                        <span class="badge bg-dark border {{ 'border-success text-success' if card.executavel else 'border-warning text-warning' }}"{% if card.manual_override %} title="{{ card.executable_name or card.executavel }}"{% endif %}>{{ '✔ Executável configurado' if card.manual_override else ('Instalado' if card.executavel else 'Necessita configuração') }}</span>
+                    </div>
+                    {% if card.origem == 'manual' and not card.executavel %}
+                    <form class="d-grid gap-2" data-executavel-form="{{ card.jogo.id }}">
+                        <input type="text" class="form-control form-control-sm" name="caminho" placeholder="Caminho do executável (.exe)">
+                        <button type="submit" class="btn btn-outline-light btn-sm">Selecionar executável</button>
+                    </form>
+                    {% endif %}
+                </div>
+                <div class="mt-auto d-flex flex-column gap-2">
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-success flex-fill" data-play="{{ card.jogo.id }}">▶ Jogar</button>
+                        <button type="button" class="btn btn-outline-light" data-configure-executable="{{ card.jogo.id }}" data-manual-executable="{{ 'true' if card.manual_override else 'false' }}" title="{{ 'Trocar executável' if card.manual_override else 'Selecionar executável' }}" aria-label="Selecionar executável">📂</button>
+                        {% if card.manual_override %}<button type="button" class="btn btn-outline-warning" data-remove-executable="{{ card.jogo.id }}" title="Remover executável manual" aria-label="Remover executável manual">✕</button>{% endif %}
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center text-white-50 small">
+                        <span>{{ card.launcher_display }}</span>
+                        <span>{{ card.ultima_vez }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center text-white-50 small">
+                        <span title="{{ card.executable_name or '' }}">{{ card.pasta_instalacao or 'Necessita configuração' }}</span>
+                        <span>{{ card.appid or '' }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <div class="surface-panel p-4 text-center text-white-50">Nenhum jogo disponível para iniciar aqui ainda.</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content || '';
+        const searchInput = document.getElementById('jogar-search');
+        const cards = Array.from(document.querySelectorAll('.jogar-card'));
+        const filterButtons = Array.from(document.querySelectorAll('[data-jogar-filter]'));
+        const pagination = document.getElementById('jogar-pagination');
+        const pageNumbers = document.getElementById('jogar-page-numbers');
+        const previousPage = document.getElementById('jogar-prev-page');
+        const nextPage = document.getElementById('jogar-next-page');
+        const currentPageLabel = document.getElementById('jogar-current-page');
+        const totalPagesLabel = document.getElementById('jogar-total-pages');
+        const visibleCountLabel = document.getElementById('jogar-visible-count');
+        const pageSize = 6;
+        let activeFilter = 'all';
+        let currentPage = 1;
+
+        function applyFilters() {
+            const term = (searchInput?.value || '').trim().toLowerCase();
+            const matchingCards = cards.filter(card => {
+                const title = card.dataset.title || '';
+                const generator = card.dataset.generator || '';
+                const origin = card.dataset.origin || '';
+                const favorite = card.dataset.favorito === 'true';
+                const recent = card.dataset.recente === 'true';
+                const matchesText = !term || title.includes(term) || generator.includes(term) || origin.includes(term);
+                const matchesFilter = activeFilter === 'all' || (activeFilter === 'favoritos' && favorite) || (activeFilter === 'recentes' && recent) || (activeFilter === origin);
+                return matchesText && matchesFilter;
+            });
+
+            const totalPages = Math.max(1, Math.ceil(matchingCards.length / pageSize));
+            currentPage = Math.min(currentPage, totalPages);
+            const firstCard = (currentPage - 1) * pageSize;
+            cards.forEach(card => card.style.display = 'none');
+            matchingCards.slice(firstCard, firstCard + pageSize).forEach(card => card.style.display = '');
+
+            if (pagination) pagination.hidden = matchingCards.length === 0;
+            if (currentPageLabel) currentPageLabel.textContent = currentPage;
+            if (totalPagesLabel) totalPagesLabel.textContent = totalPages;
+            if (visibleCountLabel) visibleCountLabel.textContent = Math.min(pageSize, matchingCards.length - firstCard);
+            if (previousPage) previousPage.disabled = currentPage === 1;
+            if (nextPage) nextPage.disabled = currentPage === totalPages;
+            if (pageNumbers) {
+                pageNumbers.innerHTML = '';
+                for (let page = 1; page <= totalPages; page += 1) {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = `jogar-page-button${page === currentPage ? ' active' : ''}`;
+                    button.textContent = page;
+                    button.setAttribute('aria-label', `Ir para a página ${page}`);
+                    button.setAttribute('aria-current', page === currentPage ? 'page' : 'false');
+                    button.addEventListener('click', () => {
+                        currentPage = page;
+                        applyFilters();
+                    });
+                    pageNumbers.appendChild(button);
+                }
+            }
+        }
+
+        searchInput?.addEventListener('input', () => {
+            currentPage = 1;
+            applyFilters();
+        });
+        filterButtons.forEach(btn => btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.jogarFilter;
+            currentPage = 1;
+            applyFilters();
+        }));
+        previousPage?.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage -= 1;
+                applyFilters();
+            }
+        });
+        nextPage?.addEventListener('click', () => {
+            currentPage += 1;
+            applyFilters();
+        });
+
+        document.querySelectorAll('[data-play]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.play;
+                const response = await fetch(`/jogar/${id}/play`, { method: 'POST', headers: { 'X-CSRF-Token': csrfToken } });
+                const result = await response.json();
+                const success = result.success !== false && result.ok !== false;
+                if (success) {
+                    btn.textContent = '▶ Jogando';
+                    setTimeout(() => btn.textContent = '▶ Jogar', 1800);
+                } else {
+                    const detail = result.error || 'Erro desconhecido.';
+                    if (result.manual_missing) {
+                        const trocar = window.confirm(`${detail}\n\nDeseja selecionar outro agora?`);
+                        if (trocar) document.querySelector(`[data-configure-executable="${id}"]`)?.click();
+                    } else {
+                        window.alert(`Não foi possível iniciar o jogo.\n\nErro:\n${detail}`);
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll('[data-configure-executable]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.configureExecutable;
+                if (!id) {
+                    return;
+                }
+                try {
+                    const response = await fetch(`/jogar/${id}/executavel`, { method: 'POST', headers: { 'X-CSRF-Token': csrfToken } });
+                    const result = await response.json();
+                    if (result.ok) {
+                        btn.textContent = '✓';
+                        setTimeout(() => window.location.reload(), 500);
+                    } else {
+                        btn.textContent = '⚠️';
+                        setTimeout(() => btn.textContent = '📂', 1200);
+                        window.alert(result.mensagem || result.erro || 'Não foi possível salvar o executável.');
+                    }
+                } catch (error) {
+                    btn.textContent = '⚠️';
+                    setTimeout(() => btn.textContent = '📂', 1200);
+                    window.alert(`Falha ao salvar o executável: ${error.message}`);
+                }
+            });
+        });
+
+        document.querySelectorAll('[data-remove-executable]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.removeExecutable;
+                if (!window.confirm('Remover o executável manual e voltar à detecção automática?')) return;
+                const response = await fetch(`/jogar/${id}/executavel/remover`, { method: 'POST', headers: { 'X-CSRF-Token': csrfToken } });
+                const result = await response.json();
+                if (result.ok) window.location.reload();
+            });
+        });
+
+        document.getElementById('btn-atualizar-biblioteca')?.addEventListener('click', async () => {
+            const response = await fetch('/jogar/atualizar', { method: 'POST', headers: { 'X-CSRF-Token': csrfToken } });
+            const result = await response.json();
+            if (result.ok) {
+                window.location.reload();
+            }
+        });
+
+        document.querySelectorAll('[data-configure-launcher]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const launcher = btn.dataset.configureLauncher;
+                const inputId = launcher === 'steam' ? 'steam-library-path' : 'hydra-library-path';
+                const input = document.getElementById(inputId);
+                const endpoint = launcher === 'steam' ? '/selecionar_pasta_steam' : '/selecionar_pasta_hydra';
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrfToken },
+                    body: new URLSearchParams({ launcher }),
+                });
+                const result = await response.json();
+                if (result.ok) {
+                    if (input) {
+                        input.value = result.pasta || '';
+                    }
+                    btn.textContent = '✓ Salvo';
+                    setTimeout(() => btn.textContent = launcher === 'steam' ? 'Selecionar pasta da Steam' : 'Selecionar pasta da Hydra', 1500);
+                }
+            });
+        });
+
+        const steamLocalList = document.getElementById('steam-local-list');
+        const loadSteamLocalList = async () => {
+            if (!steamLocalList) return;
+            steamLocalList.textContent = 'Lendo arquivos .acf...';
+            try {
+                const response = await fetch('/steam/biblioteca-local');
+                const result = await response.json();
+                if (!response.ok || !result.ok) throw new Error(result.erro || 'Não foi possível ler a biblioteca Steam.');
+                if (!result.games.length) {
+                    steamLocalList.textContent = 'Nenhum manifesto encontrado na pasta selecionada.';
+                    return;
+                }
+                steamLocalList.innerHTML = `<div class="text-info mb-2">${result.total} jogos encontrados</div>`;
+                const list = document.createElement('ol');
+                list.className = 'ps-3 mb-0';
+                result.games.forEach(game => {
+                    const item = document.createElement('li');
+                    item.className = 'mb-1';
+                    item.textContent = `${game.name || `App ${game.appid}`} (AppID ${game.appid})`;
+                    list.appendChild(item);
+                });
+                steamLocalList.appendChild(list);
+            } catch (error) {
+                steamLocalList.textContent = error.message;
+            }
+        };
+        document.getElementById('steam-local-list-button')?.addEventListener('click', loadSteamLocalList);
+
+        const autoEnabled = document.getElementById('auto-library-enabled');
+        const autoFolder = document.getElementById('auto-library-folder');
+        const autoFolders = document.getElementById('auto-library-folders');
+        const autoStatus = document.getElementById('auto-library-status');
+        let configuredAutoFolders = [];
+
+        const normalizeBrowserFolderEntry = (value) => {
+            const raw = String(value || '').trim();
+            if (!raw) return '';
+            if (raw.startsWith('browser:')) return raw;
+            return raw;
+        };
+
+        const formatBrowserFolderDisplay = (value) => {
+            const raw = normalizeBrowserFolderEntry(value);
+            if (!raw) return { name: 'Pasta', path: 'Pasta selecionada no computador' };
+            if (!raw.startsWith('browser:')) return { name: 'Pasta', path: raw };
+            const payload = raw.replace(/^browser:/, '').split('|');
+            const name = payload[0] || 'Pasta';
+            const path = payload.slice(1).join('|') || 'Pasta selecionada no computador';
+            return { name, path };
+        };
+
+        const openAutoLibraryDatabase = async () => {
+            if (!('indexedDB' in window)) {
+                throw new Error('Seu navegador não suporta armazenamento local para pastas.');
+            }
+            return new Promise((resolve, reject) => {
+                const request = window.indexedDB.open('gameunexa-auto-library', 1);
+                request.onupgradeneeded = () => {
+                    const db = request.result;
+                    if (!db.objectStoreNames.contains('folders')) {
+                        const store = db.createObjectStore('folders', { keyPath: 'id' });
+                        store.createIndex('source', 'source', { unique: false });
+                    }
+                };
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error || new Error('IndexedDB indisponível.'));
+            });
+        };
+
+        const saveAutoLibraryHandle = async (folderKey, handle) => {
+            const db = await openAutoLibraryDatabase();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction('folders', 'readwrite');
+                const store = tx.objectStore('folders');
+                const request = store.put({
+                    id: folderKey,
+                    source: 'browser',
+                    handle,
+                    name: folderKey.replace(/^browser:/, '').split('|')[0] || 'Pasta',
+                    createdAt: new Date().toISOString(),
+                });
+                request.onsuccess = () => resolve(true);
+                request.onerror = () => reject(request.error || new Error('Não foi possível salvar a pasta local.'));
+            });
+        };
+
+        const readAutoLibraryHandle = async (folderKey) => {
+            const db = await openAutoLibraryDatabase();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction('folders', 'readonly');
+                const request = tx.objectStore('folders').get(folderKey);
+                request.onsuccess = () => resolve(request.result ? request.result.handle : null);
+                request.onerror = () => reject(request.error || new Error('Não foi possível recuperar a pasta salva.'));
+            });
+        };
+
+        const deleteAutoLibraryHandle = async (folderKey) => {
+            const db = await openAutoLibraryDatabase();
+            return new Promise((resolve, reject) => {
+                const tx = db.transaction('folders', 'readwrite');
+                const request = tx.objectStore('folders').delete(folderKey);
+                request.onsuccess = () => resolve(true);
+                request.onerror = () => reject(request.error || new Error('Não foi possível remover a pasta salva.'));
+            });
+        };
+
+        const scanBrowserDirectory = async (rootHandle, rootName = 'Pasta') => {
+            const ignoredFiles = new Set(['uninstall.exe', 'unins000.exe', 'setup.exe', 'installer.exe', 'update.exe', 'launcher_helper.exe', 'crash_reporter.exe']);
+            const games = [];
+            const walk = async (dirHandle, relativePath = '') => {
+                for await (const entry of dirHandle.values()) {
+                    if (entry.kind === 'file') {
+                        const lowerName = String(entry.name || '').toLowerCase();
+                        if (!lowerName.endsWith('.exe') && !lowerName.endsWith('.lnk')) continue;
+                        if (ignoredFiles.has(lowerName)) continue;
+                        const fileName = entry.name || 'Jogo';
+                        const gameName = fileName.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim() || rootName;
+                        games.push({
+                            name: gameName,
+                            source: 'local',
+                            path: relativePath || rootName,
+                            executable: fileName,
+                            file: fileName,
+                        });
+                    } else if (entry.kind === 'directory') {
+                        await walk(entry, `${relativePath ? relativePath + '/' : ''}${entry.name}`);
+                    }
+                }
+            };
+            await walk(rootHandle, rootName);
+            return games;
+        };
+
+        const persistLocalLibraryImport = async (games) => {
+            if (!Array.isArray(games) || !games.length) return;
+            try {
+                const response = await fetch('/api/library/local/import', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken },
+                    body: JSON.stringify({ games }),
+                });
+                const result = await response.json();
+                if (!response.ok || !result.ok) {
+                    throw new Error(result.erro || 'Os jogos foram encontrados, mas não foi possível sincronizar a biblioteca.');
+                }
+                return result;
+            } catch (error) {
+                console.warn('[auto-library] import local:', error);
+                autoStatus.textContent = error.message || 'Os jogos foram encontrados, mas não foi possível sincronizar a biblioteca.';
+            }
+        };
+
+        const renderAutoFolders = () => {
+            autoFolders.innerHTML = '';
+            if (!configuredAutoFolders.length) {
+                autoFolders.textContent = 'Nenhuma pasta local adicionada.';
+                return;
+            }
+            configuredAutoFolders.forEach((folderValue, index) => {
+                const display = formatBrowserFolderDisplay(folderValue);
+                const row = document.createElement('div');
+                row.className = 'd-flex flex-column gap-1 border rounded p-2 mt-2';
+                const name = document.createElement('div');
+                name.className = 'text-white';
+                name.textContent = `📁 ${display.name}`;
+                const path = document.createElement('div');
+                path.className = 'text-white-50 small';
+                path.textContent = display.path;
+                const controls = document.createElement('div');
+                controls.className = 'd-flex gap-2 mt-2';
+                const scanBtn = document.createElement('button');
+                scanBtn.type = 'button';
+                scanBtn.className = 'btn btn-sm btn-outline-success';
+                scanBtn.textContent = 'Escanear';
+                scanBtn.addEventListener('click', async () => {
+                    await scanSelectedAutoFolder(folderValue);
+                });
+                const removeBtn = document.createElement('button');
+                removeBtn.type = 'button';
+                removeBtn.className = 'btn btn-sm btn-outline-danger';
+                removeBtn.textContent = 'Remover';
+                removeBtn.addEventListener('click', async () => {
+                    configuredAutoFolders.splice(index, 1);
+                    renderAutoFolders();
+                    if (folderValue.startsWith('browser:')) {
+                        await deleteAutoLibraryHandle(folderValue);
+                    }
+                    await saveAutoLibrary();
+                });
+                controls.append(scanBtn, removeBtn);
+                row.append(name, path, controls);
+                autoFolders.appendChild(row);
+            });
+        };
+
+        const loadAutoLibrary = async () => {
+            const response = await fetch('/jogar/biblioteca-automatica');
+            const result = await response.json();
+            if (!result.ok) return;
+            configuredAutoFolders = (result.folders || []).map(item => normalizeBrowserFolderEntry(item));
+            autoEnabled.checked = Boolean(result.enabled);
+            renderAutoFolders();
+            autoStatus.textContent = result.last_scan
+                ? `${result.games_found} encontrados · Steam: ${result.steam} · Pastas: ${result.folders_games} · Último scan: ${result.last_scan}`
+                : 'Nenhum scan realizado.';
+        };
+
+        const saveAutoLibrary = async () => {
+            const body = new URLSearchParams({ ativar: autoEnabled.checked ? '1' : '0' });
+            configuredAutoFolders.forEach(folder => body.append('pastas', folder));
+            const response = await fetch('/jogar/biblioteca-automatica', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrfToken },
+                body,
+            });
+            const result = await response.json();
+            if (!response.ok || !result.ok) throw new Error(result.erro || 'Não foi possível salvar a configuração.');
+            configuredAutoFolders = (result.folders || []).map(item => normalizeBrowserFolderEntry(item));
+            renderAutoFolders();
+            return result;
+        };
+
+        const scanSelectedAutoFolder = async (selectedFolder) => {
+            const folderValue = normalizeBrowserFolderEntry(selectedFolder || autoFolder.value || '');
+            if (!folderValue) {
+                autoStatus.textContent = 'Selecione uma pasta antes de escanear.';
+                return;
+            }
+            autoStatus.textContent = '🔎 Escaneando...';
+            try {
+                if (folderValue.startsWith('browser:')) {
+                    const handle = await readAutoLibraryHandle(folderValue);
+                    if (!handle || typeof handle.values !== 'function') {
+                        throw new Error('Permissão para acessar esta pasta não foi concedida.');
+                    }
+                    if (typeof handle.queryPermission === 'function') {
+                        let permission = await handle.queryPermission({ mode: 'read' });
+                        if (permission !== 'granted' && typeof handle.requestPermission === 'function') {
+                            permission = await handle.requestPermission({ mode: 'read' });
+                        }
+                        if (permission !== 'granted') {
+                            throw new Error('Permissão para acessar esta pasta não foi concedida.');
+                        }
+                    }
+                    const games = await scanBrowserDirectory(handle, folderValue.replace(/^browser:/, '').split('|')[0] || 'Pasta');
+                    if (!games.length) {
+                        autoStatus.textContent = '✓ Escaneamento concluído · 0 jogos encontrados';
+                        return;
+                    }
+                    const validGames = games.map((game, index) => ({
+                        name: game.name || `Jogo ${index + 1}`,
+                        source: 'local',
+                        path: game.path || 'pasta-local',
+                        executable: game.executable || '',
+                    }));
+                    await persistLocalLibraryImport(validGames);
+                    autoStatus.textContent = `✓ ${validGames.length} jogos encontrados`;
+                    return;
+                }
+                const response = await fetch('/jogar/biblioteca-automatica/scan', {
+                    method: 'POST',
+                    headers: { 'X-CSRF-Token': csrfToken, 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({ pasta: folderValue }),
+                });
+                const result = await response.json();
+                if (!response.ok || !result.ok) throw new Error(result.erro || 'Não foi possível concluir o escaneamento.');
+                autoStatus.textContent = `✓ ${result.found || 0} jogos encontrados`;
+            } catch (error) {
+                const message = error && error.message ? error.message : 'Não foi possível concluir o escaneamento.';
+                autoStatus.textContent = message;
+            }
+        };
+
+        const addAutoFolder = async () => {
+            const folder = normalizeBrowserFolderEntry(autoFolder.value || '');
+            if (!folder || configuredAutoFolders.includes(folder)) return;
+            configuredAutoFolders.push(folder);
+            autoFolder.value = '';
+            renderAutoFolders();
+            try {
+                await saveAutoLibrary();
+                autoStatus.textContent = 'Pasta adicionada. Clique em "Escanear agora" para procurar jogos.';
+            } catch (error) {
+                configuredAutoFolders = configuredAutoFolders.filter(item => item !== folder);
+                renderAutoFolders();
+                autoStatus.textContent = error.message;
+            }
+        };
+
+        document.getElementById('auto-library-add-folder')?.addEventListener('click', addAutoFolder);
+        document.getElementById('auto-library-choose-folder')?.addEventListener('click', async () => {
+            try {
+                if (window.pywebview?.api?.select_folder) {
+                    const pasta = await window.pywebview.api.select_folder();
+                    if (pasta) {
+                        autoFolder.value = pasta;
+                        autoStatus.textContent = `📁 ${pasta}`;
+                    }
+                    return;
+                }
+                if (typeof window.showDirectoryPicker === 'function') {
+                    const handle = await window.showDirectoryPicker({ mode: 'read' });
+                    const folderKey = `browser:${handle.name || 'Pasta'}|${handle.name || 'Pasta'}`;
+                    await saveAutoLibraryHandle(folderKey, handle);
+                    autoFolder.value = folderKey;
+                    autoStatus.textContent = `📁 ${handle.name || 'Pasta'}\nPasta selecionada no computador`;
+                    return;
+                }
+                throw new Error('Seu navegador não suporta seleção direta de pastas. Use Google Chrome, Microsoft Edge ou outro navegador Chromium atualizado.');
+            } catch (error) {
+                const message = error && error.message ? error.message : 'Seleção cancelada.';
+                if (/cancel|aborted/i.test(message)) {
+                    autoStatus.textContent = 'Seleção cancelada.';
+                    return;
+                }
+                autoStatus.textContent = message;
+            }
+        });
+
+        autoEnabled?.addEventListener('change', async () => {
+            try {
+                await saveAutoLibrary();
+                autoStatus.textContent = autoEnabled.checked ? 'Biblioteca Automática ativada.' : 'Biblioteca Automática desativada.';
+            } catch (error) {
+                autoStatus.textContent = error.message;
+            }
+        });
+
+        document.getElementById('auto-library-scan')?.addEventListener('click', async () => {
+            const folderValue = normalizeBrowserFolderEntry(autoFolder.value || configuredAutoFolders[0] || '');
+            if (!folderValue) {
+                autoStatus.textContent = 'Selecione uma pasta antes de escanear.';
+                return;
+            }
+            await scanSelectedAutoFolder(folderValue);
+        });
+        loadAutoLibrary().catch(() => {});
+
+        document.querySelectorAll('[data-toggle-favorito]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.toggleFavorito;
+                const response = await fetch(`/jogar/${id}/favorito`, { method: 'POST', headers: { 'X-CSRF-Token': csrfToken } });
+                const result = await response.json();
+                if (result.ok) {
+                    btn.textContent = result.favorito ? '★' : '☆';
+                }
+            });
+        });
+
+        document.querySelectorAll('[data-executavel-form]').forEach(form => {
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const id = form.dataset.executavelForm;
+                const data = new FormData(form);
+                const response = await fetch(`/jogar/${id}/executavel`, { method: 'POST', body: data, headers: { 'X-CSRF-Token': csrfToken } });
+                const result = await response.json();
+                if (result.ok) {
+                    form.innerHTML = '<div class="text-success small">Executável salvo com sucesso.</div>';
+                }
+            });
+        });
+    });
+</script>
+</div>
+{% endblock %}

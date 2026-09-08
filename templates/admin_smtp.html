@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <div class="card shadow-lg border-0 rounded-4">
+      <div class="card-body p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="mb-1">Configurações SMTP</h2>
+            <p class="text-white-50 mb-0">Gerencie o envio de e-mails, teste de conexão e logs do GameUnexa.</p>
+          </div>
+          <a href="{{ url_for('admin_smtp_processar') }}" class="btn btn-outline-info">Processar fila</a>
+        </div>
+
+        <form method="post" class="row g-3">
+          <input type="hidden" name="action" value="save" />
+          <div class="col-md-6">
+            <label class="form-label">Ativar SMTP</label>
+            <select class="form-select" name="SMTP_ENABLED">
+              <option value="true" {% if config.enabled %}selected{% endif %}>Ativo</option>
+              <option value="false" {% if not config.enabled %}selected{% endif %}>Inativo</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Servidor SMTP</label>
+            <input class="form-control" name="SMTP_SERVER" value="{{ config.server }}" />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Porta</label>
+            <input class="form-control" name="SMTP_PORT" value="{{ config.port }}" />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Usuário</label>
+            <input class="form-control" name="SMTP_USERNAME" value="{{ config.username }}" />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Senha</label>
+            <input class="form-control" type="password" name="SMTP_PASSWORD" value="{{ config.password }}" />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Remetente</label>
+            <input class="form-control" name="MAIL_FROM" value="{{ config.mail_from }}" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Nome do remetente</label>
+            <input class="form-control" name="MAIL_FROM_NAME" value="{{ config.mail_from_name }}" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Admin support</label>
+            <input class="form-control" name="ADMIN_SUPPORT_EMAIL" value="{{ config.admin_support_email }}" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Enviar teste para</label>
+            <input class="form-control" name="test_destinatario" placeholder="Seu e-mail ou admin" />
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">TLS</label>
+            <select class="form-select" name="SMTP_TLS">
+              <option value="true" {% if config.tls %}selected{% endif %}>Sim</option>
+              <option value="false" {% if not config.tls %}selected{% endif %}>Não</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label class="form-label">SSL</label>
+            <select class="form-select" name="SMTP_SSL">
+              <option value="true" {% if config.ssl %}selected{% endif %}>Sim</option>
+              <option value="false" {% if not config.ssl %}selected{% endif %}>Não</option>
+            </select>
+          </div>
+          <div class="col-12 d-flex gap-2">
+            <button class="btn btn-primary" type="submit">Salvar</button>
+            <button class="btn btn-outline-light" type="submit" name="action" value="testar">Testar SMTP</button>
+          </div>
+        </form>
+
+        <div class="mt-4">
+          <h5>Logs recentes</h5>
+          <div class="table-responsive">
+            <table class="table table-dark table-hover align-middle">
+              <thead>
+                <tr><th>Data</th><th>Destino</th><th>Tipo</th><th>Status</th><th>Tentativas</th><th>Erro</th></tr>
+              </thead>
+              <tbody>
+                {% for log in logs %}
+                <tr>
+                  <td>{{ log.data_envio }}</td>
+                  <td>{{ log.destinatario }}</td>
+                  <td>{{ log.tipo_email }}</td>
+                  <td>{{ log.status }}</td>
+                  <td>{{ log.tentativas }}</td>
+                  <td>{{ log.erro or '-' }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="6" class="text-muted">Nenhum log ainda.</td></tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h5>Fila de envio</h5>
+          <div class="table-responsive">
+            <table class="table table-dark table-hover align-middle">
+              <thead>
+                <tr><th>ID</th><th>Destino</th><th>Tipo</th><th>Status</th><th>Tentativas</th><th>Erro</th></tr>
+              </thead>
+              <tbody>
+                {% for item in fila %}
+                <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.destinatario }}</td>
+                  <td>{{ item.tipo_email }}</td>
+                  <td>{{ item.status }}</td>
+                  <td>{{ item.tentativas }}</td>
+                  <td>{{ item.erro or '-' }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="6" class="text-muted">Fila vazia.</td></tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

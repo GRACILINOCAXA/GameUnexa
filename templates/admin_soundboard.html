@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <p class="text-info text-uppercase small fw-bold mb-1">Admin</p>
+            <h1 class="mb-0">Soundboard</h1>
+        </div>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light">Voltar</a>
+    </div>
+
+    <div class="card bg-dark text-white border-0 shadow-lg">
+        <div class="card-body">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-6">
+                    <label class="form-label">Buscar efeito</label>
+                    <input id="adminSoundSearch" type="search" class="form-control" placeholder="Nome ou categoria">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Categoria</label>
+                    <select id="adminSoundCategory" class="form-select">
+                        <option value="">Todas</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button id="adminSoundRefresh" class="btn btn-success w-100">Atualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminSoundList" class="mt-4 row g-3"></div>
+</div>
+
+<script>
+    const adminSoundState = { page: 1, perPage: 18, search: '', category: '' };
+
+    async function loadAdminCategories() {
+        const response = await fetch('/api/soundboard/categories');
+        const data = await response.json();
+        const select = document.getElementById('adminSoundCategory');
+        select.innerHTML = '<option value="">Todas</option>';
+        (data.categories || []).forEach((cat) => {
+            const option = document.createElement('option');
+            option.value = cat.slug;
+            option.textContent = `${cat.icon || '🎵'} ${cat.name}`;
+            select.appendChild(option);
+        });
+    }
+
+    async function loadAdminEffects() {
+        const params = new URLSearchParams({ page: adminSoundState.page, per_page: adminSoundState.perPage });
+        if (adminSoundState.search) params.set('search', adminSoundState.search);
+        if (adminSoundState.category) params.set('category', adminSoundState.category);
+
+        const response = await fetch(`/api/soundboard?${params.toString()}`);
+        const data = await response.json();
+        const list = document.getElementById('adminSoundList');
+        if (!data.ok || !data.effects.length) {
+            list.innerHTML = '<div class="col-12"><div class="alert alert-secondary mb-0">Nenhum efeito encontrado.</div></div>';
+            return;
+        }
+
+        list.innerHTML = data.effects.map((effect) => `
+            <div class="col-md-6 col-xl-4">
+                <div class="card bg-secondary text-white h-100 border-0">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="display-6">${effect.icon || '🔊'}</div>
+                            <span class="badge bg-info text-dark">${effect.play_count || 0} ▶</span>
+                        </div>
+                        <h5 class="mt-3">${effect.name}</h5>
+                        <p class="text-light small mb-2">${effect.description || 'Sem descrição'}</p>
+                        <div class="small text-light">Categoria: ${effect.category ? effect.category.name : 'Sem categoria'}</div>
+                        <div class="mt-3 d-flex gap-2">
+                            <audio controls src="${effect.url}" class="w-100"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    document.getElementById('adminSoundSearch').addEventListener('input', (event) => {
+        adminSoundState.search = event.target.value.trim();
+        adminSoundState.page = 1;
+        loadAdminEffects();
+    });
+
+    document.getElementById('adminSoundCategory').addEventListener('change', (event) => {
+        adminSoundState.category = event.target.value;
+        adminSoundState.page = 1;
+        loadAdminEffects();
+    });
+
+    document.getElementById('adminSoundRefresh').addEventListener('click', async () => {
+        await loadAdminCategories();
+        await loadAdminEffects();
+    });
+
+    loadAdminCategories();
+    loadAdminEffects();
+</script>
+{% endblock %}

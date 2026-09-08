@@ -1,0 +1,523 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .discord-call-page {
+        min-height: calc(100vh - 96px);
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .discord-call-shell {
+        display: grid;
+        flex: 1 1 auto;
+        min-height: 0;
+        grid-template-columns: 280px minmax(0, 1fr) 300px;
+        gap: 1rem;
+        align-items: stretch;
+        overflow: hidden;
+    }
+
+    .discord-call-panel,
+    .discord-call-frame,
+    .discord-call-toolbar {
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        background: rgba(10, 18, 34, 0.84);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(18px);
+    }
+
+    .discord-call-panel {
+        min-height: 0;
+        border-radius: 22px;
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    .discord-call-frame {
+        min-width: 0;
+        min-height: 0;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+    .discord-call-embed {
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        border: 0;
+        display: block;
+        background: #111827;
+    }
+
+    .jitsi-stage {
+        position: relative;
+        min-height: 0;
+        height: 100%;
+        background: #111827;
+    }
+
+    .call-right-sidebar {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .call-friends-panel {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .jitsi-status {
+        position: absolute;
+        inset: 1rem 1rem auto;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .soundboard-panel {
+        flex: 0 0 auto;
+        max-height: 320px;
+        overflow-y: auto;
+        border: 1px solid rgba(56, 189, 248, 0.22);
+        border-radius: 18px;
+        background: rgba(5, 12, 24, 0.74);
+    }
+
+    .soundboard-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.55rem;
+    }
+
+    .soundboard-effect {
+        position: relative;
+        min-width: 0;
+        padding: 0.65rem;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: 12px;
+        background: rgba(15, 23, 42, 0.88);
+        color: #f8fafc;
+        text-align: left;
+        transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+    }
+
+    .soundboard-effect:hover,
+    .soundboard-effect.is-playing {
+        transform: translateY(-2px);
+        border-color: rgba(56, 189, 248, 0.72);
+        background: rgba(14, 116, 144, 0.32);
+    }
+
+    .soundboard-effect.is-playing::after {
+        content: '▶';
+        position: absolute;
+        top: 0.45rem;
+        right: 0.5rem;
+        color: #67e8f9;
+        font-size: 0.7rem;
+    }
+
+    .soundboard-effect-name {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+
+    .soundboard-effect-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.35rem;
+        margin-top: 0.25rem;
+        color: #b8c8dc;
+        font-size: 0.72rem;
+    }
+
+    .soundboard-favorite {
+        border: 0;
+        background: transparent;
+        color: #fbbf24;
+        padding: 0;
+    }
+
+    @media (max-width: 420px) {
+        .soundboard-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .server-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.6rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.24);
+        color: #d8f3ff;
+        text-decoration: none;
+        font-size: 0.92rem;
+    }
+
+    .server-pill:hover {
+        color: #fff;
+        border-color: rgba(56, 189, 248, 0.45);
+        background: rgba(56, 189, 248, 0.16);
+    }
+
+    .participant-chip {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.8rem 0.9rem;
+        border-radius: 16px;
+        background: rgba(5, 12, 24, 0.8);
+        border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .participant-avatar {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.9), rgba(14, 165, 233, 0.8));
+        color: #03111f;
+        font-weight: 800;
+        flex-shrink: 0;
+    }
+
+    .hero-call {
+        border-radius: 24px;
+        background:
+            radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 28%),
+            radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.14), transparent 26%),
+            rgba(8, 15, 28, 0.88);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    @media (max-width: 1200px) {
+        .discord-call-page {
+            min-height: auto;
+        }
+
+        .discord-call-shell {
+            grid-template-columns: 1fr;
+            overflow: visible;
+        }
+
+        .discord-call-frame {
+            height: min(70vh, 700px);
+            min-height: 420px;
+        }
+
+        .call-right-sidebar {
+            overflow: visible;
+        }
+    }
+</style>
+
+<div class="discord-call-page">
+<div class="hero-panel mb-3 hero-call p-3">
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-3">
+        <div>
+            <p class="text-info text-uppercase small fw-bold mb-2">JITS CALL</p>
+            <h1 class="mb-2">Sala de call ao vivo</h1>
+            <p class="text-white-50 mb-0">Entre na sala, compartilhe a tela, use o chat da call e convide outros jogadores pelo link abaixo.</p>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="{{ convite_url }}" class="btn btn-outline-info" target="_blank" rel="noopener">Abrir convite</a>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light">Voltar ao painel</a>
+        </div>
+    </div>
+</div>
+
+<div class="discord-call-shell">
+    <aside class="discord-call-panel">
+        <h5 class="mb-3">Sala</h5>
+        <form action="{{ url_for('discord_call') }}" method="GET" class="d-grid gap-3 mb-4">
+            <div>
+                <label for="servidor" class="form-label text-white-50">Nome da sala</label>
+                <input type="text" class="form-control" id="servidor" name="servidor" value="{{ servidor }}" placeholder="Ex.: Quilombo, Guilda, Call do time" required>
+            </div>
+            <button type="submit" class="btn btn-success">Entrar na call</button>
+        </form>
+
+        <div class="mb-4">
+            <h6 class="text-uppercase text-white-50 small fw-bold mb-3">Servidores sugeridos</h6>
+            <div class="d-grid gap-2">
+                <a class="server-pill" href="{{ url_for('discord_call', servidor='Geral') }}"># Geral</a>
+                {% for servidor_item in servidores_recomendados[:7] %}
+                    <a class="server-pill" href="{{ servidor_item.convite }}"># {{ servidor_item.nome }}</a>
+                {% else %}
+                    <p class="text-white-50 small mb-0">Nenhum servidor sugerido no momento.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="discord-call-toolbar p-3 rounded-4">
+            <h6 class="mb-2">Como funciona</h6>
+            <p class="text-white-50 small mb-3">A chamada usa a integração oficial do Jitsi Meet. Microfone, câmera, tela, chat e grade ficam disponíveis na barra da reunião.</p>
+            <div class="d-grid gap-2">
+                <a href="https://meet.jit.si/{{ room_name }}" target="_blank" rel="noopener" class="btn btn-outline-light btn-sm">Abrir em nova aba</a>
+                <button type="button" class="btn btn-outline-info btn-sm" onclick="copiarConvite()">Copiar convite</button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="discord-call-frame">
+        <div class="jitsi-stage">
+            <div class="jitsi-status" data-jitsi-status role="status" aria-live="polite"></div>
+            <div class="discord-call-embed" id="jitsi-meet" aria-label="Sala de call {{ servidor }}"></div>
+        </div>
+    </main>
+
+    <aside class="discord-call-panel call-right-sidebar">
+        <h5 class="mb-3">Sala ativa</h5>
+        <div class="call-friends-panel">
+        <div class="surface-panel p-3 mb-3">
+            <p class="text-white-50 small mb-1">Sala</p>
+            <h6 class="mb-0">{{ servidor }}</h6>
+            <p class="text-white-50 small mb-0 mt-2">Sala: {{ room_name }}</p>
+            <p class="text-white-50 small mb-0 mt-2">Tempo decorrido: <strong data-call-elapsed>{{ tempo_decorrido }}</strong></p>
+        </div>
+
+        <div class="surface-panel p-3 mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="mb-0">Usuários na sala</h6>
+                <span class="badge bg-warning text-dark" data-call-count>{{ quantidade_participantes|default(participantes_ativos|length) }}</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <small class="text-white-50">Participantes conectados ao Jitsi</small>
+                <span class="badge bg-info text-dark" data-jitsi-participant-count>0</span>
+            </div>
+            <div class="d-grid gap-2" data-call-participants>
+                {% for participante_ativo in participantes_ativos %}
+                    <div class="participant-chip">
+                        <div class="d-flex align-items-center gap-2">
+                            {% if participante_ativo.foto_perfil %}
+                                <img src="{{ participante_ativo.foto_perfil }}" class="participant-avatar" alt="Avatar">
+                            {% else %}
+                                <div class="participant-avatar">{{ participante_ativo.nome[:1] if participante_ativo.nome else '?' }}</div>
+                            {% endif %}
+                            <div>
+                                <div class="fw-semibold">{{ participante_ativo.nome }}</div>
+                                <small class="text-white-50">{{ participante_ativo.email }}</small>
+                            </div>
+                        </div>
+                        {% if participante_ativo.email == session.get('user_email') %}
+                            <span class="badge bg-success">Você</span>
+                        {% else %}
+                            <span class="badge bg-info text-dark">Ativo</span>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <p class="text-white-50 small mb-0" data-call-empty>Nenhum usuário em call no momento.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <h6 class="text-uppercase text-white-50 small fw-bold mb-3">Participantes sugeridos</h6>
+            {% include '_sugestoes_widget.html' %}
+        </div>
+        </div>
+
+        <div class="discord-call-toolbar p-3 mb-3 rounded-4">
+            <h6 class="mb-2">Chat da call</h6>
+            <p class="text-white-50 small mb-0">O chat e o compartilhamento de tela ficam dentro da própria sala. Use a barra do Jitsi para ativar essas funções durante a call.</p>
+        </div>
+
+        <section class="soundboard-panel p-3" data-soundboard>
+            <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
+                <h5 class="mb-0">🔊 Soundboard</h5>
+                <button type="button" class="btn btn-info btn-sm" data-soundboard-add>+ Adicionar efeito</button>
+            </div>
+            <div class="input-group input-group-sm mb-2">
+                <span class="input-group-text">🔎</span>
+                <input type="search" class="form-control" placeholder="Pesquisar efeito..." data-soundboard-search>
+            </div>
+            <div class="d-flex gap-2 overflow-auto pb-2 mb-2" data-soundboard-categories>
+                <button type="button" class="btn btn-sm btn-outline-info active" data-soundboard-category="">Todos</button>
+                <button type="button" class="btn btn-sm btn-outline-warning" data-soundboard-favorites>⭐ Favoritos</button>
+                <button type="button" class="btn btn-sm btn-outline-light" data-soundboard-recent>🕘 Recentes</button>
+            </div>
+            <div class="soundboard-grid" data-soundboard-list>
+                <p class="text-white-50 small mb-0">Carregando efeitos...</p>
+            </div>
+            <div class="text-center mt-2 d-none" data-soundboard-more-wrap>
+                <button type="button" class="btn btn-outline-light btn-sm" data-soundboard-more>Carregar mais</button>
+            </div>
+            <div class="small text-danger mt-2" data-soundboard-status></div>
+        </section>
+
+    </aside>
+</div>
+</div>
+
+<div class="modal fade" id="soundboardAddModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content bg-dark text-white" data-soundboard-form>
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title">Adicionar efeito</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body d-grid gap-3">
+                <div><label class="form-label" for="sound-name">Nome</label><input id="sound-name" name="name" class="form-control" required maxlength="80"></div>
+                <div><label class="form-label" for="sound-description">Descrição</label><textarea id="sound-description" name="description" class="form-control" maxlength="240"></textarea></div>
+                <div class="row g-2">
+                    <div class="col-8"><label class="form-label" for="sound-category">Categoria</label><input id="sound-category" name="category" class="form-control" value="Geral" required maxlength="60"></div>
+                    <div class="col-4"><label class="form-label" for="sound-icon">Ícone</label><input id="sound-icon" name="icon" class="form-control" value="🔊" maxlength="8"></div>
+                </div>
+                <div><label class="form-label" for="sound-file">Arquivo de áudio</label><input id="sound-file" name="file" type="file" class="form-control" accept="audio/*,.m4a,.aac,.flac,.webm" required><small class="text-white-50 d-block">Máximo de 10 segundos.</small><small class="text-info d-block" data-soundboard-file-name></small></div>
+                <div class="text-danger small" data-soundboard-form-status></div>
+            </div>
+            <div class="modal-footer border-secondary"><button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button><button type="submit" class="btn btn-info" data-soundboard-submit>Adicionar efeito</button></div>
+        </form>
+    </div>
+</div>
+
+<script src="https://meet.jit.si/external_api.js"></script>
+<script src="{{ url_for('static', filename='js/discord_call.js') }}"></script>
+<script src="{{ url_for('static', filename='js/soundboard.js') }}"></script>
+<script>
+    window.gameLinkCallConfig = {
+        roomSlug: {{ room_slug | tojson }},
+        roomName: {{ room_name | tojson }},
+        displayName: {{ usuario.nome | tojson }},
+        email: {{ usuario.email | tojson }},
+        callStartedAt: {{ call_iniciada_em | tojson }},
+        statusUrl: {{ url_for('discord_call_status', servidor=servidor) | tojson }},
+        presenceUrl: {{ url_for('discord_call_presenca') | tojson }},
+        leaveUrl: {{ url_for('discord_call_sair') | tojson }},
+        fallbackUrl: 'https://meet.jit.si/{{ room_name }}'
+    };
+    const roomSlug = window.gameLinkCallConfig.roomSlug;
+    const callStartedAt = window.gameLinkCallConfig.callStartedAt;
+    const statusUrl = window.gameLinkCallConfig.statusUrl;
+    let heartbeatTimer = null;
+    let elapsedTimer = null;
+    let statusTimer = null;
+
+    function formatElapsed(seconds) {
+        const total = Math.max(0, Math.floor(seconds));
+        const hours = String(Math.floor(total / 3600)).padStart(2, '0');
+        const minutes = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
+        const secs = String(total % 60).padStart(2, '0');
+        return `${hours}:${minutes}:${secs}`;
+    }
+
+    function copiarConvite() {
+        const convite = {{ convite_url | tojson }};
+        navigator.clipboard.writeText(convite).then(() => {
+            alert('Convite copiado!');
+        }).catch(() => {
+            prompt('Copie o convite abaixo:', convite);
+        });
+    }
+
+    function enviarPresencaCall() {
+        fetch({{ url_for('discord_call_presenca') | tojson }}, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.content || ''
+            },
+            body: JSON.stringify({ room_slug: roomSlug }),
+            keepalive: true
+        }).catch(() => {});
+    }
+
+    function sairDaCall() {
+        fetch({{ url_for('discord_call_sair') | tojson }}, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.content || ''
+            },
+            keepalive: true
+        }).catch(() => {});
+    }
+
+    function atualizarTempoCall() {
+        const elapsedNode = document.querySelector('[data-call-elapsed]');
+        if (!elapsedNode) {
+            return;
+        }
+        elapsedNode.textContent = formatElapsed(Date.now() / 1000 - callStartedAt);
+    }
+
+    function renderizarParticipantes(participantes) {
+        const container = document.querySelector('[data-call-participants]');
+        const countNode = document.querySelector('[data-call-count]');
+        if (!container) {
+            return;
+        }
+
+        container.innerHTML = '';
+        if (countNode) {
+            countNode.textContent = String(participantes.length);
+        }
+
+        if (!participantes.length) {
+            container.innerHTML = '<p class="text-white-50 small mb-0" data-call-empty>Nenhum usuário em call no momento.</p>';
+            return;
+        }
+
+        participantes.forEach((participante) => {
+            const chip = document.createElement('div');
+            chip.className = 'participant-chip';
+
+            const left = document.createElement('div');
+            left.className = 'd-flex align-items-center gap-2';
+
+            const avatar = document.createElement('div');
+            avatar.className = 'participant-avatar';
+            avatar.textContent = (participante.nome || '?').slice(0, 1).toUpperCase();
+
+            const info = document.createElement('div');
+            info.innerHTML = `<div class="fw-semibold">${participante.nome || ''}</div><small class="text-white-50">${participante.email || ''}</small>`;
+
+            const badge = document.createElement('span');
+            badge.className = 'badge ' + (participante.email === {{ session.get('user_email') | tojson }} ? 'bg-success' : 'bg-info text-dark');
+            badge.textContent = participante.email === {{ session.get('user_email') | tojson }} ? 'Você' : 'Ativo';
+
+            left.appendChild(avatar);
+            left.appendChild(info);
+            chip.appendChild(left);
+            chip.appendChild(badge);
+            container.appendChild(chip);
+        });
+    }
+
+    function atualizarStatusCall() {
+        fetch(statusUrl, { cache: 'no-store' })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.ok) {
+                    return;
+                }
+                renderizarParticipantes(data.participantes_ativos || []);
+                const elapsedNode = document.querySelector('[data-call-elapsed]');
+                if (elapsedNode && data.tempo_decorrido) {
+                    elapsedNode.textContent = data.tempo_decorrido;
+                }
+            })
+            .catch(() => {});
+    }
+
+    enviarPresencaCall();
+    heartbeatTimer = window.setInterval(enviarPresencaCall, 15000);
+    atualizarTempoCall();
+    elapsedTimer = window.setInterval(atualizarTempoCall, 1000);
+    atualizarStatusCall();
+    statusTimer = window.setInterval(atualizarStatusCall, 5000);
+    window.addEventListener('beforeunload', sairDaCall);
+    window.addEventListener('pagehide', sairDaCall);
+</script>
+{% endblock %}
