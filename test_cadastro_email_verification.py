@@ -33,7 +33,10 @@ class CadastroEmailVerificationFlowTest(unittest.TestCase):
         }, follow_redirects=False)
         self.assertIn(resp.status_code, (200, 302))
         with self.client.session_transaction() as sess:
-            codigo = sess['cadastro_pendente']['codigo']
+            from database import get_pending_registration_by_email
+            pend = get_pending_registration_by_email(sess['cadastro_pendente']['email'])
+            self.assertIsNotNone(pend)
+            codigo = pend['codigo']
             csrf_session = sess['csrf_token']
         return codigo, csrf_session, (email or '').strip().lower()
 

@@ -33,6 +33,11 @@ def from_db_row(row):
     usuario.steam_id64 = row.get('steam_id64') or ''
     usuario.steam_api_key = row.get('steam_api_key') or ''
     usuario.steam_library_path = row.get('steam_library_path') or ''
+    usuario.steam_online = bool(row.get('steam_online') or False)
+    usuario.steam_current_game = row.get('steam_current_game') or ''
+    usuario.steam_current_game_appid = row.get('steam_current_game_appid')
+    usuario.steam_playtime_minutes = row.get('steam_playtime_minutes') or 0
+    usuario.steam_last_update = row.get('steam_last_update')
     usuario.hydra_library_path = row.get('hydra_library_path') or ''
     usuario.hydra_account_email = row.get('hydra_account_email') or ''
     usuario.hydra_usuario = row.get('hydra_usuario') or ''

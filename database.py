@@ -5,7 +5,7 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash
 from modelos.usuario import normalizar_email, obter_senha_admin_padrao
 from modelos.suporte import CATEGORIAS_SUPORTE, STATUS_SUPORTE_INICIAIS
-from paths import DB_PATH, SUPPORT_UPLOAD_DIR
+from paths import DB_PATH, SUPPORT_UPLOAD_DIR, DATABASE_URL, IS_VERCEL
 
 
 def gerar_hash_senha(password: str) -> str:
@@ -420,11 +420,238 @@ CREATE INDEX IF NOT EXISTS idx_sound_history_user
 
 
 def get_connection():
+    """Conexão SQLite local usada pelo desktop e pelo cache/shadow da web.
+
+    A autenticação na Vercel usa as funções PostgreSQL abaixo. SQLite em /tmp
+    nunca é tratado como fonte definitiva de usuários quando DATABASE_URL existe.
+    """
     conn = sqlite3.connect(DB_PATH, timeout=30, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     conn.execute('PRAGMA foreign_keys = ON;')
     conn.execute('PRAGMA busy_timeout = 30000;')
     return conn
+
+
+def _external_auth_enabled() -> bool:
+    return bool(IS_VERCEL and DATABASE_URL)
+
+
+def _require_external_auth() -> None:
+    if IS_VERCEL and not DATABASE_URL:
+        raise RuntimeError(
+            'DATABASE_URL não está configurada na Vercel. Configure um PostgreSQL persistente '
+            '(Neon, Supabase ou equivalente) e faça um novo deploy.'
+        )
+
+
+def _pg_connect():
+    if not DATABASE_URL:
+        raise RuntimeError('DATABASE_URL não configurada.')
+    import psycopg2
+    return psycopg2.connect(DATABASE_URL, connect_timeout=10, sslmode='require')
+
+
+def _pg_init_auth_schema() -> None:
+    if not _external_auth_enabled():
+        return
+    conn = _pg_connect()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS gameunexa_usuarios (
+                    id BIGSERIAL PRIMARY KEY,
+                    nome TEXT NOT NULL,
+                    email TEXT NOT NULL UNIQUE,
+                    password TEXT NOT NULL,
+                    token_recuperacao TEXT,
+                    idade INTEGER,
+                    gosto_jogos TEXT,
+                    telefone TEXT,
+                    steam_id64 TEXT,
+                    steam_api_key TEXT,
+                    steam_library_path TEXT,
+                    steam_online BOOLEAN NOT NULL DEFAULT FALSE,
+                    steam_current_game TEXT,
+                    steam_current_game_appid BIGINT,
+                    steam_playtime_minutes INTEGER NOT NULL DEFAULT 0,
+                    steam_last_update TEXT,
+                    hydra_library_path TEXT,
+                    hydra_account_email TEXT,
+                    hydra_usuario TEXT,
+                    hydra_pin TEXT,
+                    hydra_token TEXT,
+                    hydra_current_game TEXT,
+                    hydra_last_update TEXT,
+                    library_style TEXT NOT NULL DEFAULT 'classic',
+                    library_view TEXT NOT NULL DEFAULT '2d',
+                    auto_library_enabled BOOLEAN NOT NULL DEFAULT FALSE,
+                    auto_library_folders TEXT NOT NULL DEFAULT '[]',
+                    auto_last_scan TEXT,
+                    foto_perfil TEXT,
+                    data_cadastro TEXT,
+                    is_admin BOOLEAN NOT NULL DEFAULT FALSE,
+                    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+                    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+                );
+                CREATE UNIQUE INDEX IF NOT EXISTS idx_gameunexa_usuarios_email_lower
+                    ON gameunexa_usuarios (LOWER(email));
+                CREATE TABLE IF NOT EXISTS gameunexa_pending_registrations (
+                    email TEXT PRIMARY KEY,
+                    nome TEXT NOT NULL,
+                    password_hash TEXT NOT NULL,
+                    codigo TEXT NOT NULL,
+                    expira_em DOUBLE PRECISION NOT NULL,
+                    criado_em TIMESTAMPTZ NOT NULL DEFAULT NOW()
+                );
+            """)
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def init_external_auth_db() -> None:
+    """Inicializa o armazenamento persistente de autenticação da Vercel."""
+    if not IS_VERCEL:
+        return
+    _require_external_auth()
+    _pg_init_auth_schema()
+
+
+def _pg_row_to_dict(cur, row):
+    if row is None:
+        return None
+    columns = [desc[0] for desc in cur.description]
+    return dict(zip(columns, row))
+
+
+def _pg_user_from_row(cur, row):
+    from modelos.usuario import from_db_row
+    data = _pg_row_to_dict(cur, row)
+    if not data:
+        return None
+    return from_db_row(data)
+
+
+def _pg_get_user_by_email(email: str):
+    email = normalizar_email(email)
+    conn = _pg_connect()
+    try:
+        with conn.cursor() as cur:
+            cur.execute('SELECT * FROM gameunexa_usuarios WHERE LOWER(email) = %s LIMIT 1', (email,))
+            return _pg_user_from_row(cur, cur.fetchone())
+    finally:
+        conn.close()
+
+
+def _pg_list_users():
+    conn = _pg_connect()
+    try:
+        with conn.cursor() as cur:
+            cur.execute('SELECT * FROM gameunexa_usuarios ORDER BY id ASC')
+            return [dict(zip([d[0] for d in cur.description], row)) for row in cur.fetchall()]
+    finally:
+        conn.close()
+
+
+def listar_usuarios_persistentes():
+    """Lista usuários do banco externo quando a aplicação está na Vercel."""
+    if not _external_auth_enabled():
+        return []
+    return _pg_list_users()
+
+
+def _pg_upsert_user(user):
+    conn = _pg_connect()
+    try:
+        values = {
+            'nome': getattr(user, 'nome', ''),
+            'email': normalizar_email(getattr(user, 'email', '')),
+            'password': getattr(user, '_Usuario__password', ''),
+            'token_recuperacao': getattr(user, 'token_recuperacao', None),
+            'idade': getattr(user, 'idade', None),
+            'gosto_jogos': getattr(user, 'gosto_jogos', ''),
+            'telefone': getattr(user, 'telefone', ''),
+            'steam_id64': getattr(user, 'steam_id64', ''),
+            'steam_api_key': getattr(user, 'steam_api_key', ''),
+            'steam_library_path': getattr(user, 'steam_library_path', ''),
+            'steam_online': bool(getattr(user, 'steam_online', False)),
+            'steam_current_game': getattr(user, 'steam_current_game', ''),
+            'steam_current_game_appid': getattr(user, 'steam_current_game_appid', None),
+            'steam_playtime_minutes': getattr(user, 'steam_playtime_minutes', 0),
+            'steam_last_update': _dt_to_db(getattr(user, 'steam_last_update', None)),
+            'hydra_library_path': getattr(user, 'hydra_library_path', ''),
+            'hydra_account_email': getattr(user, 'hydra_account_email', ''),
+            'hydra_usuario': getattr(user, 'hydra_usuario', ''),
+            'hydra_pin': getattr(user, 'hydra_pin', ''),
+            'hydra_token': getattr(user, 'hydra_token', ''),
+            'hydra_current_game': getattr(user, 'hydra_current_game', ''),
+            'hydra_last_update': _dt_to_db(getattr(user, 'hydra_last_update', None)),
+            'library_style': '3d' if getattr(user, 'library_view', '2d') == '3d' else 'classic',
+            'library_view': getattr(user, 'library_view', '2d'),
+            'auto_library_enabled': bool(getattr(user, 'auto_library_enabled', False)),
+            'auto_library_folders': json.dumps(getattr(user, 'auto_library_folders', []) or [], ensure_ascii=False),
+            'auto_last_scan': _dt_to_db(getattr(user, 'auto_last_scan', None)),
+            'foto_perfil': getattr(user, 'foto_perfil', ''),
+            'data_cadastro': _dt_to_db(getattr(user, 'data_cadastro', None)),
+            'is_admin': user.__class__.__name__ == 'Admin',
+        }
+        columns = list(values)
+        placeholders = ', '.join(['%s'] * len(columns))
+        updates = ', '.join(f'{c}=EXCLUDED.{c}' for c in columns if c != 'email')
+        with conn.cursor() as cur:
+            cur.execute(
+                f"INSERT INTO gameunexa_usuarios ({', '.join(columns)}) VALUES ({placeholders}) "
+                f"ON CONFLICT(email) DO UPDATE SET {updates}, updated_at=NOW() RETURNING *",
+                [values[c] for c in columns],
+            )
+            row = cur.fetchone()
+        conn.commit()
+        with conn.cursor() as cur2:
+            # Re-fetch with a fresh cursor so description is guaranteed to exist.
+            cur2.execute('SELECT * FROM gameunexa_usuarios WHERE LOWER(email) = %s LIMIT 1', (values['email'],))
+            return _pg_user_from_row(cur2, cur2.fetchone())
+    finally:
+        conn.close()
+
+
+def _pg_create_pending(email, nome, password_hash, codigo, expira_em):
+    conn = _pg_connect()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("""
+                INSERT INTO gameunexa_pending_registrations (email, nome, password_hash, codigo, expira_em)
+                VALUES (%s, %s, %s, %s, %s)
+                ON CONFLICT(email) DO UPDATE SET
+                    nome=EXCLUDED.nome, password_hash=EXCLUDED.password_hash,
+                    codigo=EXCLUDED.codigo, expira_em=EXCLUDED.expira_em
+            """, (normalizar_email(email), nome, password_hash, codigo, expira_em))
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _pg_get_pending(email=None, code=None):
+    conn = _pg_connect()
+    try:
+        with conn.cursor() as cur:
+            if email is not None:
+                cur.execute('SELECT * FROM gameunexa_pending_registrations WHERE LOWER(email) = %s LIMIT 1', (normalizar_email(email),))
+            else:
+                cur.execute('SELECT * FROM gameunexa_pending_registrations WHERE codigo = %s LIMIT 1', (code,))
+            row = cur.fetchone()
+            return _pg_row_to_dict(cur, row)
+    finally:
+        conn.close()
+
+
+def _pg_delete_pending(email):
+    conn = _pg_connect()
+    try:
+        with conn.cursor() as cur:
+            cur.execute('DELETE FROM gameunexa_pending_registrations WHERE LOWER(email) = %s', (normalizar_email(email),))
+        conn.commit()
+    finally:
+        conn.close()
 
 
 def _ensure_usuario_columns(conn):
@@ -974,7 +1201,11 @@ def carregar_estado_persistido():
     }
 
 
-def persistir_usuario(user):
+def persistir_usuario(user, _skip_external=False):
+    if _external_auth_enabled() and not _skip_external:
+        _pg_upsert_user(user)
+    elif IS_VERCEL and not DATABASE_URL:
+        _require_external_auth()
     conn = get_connection()
     try:
         _ensure_usuario_columns(conn)
@@ -1076,6 +1307,10 @@ def persistir_usuario(user):
 
 
 def get_user_by_email(email: str):
+    if _external_auth_enabled():
+        return _pg_get_user_by_email(email)
+    if IS_VERCEL and not DATABASE_URL:
+        _require_external_auth()
     from modelos.usuario import from_db_row
     email_normalizado = normalizar_email(email)
     conn = get_connection()
@@ -1091,6 +1326,19 @@ def get_user_by_email(email: str):
 
 def create_user(nome: str, email: str, password_hash: str, is_admin: bool = False):
     email_normalizado = normalizar_email(email)
+    if _external_auth_enabled():
+        from modelos.usuario import Admin, Usuario
+        obj = Admin(0, nome, email_normalizado, password_hash) if is_admin else Usuario(0, nome, email_normalizado, password_hash)
+        saved = _pg_upsert_user(obj)
+        # Mantém uma cópia local da sessão/relacionamentos para a execução atual.
+        try:
+            persistir_usuario_local = persistir_usuario
+            persistir_usuario_local(saved, _skip_external=True)
+        except Exception:
+            pass
+        return saved
+    if IS_VERCEL and not DATABASE_URL:
+        _require_external_auth()
     conn = get_connection()
     try:
         cursor = conn.cursor()
@@ -1112,6 +1360,11 @@ def create_user(nome: str, email: str, password_hash: str, is_admin: bool = Fals
 
 def create_pending_registration(email: str, nome: str, password_hash: str, codigo: str, expira_em: float):
     email_normalizado = normalizar_email(email)
+    if _external_auth_enabled():
+        _pg_create_pending(email_normalizado, nome, password_hash, codigo, expira_em)
+        return True
+    if IS_VERCEL and not DATABASE_URL:
+        _require_external_auth()
     conn = get_connection()
     try:
         conn.execute(
@@ -1130,6 +1383,10 @@ def create_pending_registration(email: str, nome: str, password_hash: str, codig
 
 def get_pending_registration_by_email(email: str):
     email_normalizado = normalizar_email(email)
+    if _external_auth_enabled():
+        return _pg_get_pending(email=email_normalizado)
+    if IS_VERCEL and not DATABASE_URL:
+        _require_external_auth()
     conn = get_connection()
     try:
         row = conn.execute('SELECT * FROM pending_registrations WHERE lower(email) = ?', (email_normalizado,)).fetchone()
@@ -1139,6 +1396,10 @@ def get_pending_registration_by_email(email: str):
 
 
 def get_pending_registration_by_code(code: str):
+    if _external_auth_enabled():
+        return _pg_get_pending(code=code)
+    if IS_VERCEL and not DATABASE_URL:
+        _require_external_auth()
     conn = get_connection()
     try:
         row = conn.execute('SELECT * FROM pending_registrations WHERE codigo = ?', (code,)).fetchone()
@@ -1149,6 +1410,11 @@ def get_pending_registration_by_code(code: str):
 
 def delete_pending_registration(email: str):
     email_normalizado = normalizar_email(email)
+    if _external_auth_enabled():
+        _pg_delete_pending(email_normalizado)
+        return True
+    if IS_VERCEL and not DATABASE_URL:
+        _require_external_auth()
     conn = get_connection()
     try:
         conn.execute('DELETE FROM pending_registrations WHERE lower(email) = ?', (email_normalizado,))

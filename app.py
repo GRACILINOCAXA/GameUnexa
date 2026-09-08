@@ -53,6 +53,8 @@ from database import (
     confirm_pending_registration,
     get_user_by_email,
     gerar_hash_senha,
+    init_external_auth_db,
+    listar_usuarios_persistentes,
 )
 
 
@@ -66,7 +68,8 @@ def obter_usuario(email: str):
         if user:
             return user
     except Exception:
-        pass
+        if IS_VERCEL:
+            raise
     from modelos.usuario import USUARIOS_DB
     return USUARIOS_DB.get(normalized)
 
@@ -100,7 +103,7 @@ def build_browser_library_reference(display_name: str, folder_path: str = '') ->
         return f"browser:{safe_name}|{safe_path}"
     return f"browser:{safe_name}|{safe_name}"
 
-from paths import CACHE_DIR, ENV_PATH, UPLOADS_DIR, SUPPORT_UPLOAD_DIR, ensure_app_data_dirs, resource_path, TEMP_DIR
+from paths import CACHE_DIR, ENV_PATH, UPLOADS_DIR, SUPPORT_UPLOAD_DIR, ensure_app_data_dirs, resource_path, TEMP_DIR, DATABASE_URL
 from excecao import GameLinkException, AutenticacaoError, OperacaoInvalidaError
 from steam_audit import (
     log_steamid_resolvido, log_steamid_falha,
@@ -199,6 +202,8 @@ from database import (
     persistir_mensagem,
     persistir_reacao_mensagem,
     excluir_usuario_completo,
+    init_external_auth_db,
+    listar_usuarios_persistentes,
 )
 from game_database import listar_games_instalados
 from game_matcher import names_match, normalize_game_name
@@ -559,8 +564,14 @@ except OSError as exc:
             pass
     raise SystemExit(1) from exc
 
-# Inicializa o banco de dados SQLite se ainda não existir
+# Inicializa o banco local para compatibilidade e o banco persistente de autenticação na Vercel.
 init_db()
+try:
+    init_external_auth_db()
+except Exception as exc:
+    # Não derruba a página de login; as rotas de autenticação retornarão um erro
+    # claro se DATABASE_URL estiver ausente ou o PostgreSQL estiver indisponível.
+    app.logger.error('[AUTH] Falha ao inicializar banco persistente: %s', exc)
 
 
 def _garantir_biblioteca_db_consistente() -> None:
@@ -755,18 +766,50 @@ def _enviar_codigo_verificacao_email(destinatario: str, codigo: str, nome: str) 
 
 
 def _cadastro_pendente_valido() -> dict | None:
-    pendente = session.get('cadastro_pendente')
-    if not pendente:
+    """Obtém a inscrição pendente do banco, nunca da sessão do cliente.
+
+    A sessão guarda somente o e-mail. Código de verificação e password_hash
+    permanecem no armazenamento persistente.
+    """
+    referencia = session.get('cadastro_pendente') or {}
+    email = _normalizar_email(referencia.get('email') if isinstance(referencia, dict) else referencia)
+    if not email:
         return None
-    if pendente.get('expira_em', 0) < time.time():
+    pendente = get_pending_registration_by_email(email)
+    if not pendente:
         session.pop('cadastro_pendente', None)
         session.pop('cadastro_ultimo_envio', None)
         return None
-    return pendente
+    if float(pendente.get('expira_em', 0) or 0) < time.time():
+        from database import delete_pending_registration
+        delete_pending_registration(email)
+        session.pop('cadastro_pendente', None)
+        session.pop('cadastro_ultimo_envio', None)
+        return None
+    return {
+        'nome': pendente.get('nome', ''),
+        'email': email,
+        'codigo': pendente.get('codigo', ''),
+        'expira_em': float(pendente.get('expira_em', 0) or 0),
+    }
 
 
 def _carregar_usuarios_do_banco() -> None:
     USUARIOS_DB.clear()
+    if IS_VERCEL and DATABASE_URL:
+        # Na Vercel, o PostgreSQL externo é a fonte canônica dos usuários.
+        from modelos.usuario import from_db_row
+        for row in listar_usuarios_persistentes():
+            user = from_db_row(row)
+            if user:
+                USUARIOS_DB[user.email.lower()] = user
+                # Shadow local somente para manter compatibilidade com relações
+                # SQLite usadas durante a execução atual.
+                try:
+                    persistir_usuario(user, _skip_external=True)
+                except Exception as exc:
+                    app.logger.warning('[AUTH] Não foi possível criar shadow local de %s: %s', user.email, exc)
+        return
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute(
@@ -5324,10 +5367,7 @@ def cadastro():
         senha_hash = gerar_hash_senha(senha)
         create_pending_registration(email, nome, senha_hash, codigo, time.time() + 600)
         session['cadastro_pendente'] = {
-            'nome': nome,
             'email': email,
-            'codigo': codigo,
-            'expira_em': time.time() + 600,
         }
         session['cadastro_ultimo_envio'] = time.time()
         try:
@@ -5370,7 +5410,12 @@ def login():
         app.logger.info('[AUTH] Login iniciado')
         app.logger.info('[AUTH] Email normalizado: %s', email)
         app.logger.info('[AUTH] Busca no banco persistente')
-        user = get_user_by_email(email)
+        try:
+            user = get_user_by_email(email)
+        except Exception as exc:
+            app.logger.exception('[AUTH] Falha no banco de autenticação')
+            flash('Serviço de autenticação indisponível. Configure o DATABASE_URL na Vercel e faça um novo deploy.', 'danger')
+            return render_template('login.html')
         app.logger.info('[AUTH] Usuário encontrado: %s', 'SIM' if user else 'NÃO')
         if user:
             app.logger.info('[AUTH] Hash encontrado: %s', 'SIM' if user.senha_esta_hasheada() else 'NÃO')
