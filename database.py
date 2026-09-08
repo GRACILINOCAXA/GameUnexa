@@ -44,6 +44,16 @@ CREATE TABLE IF NOT EXISTS usuarios (
     is_admin INTEGER NOT NULL DEFAULT 0
 );
 
+CREATE TABLE IF NOT EXISTS pending_registrations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT NOT NULL UNIQUE,
+    nome TEXT NOT NULL,
+    password_hash TEXT NOT NULL,
+    codigo TEXT NOT NULL,
+    expira_em REAL NOT NULL,
+    criado_em TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE IF NOT EXISTS categorias (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL UNIQUE
@@ -1063,6 +1073,113 @@ def persistir_usuario(user):
         conn.commit()
     finally:
         conn.close()
+
+
+def get_user_by_email(email: str):
+    from modelos.usuario import from_db_row
+    email_normalizado = normalizar_email(email)
+    conn = get_connection()
+    try:
+        row = conn.execute('SELECT * FROM usuarios WHERE lower(email) = ?', (email_normalizado,)).fetchone()
+        if not row:
+            return None
+        # sqlite3.Row behaves like a mapping
+        return from_db_row(dict(row))
+    finally:
+        conn.close()
+
+
+def create_user(nome: str, email: str, password_hash: str, is_admin: bool = False):
+    email_normalizado = normalizar_email(email)
+    conn = get_connection()
+    try:
+        cursor = conn.cursor()
+        cursor.execute(
+            '''
+            INSERT INTO usuarios (nome, email, password, data_cadastro, is_admin)
+            VALUES (?, ?, ?, ?, ?)
+            ON CONFLICT(email) DO UPDATE SET nome=excluded.nome, password=excluded.password, is_admin=excluded.is_admin
+            ''',
+            (nome, email_normalizado, password_hash, datetime.now().isoformat(timespec='seconds'), 1 if is_admin else 0),
+        )
+        conn.commit()
+        row = conn.execute('SELECT * FROM usuarios WHERE lower(email) = ?', (email_normalizado,)).fetchone()
+        from modelos.usuario import from_db_row
+        return from_db_row(dict(row)) if row else None
+    finally:
+        conn.close()
+
+
+def create_pending_registration(email: str, nome: str, password_hash: str, codigo: str, expira_em: float):
+    email_normalizado = normalizar_email(email)
+    conn = get_connection()
+    try:
+        conn.execute(
+            '''
+            INSERT INTO pending_registrations (email, nome, password_hash, codigo, expira_em)
+            VALUES (?, ?, ?, ?, ?)
+            ON CONFLICT(email) DO UPDATE SET nome=excluded.nome, password_hash=excluded.password_hash, codigo=excluded.codigo, expira_em=excluded.expira_em
+            ''',
+            (email_normalizado, nome, password_hash, codigo, expira_em),
+        )
+        conn.commit()
+        return True
+    finally:
+        conn.close()
+
+
+def get_pending_registration_by_email(email: str):
+    email_normalizado = normalizar_email(email)
+    conn = get_connection()
+    try:
+        row = conn.execute('SELECT * FROM pending_registrations WHERE lower(email) = ?', (email_normalizado,)).fetchone()
+        return dict(row) if row else None
+    finally:
+        conn.close()
+
+
+def get_pending_registration_by_code(code: str):
+    conn = get_connection()
+    try:
+        row = conn.execute('SELECT * FROM pending_registrations WHERE codigo = ?', (code,)).fetchone()
+        return dict(row) if row else None
+    finally:
+        conn.close()
+
+
+def delete_pending_registration(email: str):
+    email_normalizado = normalizar_email(email)
+    conn = get_connection()
+    try:
+        conn.execute('DELETE FROM pending_registrations WHERE lower(email) = ?', (email_normalizado,))
+        conn.commit()
+        return True
+    finally:
+        conn.close()
+
+
+def confirm_pending_registration(email: str, codigo: str):
+    import time as _time
+    pend = get_pending_registration_by_email(email)
+    if not pend:
+        return None
+    if pend.get('codigo') != codigo:
+        return None
+    if float(pend.get('expira_em', 0) or 0) < _time.time():
+        # expired
+        delete_pending_registration(email)
+        return None
+    # Create the real user using stored password_hash
+    usuario = create_user(pend.get('nome'), pend.get('email'), pend.get('password_hash'), is_admin=False)
+    delete_pending_registration(email)
+    # keep USUARIOS_DB cache in sync if available
+    try:
+        from modelos.usuario import USUARIOS_DB
+        if usuario:
+            USUARIOS_DB[usuario.email.lower()] = usuario
+    except Exception:
+        pass
+    return usuario
 
 
 def persistir_categoria(categoria):

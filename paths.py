@@ -9,6 +9,8 @@ from pathlib import Path
 APP_NAME = "GAME-UNEXA"
 IS_WINDOWS = os.name == "nt"
 IS_VERCEL = os.environ.get("VERCEL") == "1"
+DATABASE_URL = os.environ.get('DATABASE_URL')
+EXTERNAL_DB_ENABLED = bool(DATABASE_URL)
 
 
 def resource_path(relative_path: str = "") -> str:
@@ -22,7 +24,10 @@ def resource_path(relative_path: str = "") -> str:
 
 def get_app_data_dir() -> str:
     """Retorna a raiz gravavel do usuario, sem depender do diretorio atual."""
-    if IS_VERCEL:
+    # If an external persistent database is configured (e.g. DATABASE_URL),
+    # prefer to still use AppData paths when possible but avoid relying on
+    # ephemeral /tmp as the primary persistence location for desktop-mode.
+    if IS_VERCEL and not EXTERNAL_DB_ENABLED:
         return str(Path(os.environ.get("TMPDIR") or "/tmp") / APP_NAME)
 
     local_app_data = os.environ.get("LOCALAPPDATA")
@@ -42,6 +47,7 @@ def get_app_data_dir() -> str:
 
 APP_DATA_DIR = Path(get_app_data_dir())
 CACHE_DIR = APP_DATA_DIR / "cache"
+COVERS_DIR = CACHE_DIR / "covers"
 DATA_DIR = APP_DATA_DIR / "data"
 CONFIG_DIR = APP_DATA_DIR / "config"
 LOGS_DIR = APP_DATA_DIR / "logs"
@@ -60,6 +66,7 @@ def ensure_app_data_dirs() -> None:
     """Cria a estrutura persistente e informa o caminho exato em caso de falha."""
     directories = (
         APP_DATA_DIR, CACHE_DIR, DATA_DIR, CONFIG_DIR, LOGS_DIR, SAVES_DIR,
+        COVERS_DIR,
         UPLOADS_DIR, SOUNDBOARD_DIR, CHAT_UPLOAD_DIR, SUPPORT_UPLOAD_DIR,
         BACKGROUND_DIR, TEMP_DIR,
     )

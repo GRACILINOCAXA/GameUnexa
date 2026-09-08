@@ -6,12 +6,13 @@ import os
 from datetime import datetime
 
 from modelos.usuario import USUARIOS_DB
+from app import obter_usuario
 from steam_api import obter_status
 
 
 def _sincronizar_usuario_automaticamente(email: str, estado: dict | None = None) -> bool:
     """Sincroniza status do usuário com base no estado detectado pelo monitor."""
-    user = USUARIOS_DB.get(email)
+    user = obter_usuario(email)
     if not user:
         return False
 
@@ -97,7 +98,7 @@ def callback_mudanca_presenca(email: str):
         if online or steam_ativo or hydra_ativo:
             _sincronizar_usuario_automaticamente(email, estado)
         else:
-            user = USUARIOS_DB.get(email)
+            user = obter_usuario(email)
             if user and (user.steam_online or user.steam_current_game or user.hydra_current_game):
                 user.steam_online = False
                 user.steam_current_game = ''

@@ -47,6 +47,28 @@ from pathlib import Path
 from uuid import uuid4
 import secrets
 import sqlite3
+from database import (
+    create_pending_registration,
+    get_pending_registration_by_email,
+    confirm_pending_registration,
+    get_user_by_email,
+    gerar_hash_senha,
+)
+
+
+def obter_usuario(email: str):
+    """Retorna o usuário consultando primeiro o DB persistente e com fallback para cache em memória."""
+    if not email:
+        return None
+    normalized = _normalizar_email(email)
+    try:
+        user = get_user_by_email(normalized)
+        if user:
+            return user
+    except Exception:
+        pass
+    from modelos.usuario import USUARIOS_DB
+    return USUARIOS_DB.get(normalized)
 
 IS_WINDOWS = os.name == 'nt'
 IS_VERCEL = os.environ.get('VERCEL') == '1'
@@ -451,7 +473,7 @@ def _finalizar_envio_pendente(pending_id: str):
 
     todas_notifs = [n for lista in NOTIFICACOES_DB.values() for n in lista]
     id_notif = max([n.id for n in todas_notifs], default=0) + 1
-    remetente = USUARIOS_DB.get(meu_email)
+    remetente = obter_usuario(meu_email)
     GerenciadorNotificacoes.criar_notificacao(
         id_notif=id_notif,
         email_receptor=email_destino,
@@ -975,7 +997,7 @@ CALL_PRESENCE_TTL = 35
 
 def esta_online(email: str) -> bool:
     normalized = _normalizar_email(email)
-    user = USUARIOS_DB.get(normalized)
+    user = obter_usuario(normalized)
     if user:
         if user.hydra_current_game:
             return True
@@ -1013,7 +1035,7 @@ def _limpar_presencas_call() -> None:
     expiradas = [email for email, dados in CALL_PRESENCE.items() if (time.time() - dados.get('last_seen', 0)) > CALL_PRESENCE_TTL]
     for email in expiradas:
         CALL_PRESENCE.pop(email, None)
-        user = USUARIOS_DB.get(email)
+        user = obter_usuario(email)
         if user:
             user.discord_online = False
 
@@ -1024,7 +1046,7 @@ def _obter_participantes_call_ativos(room_slug: str) -> list:
     for email, dados in CALL_PRESENCE.items():
         if dados.get('room_slug') != room_slug:
             continue
-        usuario = USUARIOS_DB.get(email)
+        usuario = obter_usuario(email)
         if not usuario:
             continue
         participantes.append({
@@ -2563,7 +2585,7 @@ def _hydra_contexto_local(user) -> dict:
 
 
 def importar_hydra_para_biblioteca_local(meu_email: str, exportacao_json: str) -> tuple[int, int, str | None]:
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         return 0, 0, 'Usuário não encontrado.'
 
@@ -3500,7 +3522,7 @@ def sincronizar_status_steam(user_email: str) -> None:
     Sincroniza o status atual da Steam do usuário com o banco de dados.
     """
     meu_email = _normalizar_email(user_email)
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
 
     if not user:
         return
@@ -3541,7 +3563,7 @@ def sincronizar_status_steam(user_email: str) -> None:
 def sincronizar_steam_oficial(user_email: str) -> dict:
     """Sincronização explícita usando a integração oficial da Steam."""
     meu_email = _normalizar_email(user_email)
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         return {'sincronizado': False, 'erro': 'Usuário não encontrado'}
 
@@ -4177,7 +4199,7 @@ def _limpar_registros_automaticos(email: str, launcher: str, registros: list[dic
 
 
 def _sincronizar_biblioteca_launcher(email: str, steam_root: str | None = None, hydra_root: str | None = None, force: bool = False) -> dict:
-    user = USUARIOS_DB.get((email or '').strip().lower())
+    user = obter_usuario(email)
     if not user:
         return {'steam': 0, 'hydra': 0, 'total': 0}
 
@@ -4528,7 +4550,7 @@ def _steam_normalizar_appid(valor) -> str:
 
 def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str | None]:
     _garantir_biblioteca_db_consistente()
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         return 0, 0, 'Usuário não encontrado.'
 
@@ -4683,7 +4705,7 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
 
 def montar_amigos_contexto(email: str) -> dict:
     amigos_emails = GerenciadorAmigos.obter_amigos(email)
-    amigos = [USUARIOS_DB.get(amigo_email) for amigo_email in amigos_emails if USUARIOS_DB.get(amigo_email)]
+    amigos = [obter_usuario(amigo_email) for amigo_email in amigos_emails if obter_usuario(amigo_email)]
     
     # Get pending requests where user is the receptor
     pendentes_recebidas = GerenciadorAmigos.obter_solicitacoes_pendentes(email)
@@ -5220,6 +5242,10 @@ def cadastro():
                 novo_codigo = _gerar_codigo_verificacao()
                 pendente['codigo'] = novo_codigo
                 pendente['expira_em'] = agora + 600
+                # update pending registration in persistent storage
+                db_pend = get_pending_registration_by_email(pendente['email'])
+                if db_pend:
+                    create_pending_registration(pendente['email'], pendente['nome'], db_pend.get('password_hash'), novo_codigo, pendente['expira_em'])
                 session['cadastro_pendente'] = pendente
                 session['cadastro_ultimo_envio'] = agora
                 try:
@@ -5252,18 +5278,17 @@ def cadastro():
 
             email = _normalizar_email(pendente['email'])
             nome = pendente['nome']
-            senha = pendente['senha']
-            if email in USUARIOS_DB:
+            # check persistent DB for existing user
+            if get_user_by_email(email):
                 session.pop('cadastro_pendente', None)
                 session.pop('cadastro_ultimo_envio', None)
                 flash('E-mail já cadastrado!', 'danger')
                 return render_template('cadastro.html', verificacao_pendente=False)
 
-            proximo_id = max([user.id for user in USUARIOS_DB.values()], default=0) + 1
-            novo_usuario = Usuario(proximo_id, nome, email, senha)
-            novo_usuario.data_cadastro = datetime.now().isoformat(timespec='seconds')
-            USUARIOS_DB[email] = novo_usuario
-            persistir_usuario(novo_usuario)
+            usuario = confirm_pending_registration(email, codigo_informado)
+            if not usuario:
+                flash('Não foi possível confirmar o cadastro. Tente novamente.', 'danger')
+                return render_template('cadastro.html', verificacao_pendente=False)
             enviar_email(
                 destinatario=email,
                 assunto='Bem-vindo ao GameUnexa',
@@ -5291,15 +5316,16 @@ def cadastro():
         if not nome or not email or not senha:
             flash('Preencha nome, e-mail e senha para continuar.', 'danger')
             return render_template('cadastro.html', verificacao_pendente=False)
-        if email in USUARIOS_DB:
+        if get_user_by_email(email):
             flash('E-mail já cadastrado!', 'danger')
             return render_template('cadastro.html', verificacao_pendente=False)
-
         codigo = _gerar_codigo_verificacao()
+        # persist pending registration with hashed password (never store raw password in session)
+        senha_hash = gerar_hash_senha(senha)
+        create_pending_registration(email, nome, senha_hash, codigo, time.time() + 600)
         session['cadastro_pendente'] = {
             'nome': nome,
             'email': email,
-            'senha': senha,
             'codigo': codigo,
             'expira_em': time.time() + 600,
         }
@@ -5341,13 +5367,15 @@ def login():
     if request.method == 'POST':
         email = _normalizar_email(request.form['email'])
         senha = request.form['senha']
-        app.logger.info('[AUTH] Login iniciado: email=%s', email)
-        user = USUARIOS_DB.get(email)
+        app.logger.info('[AUTH] Login iniciado')
+        app.logger.info('[AUTH] Email normalizado: %s', email)
+        app.logger.info('[AUTH] Busca no banco persistente')
+        user = get_user_by_email(email)
         app.logger.info('[AUTH] Usuário encontrado: %s', 'SIM' if user else 'NÃO')
         if user:
             app.logger.info('[AUTH] Hash encontrado: %s', 'SIM' if user.senha_esta_hasheada() else 'NÃO')
         if user and user.verificar_senha(senha):
-            app.logger.info('[AUTH] Verificação da senha: OK')
+            app.logger.info('[AUTH] Senha válida: SIM')
             if not user.senha_esta_hasheada():
                 user.definir_senha(senha)
                 persistir_usuario(user)
@@ -5442,7 +5470,7 @@ def background_asset(filename):
 def recuperar():
     if request.method == 'POST':
         email = _normalizar_email(request.form.get('email', ''))
-        user = USUARIOS_DB.get(email)
+        user = obter_usuario(email)
         if user:
             user.token_recuperacao = secrets.token_urlsafe(24)
             enviar_email(
@@ -5480,7 +5508,7 @@ def steam_configuracao():
     if not meu_email:
         return redirect(url_for('login'))
 
-    user = USUARIOS_DB.get(_normalizar_email(meu_email))
+    user = obter_usuario(meu_email)
     if not user:
         return redirect(url_for('login'))
 
@@ -5535,7 +5563,7 @@ def steam_callback():
         flash('Não foi possível identificar seu SteamID64.', 'danger')
         return redirect(url_for('perfil', email=meu_email))
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         flash('Usuário não encontrado.', 'danger')
         return redirect(url_for('login'))
@@ -5560,7 +5588,7 @@ def redefinir():
     email = request.form['email']
     token = request.form['token']
     nova_senha = request.form['nova_senha']
-    user = USUARIOS_DB.get(email)
+    user = obter_usuario(email)
     if user:
         try:
             user.alterar_senha_com_token(token, nova_senha)
@@ -5702,7 +5730,7 @@ def _remover_registros_relacionados_usuario(email: str):
 # --- Rotas de Dashboard e Jogos ---
 def _sincronizar_status_dashboard_background(email: str) -> None:
     try:
-        user = USUARIOS_DB.get(_normalizar_email(email))
+        user = obter_usuario(email)
         if not user:
             return
         _hydra_atualizar_status_local(user)
@@ -5900,7 +5928,7 @@ def busca():
 def perfil(email):
     if 'user_email' not in session: 
         return redirect(url_for('login'))
-    user = USUARIOS_DB.get(email)
+    user = obter_usuario(email)
     if not user:
         flash("Usuário não encontrado.", "danger")
         return redirect(url_for('dashboard'))
@@ -5928,7 +5956,7 @@ def perfil(email):
                 {
                     'id': comentario.id,
                     'autor_email': comentario.email_usuario,
-                    'autor_nome': USUARIOS_DB.get(comentario.email_usuario).nome if USUARIOS_DB.get(comentario.email_usuario) else comentario.email_usuario,
+                    'autor_nome': (obter_usuario(comentario.email_usuario).nome if obter_usuario(comentario.email_usuario) else comentario.email_usuario),
                     'texto': comentario.texto,
                     'data': comentario.data_criacao.strftime('%d/%m/%Y %H:%M')
                 }
@@ -5995,7 +6023,7 @@ def perfil(email):
 def editar_perfil():
     if 'user_email' not in session: 
         return redirect(url_for('login'))
-    user = USUARIOS_DB.get(session['user_email'])
+    user = obter_usuario(session['user_email'])
     if not user:
         flash("Usuário não encontrado.", "danger")
         return redirect(url_for('dashboard'))
@@ -6005,7 +6033,7 @@ def editar_perfil():
 def salvar_perfil():
     if 'user_email' not in session: 
         return redirect(url_for('login'))
-    user = USUARIOS_DB.get(session['user_email'])
+    user = obter_usuario(session['user_email'])
     if not user:
         flash("Usuário não encontrado.", "danger")
         return redirect(url_for('dashboard'))
@@ -6063,7 +6091,7 @@ def hydra_conectar():
     if not meu_email:
         return redirect(url_for('login'))
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         flash('Usuário não encontrado.', 'danger')
         return redirect(url_for('dashboard'))
@@ -6117,7 +6145,7 @@ def hydra_detectar_sessao_local():
     if not meu_email:
         return redirect(url_for('login'))
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         flash('Usuário não encontrado.', 'danger')
         return redirect(url_for('hydra_conectar'))
@@ -6147,7 +6175,7 @@ def importar_hydra_exportacao():
     if not meu_email:
         return redirect(url_for('login'))
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         flash('Usuário não encontrado.', 'danger')
         return redirect(url_for('hydra_conectar'))
@@ -6210,7 +6238,7 @@ def sync_steam_agora():
     if not meu_email:
         return jsonify({'erro': 'Não autenticado'}), 401
 
-    user = USUARIOS_DB.get(_normalizar_email(meu_email))
+    user = obter_usuario(meu_email)
     if not user:
         return jsonify({'erro': 'Usuário não encontrado'}), 404
     
@@ -6280,7 +6308,7 @@ def obter_presenca_detectada():
         return jsonify({'erro': 'Não autenticado'}), 401
 
     meu_email_normalizado = _normalizar_email(meu_email)
-    user = USUARIOS_DB.get(meu_email_normalizado)
+    user = obter_usuario(meu_email_normalizado)
     if not user:
         return jsonify({'erro': 'Usuário não encontrado'}), 404
 
@@ -6296,7 +6324,7 @@ def obter_presenca_detectada():
     except Exception as e:
         print(f'[/presenca/detectada] Erro ao sincronizar Hydra: {e}')
 
-    user = USUARIOS_DB.get(meu_email_normalizado)
+    user = obter_usuario(meu_email_normalizado)
 
     detector = obter_detector()
     if not detector:
@@ -6494,7 +6522,7 @@ def sincronizar_status_steam_endpoint():
 
     try:
         sincronizar_status_steam(meu_email)
-        user = USUARIOS_DB.get(_normalizar_email(meu_email))
+        user = obter_usuario(meu_email)
         if user:
             _hydra_atualizar_status_local(user)
             return jsonify({
@@ -6520,7 +6548,7 @@ def obter_status_steam_usuario(email):
     Nunca confia apenas em dados armazenados.
     """
     email_normalizado = _normalizar_email(email)
-    user = USUARIOS_DB.get(email_normalizado)
+    user = obter_usuario(email_normalizado)
 
     if not user:
         return jsonify({'erro': 'Usuário não encontrado'}), 404
@@ -6542,7 +6570,7 @@ def obter_status_steam_usuario(email):
         _hydra_sincronizar_estado_real(user)
         
         # Recarrega usuário para pegar dados atualizados
-        user = USUARIOS_DB.get(email_normalizado)
+        user = obter_usuario(email_normalizado)
 
     # PASSO 3: Montar resposta com estado validado
     # Para usuário logado, sempre revalida Hydra
@@ -6584,7 +6612,7 @@ def steam_test():
     if not meu_email:
         return "Não autenticado", 401
     
-    user = USUARIOS_DB.get(_normalizar_email(meu_email))
+    user = obter_usuario(meu_email)
     if not user:
         return "Usuário não encontrado", 404
     
@@ -6620,7 +6648,7 @@ def debug_status_steam():
     if not meu_email:
         return jsonify({'erro': 'Não autenticado'}), 401
     
-    user = USUARIOS_DB.get(_normalizar_email(meu_email))
+    user = obter_usuario(meu_email)
     if not user:
         return jsonify({'erro': 'Usuário não encontrado'}), 404
     
@@ -6654,7 +6682,7 @@ def debug_resposta_bruta_steam():
     if not meu_email:
         return jsonify({'erro': 'Não autenticado'}), 401
     
-    user = USUARIOS_DB.get(_normalizar_email(meu_email))
+    user = obter_usuario(meu_email)
     if not user:
         return jsonify({'erro': 'Usuário não encontrado'}), 404
     
@@ -6830,7 +6858,7 @@ def abrir_discord():
     if 'user_email' not in session:
         return redirect(url_for('login'))
 
-    user = USUARIOS_DB.get(session['user_email'])
+    user = obter_usuario(session['user_email'])
     if not user:
         flash("Usuário não encontrado.", "danger")
         return redirect(url_for('dashboard'))
@@ -6871,7 +6899,7 @@ def discord_call():
     if not meu_email:
         return redirect(url_for('login'))
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         flash('Usuário não encontrado.', 'danger')
         return redirect(url_for('dashboard'))
@@ -6965,7 +6993,7 @@ def discord_call_presenca():
         return jsonify({'ok': False, 'error': 'invalid_room'}), 400
     _registrar_presenca_call(meu_email, room_slug)
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if user:
         user.discord_online = True
 
@@ -6981,7 +7009,7 @@ def discord_call_sair():
     _remover_presenca_call(meu_email)
     app.logger.debug('[Discord Call] saída: user_email=%s, room_slug=%s', meu_email, session.get('call_room_slug'))
     session.pop('call_room_slug', None)
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if user:
         user.discord_online = False
 
@@ -7056,7 +7084,7 @@ def mensagens():
 
     amigos = []
     for amigo_email in GerenciadorAmigos.obter_amigos(meu_email):
-        usuario = USUARIOS_DB.get(amigo_email)
+        usuario = obter_usuario(amigo_email)
         if not usuario:
             continue
         amigos.append({
@@ -7112,7 +7140,7 @@ def conversa(email_amigo):
         flash("Você só pode conversar com amigos.", "danger")
         return redirect(url_for('perfil', email=email_amigo))
 
-    amigo = USUARIOS_DB.get(email_amigo)
+    amigo = obter_usuario(email_amigo)
     if not amigo:
         flash("Usuário não encontrado.", "danger")
         return redirect(url_for('dashboard'))
@@ -7441,7 +7469,7 @@ def importar_biblioteca_steam():
     if not meu_email:
         return redirect(url_for('login'))
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         flash('Usuário não encontrado.', 'danger')
         return redirect(url_for('biblioteca'))
@@ -7492,7 +7520,7 @@ def _render_biblioteca_view(meu_email: str, launcher: str | None = None, filtro:
     def biblioteca_paginacao_url(pagina):
         return url_for(request.endpoint or 'minha_biblioteca', filtro=filtro, busca=busca, pagina=pagina)
 
-    steam_contexto = montar_steam_contexto(USUARIOS_DB.get(meu_email))
+    steam_contexto = montar_steam_contexto(obter_usuario(meu_email))
     contexto = dict(
         biblioteca_cards=biblioteca_cards,
         jogos=JOGOS_DB,
@@ -7555,7 +7583,7 @@ def jogar():
         return redirect(url_for('login'))
     cards = _montar_cards_jogar(meu_email)
     _agendar_capas_biblioteca(meu_email)
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     requested_view = (request.args.get('view') or '').strip().lower()
     library_view = requested_view if requested_view in {'2d', '3d'} else (getattr(user, 'library_view', '3d') if user else '3d')
     if library_view == '3d':
@@ -7621,7 +7649,7 @@ def api_game_stats(game_id: int):
 
     appid_text = str(getattr(item, 'codigo_origem', '') or '').strip()
     appid = int(appid_text) if appid_text.isdigit() else (int(jogo.id) if str(getattr(jogo, 'id', '')).isdigit() else None)
-    user = USUARIOS_DB.get(email)
+    user = obter_usuario(email)
     steam_id64 = str(getattr(user, 'steam_id64', '') or '').strip() if user else ''
     api_key = _steam_api_key_usuario(user) if user else os.environ.get('STEAM_API_KEY', '').strip()
     if not appid:
@@ -7726,7 +7754,7 @@ def configurar_estilo_biblioteca_jogar():
     view = {'classic': '2d', '3d': '3d'}.get(view, view)
     if view not in {'2d', '3d'}:
         return jsonify({'ok': False, 'erro': 'estilo-invalido'}), 400
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         return jsonify({'ok': False, 'erro': 'usuario-nao-encontrado'}), 404
     user.library_view = view
@@ -7744,7 +7772,7 @@ def _processar_selecao_pasta(meu_email: str, launcher: str, pasta: str | None = 
     if not pasta:
         return {'ok': False, 'erro': 'pasta-vazia'}
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if user:
         if launcher == 'steam':
             user.steam_library_path = pasta
@@ -7786,7 +7814,7 @@ def biblioteca_local_steam():
     meu_email = session.get('user_email')
     if not meu_email:
         return jsonify({'ok': False, 'erro': 'login'}), 401
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         return jsonify({'ok': False, 'erro': 'usuario-nao-encontrado'}), 404
     raiz = (getattr(user, 'steam_library_path', '') or '').strip() or None
@@ -7820,7 +7848,7 @@ def atualizar_biblioteca_jogar():
     if not meu_email:
         return jsonify({'ok': False, 'erro': 'login'})
 
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         return jsonify({'ok': False, 'erro': 'usuario-nao-encontrado'})
 
@@ -7835,7 +7863,7 @@ def atualizar_biblioteca_jogar():
     return jsonify({'ok': True})
 
 def _scan_biblioteca_automatica(email: str) -> None:
-    user = USUARIOS_DB.get((email or '').strip().lower())
+    user = obter_usuario(email)
     if not user:
         return
     with _AUTO_LIBRARY_STATUS_LOCK:
@@ -7882,7 +7910,7 @@ def biblioteca_automatica_config():
     meu_email = session.get('user_email')
     if not meu_email:
         return jsonify({'ok': False, 'erro': 'login'}), 401
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         return jsonify({'ok': False, 'erro': 'usuario-nao-encontrado'}), 404
     if request.method == 'POST':
@@ -7984,7 +8012,7 @@ def api_library_local_import():
 
     total_biblioteca = _persistir_jogos_descobertos(meu_email, registros, 'manual')
     total_installed = persistir_registros_instalados(meu_email, registros, 'manual')
-    user = USUARIOS_DB.get((meu_email or '').strip().lower())
+    user = obter_usuario(meu_email)
     if user is not None:
         user.auto_last_scan = datetime.now().isoformat(timespec='seconds')
         persistir_usuario(user)
@@ -7996,7 +8024,7 @@ def escanear_biblioteca_automatica():
     meu_email = session.get('user_email')
     if not meu_email:
         return jsonify({'ok': False, 'erro': 'login'}), 401
-    user = USUARIOS_DB.get(meu_email)
+    user = obter_usuario(meu_email)
     if not user:
         return jsonify({'ok': False, 'erro': 'usuario-nao-encontrado'}), 404
     with _AUTO_LIBRARY_STATUS_LOCK:
@@ -8362,7 +8390,7 @@ def novo_chamado_suporte():
     conn = get_connection()
     codigo = gerar_codigo_suporte(categoria, conn)
     agora = datetime.now()
-    usuario = USUARIOS_DB.get(session['user_email'])
+    usuario = obter_usuario(session['user_email'])
     chamado_id = None
     cursor = conn.execute(
         '''
@@ -8430,7 +8458,7 @@ def novo_chamado_suporte():
 
     config = get_smtp_config()
     admin_email = config['admin_support_email']
-    usuario = USUARIOS_DB.get(session['user_email']) or None
+    usuario = obter_usuario(session['user_email']) or None
     mensagem_admin = (
         f'Novo chamado de suporte criado no GameUnexa.\n\n'
         f'Protocolo: {codigo}\n'
@@ -8816,7 +8844,7 @@ def novo_post():
     
     # Sistema de Notificações Ativas
     amigos = GerenciadorAmigos.obter_amigos(session['user_email'])
-    user_atual = USUARIOS_DB.get(session['user_email'])
+    user_atual = obter_usuario(session['user_email'])
     nome_autor = user_atual.nome if user_atual else session['user_email']
     
     for email_amigo in amigos:
@@ -8846,7 +8874,7 @@ def ver_post(post_id):
         return redirect(url_for('dashboard'))
     
     comentarios = [c for c in COMENTARIOS_POSTS_DB if c.post_id == post_id and c.visivel]
-    autor = USUARIOS_DB.get(post.autor_email)
+    autor = obter_usuario(post.autor_email)
     return render_template('ver_post.html', post=post, comentarios=comentarios, autor=autor, usuarios=USUARIOS_DB)
 
 @app.route('/posts/<int:post_id>/curtir', methods=['POST'])
@@ -8993,7 +9021,7 @@ def _processar_exclusao_usuario(email):
         app.logger.warning('[Excluir Usuário] %s tentativa de autoexclusão', log_context)
         return {'success': False, 'message': mensagem}, 400
 
-    usuario_alvo = USUARIOS_DB.get(email_normalizado)
+    usuario_alvo = obter_usuario(email_normalizado)
     if not usuario_alvo:
         mensagem = 'Usuário não encontrado.'
         app.logger.warning('[Excluir Usuário] %s não encontrado', log_context)
@@ -9038,7 +9066,7 @@ def logout():
     if email in ONLINE_USERS:
         ONLINE_USERS.discard(email)
     _remover_presenca_call(email)
-    user = USUARIOS_DB.get(email)
+    user = obter_usuario(email)
     if user:
         user.discord_online = False
     session.clear()
@@ -9064,7 +9092,7 @@ def api_reviews_usuario(email):
                 {
                     'id': comentario.id,
                     'autor_email': comentario.email_usuario,
-                    'autor_nome': USUARIOS_DB.get(comentario.email_usuario).nome if USUARIOS_DB.get(comentario.email_usuario) else comentario.email_usuario,
+                    'autor_nome': (obter_usuario(comentario.email_usuario).nome if obter_usuario(comentario.email_usuario) else comentario.email_usuario),
                     'texto': comentario.texto,
                     'data': comentario.data_criacao.strftime('%d/%m/%Y %H:%M')
                 }
@@ -9097,7 +9125,7 @@ def api_amigos(email):
     amigos = GerenciadorAmigos.obter_amigos(email)
     amigos_data = []
     for amigo_email in amigos:
-        user = USUARIOS_DB.get(amigo_email)
+        user = obter_usuario(amigo_email)
         if user:
             amigos_data.append({'email': amigo_email, 'nome': user.nome})
     return jsonify({'amigos': amigos_data})
