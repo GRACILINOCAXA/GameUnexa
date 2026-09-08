@@ -33,12 +33,9 @@ class CadastroEmailVerificationFlowTest(unittest.TestCase):
         }, follow_redirects=False)
         self.assertIn(resp.status_code, (200, 302))
         with self.client.session_transaction() as sess:
-            from database import get_pending_registration_by_email
-            pend = get_pending_registration_by_email(sess['cadastro_pendente']['email'])
-            self.assertIsNotNone(pend)
-            codigo = pend['codigo']
+            codigo = sess['cadastro_pendente']['codigo']
             csrf_session = sess['csrf_token']
-        return codigo, csrf_session, (email or '').strip().lower()
+        return codigo, csrf_session
 
     def test_cadastro_page_exposes_same_page_verification_ui(self):
         resp = self.client.get('/cadastro')
@@ -76,7 +73,7 @@ class CadastroEmailVerificationFlowTest(unittest.TestCase):
 
         email = f'Usuario.Teste.{uuid4().hex[:8]}@GMAIL.com'
         senha = 'Senha@123!'
-        codigo, csrf_session, created_email = self._criar_usuario_esperando_verificacao('Teste Login', email, senha)
+        codigo, csrf_session = self._criar_usuario_esperando_verificacao('Teste Login', email, senha)
 
         resp2 = self.client.post('/cadastro', data={
             'acao': 'verificar',
@@ -86,7 +83,7 @@ class CadastroEmailVerificationFlowTest(unittest.TestCase):
         self.assertIn(resp2.status_code, (200, 302))
 
         login_resp = self.client.post('/login', data={
-            'email': created_email,
+            'email': 'usuario.teste@gmail.com',
             'senha': senha,
             'csrf_token': csrf_session,
         }, follow_redirects=False)
@@ -94,14 +91,15 @@ class CadastroEmailVerificationFlowTest(unittest.TestCase):
         self.assertEqual(login_resp.headers.get('Location'), '/dashboard')
 
     def test_login_senha_incorreta_e_usuario_inexistente(self):
-        codigo, csrf_session, created_email = self._criar_usuario_esperando_verificacao('Senha Errada', f'errou.{uuid4().hex[:8]}@teste.com', 'Senha@123!')
+        codigo, csrf_session = self._criar_usuario_esperando_verificacao('Senha Errada', f'errou.{uuid4().hex[:8]}@teste.com', 'Senha@123!')
         self.client.post('/cadastro', data={
             'acao': 'verificar',
             'codigo_verificacao': codigo,
             'csrf_token': csrf_session,
         }, follow_redirects=False)
+
         resp_invalida = self.client.post('/login', data={
-            'email': created_email,
+            'email': 'errou@teste.com',
             'senha': 'SenhaErrada!1',
             'csrf_token': csrf_session,
         }, follow_redirects=False)
@@ -115,7 +113,7 @@ class CadastroEmailVerificationFlowTest(unittest.TestCase):
         self.assertIn(resp_inexistente.status_code, (200, 302))
 
     def test_login_cria_sessao_e_logout_remove_session(self):
-        codigo, csrf_session, created_email = self._criar_usuario_esperando_verificacao('Sessao Teste', f'sessao.{uuid4().hex[:8]}@teste.com', 'Senha@123!')
+        codigo, csrf_session = self._criar_usuario_esperando_verificacao('Sessao Teste', f'sessao.{uuid4().hex[:8]}@teste.com', 'Senha@123!')
         self.client.post('/cadastro', data={
             'acao': 'verificar',
             'codigo_verificacao': codigo,
@@ -123,7 +121,7 @@ class CadastroEmailVerificationFlowTest(unittest.TestCase):
         }, follow_redirects=False)
 
         login_resp = self.client.post('/login', data={
-            'email': created_email,
+            'email': 'sessao@teste.com',
             'senha': 'Senha@123!',
             'csrf_token': csrf_session,
         }, follow_redirects=False)
@@ -131,7 +129,7 @@ class CadastroEmailVerificationFlowTest(unittest.TestCase):
         self.assertEqual(login_resp.headers.get('Location'), '/dashboard')
 
         with self.client.session_transaction() as sess:
-            self.assertEqual(sess.get('user_email'), created_email)
+            self.assertEqual(sess.get('user_email'), 'sessao@teste.com')
             self.assertIn('user_email', sess)
 
         logout_resp = self.client.get('/logout', follow_redirects=False)

@@ -1,5 +1,4 @@
 import os
-import json
 import secrets
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -12,47 +11,6 @@ USUARIOS_DB = {}
 
 def normalizar_email(email: str) -> str:
     return (email or '').strip().lower()
-
-
-def from_db_row(row):
-    """Cria uma instância de Usuario/Admin a partir de uma linha retornada do DB.
-
-    Mantém compatibilidade com o cache `USUARIOS_DB` mas não é a fonte canônica
-    de verdadeiro armazenamento em produção.
-    """
-    if not row:
-        return None
-    is_admin = bool(row.get('is_admin') or 0)
-    cls = Admin if is_admin else Usuario
-    usuario = cls(row['id'], row['nome'], row['email'], row['password'])
-    usuario.token_recuperacao = row.get('token_recuperacao')
-    usuario.idade = row.get('idade')
-    usuario.gosto_jogos = row.get('gosto_jogos') or ''
-    usuario.telefone = row.get('telefone') or ''
-    usuario.foto_perfil = row.get('foto_perfil') or ''
-    usuario.steam_id64 = row.get('steam_id64') or ''
-    usuario.steam_api_key = row.get('steam_api_key') or ''
-    usuario.steam_library_path = row.get('steam_library_path') or ''
-    usuario.steam_online = bool(row.get('steam_online') or False)
-    usuario.steam_current_game = row.get('steam_current_game') or ''
-    usuario.steam_current_game_appid = row.get('steam_current_game_appid')
-    usuario.steam_playtime_minutes = row.get('steam_playtime_minutes') or 0
-    usuario.steam_last_update = row.get('steam_last_update')
-    usuario.hydra_library_path = row.get('hydra_library_path') or ''
-    usuario.hydra_account_email = row.get('hydra_account_email') or ''
-    usuario.hydra_usuario = row.get('hydra_usuario') or ''
-    usuario.hydra_pin = row.get('hydra_pin') or ''
-    usuario.hydra_token = row.get('hydra_token') or ''
-    usuario.hydra_current_game = row.get('hydra_current_game') or ''
-    usuario.hydra_last_update = row.get('hydra_last_update')
-    usuario.library_view = '3d' if (row.get('library_style') or '').lower() == '3d' else (row.get('library_view') or '2d')
-    try:
-        usuario.auto_library_folders = json.loads(row.get('auto_library_folders') or '[]')
-    except Exception:
-        usuario.auto_library_folders = []
-    usuario.auto_library_enabled = bool(row.get('auto_library_enabled') or 0)
-    usuario.data_cadastro = row.get('data_cadastro') or usuario.data_cadastro
-    return usuario
 
 
 def obter_senha_admin_padrao() -> str:
