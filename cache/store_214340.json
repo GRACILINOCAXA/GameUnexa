@@ -1,0 +1,363 @@
+{
+  "timestamp": 1787795263.336623,
+  "data": {
+    "214340": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "Deponia",
+        "steam_appid": 214340,
+        "required_age": 0,
+        "is_free": false,
+        "dlc": [
+          557470,
+          829510
+        ],
+        "detailed_description": "<h1>Buzz</h1><p><br></p><br><h1>The Deponia series on Steam:</h1><p><br><br></p><br><h1>Buy Deponia 1-3:</h1><p></p><br><h1>Sobre o jogo</h1>A Daedalic Entertainment, que já foi chamada de “a Lucasarts alemã” pela revista GameStar, convida seus jogadores para uma aventura cômica ao redor da história de amor maluca de Rufus e Goal.<br><br>Em Deponia, o mundo degenerou-se a ponto de virar um grande lixão. Nele, o pobre Rufus é forçado a viver sua vida miserável. Ele faz parte da classe mais baixa, fadado a passar a vida em meio às montanhas de lixo. Ele busca uma oportunidade para entrar no mundo dos ricos, que vivem em uma cidade flutuante acima das nuvens. E o destino parece sorrir para esse malandro sem jeito quando, certo dia, uma bela moça camada Goal do setor superior cai em um dos montes de dejetos. Rufus decide ajudar a jovem a voltar ao seu marido. E quando percebe que o sujeito morreu, ele bola um plano diabólico para mudar-se para o mundo suspenso no céu. Porém, nem tudo acontece como o planejado, afinal ele se apaixona pela bela jovem e seus escrúpulos são testados.<br><br>Ajude Rufus, o pobre rapaz do lixão, a conquistar a garota que caiu do céu. Somente com essa garota rica dos seus sonhos ele poderá escapar de Deponia e, para surpresa de todos, salvar o planeta.<h2 class=\"bb_tag\" >Destaques</h2><ul class=\"bb_ul\"><li>Estilo único de animação 2D tipo quadrinhos, desenhada à mão e em alta definição<br></li><li>Personagens estranhos e humor maluco<br></li><li>Desafios difíceis e várias horas de diálogos<br></li><li>Universo único ao melhor estilo das obras de Douglas Adams (Guia do Mochileiro das Galáxias), Terry Pratchett (Discworld) e Matt Groening (Os Simpsons, Futurama)</li></ul>",
+        "about_the_game": "A Daedalic Entertainment, que já foi chamada de “a Lucasarts alemã” pela revista GameStar, convida seus jogadores para uma aventura cômica ao redor da história de amor maluca de Rufus e Goal.<br><br>Em Deponia, o mundo degenerou-se a ponto de virar um grande lixão. Nele, o pobre Rufus é forçado a viver sua vida miserável. Ele faz parte da classe mais baixa, fadado a passar a vida em meio às montanhas de lixo. Ele busca uma oportunidade para entrar no mundo dos ricos, que vivem em uma cidade flutuante acima das nuvens. E o destino parece sorrir para esse malandro sem jeito quando, certo dia, uma bela moça camada Goal do setor superior cai em um dos montes de dejetos. Rufus decide ajudar a jovem a voltar ao seu marido. E quando percebe que o sujeito morreu, ele bola um plano diabólico para mudar-se para o mundo suspenso no céu. Porém, nem tudo acontece como o planejado, afinal ele se apaixona pela bela jovem e seus escrúpulos são testados.<br><br>Ajude Rufus, o pobre rapaz do lixão, a conquistar a garota que caiu do céu. Somente com essa garota rica dos seus sonhos ele poderá escapar de Deponia e, para surpresa de todos, salvar o planeta.<h2 class=\"bb_tag\" >Destaques</h2><ul class=\"bb_ul\"><li>Estilo único de animação 2D tipo quadrinhos, desenhada à mão e em alta definição<br></li><li>Personagens estranhos e humor maluco<br></li><li>Desafios difíceis e várias horas de diálogos<br></li><li>Universo único ao melhor estilo das obras de Douglas Adams (Guia do Mochileiro das Galáxias), Terry Pratchett (Discworld) e Matt Groening (Os Simpsons, Futurama)</li></ul>",
+        "short_description": "Em Deponia, o mundo degenerou-se a ponto de virar um grande lixão. Nele, o pobre Rufus é forçado a viver sua vida miserável.",
+        "supported_languages": "Inglês<strong>*</strong>, Alemão<strong>*</strong>, Russo, Francês, Polonês, Italiano<strong>*</strong>, Espanhol (Espanha)<strong>*</strong>, Búlgaro, Grego, Turco, Tcheco, Português (Brasil), Árabe, Coreano, Chinês tradicional, Chinês simplificado<br><strong>*</strong>idiomas com suporte total de áudio",
+        "reviews": "&quot;There's only one word to describe the game: terrific! Lucasarts from Germany!&quot;<br />\r\n88/100 – GameStar<br />\r\n<br />\r\n&quot;A brilliantly absurd story, a fitting comic style and strong speakers.&quot;<br />\r\n90/100 – GamingXP<br />\r\n<br />\r\n&quot;Deponia's tale of love, loss, and all-out comedy is a beautifully constructed piece of point-and-click heaven.“<br />\r\n80/100 – Gamespot",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/header.jpg?t=1785262567",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/capsule_231x87.jpg?t=1785262567",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/capsule_184x69.jpg?t=1785262567",
+        "website": "http://www.deponia.de",
+        "pc_requirements": {
+          "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS *:</strong>Windows Vista/7<br>\t</li><li><strong>Processor:</strong>2.5 GHz (Single Core) or 2 GHz (Dual Core)<br>\t</li><li><strong>Memory:</strong>2 GB RAM<br>\t</li><li><strong>Graphics:</strong>OpenGL 2.0 compatible with 512 MB RAM (Shared Memory is not recommended)<br>\t</li><li><strong>DirectX®:</strong>9.0c<br>\t</li><li><strong>Hard Drive:</strong>5 GB HDD space<br>\t</li><li><strong>Sound:</strong>DirectX compatible</li></ul>",
+          "recommended": "<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS *:</strong>Windows Vista/7<br>\t</li><li><strong>Processor:</strong>2.5 GHz (Single Core) or 2 GHz (Dual Core)<br>\t</li><li><strong>Memory:</strong>4 GB RAM<br>\t</li><li><strong>Graphics:</strong>OpenGL 2.0 compatible with 512 MB RAM (Shared Memory is not recommended)<br>\t</li><li><strong>DirectX®:</strong>9.0c<br>\t</li><li><strong>Hard Drive:</strong>5 GB HDD space<br>\t</li><li><strong>Sound:</strong>DirectX compatible</li></ul>"
+        },
+        "mac_requirements": {
+          "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>MacOS X Lion (10.7)<br>\t</li><li><strong>Processor:</strong> 2 GHz (Dual Core) Intel<br>\t</li><li><strong>Memory:</strong>2 GB RAM<br>\t\t</li><li><strong>Hard Drive:</strong>3.5 GB HDD space</li></ul>"
+        },
+        "linux_requirements": {
+          "minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>Ubuntu 12.04 (64 Bit only) <br>\t</li><li><strong>Processor:</strong>2.5 GHz Single Core Processor or 2 GHz Dual Core Processor<br>\t</li><li><strong>Memory:</strong>2 GB RAM<br>\t</li><li><strong>Graphics:</strong>OpenGL 2.0 compatible with 256 MB RAM (Shared Memory is not recommended)<br>\t</li><li><strong>Hard Drive:</strong>1.8 GB HDD space<br>\t</li><li><strong>Sound:</strong>OpenAL compatible</li></ul>",
+          "recommended": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>Ubuntu 14.04 (64 Bit only) <br>\t</li><li><strong>Processor:</strong>2.5 GHz Single Core Processor or 2 GHz Dual Core Processor<br>\t</li><li><strong>Memory:</strong>2 GB RAM<br>\t</li><li><strong>Graphics:</strong>OpenGL 2.0 compatible with 256 MB RAM (Shared Memory is not recommended)<br>\t</li><li><strong>Hard Drive:</strong>1.8 GB HDD space<br>\t</li><li><strong>Sound:</strong>OpenAL compatible</li></ul>"
+        },
+        "legal_notice": "© 2012 Daedalic Entertainment GmbH.<br />\r\nDeponia, the Deponia logo and the Daedalic logo are trademarks of Daedalic Entertainment GmbH. All rights reserved.",
+        "developers": [
+          "Daedalic Entertainment"
+        ],
+        "publishers": [
+          "Daedalic Entertainment"
+        ],
+        "price_overview": {
+          "currency": "BRL",
+          "initial": 1999,
+          "final": 1999,
+          "discount_percent": 0,
+          "initial_formatted": "",
+          "final_formatted": "R$ 19,99"
+        },
+        "packages": [
+          15376,
+          232463,
+          44162,
+          55062
+        ],
+        "package_groups": [
+          {
+            "name": "default",
+            "title": "Comprar Deponia",
+            "description": "",
+            "selection_text": "Selecione uma opção de compra",
+            "save_text": "",
+            "display_type": 0,
+            "is_recurring_subscription": "false",
+            "subs": [
+              {
+                "packageid": 15376,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Deponia - R$ 19,99",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 1999
+              },
+              {
+                "packageid": 232463,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Deponia - Commercial License - R$ 19,99",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 1999
+              },
+              {
+                "packageid": 44162,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Daedalic Adventure Bundle - R$ 57,99",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 5799
+              },
+              {
+                "packageid": 55062,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "The Daedalic Armageddon Bundle - R$ 209,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 20900
+              }
+            ]
+          }
+        ],
+        "platforms": {
+          "windows": true,
+          "mac": true,
+          "linux": true
+        },
+        "metacritic": {
+          "score": 74,
+          "url": "https://www.metacritic.com/game/pc/deponia?ftag=MCD-06-10aaa1f"
+        },
+        "categories": [
+          {
+            "id": 2,
+            "description": "Um jogador"
+          },
+          {
+            "id": 22,
+            "description": "Conquistas Steam"
+          },
+          {
+            "id": 29,
+            "description": "Cartas Colecionáveis Steam"
+          },
+          {
+            "id": 23,
+            "description": "Nuvem Steam"
+          },
+          {
+            "id": 41,
+            "description": "Remote Play no celular"
+          },
+          {
+            "id": 42,
+            "description": "Remote Play no tablet"
+          },
+          {
+            "id": 62,
+            "description": "Compartilhamento em família"
+          }
+        ],
+        "genres": [
+          {
+            "id": "25",
+            "description": "Aventura"
+          },
+          {
+            "id": "23",
+            "description": "Indie"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_5f5dd80ad681eb78c05e1e8a75be9a99facb1deb.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_5f5dd80ad681eb78c05e1e8a75be9a99facb1deb.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_bcc3ac76131e42bcd0c00ee14983ad9dc8617229.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_bcc3ac76131e42bcd0c00ee14983ad9dc8617229.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_2a670e7f12bbbca1282b6f3f011235f10e3e41c5.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_2a670e7f12bbbca1282b6f3f011235f10e3e41c5.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_92e3c9254bfbbee2fc319457ba10c7709c76f9e1.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_92e3c9254bfbbee2fc319457ba10c7709c76f9e1.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_f28089eead1c4a2111e4e1e4b6bb2885800f3d38.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_f28089eead1c4a2111e4e1e4b6bb2885800f3d38.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 5,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_0f42861e0ef7303325ce4b2c3fa5c4ae0e98c235.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_0f42861e0ef7303325ce4b2c3fa5c4ae0e98c235.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 6,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_93eab97e0a0a7d3178dcf468c36d3a3efde2997b.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_93eab97e0a0a7d3178dcf468c36d3a3efde2997b.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 7,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_c59307153a468322b1c0ec917daa70d13189f40c.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_c59307153a468322b1c0ec917daa70d13189f40c.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 8,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_a08ba423ee5a3c70ac618a92bcfb877edd550ca8.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_a08ba423ee5a3c70ac618a92bcfb877edd550ca8.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 9,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_e9b6b3f7501b60af283850ba4f6ec4eea0774381.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_e9b6b3f7501b60af283850ba4f6ec4eea0774381.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 10,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_87a1404af2710d7eeaa5208c84b586cbf7c8b831.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_87a1404af2710d7eeaa5208c84b586cbf7c8b831.1920x1080.jpg?t=1785262567"
+          },
+          {
+            "id": 11,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_cafd2de848bb46f43b686be03a3f3db66d5296c9.600x338.jpg?t=1785262567",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/ss_cafd2de848bb46f43b686be03a3f3db66d5296c9.1920x1080.jpg?t=1785262567"
+          }
+        ],
+        "movies": [
+          {
+            "id": 81924,
+            "name": "Deponia Teaser",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81924/movie.293x165.jpg?t=1447356384",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/214340/8580/0737c029a97bbe638317adc8b83b8de376dd7d38/1751259586/dash_av1.mpd?t=1447356384",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/214340/8580/0737c029a97bbe638317adc8b83b8de376dd7d38/1751259586/dash_h264.mpd?t=1447356384",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/214340/8580/0737c029a97bbe638317adc8b83b8de376dd7d38/1751259586/hls_264_master.m3u8?t=1447356384",
+            "highlight": false
+          },
+          {
+            "id": 81915,
+            "name": "Deponia Trailer",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/81915/movie.293x165.jpg?t=1447356367",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/214340/8545/d5b3e49918a41e8ba6abdabf96c4057d202effae/1751259586/dash_av1.mpd?t=1447356367",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/214340/8545/d5b3e49918a41e8ba6abdabf96c4057d202effae/1751259586/dash_h264.mpd?t=1447356367",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/214340/8545/d5b3e49918a41e8ba6abdabf96c4057d202effae/1751259586/hls_264_master.m3u8?t=1447356367",
+            "highlight": false
+          },
+          {
+            "id": 2028064,
+            "name": "Deponia Research Trailer",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2028064/movie.293x165.jpg?t=1447356935",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/214340/9553/f967e9ee2cbb630633d6877e576d36fbd46e1b2b/1751259588/dash_av1.mpd?t=1447356935",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/214340/9553/f967e9ee2cbb630633d6877e576d36fbd46e1b2b/1751259588/dash_h264.mpd?t=1447356935",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/214340/9553/f967e9ee2cbb630633d6877e576d36fbd46e1b2b/1751259588/hls_264_master.m3u8?t=1447356935",
+            "highlight": false
+          }
+        ],
+        "recommendations": {
+          "total": 10419
+        },
+        "achievements": {
+          "total": 19,
+          "highlighted": [
+            {
+              "icon": "54c023a0085b7a72eae5fe2fb73e798be59c5ccb.jpg",
+              "localized_name": "Jardim de infância",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Jardim de infância",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/54c023a0085b7a72eae5fe2fb73e798be59c5ccb.jpg"
+            },
+            {
+              "icon": "b97bc9f447009949a786bc075e7399f170a16ef8.jpg",
+              "localized_name": "Caça-escovas",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Caça-escovas",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/b97bc9f447009949a786bc075e7399f170a16ef8.jpg"
+            },
+            {
+              "icon": "55179c559e3322fd30f0e5a34bb9f6b50fc091bf.jpg",
+              "localized_name": "Na mosca",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Na mosca",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/55179c559e3322fd30f0e5a34bb9f6b50fc091bf.jpg"
+            },
+            {
+              "icon": "2327cebf35ebe47c75851dcf1550b49f701cf313.jpg",
+              "localized_name": "Bom de destruição",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Bom de destruição",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/2327cebf35ebe47c75851dcf1550b49f701cf313.jpg"
+            },
+            {
+              "icon": "a889ab3aa9e83b29fe21f405a50a1d0e9252dccb.jpg",
+              "localized_name": "Garçom extra",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Garçom extra",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/a889ab3aa9e83b29fe21f405a50a1d0e9252dccb.jpg"
+            },
+            {
+              "icon": "adef9ead531271d6b3161b9cd8dffcfefddba95e.jpg",
+              "localized_name": "Encrenca nos correios",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Encrenca nos correios",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/adef9ead531271d6b3161b9cd8dffcfefddba95e.jpg"
+            },
+            {
+              "icon": "28576710b5a6873af28dce625af58a2320254af8.jpg",
+              "localized_name": "É mais ou menos isso mesmo…",
+              "archived": 0,
+              "hidden": 0,
+              "name": "É mais ou menos isso mesmo…",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/28576710b5a6873af28dce625af58a2320254af8.jpg"
+            },
+            {
+              "icon": "96fa0584e8e046dace7f9fdd8560e6fe5a9d204f.jpg",
+              "localized_name": "Huzzah  quem vai se importar?",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Huzzah  quem vai se importar?",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/96fa0584e8e046dace7f9fdd8560e6fe5a9d204f.jpg"
+            },
+            {
+              "icon": "b9ebeae8a8b1a3513fd387a8747d86a387a83c71.jpg",
+              "localized_name": "Mão de artesão",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Mão de artesão",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/b9ebeae8a8b1a3513fd387a8747d86a387a83c71.jpg"
+            },
+            {
+              "icon": "a20e27b0d9b255c72d90cdf8e30961f87382c9a2.jpg",
+              "localized_name": "Orgulho de Newton",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Orgulho de Newton",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/214340/a20e27b0d9b255c72d90cdf8e30961f87382c9a2.jpg"
+            }
+          ]
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": "6/ago./2012"
+        },
+        "support_info": {
+          "url": "http://forum.daedalic.de/",
+          "email": "support@daedalic.de"
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/214340?t=1785262567",
+        "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214340/page_bg_raw.jpg?t=1785262567",
+        "content_descriptors": {
+          "ids": [],
+          "notes": null
+        },
+        "ratings": {
+          "pegi": {
+            "rating": "12"
+          },
+          "usk": {
+            "rating": "6"
+          }
+        }
+      }
+    }
+  }
+}

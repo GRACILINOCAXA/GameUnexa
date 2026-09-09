@@ -1,0 +1,314 @@
+{
+  "timestamp": 1787795270.9613187,
+  "data": {
+    "2064870": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "Deceit 2",
+        "steam_appid": 2064870,
+        "required_age": "10",
+        "is_free": true,
+        "controller_support": "full",
+        "dlc": [
+          4635740,
+          4010600,
+          3729090,
+          3238110,
+          3061260,
+          2783310
+        ],
+        "detailed_description": "<h1>Deceit 2: Master Bundle</h1><p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/0730432df6fdcac21229d660eda254cf.avif?t=1787157748\" width=748 height=896 /></span> </p><p class=\"bb_paragraph\" ></p></p><br><h1>Sobre o jogo</h1><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/05b68c3ab5d79f1383c77ebe6d9a7629.avif?t=1787157748\" width=780 height=64 /></span></p><p class=\"bb_paragraph\" style=\"text-align: center\">Deceit 2 é uma experiência de ação PVP online onde sua capacidade de confiar (e de enganar) será colocada em teste. Participe de um <strong>Ritual</strong> ancestral realizado por um <strong>Mestre do Jogo</strong> sádico, escolha a sua <strong>Função</strong> e descubra uma forma de <strong>Escapar</strong>. Você conseguirá descobrir quem está ao seu lado e quem está contra você?</p><h2 class=\"bb_tag\" style=\"text-align: center\"><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/4221d7615317100a8fe1f03668cc79ff.avif?t=1787157748\" width=780 height=118 /></span></h2><p class=\"bb_paragraph\" style=\"text-align: center\">Três <strong>Equipes</strong> se enfrentarão frente a frente: os <strong>Inocentes</strong>, os <strong>Infectados</strong> e os <strong>Amaldiçoados</strong>. No entanto, ninguém sabe a equipe dos demais jogadores, por isso não confie em ninguém. <strong>Forme uma equipe</strong> quando precisar, minta quando não precisar e sobreviva da melhor forma que conseguir. Cada decisão impacta a forma como o pesadelo se desdobra, transformando cada <strong>Ritual</strong> em uma história única.</p><p class=\"bb_paragraph\" style=\"text-align: center\"></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/d45d8d6511f890f07361c745360848ea.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/d45d8d6511f890f07361c745360848ea.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/d45d8d6511f890f07361c745360848ea.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/8fe6b77abe4cb630da284f1a65b17f3c.avif?t=1787157748\" width=780 height=118 /></span></p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" style=\"text-align: center\">O <strong>Ritual</strong> é realizado em 5 locais únicos, cada um repleto de perigos e cercado por um ambiente assustador. Cada <strong>Local de Ritual </strong> oferece cenários distintos e <strong>Tarefas</strong> desafiadoras, exigindo que você utilize estratégias variadas se quiser <strong>Escapar</strong> antes de ser <strong>Banido</strong>.</p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" style=\"text-align: center\"><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/0d1bf38160de51f2926fd2b6b75a5aa2.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/0d1bf38160de51f2926fd2b6b75a5aa2.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/0d1bf38160de51f2926fd2b6b75a5aa2.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/9e6a24cdef455a716f80dc6f6083879c.avif?t=1787157748\" width=780 height=118 /></span></p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" style=\"text-align: center\">Nos arredores do <strong>Local de Ritual</strong>, você encontrará <strong>Tarefas</strong> que os <strong>Inocentes</strong> deverão concluir para conseguir <strong>Escapar</strong>. Ao serem concluídas, as <strong>Tarefas</strong> também desbloqueiam <strong>Itens</strong> para todo o grupo na <strong>Loja</strong>. Escolha entre ferramentas <strong>Investigativas</strong>, <strong>Ofensivas</strong> e <strong>Defensivas</strong> para multiplicar o caos, o que faz com que cada visita à <strong>Loja</strong> seja altamente impactante.</p><p class=\"bb_paragraph\" style=\"text-align: center\"></p><p class=\"bb_paragraph\" style=\"text-align: center\"><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/13e40b9fc60843113ce9b0bc31eb353e.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/13e40b9fc60843113ce9b0bc31eb353e.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/13e40b9fc60843113ce9b0bc31eb353e.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/5ac87898f4b63c80f5030659ab4708cc.avif?t=1787157748\" width=780 height=118 /></span></p><p class=\"bb_paragraph\" style=\"text-align: center\"></p><p class=\"bb_paragraph\" style=\"text-align: center\">Suba na <strong>Classificação</strong> e prove que domina o jogo competitivo. Ganhe recompensas de habilidade desbloqueando recompensas exclusivas. Alcance o topo das <strong>Tabelas de Classificação da Temporada</strong> e desafie os oponentes mais fortes para se tornar um verdadeiro <strong>Mestre do Engano</strong>.</p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/7384412fc77ca5ee2ce8ac29dc2efca2.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/7384412fc77ca5ee2ce8ac29dc2efca2.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/7384412fc77ca5ee2ce8ac29dc2efca2.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p><h2 class=\"bb_tag\" style=\"text-align: center\"><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/d6b9b865e21156f8ac232928520055c5.avif?t=1787157748\" width=780 height=118 /></span></h2><p class=\"bb_paragraph\" style=\"text-align: center\">Participe como 1 de 9 <strong>Indivíduos</strong> presos no <strong>Ritual</strong>. Encontre o seu favorito, colete itens desbloqueáveis <strong>Subindo de Nível</strong> e personalize visuais na <strong>Coleção</strong>.</p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/8904cb13696af380bc2614f6fae41c5b.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/8904cb13696af380bc2614f6fae41c5b.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/8904cb13696af380bc2614f6fae41c5b.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p>",
+        "about_the_game": "<p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/05b68c3ab5d79f1383c77ebe6d9a7629.avif?t=1787157748\" width=780 height=64 /></span></p><p class=\"bb_paragraph\" style=\"text-align: center\">Deceit 2 é uma experiência de ação PVP online onde sua capacidade de confiar (e de enganar) será colocada em teste. Participe de um <strong>Ritual</strong> ancestral realizado por um <strong>Mestre do Jogo</strong> sádico, escolha a sua <strong>Função</strong> e descubra uma forma de <strong>Escapar</strong>. Você conseguirá descobrir quem está ao seu lado e quem está contra você?</p><h2 class=\"bb_tag\" style=\"text-align: center\"><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/4221d7615317100a8fe1f03668cc79ff.avif?t=1787157748\" width=780 height=118 /></span></h2><p class=\"bb_paragraph\" style=\"text-align: center\">Três <strong>Equipes</strong> se enfrentarão frente a frente: os <strong>Inocentes</strong>, os <strong>Infectados</strong> e os <strong>Amaldiçoados</strong>. No entanto, ninguém sabe a equipe dos demais jogadores, por isso não confie em ninguém. <strong>Forme uma equipe</strong> quando precisar, minta quando não precisar e sobreviva da melhor forma que conseguir. Cada decisão impacta a forma como o pesadelo se desdobra, transformando cada <strong>Ritual</strong> em uma história única.</p><p class=\"bb_paragraph\" style=\"text-align: center\"></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/d45d8d6511f890f07361c745360848ea.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/d45d8d6511f890f07361c745360848ea.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/d45d8d6511f890f07361c745360848ea.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/8fe6b77abe4cb630da284f1a65b17f3c.avif?t=1787157748\" width=780 height=118 /></span></p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" style=\"text-align: center\">O <strong>Ritual</strong> é realizado em 5 locais únicos, cada um repleto de perigos e cercado por um ambiente assustador. Cada <strong>Local de Ritual </strong> oferece cenários distintos e <strong>Tarefas</strong> desafiadoras, exigindo que você utilize estratégias variadas se quiser <strong>Escapar</strong> antes de ser <strong>Banido</strong>.</p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" style=\"text-align: center\"><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/0d1bf38160de51f2926fd2b6b75a5aa2.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/0d1bf38160de51f2926fd2b6b75a5aa2.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/0d1bf38160de51f2926fd2b6b75a5aa2.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/9e6a24cdef455a716f80dc6f6083879c.avif?t=1787157748\" width=780 height=118 /></span></p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" style=\"text-align: center\">Nos arredores do <strong>Local de Ritual</strong>, você encontrará <strong>Tarefas</strong> que os <strong>Inocentes</strong> deverão concluir para conseguir <strong>Escapar</strong>. Ao serem concluídas, as <strong>Tarefas</strong> também desbloqueiam <strong>Itens</strong> para todo o grupo na <strong>Loja</strong>. Escolha entre ferramentas <strong>Investigativas</strong>, <strong>Ofensivas</strong> e <strong>Defensivas</strong> para multiplicar o caos, o que faz com que cada visita à <strong>Loja</strong> seja altamente impactante.</p><p class=\"bb_paragraph\" style=\"text-align: center\"></p><p class=\"bb_paragraph\" style=\"text-align: center\"><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/13e40b9fc60843113ce9b0bc31eb353e.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/13e40b9fc60843113ce9b0bc31eb353e.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/13e40b9fc60843113ce9b0bc31eb353e.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/5ac87898f4b63c80f5030659ab4708cc.avif?t=1787157748\" width=780 height=118 /></span></p><p class=\"bb_paragraph\" style=\"text-align: center\"></p><p class=\"bb_paragraph\" style=\"text-align: center\">Suba na <strong>Classificação</strong> e prove que domina o jogo competitivo. Ganhe recompensas de habilidade desbloqueando recompensas exclusivas. Alcance o topo das <strong>Tabelas de Classificação da Temporada</strong> e desafie os oponentes mais fortes para se tornar um verdadeiro <strong>Mestre do Engano</strong>.</p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/7384412fc77ca5ee2ce8ac29dc2efca2.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/7384412fc77ca5ee2ce8ac29dc2efca2.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/7384412fc77ca5ee2ce8ac29dc2efca2.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p><h2 class=\"bb_tag\" style=\"text-align: center\"><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/d6b9b865e21156f8ac232928520055c5.avif?t=1787157748\" width=780 height=118 /></span></h2><p class=\"bb_paragraph\" style=\"text-align: center\">Participe como 1 de 9 <strong>Indivíduos</strong> presos no <strong>Ritual</strong>. Encontre o seu favorito, colete itens desbloqueáveis <strong>Subindo de Nível</strong> e personalize visuais na <strong>Coleção</strong>.</p><p class=\"bb_paragraph\" ></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/8904cb13696af380bc2614f6fae41c5b.poster.avif?t=1787157748\" width=780 height=252 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/8904cb13696af380bc2614f6fae41c5b.webm?t=1787157748\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/extras/8904cb13696af380bc2614f6fae41c5b.mp4?t=1787157748\" type=\"video/mp4\"></video></span></p>",
+        "short_description": "Deceit 2 é um jogo de terror no estilo dedução social online. Inspire medo como Infectado, investigue como Inocente ou seja um agente do caos como Amaldiçoado. Preso com amigos e estranhos: em quem você confiará para conseguir escapar?",
+        "supported_languages": "Inglês<strong>*</strong>, Francês, Alemão, Espanhol (Espanha), Japonês, Coreano, Português (Brasil), Russo, Chinês simplificado, Tailandês, Italiano<br><strong>*</strong>idiomas com suporte total de áudio",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/562767a261bdc6f27eded3e3855fff8563d6d595/header.jpg?t=1787157748",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/fcee88b604c62a87b804fd8f04991d5fd9602cec/capsule_231x87.jpg?t=1787157748",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/fcee88b604c62a87b804fd8f04991d5fd9602cec/capsule_184x69.jpg?t=1787157748",
+        "website": "https://deceit.gg",
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> 64-bit Windows 10<br></li><li><strong>Processador:</strong> Intel Core i5-6600 (3,3Ghz) ou AMD Ryzen 5 1400 (3,2Ghz)<br></li><li><strong>Placa de vídeo:</strong> NVIDIA GeForce GTX 960 4GB ou AMD Radeon RX 470 4GB<br></li><li><strong>DirectX:</strong> Versão 12<br></li><li><strong>Rede:</strong> Conexão de internet banda larga<br></li><li><strong>Armazenamento:</strong> 15 GB de espaço disponível<br></li><li><strong>Outras observações:</strong> SSD (preferencial), HDD (compatível), configurações de baixa qualidade</li></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> 64-bit Windows 11<br></li><li><strong>Processador:</strong> Intel Core i7-8700 (3.2Ghz) or AMD Ryzen 5 3600 (3.6 Ghz)<br></li><li><strong>Placa de vídeo:</strong> NVIDIA GeForce 3060 or AMD Radeon RX 5700 XT or INTEL Arc A770<br></li><li><strong>DirectX:</strong> Versão 12<br></li><li><strong>Rede:</strong> Conexão de internet banda larga<br></li><li><strong>Armazenamento:</strong> 15 GB de espaço disponível<br></li><li><strong>Outras observações:</strong> SSD, High Quality Settings</li></ul>"
+        },
+        "mac_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "linux_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "developers": [
+          "World Makers"
+        ],
+        "publishers": [
+          "World Makers"
+        ],
+        "package_groups": [],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "categories": [
+          {
+            "id": 1,
+            "description": "Multijogador"
+          },
+          {
+            "id": 49,
+            "description": "JxJ"
+          },
+          {
+            "id": 36,
+            "description": "JxJ on-line"
+          },
+          {
+            "id": 27,
+            "description": "Multijogador multiplataforma"
+          },
+          {
+            "id": 22,
+            "description": "Conquistas Steam"
+          },
+          {
+            "id": 28,
+            "description": "Compat. total com controle"
+          },
+          {
+            "id": 35,
+            "description": "Compras em aplicativo"
+          },
+          {
+            "id": 55,
+            "description": "Compat. c/ DUALSHOCK 4"
+          },
+          {
+            "id": 57,
+            "description": "Compat. c/ DualSense"
+          },
+          {
+            "id": 62,
+            "description": "Compartilhamento em família"
+          }
+        ],
+        "genres": [
+          {
+            "id": "1",
+            "description": "Ação"
+          },
+          {
+            "id": "37",
+            "description": "Gratuitos para Jogar"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_97e4b500e85182a2da42cb177b064937e5315483.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_97e4b500e85182a2da42cb177b064937e5315483.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_b34e4faf9ca9df4a5dc0761db5545d26c6751a45.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_b34e4faf9ca9df4a5dc0761db5545d26c6751a45.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_1e142e7083979755eafb97a4b8ad70f3f07fdd10.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_1e142e7083979755eafb97a4b8ad70f3f07fdd10.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_d6637d04c73a20ca4c25a29b51016a39dac26697.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_d6637d04c73a20ca4c25a29b51016a39dac26697.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_1b026bb9d422e76a00b6acebaf2647c7c7cc81be.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_1b026bb9d422e76a00b6acebaf2647c7c7cc81be.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 5,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_4921c1bfc5034427a1813fac374d41f9ce811811.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_4921c1bfc5034427a1813fac374d41f9ce811811.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 6,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_2610325d20ec0484db39faa455e9dfcb2020624e.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_2610325d20ec0484db39faa455e9dfcb2020624e.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 7,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_02de7eb75d34830abf9724f0f35bbd349a9ad0d0.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_02de7eb75d34830abf9724f0f35bbd349a9ad0d0.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 8,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_34328fa1744338ed6fa3b0be051254a0b2c2205d.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_34328fa1744338ed6fa3b0be051254a0b2c2205d.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 9,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_2f8acd1f7bfd7ae759e6043f145b5dfb19f6f85e.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_2f8acd1f7bfd7ae759e6043f145b5dfb19f6f85e.1920x1080.jpg?t=1787157748"
+          },
+          {
+            "id": 10,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_34c4831aec7e471cad9ca6950fa4334102abba33.600x338.jpg?t=1787157748",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2064870/ss_34c4831aec7e471cad9ca6950fa4334102abba33.1920x1080.jpg?t=1787157748"
+          }
+        ],
+        "movies": [
+          {
+            "id": 257036002,
+            "name": "Deceit 2 | Official Explainer",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257036002/movie.293x165.jpg?t=1721393494",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/2064870/722679/e845c04525a705827d293fda2308d4067e37ac3a/1750745780/dash_av1.mpd?t=1721393494",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/2064870/722679/e845c04525a705827d293fda2308d4067e37ac3a/1750745780/dash_h264.mpd?t=1721393494",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/2064870/722679/e845c04525a705827d293fda2308d4067e37ac3a/1750745780/hls_264_master.m3u8?t=1721393494",
+            "highlight": true
+          },
+          {
+            "id": 257006819,
+            "name": "Deceit 2 | Free to Play",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257006819/movie.293x165.jpg?t=1710349275",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/2064870/672887/16b520c3b15ef1a9ad748eb1475bbd5c66508db9/1750745772/dash_av1.mpd?t=1710349275",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/2064870/672887/16b520c3b15ef1a9ad748eb1475bbd5c66508db9/1750745772/dash_h264.mpd?t=1710349275",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/2064870/672887/16b520c3b15ef1a9ad748eb1475bbd5c66508db9/1750745772/hls_264_master.m3u8?t=1710349275",
+            "highlight": true
+          }
+        ],
+        "recommendations": {
+          "total": 994
+        },
+        "achievements": {
+          "total": 10,
+          "highlighted": [
+            {
+              "icon": "d9b13594691eb7d3a1ef34d034a2e0c6ed1934bf.jpg",
+              "localized_name": "Freedom?",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Freedom?",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/d9b13594691eb7d3a1ef34d034a2e0c6ed1934bf.jpg"
+            },
+            {
+              "icon": "00d2854e67e1be2cde84399989e84bed3db4ecdb.jpg",
+              "localized_name": "Extermination",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Extermination",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/00d2854e67e1be2cde84399989e84bed3db4ecdb.jpg"
+            },
+            {
+              "icon": "46bbd49a7f3e8bc72f086232cf69528ddee33e2e.jpg",
+              "localized_name": "Mutant",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Mutant",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/46bbd49a7f3e8bc72f086232cf69528ddee33e2e.jpg"
+            },
+            {
+              "icon": "3a91b39111e6795d2057a1982a7213d5be657322.jpg",
+              "localized_name": "Shame On Me",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Shame On Me",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/3a91b39111e6795d2057a1982a7213d5be657322.jpg"
+            },
+            {
+              "icon": "6894b9678b791d9777788deb3a2618478fe723b2.jpg",
+              "localized_name": "Fool Me Once",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Fool Me Once",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/6894b9678b791d9777788deb3a2618478fe723b2.jpg"
+            },
+            {
+              "icon": "fc824223fb4548513ff8a62e54389c02b3f150f2.jpg",
+              "localized_name": "Shame On You",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Shame On You",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/fc824223fb4548513ff8a62e54389c02b3f150f2.jpg"
+            },
+            {
+              "icon": "b75dae3766b1bc4bf337d350152ab4744726248f.jpg",
+              "localized_name": "Swagged Out",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Swagged Out",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/b75dae3766b1bc4bf337d350152ab4744726248f.jpg"
+            },
+            {
+              "icon": "97eca113c9b6c9d81bb59d8bdea81b4fca92827c.jpg",
+              "localized_name": "Escape Artist",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Escape Artist",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/97eca113c9b6c9d81bb59d8bdea81b4fca92827c.jpg"
+            },
+            {
+              "icon": "3c97f59265256696f9a1594b78646d21cfa87db9.jpg",
+              "localized_name": "Blood Lust",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Blood Lust",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/3c97f59265256696f9a1594b78646d21cfa87db9.jpg"
+            },
+            {
+              "icon": "8afbb438b9d53e6f73dfc1ce4ae74705a67b3824.jpg",
+              "localized_name": "Soul Seeker",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Soul Seeker",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2064870/8afbb438b9d53e6f73dfc1ce4ae74705a67b3824.jpg"
+            }
+          ]
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": "14/set./2023"
+        },
+        "support_info": {
+          "url": "https://deceit.gg",
+          "email": "support@playdeceit.com"
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/2064870?t=1787157748",
+        "background_raw": "https://store.akamai.steamstatic.com/images/storepagebackground/app/2064870?t=1787157748",
+        "content_descriptors": {
+          "ids": [
+            2,
+            5
+          ],
+          "notes": "Includes moderate violence and blood."
+        },
+        "ratings": {
+          "dejus": {
+            "rating": "10",
+            "descriptors": "Violência",
+            "use_age_gate": "true",
+            "required_age": "10"
+          },
+          "steam_germany": {
+            "rating_generated": "1",
+            "rating": "16",
+            "required_age": "16",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Drastische Gewalt"
+          },
+          "igrs": {
+            "rating_generated": "1",
+            "rating": "18",
+            "required_age": "18",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Kekerasan\nInteraksi Daring"
+          }
+        }
+      }
+    }
+  }
+}

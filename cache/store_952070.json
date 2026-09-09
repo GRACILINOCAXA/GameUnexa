@@ -1,0 +1,312 @@
+{
+  "timestamp": 1787795268.920796,
+  "data": {
+    "952070": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "RESIDENT EVIL RESISTANCE",
+        "steam_appid": 952070,
+        "required_age": 0,
+        "is_free": false,
+        "controller_support": "full",
+        "detailed_description": "Vivencie um novo modo de jogo multijogador online 4x1 no universo Resident Evil, onde quatro Sobreviventes enfrentam um sinistro Vilão. <br />\r\n<br />\r\nComo o Vilão, seu foco é impedir que os sobreviventes escapem, usando tudo o necessário. A sua disposição estarão todos os tipos de ferramentas, incluindo invocar monstros perniciosos, colocar armadilhas mortais, câmeras armadas e mais!<br />\r\n<br />\r\nJá os Sobreviventes devem trabalhar juntos para se defender dos ataques do Vilão e completar os objetivos enigmáticos para escapar do mapa antes do tempo acabar!",
+        "about_the_game": "Vivencie um novo modo de jogo multijogador online 4x1 no universo Resident Evil, onde quatro Sobreviventes enfrentam um sinistro Vilão. <br />\r\n<br />\r\nComo o Vilão, seu foco é impedir que os sobreviventes escapem, usando tudo o necessário. A sua disposição estarão todos os tipos de ferramentas, incluindo invocar monstros perniciosos, colocar armadilhas mortais, câmeras armadas e mais!<br />\r\n<br />\r\nJá os Sobreviventes devem trabalhar juntos para se defender dos ataques do Vilão e completar os objetivos enigmáticos para escapar do mapa antes do tempo acabar!",
+        "short_description": "Vivencie um novo modo de jogo multijogador online 4x1 no universo Resident Evil, onde quatro Sobreviventes enfrentam um sinistro Vilão.",
+        "supported_languages": "Inglês<strong>*</strong>, Francês<strong>*</strong>, Italiano<strong>*</strong>, Alemão<strong>*</strong>, Espanhol (Espanha)<strong>*</strong>, Russo, Japonês<strong>*</strong>, Polonês, Chinês simplificado<strong>*</strong>, Chinês tradicional, Português (Brasil), Coreano, Árabe, Tailandês<br><strong>*</strong>idiomas com suporte total de áudio",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/header.jpg?t=1770602603",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/capsule_231x87.jpg?t=1770602603",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/capsule_184x69.jpg?t=1770602603",
+        "website": null,
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> WINDOWS® 7, 8.1, 10 (64-BIT Required)<br></li><li><strong>Processador:</strong> Intel® Core™ i5-4460 or AMD FX™-6300 or better<br></li><li><strong>Memória:</strong> 8 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> NVIDIA® GeForce® GTX 760 or AMD Radeon™ R7 260x with 2GB Video RAM<br></li><li><strong>DirectX:</strong> Versão 11<br></li><li><strong>Rede:</strong> Conexão de internet banda larga<br></li><li><strong>Armazenamento:</strong> 45 GB de espaço disponível<br></li><li><strong>Outras observações:</strong> Anticipated performance at these specifications is 1080p/30FPS for Resident Evil 3 and 720p/30FPS for Resident Evil Resistance. If you don't have enough graphics memory to run the game at your selected texture quality, you must go to Options &gt; Graphics and lower the texture quality or shadow quality, or decrease the resolution. An internet connection is required for product activation. In addition, an internet connection is required at all times when playing Resident Evil Resistance. (Network connectivity uses Steam® developed by Valve® Corporation.)</li></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> WINDOWS® 10 (64-BIT Required) / Windows 11<br></li><li><strong>Processador:</strong> Intel® Core™ i7-3770 or AMD FX™-9590 or better / Intel(R) Core(TM) i7-9700, AMD Ryzen 7 7800X3D or higher<br></li><li><strong>Memória:</strong> 8 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> NVIDIA® GeForce® GTX 1060 or AMD Radeon™ RX 480 with 3GB VRAM / NVIDIA GeForce RTX 2070 SUPER, MD Radeon RX 7900 XT  or higher<br></li><li><strong>DirectX:</strong> Versão 12<br></li><li><strong>Rede:</strong> Conexão de internet banda larga<br></li><li><strong>Armazenamento:</strong> 45 GB de espaço disponível<br></li><li><strong>Outras observações:</strong> Anticipated performance at these specifications is 1080p/60FPS. An internet connection is required for product activation. In addition, an internet connection is required at all times when playing Resident Evil Resistance. (Network connectivity uses Steam® developed by Valve® Corporation.) *For Windows 11, we have confirmed the specified equipment/combinations, and these are some of the examples.</li></ul>"
+        },
+        "mac_requirements": [],
+        "linux_requirements": [],
+        "legal_notice": "©CAPCOM CO., LTD. 2020 ALL RIGHTS RESERVED.",
+        "developers": [
+          "CAPCOM Co., Ltd.",
+          "NeoBards Entertainment Ltd."
+        ],
+        "publishers": [
+          "CAPCOM Co., Ltd."
+        ],
+        "price_overview": {
+          "currency": "BRL",
+          "initial": 25900,
+          "final": 25900,
+          "discount_percent": 0,
+          "initial_formatted": "",
+          "final_formatted": "R$ 259,00"
+        },
+        "packages": [
+          528758,
+          597332,
+          1142889,
+          437203
+        ],
+        "package_groups": [
+          {
+            "name": "default",
+            "title": "Comprar RESIDENT EVIL RESISTANCE",
+            "description": "",
+            "selection_text": "Selecione uma opção de compra",
+            "save_text": "",
+            "display_type": 0,
+            "is_recurring_subscription": "false",
+            "subs": [
+              {
+                "packageid": 597332,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "RACCOON CITY EDITION - R$ 259,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 25900
+              },
+              {
+                "packageid": 1142889,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Resident Evil Remake Trilogy - R$ 299,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 29900
+              },
+              {
+                "packageid": 437203,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "RESIDENT EVIL 3 - R$ 169,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 16900
+              }
+            ]
+          }
+        ],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "categories": [
+          {
+            "id": 1,
+            "description": "Multijogador"
+          },
+          {
+            "id": 49,
+            "description": "JxJ"
+          },
+          {
+            "id": 36,
+            "description": "JxJ on-line"
+          },
+          {
+            "id": 22,
+            "description": "Conquistas Steam"
+          },
+          {
+            "id": 28,
+            "description": "Compat. total com controle"
+          },
+          {
+            "id": 29,
+            "description": "Cartas Colecionáveis Steam"
+          },
+          {
+            "id": 35,
+            "description": "Compras em aplicativo"
+          },
+          {
+            "id": 23,
+            "description": "Nuvem Steam"
+          },
+          {
+            "id": 62,
+            "description": "Compartilhamento em família"
+          }
+        ],
+        "genres": [
+          {
+            "id": "1",
+            "description": "Ação"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_d0a4e8d7ad132b84dcfa81b159e9966546a3c4d8.600x338.jpg?t=1770602603",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_d0a4e8d7ad132b84dcfa81b159e9966546a3c4d8.1920x1080.jpg?t=1770602603"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_43b2e9f4a8ae4669bba7aec19c5c05abcbfa61da.600x338.jpg?t=1770602603",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_43b2e9f4a8ae4669bba7aec19c5c05abcbfa61da.1920x1080.jpg?t=1770602603"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_3cad66e33d8bb3030e958a48a236bb1d65031c0e.600x338.jpg?t=1770602603",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_3cad66e33d8bb3030e958a48a236bb1d65031c0e.1920x1080.jpg?t=1770602603"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_94878f724d6c81ae94aedde4da81e964801c013f.600x338.jpg?t=1770602603",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_94878f724d6c81ae94aedde4da81e964801c013f.1920x1080.jpg?t=1770602603"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_a5be22331adec8054119e63a3f565a7fbef2f70b.600x338.jpg?t=1770602603",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/ss_a5be22331adec8054119e63a3f565a7fbef2f70b.1920x1080.jpg?t=1770602603"
+          }
+        ],
+        "recommendations": {
+          "total": 5588
+        },
+        "achievements": {
+          "total": 51,
+          "highlighted": [
+            {
+              "icon": "c057d2e16ac8bcdc60993534936f893713e74f07.jpg",
+              "localized_name": "Smells Like Team Spirit",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Smells Like Team Spirit",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/c057d2e16ac8bcdc60993534936f893713e74f07.jpg"
+            },
+            {
+              "icon": "79fa203c585eafaeebb57b81896f863217d5758d.jpg",
+              "localized_name": "Ninguém Escapa da Morte",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Ninguém Escapa da Morte",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/79fa203c585eafaeebb57b81896f863217d5758d.jpg"
+            },
+            {
+              "icon": "e25c357125f1f17e86cad7c4e0c27fce3aaefecd.jpg",
+              "localized_name": "Beijinho, Beijinho, Tchau, Tchau",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Beijinho, Beijinho, Tchau, Tchau",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/e25c357125f1f17e86cad7c4e0c27fce3aaefecd.jpg"
+            },
+            {
+              "icon": "f88442004394b303ede217a7ed9fef17ef30eecd.jpg",
+              "localized_name": "Marco Zero",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Marco Zero",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/f88442004394b303ede217a7ed9fef17ef30eecd.jpg"
+            },
+            {
+              "icon": "8730de44a611f7d536f356a122d0e0054a793392.jpg",
+              "localized_name": "Armado Até os Dentes",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Armado Até os Dentes",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/8730de44a611f7d536f356a122d0e0054a793392.jpg"
+            },
+            {
+              "icon": "0b306abd53c83ec6a53c6dcdc306dc79472a8dd0.jpg",
+              "localized_name": "Quer um Xarope?",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Quer um Xarope?",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/0b306abd53c83ec6a53c6dcdc306dc79472a8dd0.jpg"
+            },
+            {
+              "icon": "a67fd0494472556993301c1de1a91f9612152f47.jpg",
+              "localized_name": "Ligeirinho",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Ligeirinho",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/a67fd0494472556993301c1de1a91f9612152f47.jpg"
+            },
+            {
+              "icon": "3c0af4838896e6a101b61c2fae8d56d192f524f4.jpg",
+              "localized_name": "Aniquilação Prematura",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Aniquilação Prematura",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/3c0af4838896e6a101b61c2fae8d56d192f524f4.jpg"
+            },
+            {
+              "icon": "661d65e07f2b8b379a3f3bc3dec9a597472d034e.jpg",
+              "localized_name": "Rato de Laboratório",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Rato de Laboratório",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/661d65e07f2b8b379a3f3bc3dec9a597472d034e.jpg"
+            },
+            {
+              "icon": "5afeef0fd72389492eaf615696860917acae7a0d.jpg",
+              "localized_name": "Bloqueado",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Bloqueado",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/952070/5afeef0fd72389492eaf615696860917acae7a0d.jpg"
+            }
+          ]
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": ""
+        },
+        "support_info": {
+          "url": "http://www.capcom.co.jp/support/contact/",
+          "email": ""
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/952070?t=1770602603",
+        "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/952070/page_bg_raw.jpg?t=1770602603",
+        "content_descriptors": {
+          "ids": [],
+          "notes": null
+        },
+        "ratings": {
+          "pegi": {
+            "rating": "18",
+            "descriptors": "Violence, Bad Language and In-Game Purchases"
+          },
+          "usk": {
+            "rating": "18",
+            "required_age": "18"
+          },
+          "oflc": {
+            "rating": "ma15",
+            "descriptors": "Strong horror themes and violence, online interactivity and ingame purchases",
+            "required_age": "15"
+          },
+          "nzoflc": {
+            "rating": "r16",
+            "descriptors": "Graphic violence and horror",
+            "required_age": "16"
+          },
+          "cero": {
+            "rating": "d",
+            "descriptors": "暴力",
+            "required_age": "17"
+          },
+          "dejus": {
+            "rating": "16",
+            "descriptors": "Violência Extrema\r\nLinguagem imprópria",
+            "required_age": "16"
+          },
+          "fpb": {
+            "rating": "18",
+            "descriptors": "Horror, Language, Violence, Competitive Intensity",
+            "required_age": "18"
+          },
+          "crl": {
+            "rating": "18",
+            "required_age": "18"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "timestamp": 1787795269.520586,
+  "data": {
+    "993090": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "Lossless Scaling",
+        "steam_appid": 993090,
+        "required_age": 0,
+        "is_free": false,
+        "detailed_description": "<p class=\"bb_paragraph\" ></p>",
+        "about_the_game": "<p class=\"bb_paragraph\" ></p>",
+        "short_description": "All-in-one gaming utility for frame generation and scaling",
+        "supported_languages": "Inglês, Chinês simplificado, Francês, Alemão, Espanhol (Espanha), Português (Brasil), Coreano, Turco, Ucraniano, Japonês, Italiano, Polonês, Português (Portugal), Romeno, Chinês tradicional, Vietnamita, Árabe, Búlgaro, Tcheco, Indonésio, Croata, Hebraico, Lituano, Persa, Sérvio, Húngaro, Dinamarquês, Holandês, Sueco, Tailandês, Finlandês, Grego, Norueguês, Georgiano, Eslovaco",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/84ba6dc3a83e3dd4c0739985edbaf2e4051f57c4/header.jpg?t=1762179586",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/19863a9088f82aeab3d7033d5a632a229e4919a5/capsule_231x87.jpg?t=1762179586",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/19863a9088f82aeab3d7033d5a632a229e4919a5/capsule_184x69.jpg?t=1762179586",
+        "website": "https://losslessscaling.com",
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> Windows 10 version 2004<br></li><li><strong>Placa de vídeo:</strong> Modern integrated graphics<br></li><li><strong>DirectX:</strong> Versão 11</li></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> Windows 11 version 24H2<br></li><li><strong>Placa de vídeo:</strong> GeForce RTX 30 series / Radeon RX 6000 series / Arc series<br></li><li><strong>DirectX:</strong> Versão 11</li></ul>"
+        },
+        "mac_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "linux_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "developers": [
+          "THS"
+        ],
+        "publishers": [
+          "THS"
+        ],
+        "price_overview": {
+          "currency": "BRL",
+          "initial": 1699,
+          "final": 1699,
+          "discount_percent": 0,
+          "initial_formatted": "",
+          "final_formatted": "R$ 16,99"
+        },
+        "packages": [
+          327341
+        ],
+        "package_groups": [
+          {
+            "name": "default",
+            "title": "Comprar Lossless Scaling",
+            "description": "",
+            "selection_text": "Selecione uma opção de compra",
+            "save_text": "",
+            "display_type": 0,
+            "is_recurring_subscription": "false",
+            "subs": [
+              {
+                "packageid": 327341,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Lossless Scaling - R$ 16,99",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 1699
+              }
+            ]
+          }
+        ],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "genres": [
+          {
+            "id": "57",
+            "description": "Utilitários"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/b1ab376a9effb952ed919ec750d13f991fe1db74/ss_b1ab376a9effb952ed919ec750d13f991fe1db74.600x338.jpg?t=1762179586",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/b1ab376a9effb952ed919ec750d13f991fe1db74/ss_b1ab376a9effb952ed919ec750d13f991fe1db74.1920x1080.jpg?t=1762179586"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/ca48d35324ec4ea0516a082e3693cb2953f2f0f9/ss_ca48d35324ec4ea0516a082e3693cb2953f2f0f9.600x338.jpg?t=1762179586",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/ca48d35324ec4ea0516a082e3693cb2953f2f0f9/ss_ca48d35324ec4ea0516a082e3693cb2953f2f0f9.1920x1080.jpg?t=1762179586"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/fa2e9bd1d48e66ab7b852cb74c668d88fcb32340/ss_fa2e9bd1d48e66ab7b852cb74c668d88fcb32340.600x338.jpg?t=1762179586",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/fa2e9bd1d48e66ab7b852cb74c668d88fcb32340/ss_fa2e9bd1d48e66ab7b852cb74c668d88fcb32340.1920x1080.jpg?t=1762179586"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/5c0bc462a5781e2ea239233286f3fdde6d9cb580/ss_5c0bc462a5781e2ea239233286f3fdde6d9cb580.600x338.jpg?t=1762179586",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/5c0bc462a5781e2ea239233286f3fdde6d9cb580/ss_5c0bc462a5781e2ea239233286f3fdde6d9cb580.1920x1080.jpg?t=1762179586"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/32685ee77883b2083b65660d8c5bccb45fc7e4b4/ss_32685ee77883b2083b65660d8c5bccb45fc7e4b4.600x338.jpg?t=1762179586",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/32685ee77883b2083b65660d8c5bccb45fc7e4b4/ss_32685ee77883b2083b65660d8c5bccb45fc7e4b4.1920x1080.jpg?t=1762179586"
+          },
+          {
+            "id": 5,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/8fdf5678ff284727254e36b23494e1c93307b5ea/ss_8fdf5678ff284727254e36b23494e1c93307b5ea.600x338.jpg?t=1762179586",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/8fdf5678ff284727254e36b23494e1c93307b5ea/ss_8fdf5678ff284727254e36b23494e1c93307b5ea.1920x1080.jpg?t=1762179586"
+          },
+          {
+            "id": 6,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/57c54bcbe570d4af6c628e26c2db2060fe66a4c6/ss_57c54bcbe570d4af6c628e26c2db2060fe66a4c6.600x338.jpg?t=1762179586",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/57c54bcbe570d4af6c628e26c2db2060fe66a4c6/ss_57c54bcbe570d4af6c628e26c2db2060fe66a4c6.1920x1080.jpg?t=1762179586"
+          }
+        ],
+        "movies": [
+          {
+            "id": 257119880,
+            "name": "Trailer",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257119880/396199cec3ce47bf71a3448d6dc1f28c488b0bf8/movie_600x337.jpg?t=1743249982",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/993090/859941/c9674baff7ddc3f4631398d94ae7dfe843f5db38/1750604752/dash_av1.mpd?t=1743249982",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/993090/859941/c9674baff7ddc3f4631398d94ae7dfe843f5db38/1750604752/dash_h264.mpd?t=1743249982",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/993090/859941/c9674baff7ddc3f4631398d94ae7dfe843f5db38/1750604752/hls_264_master.m3u8?t=1743249982",
+            "highlight": true
+          }
+        ],
+        "recommendations": {
+          "total": 37488
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": "28/dez./2018"
+        },
+        "support_info": {
+          "url": "",
+          "email": "losslessscaling@gmail.com"
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/993090?t=1762179586",
+        "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/993090/page_bg_raw.jpg?t=1762179586",
+        "content_descriptors": {
+          "ids": [],
+          "notes": null
+        },
+        "ratings": {
+          "dejus": {
+            "rating_generated": "1",
+            "rating": "l",
+            "required_age": "0",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": ""
+          },
+          "steam_germany": {
+            "rating_generated": "1",
+            "rating": "0",
+            "required_age": "0",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": ""
+          },
+          "igrs": {
+            "rating_generated": "1",
+            "rating": "3",
+            "required_age": "0",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": ""
+          }
+        }
+      }
+    }
+  }
+}

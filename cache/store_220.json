@@ -1,0 +1,487 @@
+{
+  "timestamp": 1787795260.9929686,
+  "data": {
+    "220": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "Half-Life 2",
+        "steam_appid": 220,
+        "required_age": 0,
+        "is_free": false,
+        "controller_support": "full",
+        "dlc": [
+          323140
+        ],
+        "detailed_description": "<p class=\"bb_paragraph\" ><i>A Guerra das Sete Horas foi perdida. A Terra se rendeu. O incidente em Black Mesa já é um passado distante.</i> O jogador novamente pega o pé de cabra do pesquisador Gordon Freeman, que se encontra em uma Terra invadida por alienígenas, os seus recursos esgotados e a sua população diminuindo. Freeman assume o nada invejável papel de resgatar o mundo dos males que ele libertou em Black Mesa. E muitas pessoas queridas estão contando com ele.</p><p class=\"bb_paragraph\" >Half-Life 2 é o jogo de tiro em primeira pessoa que serviu como ponto de referência e &quot;foi o arcabouço para a próxima geração de jogos&quot; (PC Gamer). Experimente uma campanha empolgante recheada de níveis sem precedentes de exposição imersiva ao mundo, uma física que desafia os limites e combates alucinantes.</p><p class=\"bb_paragraph\" > </p><h2 class=\"bb_tag\" >Inclui as expansões Episode One e Episode Two</h2><p class=\"bb_paragraph\" >A história do Half-Life 2 continua em Episode One e Episode Two, duas aventuras completas de Half-Life ambientadas após o jogo base. Você pode acessá-las pelo menu principal, e ao completar cada história, você avançará automaticamente para a próxima.</p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras/363ed9ea180fe9d548521b2cc18d8c22.avif?t=1745368545\" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras_big/363ed9ea180fe9d548521b2cc18d8c22.avif?t=1745368545 width=800 height=330 /></span></p><h2 class=\"bb_tag\" > Half-Life 2: Deathmatch</h2><p class=\"bb_paragraph\" >Um jogo multijogador frenético situado no universo do Half-Life 2! A física do HL2 adiciona uma nova dimensão às partidas mata-mata. Jogue um mata-mata tradicional ou forme uma equipe da Combine contra uma da Resistência. Jogue uma privada no seu amigo hoje mesmo! <i>Acessível na sua Biblioteca Steam com a compra do Half-Life 2.</i></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras/7297f35bf74ad59802e5da47afb783cd.avif?t=1745368545\" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras_big/7297f35bf74ad59802e5da47afb783cd.avif?t=1745368545 width=800 height=342 /></span></p><h2 class=\"bb_tag\" >Oficina Steam</h2><p class=\"bb_paragraph\" >Jogue campanhas inteiras ou substitua armas, inimigos, elementos da interface e mais por conteúdos criados pela comunidade.</p>",
+        "about_the_game": "<p class=\"bb_paragraph\" ><i>A Guerra das Sete Horas foi perdida. A Terra se rendeu. O incidente em Black Mesa já é um passado distante.</i> O jogador novamente pega o pé de cabra do pesquisador Gordon Freeman, que se encontra em uma Terra invadida por alienígenas, os seus recursos esgotados e a sua população diminuindo. Freeman assume o nada invejável papel de resgatar o mundo dos males que ele libertou em Black Mesa. E muitas pessoas queridas estão contando com ele.</p><p class=\"bb_paragraph\" >Half-Life 2 é o jogo de tiro em primeira pessoa que serviu como ponto de referência e &quot;foi o arcabouço para a próxima geração de jogos&quot; (PC Gamer). Experimente uma campanha empolgante recheada de níveis sem precedentes de exposição imersiva ao mundo, uma física que desafia os limites e combates alucinantes.</p><p class=\"bb_paragraph\" > </p><h2 class=\"bb_tag\" >Inclui as expansões Episode One e Episode Two</h2><p class=\"bb_paragraph\" >A história do Half-Life 2 continua em Episode One e Episode Two, duas aventuras completas de Half-Life ambientadas após o jogo base. Você pode acessá-las pelo menu principal, e ao completar cada história, você avançará automaticamente para a próxima.</p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras/363ed9ea180fe9d548521b2cc18d8c22.avif?t=1745368545\" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras_big/363ed9ea180fe9d548521b2cc18d8c22.avif?t=1745368545 width=800 height=330 /></span></p><h2 class=\"bb_tag\" > Half-Life 2: Deathmatch</h2><p class=\"bb_paragraph\" >Um jogo multijogador frenético situado no universo do Half-Life 2! A física do HL2 adiciona uma nova dimensão às partidas mata-mata. Jogue um mata-mata tradicional ou forme uma equipe da Combine contra uma da Resistência. Jogue uma privada no seu amigo hoje mesmo! <i>Acessível na sua Biblioteca Steam com a compra do Half-Life 2.</i></p><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras/7297f35bf74ad59802e5da47afb783cd.avif?t=1745368545\" data-big-src=https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/extras_big/7297f35bf74ad59802e5da47afb783cd.avif?t=1745368545 width=800 height=342 /></span></p><h2 class=\"bb_tag\" >Oficina Steam</h2><p class=\"bb_paragraph\" >Jogue campanhas inteiras ou substitua armas, inimigos, elementos da interface e mais por conteúdos criados pela comunidade.</p>",
+        "short_description": "Depois de despertar de um estado de estase na metrópole ocupada conhecida como Cidade 17, Gordon Freeman junta-se a Alyx Vance, que lidera o desesperado movimento de resistência humana. Experimente o jogo de tiro em primeira pessoa que serviu como ponto de referência, recheado de níveis sem precedentes de exposição imersiva ao mundo, uma...",
+        "supported_languages": "Inglês<strong>*</strong>, Francês<strong>*</strong>, Alemão<strong>*</strong>, Italiano<strong>*</strong>, Coreano<strong>*</strong>, Espanhol (Espanha)<strong>*</strong>, Russo<strong>*</strong>, Chinês simplificado, Chinês tradicional, Holandês, Dinamarquês, Finlandês, Japonês, Norueguês, Polonês, Português (Portugal), Sueco, Tailandês, Búlgaro, Tcheco, Grego, Húngaro, Português (Brasil), Romeno, Espanhol (América Latina), Turco, Ucraniano<br><strong>*</strong>idiomas com suporte total de áudio",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/header.jpg?t=1745368545",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/951c6aca52bf32d7c95e9f8b3c04fa95e9a735ea/capsule_231x87.jpg?t=1745368545",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/951c6aca52bf32d7c95e9f8b3c04fa95e9a735ea/capsule_184x69.jpg?t=1745368545",
+        "website": "http://www.half-life.com/halflife2",
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> Windows 7, Vista, XP<br></li><li><strong>Processador:</strong> 1,7 GHz<br></li><li><strong>Memória:</strong> 512 MB de RAM<br></li><li><strong>Placa de vídeo:</strong> Placa de vídeo compatível com DirectX 8.1 e SSE<br></li><li><strong>Armazenamento:</strong> 6500 MB de espaço disponível</li></ul>"
+        },
+        "mac_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li><strong>SO:</strong> 10.5.8 (Leopard), 10.6.3 (Snow Leopard) ou superior<br></li><li><strong>Memória:</strong> 1 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> NVIDIA GeForce8 ou superior, ATI X1600 ou superior, Intel HD 3000 ou superior</li></ul>"
+        },
+        "linux_requirements": [],
+        "developers": [
+          "Valve"
+        ],
+        "publishers": [
+          "Valve"
+        ],
+        "demos": [
+          {
+            "appid": 219,
+            "description": ""
+          }
+        ],
+        "price_overview": {
+          "currency": "BRL",
+          "initial": 3299,
+          "final": 3299,
+          "discount_percent": 0,
+          "initial_formatted": "",
+          "final_formatted": "R$ 32,99"
+        },
+        "packages": [
+          289444,
+          36,
+          469
+        ],
+        "package_groups": [
+          {
+            "name": "default",
+            "title": "Comprar Half-Life 2",
+            "description": "",
+            "selection_text": "Selecione uma opção de compra",
+            "save_text": "",
+            "display_type": 0,
+            "is_recurring_subscription": "false",
+            "subs": [
+              {
+                "packageid": 289444,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Half-Life 2 - Commercial License - R$ 20,69",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 2069
+              },
+              {
+                "packageid": 36,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Half-Life 2 - R$ 32,99",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 3299
+              },
+              {
+                "packageid": 469,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "The Orange Box - R$ 59,99",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 5999
+              }
+            ]
+          }
+        ],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": true
+        },
+        "metacritic": {
+          "score": 96,
+          "url": "https://www.metacritic.com/game/pc/half-life-2?ftag=MCD-06-10aaa1f"
+        },
+        "categories": [
+          {
+            "id": 2,
+            "description": "Um jogador"
+          },
+          {
+            "id": 22,
+            "description": "Conquistas Steam"
+          },
+          {
+            "id": 28,
+            "description": "Compat. total com controle"
+          },
+          {
+            "id": 29,
+            "description": "Cartas Colecionáveis Steam"
+          },
+          {
+            "id": 13,
+            "description": "Legendas disponíveis"
+          },
+          {
+            "id": 30,
+            "description": "Oficina Steam"
+          },
+          {
+            "id": 67,
+            "description": "Conforto de câmera"
+          },
+          {
+            "id": 68,
+            "description": "Controles de volume independentes"
+          },
+          {
+            "id": 78,
+            "description": "Dificuldade ajustável"
+          },
+          {
+            "id": 74,
+            "description": "Jogável sem precisar de reação rápida"
+          },
+          {
+            "id": 55,
+            "description": "Compat. c/ DUALSHOCK 4"
+          },
+          {
+            "id": 56,
+            "description": "Compat. c/ DUALSHOCK 4"
+          },
+          {
+            "id": 57,
+            "description": "Compat. c/ DualSense"
+          },
+          {
+            "id": 58,
+            "description": "Compat. c/ DualSense"
+          },
+          {
+            "id": 79,
+            "description": "Salvamento a qualquer momento"
+          },
+          {
+            "id": 59,
+            "description": "Compat. c/ API da Entrada Steam"
+          },
+          {
+            "id": 69,
+            "description": "Som estéreo"
+          },
+          {
+            "id": 65,
+            "description": "Opções de legendas"
+          },
+          {
+            "id": 70,
+            "description": "Som surround"
+          },
+          {
+            "id": 23,
+            "description": "Nuvem Steam"
+          },
+          {
+            "id": 16,
+            "description": "Inclui o SDK da Source"
+          },
+          {
+            "id": 14,
+            "description": "Comentários disponíveis"
+          },
+          {
+            "id": 41,
+            "description": "Remote Play no celular"
+          },
+          {
+            "id": 42,
+            "description": "Remote Play no tablet"
+          },
+          {
+            "id": 44,
+            "description": "Remote Play Together"
+          },
+          {
+            "id": 62,
+            "description": "Compartilhamento em família"
+          },
+          {
+            "id": 63,
+            "description": "Linha do Tempo do Steam"
+          }
+        ],
+        "genres": [
+          {
+            "id": "1",
+            "description": "Ação"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_47b4105b396de408cb8b6b4f358c69e5e2a62dae.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_47b4105b396de408cb8b6b4f358c69e5e2a62dae.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_0e499071a60a20b24149ad65a8edb769250f2921.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_0e499071a60a20b24149ad65a8edb769250f2921.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_ffb00abd45012680e4f209355ec81f961b6dd1fb.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_ffb00abd45012680e4f209355ec81f961b6dd1fb.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_b822a29b3804e05ab9517cac99a5d978d109a32b.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_b822a29b3804e05ab9517cac99a5d978d109a32b.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_c400361f185800786ea984e795f2a0dd4afee990.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_c400361f185800786ea984e795f2a0dd4afee990.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 5,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_a2aeefb3ad34c46af5c381ff03ac0973892f5530.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_a2aeefb3ad34c46af5c381ff03ac0973892f5530.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 6,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_394f4ad714937db2cc90545972b318ddb6db7231.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_394f4ad714937db2cc90545972b318ddb6db7231.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 7,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_412b0e9f8285d3695d0b39840da41c184dff591a.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_412b0e9f8285d3695d0b39840da41c184dff591a.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 8,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_93d1112a93572b2826a02456db4195c07bd2221a.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_93d1112a93572b2826a02456db4195c07bd2221a.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 9,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_ed5532325f508728f8481f0109d662352a519e0a.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_ed5532325f508728f8481f0109d662352a519e0a.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 10,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_4e76506add2af0c438d3c4bc810ccb823353fd13.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_4e76506add2af0c438d3c4bc810ccb823353fd13.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 11,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_8d6f9f74b33e2b0b296c6bff9836085e063b2d2f.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_8d6f9f74b33e2b0b296c6bff9836085e063b2d2f.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 12,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_1ee62eeed05669128167c2f28c5ece55aa683191.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_1ee62eeed05669128167c2f28c5ece55aa683191.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 13,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_1a36c58cd035de49493962da7bb929501a4b3bcc.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_1a36c58cd035de49493962da7bb929501a4b3bcc.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 14,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_06d5f06190db60187bb7128ae44902d676efef10.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_06d5f06190db60187bb7128ae44902d676efef10.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 15,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_b3de6987b384b2db61b5dcad2dd6460fd2969612.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_b3de6987b384b2db61b5dcad2dd6460fd2969612.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 16,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_4b9943f1961a35f0cdbeceed2f48c70cb05d791a.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_4b9943f1961a35f0cdbeceed2f48c70cb05d791a.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 17,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_18841cb9a8fc2cf67039317b601d10c4059b6fa8.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_18841cb9a8fc2cf67039317b601d10c4059b6fa8.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 18,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_fe894d70bdfa75236a4b451efbeea7d4ce3e0174.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_fe894d70bdfa75236a4b451efbeea7d4ce3e0174.1920x1080.jpg?t=1745368545"
+          },
+          {
+            "id": 19,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_70af5835953e5367fe536d90a8ddf2a26c2668dc.600x338.jpg?t=1745368545",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/ss_70af5835953e5367fe536d90a8ddf2a26c2668dc.1920x1080.jpg?t=1745368545"
+          }
+        ],
+        "movies": [
+          {
+            "id": 257074217,
+            "name": "Half-Life 2 Trailer",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257074217/2a5d40f3f7cd4a644849a7dae7ee9f9d7fb2074d/movie_600x337.jpg?t=1732069594",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/220/786885/faaab313be3601c35e8790f0eb2f6b32e5eda63b/1749861546/dash_av1.mpd?t=1732069594",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/220/786885/faaab313be3601c35e8790f0eb2f6b32e5eda63b/1749861546/dash_h264.mpd?t=1732069594",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/220/786885/faaab313be3601c35e8790f0eb2f6b32e5eda63b/1749861546/hls_264_master.m3u8?t=1732069594",
+            "highlight": true
+          },
+          {
+            "id": 904,
+            "name": "Half-Life 2 Trailer",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/904/003a9a6063e5f154f7244aa5b55e16ddeb390dc4/movie_600x337.jpg?t=1732069598",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/220/301/4ef935668e3113456d690174ae43410626b8855a/1749861546/dash_av1.mpd?t=1732069598",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/220/301/4ef935668e3113456d690174ae43410626b8855a/1749861546/dash_h264.mpd?t=1732069598",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/220/301/4ef935668e3113456d690174ae43410626b8855a/1749861546/hls_264_master.m3u8?t=1732069598",
+            "highlight": false
+          }
+        ],
+        "recommendations": {
+          "total": 202092
+        },
+        "achievements": {
+          "total": 69,
+          "highlighted": [
+            {
+              "icon": "hl2_hit_cancop_withcan.jpg",
+              "localized_name": "Afrontador",
+              "archived": 0,
+              "hidden": 1,
+              "name": "Afrontador",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_hit_cancop_withcan.jpg"
+            },
+            {
+              "icon": "hl2_put_canintrash.jpg",
+              "localized_name": "Submisso",
+              "archived": 0,
+              "hidden": 1,
+              "name": "Submisso",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_put_canintrash.jpg"
+            },
+            {
+              "icon": "hl2_escape_apartmentraid.jpg",
+              "localized_name": "Rebelde",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Rebelde",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_escape_apartmentraid.jpg"
+            },
+            {
+              "icon": "hl2_break_miniteleporter.jpg",
+              "localized_name": "Que Gato?",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Que Gato?",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_break_miniteleporter.jpg"
+            },
+            {
+              "icon": "hl2_get_crowbar.jpg",
+              "localized_name": "Ferramenta Confiável",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Ferramenta Confiável",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_get_crowbar.jpg"
+            },
+            {
+              "icon": "hl2_kill_barnacleswithbarrel.jpg",
+              "localized_name": "Cinco Cracas, um Barril",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Cinco Cracas, um Barril",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_kill_barnacleswithbarrel.jpg"
+            },
+            {
+              "icon": "hl2_get_airboat.jpg",
+              "localized_name": "Levantar Âncora!",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Levantar Âncora!",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_get_airboat.jpg"
+            },
+            {
+              "icon": "hl2_get_airboatgun.jpg",
+              "localized_name": "Armamento Pesado",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Armamento Pesado",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_get_airboatgun.jpg"
+            },
+            {
+              "icon": "hl2_find_vortigauntcave.jpg",
+              "localized_name": "Vorticof",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Vorticof",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_find_vortigauntcave.jpg"
+            },
+            {
+              "icon": "hl2_kill_chopper.jpg",
+              "localized_name": "Vingança!",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Vingança!",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/220/hl2_kill_chopper.jpg"
+            }
+          ]
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": "16/nov./2004"
+        },
+        "support_info": {
+          "url": "http://steamcommunity.com/app/220",
+          "email": ""
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/220?t=1745368545",
+        "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/page_bg_raw.jpg?t=1745368545",
+        "content_descriptors": {
+          "ids": [
+            2,
+            5
+          ],
+          "notes": "Half-Life 2 apresenta violência ao longo do jogo."
+        },
+        "ratings": {
+          "usk": {
+            "rating": "18"
+          },
+          "agcom": {
+            "rating": "16",
+            "descriptors": "Violenza\r\nPaura"
+          },
+          "dejus": {
+            "rating_generated": "1",
+            "rating": "14",
+            "required_age": "14",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Violência"
+          },
+          "steam_germany": {
+            "rating_generated": "1",
+            "rating": "16",
+            "required_age": "16",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Drastische Gewalt"
+          },
+          "igrs": {
+            "rating_generated": "1",
+            "rating": "18",
+            "required_age": "18",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Kekerasan\nHoror"
+          }
+        }
+      }
+    }
+  }
+}

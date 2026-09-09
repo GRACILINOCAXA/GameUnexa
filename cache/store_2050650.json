@@ -1,0 +1,469 @@
+{
+  "timestamp": 1787787667.9484093,
+  "data": {
+    "2050650": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "Resident Evil 4",
+        "steam_appid": 2050650,
+        "required_age": "18",
+        "is_free": false,
+        "controller_support": "full",
+        "dlc": [
+          2109300,
+          2593600,
+          2109315,
+          2109301,
+          2109303,
+          2109304,
+          2109305,
+          2109306,
+          2109307,
+          2109308,
+          2109309,
+          2109310,
+          2109316,
+          2109317,
+          2197320,
+          2197321,
+          2197322,
+          2197323,
+          2197324,
+          2197325,
+          2197326,
+          2197327,
+          2197328,
+          2109311,
+          2109312,
+          2109313,
+          2109314
+        ],
+        "detailed_description": "<h1>Resident Evil 4 Gold Edition</h1><p><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/extras/f0d0f48351d33ead2bd2530c4d1ea997.avif?t=1772502922\" width=580 height=326 /></span><br><br>Observações:<br>- Os itens contidos neste conjunto podem ser adquiridos individualmente. Tome cuidado para evitar compras duplicadas.<br>- Atualize Resident Evil 4 para o patch mais recente antes de jogar Caminhos Distintos ou usar o Pacote de DLC Extra.<br><br>Resident Evil 4 Gold Edition inclui Resident Evil 4 e dois itens de conteúdo adicional: Caminhos Distintos, no qual você vivencia a história pela perspectiva de Ada Wong, e o Pacote de DLC Extra, que contém roupas adicionais de personagens, armas e outros itens úteis.<br><br>[Resident Evil 4]<br>6 anos se passaram desde o desastre biológico em Raccoon City. Leon S. Kennedy busca pela filha desaparecida do presidente até uma aldeia europeia isolada, onde há algo terrivelmente errado com os moradores.<br><br>Apresentando jogabilidade modernizada, uma história reimaginada e gráficos vividamente detalhados, Resident Evil 4 marca o renascimento de um gigante da indústria. Reviva o pesadelo que revolucionou o horror de sobrevivência.<br><br>[Caminhos Distintos]<br>Jogue como Ada Wong neste cenário adicional, preenchendo questões não respondidas da história principal. Com a iminente missão de recuperar o Âmbar pairando sobre ela, que caminho Ada escolherá?<br><br>[Pacote de DLC Extra]<br>- Trajes de Leon e Ashley: &quot;Casual&quot;<br>- Trajes de Leon e Ashley: &quot;Romântico&quot;<br>- Traje e Filtro de Leon: &quot;Herói&quot;<br>- Traje e Filtro de Leon: &quot;Vilão&quot;<br>- Acessório de Leon: &quot;Óculos de Sol (Esporte)&quot;<br>- Arma Especial: &quot;Sentinel Nine&quot;<br>- Arma Especial: &quot;Chacoalha-Crânio&quot;<br>- Mudança de Trilha Sonora &quot;Ver. Original&quot;<br>- Mapa do Tesouro: Expansão</p><br><h1>Sobre o jogo</h1>Sobrevivência é apenas o começo.<br><br>Seis anos se passaram desde o desastre biológico em Raccoon City.<br>O agente Leon S. Kennedy, um dos sobreviventes do incidente, foi enviado para resgatar a filha raptada do presidente.<br>Ele segue o rastro dela até uma isolada vila europeia, onde há algo terrivelmente errado com os habitantes.<br>Então a cortina se abre nessa história de um resgate ousado e um terror medonho, onde vida e morte, terror e catarse, se encontram.<br><br>Com jogabilidade modernizada, uma história reimaginada e gráficos com detalhes vívidos,<br>Resident Evil 4 marca o renascimento de um gigante da indústria.<br><br>Reviva o pesadelo que revolucionou o terror de sobrevivência.",
+        "about_the_game": "Sobrevivência é apenas o começo.<br />\r\n<br />\r\nSeis anos se passaram desde o desastre biológico em Raccoon City.<br />\r\nO agente Leon S. Kennedy, um dos sobreviventes do incidente, foi enviado para resgatar a filha raptada do presidente.<br />\r\nEle segue o rastro dela até uma isolada vila europeia, onde há algo terrivelmente errado com os habitantes.<br />\r\nEntão a cortina se abre nessa história de um resgate ousado e um terror medonho, onde vida e morte, terror e catarse, se encontram.<br />\r\n<br />\r\nCom jogabilidade modernizada, uma história reimaginada e gráficos com detalhes vívidos,<br />\r\nResident Evil 4 marca o renascimento de um gigante da indústria.<br />\r\n<br />\r\nReviva o pesadelo que revolucionou o terror de sobrevivência.",
+        "short_description": "Sobrevivência é apenas o começo. Seis anos se passaram desde o desastre biológico em Raccoon City. Leon S. Kennedy, um dos sobreviventes, segue o rastro da raptada filha do presidente até uma vila europeia isolada, onde há algo terrivelmente errado com os habitantes.",
+        "supported_languages": "Inglês<strong>*</strong>, Francês<strong>*</strong>, Italiano<strong>*</strong>, Alemão<strong>*</strong>, Espanhol (Espanha)<strong>*</strong>, Árabe, Japonês<strong>*</strong>, Coreano, Português (Brasil)<strong>*</strong>, Russo<strong>*</strong>, Chinês simplificado<strong>*</strong>, Chinês tradicional, Espanhol (América Latina)<strong>*</strong>, Polonês<br><strong>*</strong>idiomas com suporte total de áudio",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/header.jpg?t=1772502922",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/capsule_231x87.jpg?t=1772502922",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/capsule_184x69.jpg?t=1772502922",
+        "website": "https://www.residentevil.com/re4/",
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> Windows 10 (64 bit)<br></li><li><strong>Processador:</strong> AMD Ryzen 3 1200 / Intel Core i5-7500<br></li><li><strong>Memória:</strong> 8 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> AMD Radeon RX 560 with 4GB VRAM / NVIDIA GeForce GTX 1050 Ti with 4GB VRAM<br></li><li><strong>DirectX:</strong> Versão 12<br></li><li><strong>Rede:</strong> Conexão de internet banda larga<br></li><li><strong>Outras observações:</strong> Estimated performance (when set to Prioritize Performance): 1080p/45fps. ・Framerate might drop in graphics-intensive scenes. ・AMD Radeon RX 6700 XT or NVIDIA GeForce RTX 2060 required to support ray tracing.</li></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> Windows 10 (64 bit)/Windows 11 (64 bit)<br></li><li><strong>Processador:</strong> AMD Ryzen 5 3600 / Intel Core i7 8700<br></li><li><strong>Memória:</strong> 16 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> AMD Radeon RX 5700 / NVIDIA GeForce GTX 1070<br></li><li><strong>DirectX:</strong> Versão 12<br></li><li><strong>Rede:</strong> Conexão de internet banda larga<br></li><li><strong>Outras observações:</strong> Desempenho aproximado: 1080p/60fps. ・A taxa de quadros pode cair em cenas que exigem recursos visuais mais pesados. ・O suporte ao traçado de raios requer uma placa AMD Radeon RX 6700 XT ou NVIDIA GeForce RTX 2070.</li></ul>"
+        },
+        "mac_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "linux_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "legal_notice": "©CAPCOM CO., LTD. 2005, 2023 ALL RIGHTS RESERVED.",
+        "developers": [
+          "CAPCOM Co., Ltd."
+        ],
+        "publishers": [
+          "CAPCOM Co., Ltd."
+        ],
+        "demos": [
+          {
+            "appid": 2231770,
+            "description": ""
+          }
+        ],
+        "price_overview": {
+          "currency": "BRL",
+          "initial": 16900,
+          "final": 16900,
+          "discount_percent": 0,
+          "initial_formatted": "",
+          "final_formatted": "R$ 169,00"
+        },
+        "packages": [
+          794618,
+          994065,
+          1142889
+        ],
+        "package_groups": [
+          {
+            "name": "default",
+            "title": "Comprar Resident Evil 4",
+            "description": "",
+            "selection_text": "Selecione uma opção de compra",
+            "save_text": "",
+            "display_type": 0,
+            "is_recurring_subscription": "false",
+            "subs": [
+              {
+                "packageid": 794618,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Resident Evil 4 - R$ 169,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 16900
+              },
+              {
+                "packageid": 994065,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Resident Evil 4 Gold Edition - R$ 219,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 21900
+              },
+              {
+                "packageid": 1142889,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Resident Evil Remake Trilogy - R$ 299,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 29900
+              }
+            ]
+          }
+        ],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "metacritic": {
+          "score": 91,
+          "url": "https://www.metacritic.com/game/pc/resident-evil-4?ftag=MCD-06-10aaa1f"
+        },
+        "categories": [
+          {
+            "id": 2,
+            "description": "Um jogador"
+          },
+          {
+            "id": 22,
+            "description": "Conquistas Steam"
+          },
+          {
+            "id": 28,
+            "description": "Compat. total com controle"
+          },
+          {
+            "id": 29,
+            "description": "Cartas Colecionáveis Steam"
+          },
+          {
+            "id": 23,
+            "description": "Nuvem Steam"
+          },
+          {
+            "id": 61,
+            "description": "HDR disponível"
+          },
+          {
+            "id": 62,
+            "description": "Compartilhamento em família"
+          }
+        ],
+        "genres": [
+          {
+            "id": "1",
+            "description": "Ação"
+          },
+          {
+            "id": "25",
+            "description": "Aventura"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_59d1b19964cc532213df92c8287b75a0bffeb33c.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_59d1b19964cc532213df92c8287b75a0bffeb33c.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_ab807f8ad9e968a620777caf483cb6020367b9ee.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_ab807f8ad9e968a620777caf483cb6020367b9ee.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_0442f7fb4327d79802c2db8ea8d23d228a28d896.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_0442f7fb4327d79802c2db8ea8d23d228a28d896.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_69810f4cd155912fdfdd21da70181df7d454c874.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_69810f4cd155912fdfdd21da70181df7d454c874.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_0596bac955340495562f3ff2538756ebd9a7f073.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_0596bac955340495562f3ff2538756ebd9a7f073.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 5,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_0554b945aafc847d55f780f7968de00aafa968a3.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_0554b945aafc847d55f780f7968de00aafa968a3.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 6,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_29ffb23060c862bcbe1d1434e83d41ab10484d8e.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_29ffb23060c862bcbe1d1434e83d41ab10484d8e.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 7,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_22d21ef8c4e54cc5f8418f9b233178bf7869ee01.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_22d21ef8c4e54cc5f8418f9b233178bf7869ee01.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 8,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_5a4297e594297a13f1f4c665966eb3d88d37b58d.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_5a4297e594297a13f1f4c665966eb3d88d37b58d.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 9,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_440756cbcb0231dd325991d38b85d3b60d976b95.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_440756cbcb0231dd325991d38b85d3b60d976b95.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 10,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_72888d13c9e3995f05a2886a51f0dc8791e28afa.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_72888d13c9e3995f05a2886a51f0dc8791e28afa.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 11,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_d90819dc43141eee26b69a6cab43be00164adcb0.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_d90819dc43141eee26b69a6cab43be00164adcb0.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 12,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_b9fbb8b2d7e1204a074033e9bb9a19fa54f765fb.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_b9fbb8b2d7e1204a074033e9bb9a19fa54f765fb.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 13,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_d8967ced32ccbbd94f852b3843a5b76febf3ef16.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_d8967ced32ccbbd94f852b3843a5b76febf3ef16.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 14,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_98d9687b6acf5feff600b483d9f30e52079091e9.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_98d9687b6acf5feff600b483d9f30e52079091e9.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 15,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_82cef99075c8e19ec71d2aae8b0a19815695c5a7.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_82cef99075c8e19ec71d2aae8b0a19815695c5a7.1920x1080.jpg?t=1772502922"
+          },
+          {
+            "id": 16,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_2f026b10ab2facd11820737453512b3b88c5a863.600x338.jpg?t=1772502922",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/ss_2f026b10ab2facd11820737453512b3b88c5a863.1920x1080.jpg?t=1772502922"
+          }
+        ],
+        "movies": [
+          {
+            "id": 256998127,
+            "name": "08【RE4】_GELaunchPV_Multi_BR_FullHD_DJCTQ_好評発売中.mp4",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256998127/movie.293x165.jpg?t=1730246640",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/2050650/657548/d66cd4cfb24cc35f67d237b146e00ffd2df5f6bd/1750745210/dash_av1.mpd?t=1730246640",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/2050650/657548/d66cd4cfb24cc35f67d237b146e00ffd2df5f6bd/1750745210/dash_h264.mpd?t=1730246640",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/2050650/657548/d66cd4cfb24cc35f67d237b146e00ffd2df5f6bd/1750745210/hls_264_master.m3u8?t=1730246640",
+            "highlight": true
+          },
+          {
+            "id": 256938325,
+            "name": "08【RE4】_PV3_Multi_BR_FullHD_DJCTQ_AfterRelease",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256938325/movie.293x165.jpg?t=1680071415",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/2050650/552832/74e87283277f47b96027be205d63f4866add8112/1750745169/dash_av1.mpd?t=1680071415",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/2050650/552832/74e87283277f47b96027be205d63f4866add8112/1750745169/dash_h264.mpd?t=1680071415",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/2050650/552832/74e87283277f47b96027be205d63f4866add8112/1750745169/hls_264_master.m3u8?t=1680071415",
+            "highlight": true
+          }
+        ],
+        "recommendations": {
+          "total": 184592
+        },
+        "achievements": {
+          "total": 46,
+          "highlighted": [
+            {
+              "icon": "57ed9194d804ddd7c5dd753c046870a9a0f58fb1.jpg",
+              "localized_name": "Faca Para Principiantes",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Faca Para Principiantes",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/57ed9194d804ddd7c5dd753c046870a9a0f58fb1.jpg"
+            },
+            {
+              "icon": "a0247551f9d53b3a9aa66f5ee41661177c6ccef9.jpg",
+              "localized_name": "Minha Peça Preferida",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Minha Peça Preferida",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/a0247551f9d53b3a9aa66f5ee41661177c6ccef9.jpg"
+            },
+            {
+              "icon": "84539c24d82f190d8a7145fb7af223d1201571d7.jpg",
+              "localized_name": "Obra-Prima",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Obra-Prima",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/84539c24d82f190d8a7145fb7af223d1201571d7.jpg"
+            },
+            {
+              "icon": "1c8fc9f7efd2f055909f8df463c3e5356978419d.jpg",
+              "localized_name": "Boa, Estranho!",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Boa, Estranho!",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/1c8fc9f7efd2f055909f8df463c3e5356978419d.jpg"
+            },
+            {
+              "icon": "33ce364d576c87e43f816848e577b794159efff5.jpg",
+              "localized_name": "Uma Experiência de Quase Morte",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Uma Experiência de Quase Morte",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/33ce364d576c87e43f816848e577b794159efff5.jpg"
+            },
+            {
+              "icon": "dc0343d892ab6efddd0bfa37a5f9eb55e9b8e015.jpg",
+              "localized_name": "Revolta Contra os Revoltantes",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Revolta Contra os Revoltantes",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/dc0343d892ab6efddd0bfa37a5f9eb55e9b8e015.jpg"
+            },
+            {
+              "icon": "af8cd4754665d93581c214709288dee50383adee.jpg",
+              "localized_name": "Lança-Arpão",
+              "archived": 0,
+              "hidden": 1,
+              "name": "Lança-Arpão",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/af8cd4754665d93581c214709288dee50383adee.jpg"
+            },
+            {
+              "icon": "af1379dad0e6400366e3fb477e734c22622eeff4.jpg",
+              "localized_name": "Chefão no Chão",
+              "archived": 0,
+              "hidden": 1,
+              "name": "Chefão no Chão",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/af1379dad0e6400366e3fb477e734c22622eeff4.jpg"
+            },
+            {
+              "icon": "07cf575e8a3a7af518c13c1e5d5f4549335356bf.jpg",
+              "localized_name": "Dê Tchauzinho, Mão Direita",
+              "archived": 0,
+              "hidden": 1,
+              "name": "Dê Tchauzinho, Mão Direita",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/07cf575e8a3a7af518c13c1e5d5f4549335356bf.jpg"
+            },
+            {
+              "icon": "09a2da5eafd99bd5ccaf8f607c3c4a1ca8b51879.jpg",
+              "localized_name": "Não, Valeu!",
+              "archived": 0,
+              "hidden": 1,
+              "name": "Não, Valeu!",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/2050650/09a2da5eafd99bd5ccaf8f607c3c4a1ca8b51879.jpg"
+            }
+          ]
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": "23/mar./2023"
+        },
+        "support_info": {
+          "url": "http://www.capcom.co.jp/support/contact/",
+          "email": ""
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/2050650?t=1772502922",
+        "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/page_bg_raw.jpg?t=1772502922",
+        "content_descriptors": {
+          "ids": [
+            2,
+            5
+          ],
+          "notes": "This Game may contain content not appropriate for all ages, or may not be appropriate for viewing at work: Frequent Violence or Gore, General Mature Content"
+        },
+        "ratings": {
+          "esrb": {
+            "use_age_gate": "true",
+            "required_age": "17"
+          },
+          "pegi": {
+            "rating": "18",
+            "descriptors": "Violence, Bad Language, In-Game Purchase",
+            "use_age_gate": "true",
+            "required_age": "18"
+          },
+          "usk": {
+            "rating": "18",
+            "use_age_gate": "true",
+            "required_age": "18",
+            "descriptors": "Drastische Gewalt, Horror, In-Game-Käufe"
+          },
+          "oflc": {
+            "rating": "r18",
+            "descriptors": "High impact horror violence, blood and gore, online interactivity",
+            "use_age_gate": "true",
+            "required_age": "18"
+          },
+          "cero": {
+            "rating": "z",
+            "descriptors": "暴力",
+            "use_age_gate": "true",
+            "required_age": "18"
+          },
+          "kgrb": {
+            "rating": "18",
+            "descriptors": "폭력성, 공포, 언어의 부적절성, 약물",
+            "use_age_gate": "true",
+            "required_age": "18"
+          },
+          "dejus": {
+            "rating": "18",
+            "use_age_gate": "true",
+            "required_age": "18",
+            "descriptors": "Linguagem imprópria\r\nViolência"
+          },
+          "csrr": {
+            "rating": "R",
+            "descriptors": "暴力、恐怖",
+            "use_age_gate": "true",
+            "required_age": "18"
+          },
+          "crl": {
+            "rating": "18",
+            "use_age_gate": "true",
+            "required_age": "18"
+          },
+          "nzoflc": {
+            "rating": "r16",
+            "descriptors": "Graphic violence and horror",
+            "required_age": "16"
+          },
+          "steam_germany": {
+            "rating_generated": "1",
+            "rating": "18",
+            "required_age": "18",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Drastische Gewalt\nAlkohol / Tabak\nSexuelle Andeutungen"
+          },
+          "igrs": {
+            "rating_generated": "1",
+            "rating": "18",
+            "required_age": "18",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Kekerasan\nRokok dan/atau rokok elektronik, minuman beralkohol, narkotika, psikotropika, dan/atau zat adiktif lainnya\nPenampilan Tokoh"
+          }
+        }
+      }
+    }
+  }
+}

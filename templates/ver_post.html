@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card bg-dark border-secondary p-4 mb-4">
+            <div class="card-body p-0">
+                <h1 class="text-light mb-3">{{ post.titulo }}</h1>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        {% if autor and autor.foto_perfil %}
+                            <img src="{{ autor.foto_perfil }}" alt="Avatar" class="rounded-circle" style="width:48px;height:48px;object-fit:cover;">
+                        {% else %}
+                            <div class="rounded-circle bg-info d-flex align-items-center justify-content-center text-dark fw-bold" style="width:48px;height:48px;">{{ autor.nome[:1]|default('?')|upper }}</div>
+                        {% endif %}
+                        <div>
+                            <p class="mb-0" style="color: #e2e8f0;">
+                                Publicado por <strong class="text-info">{{ autor.nome if autor else post.autor_email }}</strong>
+                            </p>
+                            <small style="color: #f8fafc;">{{ post.data_criacao.strftime('%d/%m/%Y às %H:%M') }}</small>
+                        </div>
+                    </div>
+                    {% if session.get('user_email') == post.autor_email or session.get('is_admin') %}
+                        <div>
+                            <form action="{{ url_for('deletar_post', post_id=post.id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja deletar este post?');">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <button type="submit" class="btn btn-outline-danger btn-sm">🗑️ Deletar</button>
+                            </form>
+                        </div>
+                    {% endif %}
+                </div>
+                <hr class="bg-secondary">
+                {% if post.imagem_url %}
+                    <img src="{{ post.imagem_url }}" alt="Imagem do post" class="img-fluid rounded mb-3" style="max-height: 450px; object-fit: cover; width: 100%;">
+                {% endif %}
+                <p class="text-light lead">{{ post.conteudo }}</p>
+                <hr class="bg-secondary">
+                
+                <div class="btn-group" role="group">
+                    {% if session.get('user_email') %}
+                        <button type="button"
+                             class="btn {% if post.usuario_curtiu(session.get('user_email')) %}btn-danger{% else %}btn-outline-light{% endif %} curtir-btn" 
+                            data-post-id="{{ post.id }}" 
+                            onclick="curtirPost(this)">
+                            {{ '❤️' if post.usuario_curtiu(session.get('user_email')) else '🤍' }} <span class="curtidas-count">{{ post.get_total_curtidas() }}</span> Curtidas
+                        </button>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="btn btn-outline-light">
+                            🤍 {{ post.get_total_curtidas() }} Curtidas
+                        </a>
+                    {% endif %}
+                    <a href="#comentarios-secao" class="btn btn-outline-info">💬 {{ comentarios|length }} Comentários</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="comentarios-secao" class="card bg-dark border-secondary p-4 mb-4">
+            <h4 class="text-light mb-3">💬 Comentários ({{ comentarios|length }})</h4>
+            
+            {% if session.get('user_email') %}
+                <form action="{{ url_for('comentar_post', post_id=post.id) }}" method="POST" class="mb-4">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <div class="mb-3">
+                        <textarea name="texto" class="form-control bg-secondary text-white border-0" rows="3" placeholder="Escreva seu comentário de forma respeitosa..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Enviar Comentário</button>
+                </form>
+            {% else %}
+                <div class="alert alert-info border-0 mb-4">
+                    Faça <a href="{{ url_for('login') }}" class="alert-link">login</a> para deixar um comentário.
+                </div>
+            {% endif %}
+
+            <hr class="bg-secondary">
+
+            {% if comentarios %}
+                <div class="list-group list-group-flush">
+                    {% for comentario in comentarios %}
+                        <div class="list-group-item bg-dark border-secondary px-0 py-3 text-light">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="text-info mb-1">
+                                        {{ usuarios.get(comentario.autor_email, {}).nome or comentario.autor_email }}
+                                        <small class="ms-2" style="color: #f8fafc;">{{ comentario.data_criacao.strftime('%d/%m/%Y %H:%M') }}</small>
+                                    </h6>
+                                    <p class="mb-2" style="color: #f8fafc;">{{ comentario.texto }}</p>
+                                    
+                                    {% if session.get('user_email') == comentario.autor_email or session.get('is_admin') %}
+                                        <form action="{{ url_for('deletar_comentario_post', comentario_id=comentario.id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apagar comentário?');">
+                                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                            <button type="submit" class="btn btn-link text-danger p-0 small text-decoration-none" style="font-size: 0.85rem;">🗑️ Deletar</button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-center py-3 mb-0" style="color: #e2e8f0;">Nenhum comentário ainda. Seja o primeiro!</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card bg-dark border-secondary mb-4">
+            <div class="card-header bg-info border-0">
+                <h5 class="text-dark mb-0 fw-bold">📊 Informações</h5>
+            </div>
+            <div class="card-body text-light small">
+                <p class="mb-2"><strong>Autor:</strong> {{ autor.nome if autor else post.autor_email }}</p>
+                <p class="mb-2"><strong>Curtidas:</strong> <span id="sidebar-curtidas">{{ post.get_total_curtidas() }}</span></p>
+                <p class="mb-2"><strong>Comentários:</strong> {{ comentarios|length }}</p>
+                <p class="mb-0"><strong>Data:</strong> {{ post.data_criacao.strftime('%d/%m/%Y') }}</p>
+            </div>
+        </div>
+
+        <div class="card bg-dark border-secondary mb-4">
+            <div class="card-header bg-warning border-0">
+                <h5 class="text-dark mb-0 fw-bold">🔒 Moderação</h5>
+            </div>
+            <div class="card-body text-light small">
+                <p class="text-white-50 mb-0">Este post passou pelos filtros de moderação automática da comunidade.</p>
+                {% if session.get('is_admin') %}
+                    <hr class="border-secondary">
+                    <p class="mb-0"><strong>Status:</strong> <span class="badge bg-success">Aprovado</span></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function curtirPost(button) {
+    // Captura o data-post-id que está na própria tag do botão de forma segura
+    const postId = button.getAttribute('data-post-id'); 
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content || '';
+    
+    fetch(`/posts/${postId}/curtir`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrfToken
+        }
+    })
+        .then(response => {
+            if (!response.ok) throw new Error('Erro na requisição');
+            return response.json();
+        })
+        .then(data => {
+            const countElements = document.querySelectorAll('.curtidas-count');
+            const sidebarCount = document.getElementById('sidebar-curtidas');
+            
+            // Atualiza os contadores na tela
+            if(sidebarCount) sidebarCount.textContent = data.total_curtidas;
+            
+            if (data.curtiu) {
+                button.classList.remove('btn-outline-light');
+                button.classList.add('btn-danger');
+                button.innerHTML = `❤️ <span class="curtidas-count">${data.total_curtidas}</span> Curtidas`;
+            } else {
+                button.classList.remove('btn-danger');
+                button.classList.add('btn-outline-light');
+                button.innerHTML = `🤍 <span class="curtidas-count">${data.total_curtidas}</span> Curtidas`;
+            }
+        })
+        .catch(err => console.error('Erro ao curtir post:', err));
+    }
+</script>
+{% endblock %}
