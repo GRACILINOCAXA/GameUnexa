@@ -8,11 +8,11 @@ from flask import Blueprint, current_app, flash, jsonify, redirect, render_templ
 from werkzeug.utils import secure_filename
 
 from database import get_connection
-from paths import SOUNDBOARD_DIR
 
 soundboard_bp = Blueprint('soundboard', __name__)
 
-SOUNDBOARD_UPLOAD_DIR = str(SOUNDBOARD_DIR)
+SOUNDBOARD_UPLOAD_DIR = os.path.join(os.getcwd(), 'static', 'uploads', 'soundboard')
+os.makedirs(SOUNDBOARD_UPLOAD_DIR, exist_ok=True)
 SOUNDBOARD_ALLOWED_EXTENSIONS = {'mp3', 'wav', 'ogg', 'm4a', 'aac', 'flac', 'webm'}
 MAX_SOUNDBOARD_UPLOAD_SIZE = 15 * 1024 * 1024
 MAX_SOUNDBOARD_DURATION = 10.0
@@ -63,7 +63,7 @@ def _soundboard_salvar_arquivo(upload) -> dict:
         if os.path.exists(caminho_local):
             os.remove(caminho_local)
         raise
-    url = url_for('app_data_upload', filename=f'soundboard/{nome_seguro}', _external=False)
+    url = url_for('static', filename=f'uploads/soundboard/{nome_seguro}', _external=False)
     return {'filename': nome_seguro, 'file_path': caminho_local, 'storage_url': url, 'duration': duration}
 
 

@@ -48,6 +48,7 @@ IGNORAR_NOMES = {
     'installer.exe',
     'uninstall.exe',
     'steam.exe',
+    'epicwebhelper.exe',
     'unitycrashhandler.exe',
     'eac.exe',
 }

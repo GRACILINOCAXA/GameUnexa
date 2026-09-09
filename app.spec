@@ -1,22 +1,12 @@
 # -*- mode: python ; coding: utf-8 -*-
-import os
-from PyInstaller.utils.hooks import collect_all
 
-datas = [('templates', 'templates'), ('static', 'static')]
-binaries = []
-hiddenimports = []
-for package in ('webview', 'flask_sock', 'mutagen'):
-    package_datas, package_binaries, package_hiddenimports = collect_all(package)
-    datas += package_datas
-    binaries += package_binaries
-    hiddenimports += package_hiddenimports
 
 a = Analysis(
     ['app.py'],
-    pathex=[os.path.abspath('.')],
-    binaries=binaries,
-    datas=datas,
-    hiddenimports=hiddenimports,
+    pathex=[],
+    binaries=[],
+    datas=[('templates', 'templates'), ('static', 'static'), ('gamelink.db', '.')],
+    hiddenimports=[],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -32,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='GAME-UNEXA',
+    name='app',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

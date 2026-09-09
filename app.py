@@ -20,7 +20,6 @@ import platform
 import re
 import subprocess
 import shutil
-import sys
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 import time
@@ -47,38 +46,6 @@ from pathlib import Path
 from uuid import uuid4
 import secrets
 import sqlite3
-
-IS_WINDOWS = os.name == 'nt'
-IS_VERCEL = os.environ.get('VERCEL') == '1'
-ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL') or 'admin@gamelink.com'
-
-
-def is_desktop_gameunexa() -> bool:
-    return IS_WINDOWS and not IS_VERCEL
-
-
-def is_web_gameunexa() -> bool:
-    return not is_desktop_gameunexa()
-
-
-def format_folder_label(display_name: str, folder_path: str = '') -> str:
-    label_name = (display_name or 'Pasta').strip() or 'Pasta'
-    safe_path = (folder_path or '').strip()
-    if safe_path:
-        return f"📁 {label_name}\n{safe_path}"
-    return f"📁 {label_name}\nPasta selecionada no computador"
-
-
-def build_browser_library_reference(display_name: str, folder_path: str = '') -> str:
-    safe_name = (display_name or 'Pasta').strip() or 'Pasta'
-    safe_path = (folder_path or '').strip()
-    if safe_path.startswith('browser:'):
-        return safe_path
-    if safe_path:
-        return f"browser:{safe_name}|{safe_path}"
-    return f"browser:{safe_name}|{safe_name}"
-
-from paths import CACHE_DIR, ENV_PATH, UPLOADS_DIR, SUPPORT_UPLOAD_DIR, ensure_app_data_dirs, resource_path, TEMP_DIR
 from excecao import GameLinkException, AutenticacaoError, OperacaoInvalidaError
 from steam_audit import (
     log_steamid_resolvido, log_steamid_falha,
@@ -93,37 +60,14 @@ from steam_audit import (
 )
 from steam_api import obter_jogos, obter_perfil, obter_status, obter_jogo
 from steam_api import obter_jogos, obter_perfil, obter_status, obter_jogo, obter_estatisticas_jogo, formatar_playtime
+from steam_local import listar_jogos_instalados
 from library_manager import unificar_biblioteca, scan_library_root, persistir_registros_instalados
+from automatic_library import scan_automatic_library, scan_local_folders
 from launcher_manager import LauncherManager
+from epic_library import detectar_epic_launcher, listar_jogos_epic, abrir_epic_launcher
+from process_detector import inicializar_detector, parar_detector, obter_detector
 from presenca_sync import callback_mudanca_presenca, callback_mudanca_presenca_global
 import time
-
-if IS_WINDOWS:
-    from steam_local import listar_jogos_instalados
-    from automatic_library import scan_automatic_library, scan_local_folders
-    from folder_picker import select_folder
-    from process_detector import inicializar_detector, parar_detector, obter_detector
-else:
-    def listar_jogos_instalados(*args, **kwargs):
-        return []
-
-    def scan_automatic_library(*args, **kwargs):
-        return []
-
-    def scan_local_folders(*args, **kwargs):
-        return []
-
-    def select_folder() -> str:
-        return ''
-
-    def inicializar_detector(*args, **kwargs):
-        return None
-
-    def parar_detector(*args, **kwargs):
-        return None
-
-    def obter_detector(*args, **kwargs):
-        return None
 
 # Cache global para rastrear estado de presença e saber se necessita sincronização
 _CACHE_ESTADO_PRESENCA = {}  # {email: {'steam': bool, 'hydra': bool, 'timestamp': float}}
@@ -141,15 +85,11 @@ from modelos.suporte import (
     gerar_codigo_suporte,
 )
 
-if IS_WINDOWS and not IS_VERCEL:
-    try:
-        import webview
-    except Exception as exc:
-        webview = None
-        WEBVIEW_IMPORT_ERROR = exc
-else:
+try:
+    import webview
+except Exception as exc:
     webview = None
-    WEBVIEW_IMPORT_ERROR = None
+    WEBVIEW_IMPORT_ERROR = exc
 from database import (
     init_db,
     get_connection,
@@ -193,17 +133,14 @@ from background_manager import (
 )
 from soundboard_api import soundboard_bp
 
-app = Flask(
-    __name__,
-    template_folder=resource_path('templates'),
-    static_folder=resource_path('static'),
-)
+app = Flask(__name__)
 sock = Sock(app)
 
 SOUNDBOARD_SIGNALING_ROOMS = {}
 SOUNDBOARD_SIGNALING_LOCK = Lock()
 
-CHAT_UPLOAD_DIR = str(UPLOADS_DIR / 'chat')
+CHAT_UPLOAD_DIR = os.path.join(app.static_folder, 'uploads', 'chat')
+os.makedirs(CHAT_UPLOAD_DIR, exist_ok=True)
 MAX_CHAT_UPLOAD_SIZE = 5 * 1024 * 1024
 ALLOWED_CHAT_IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
 ALLOWED_CHAT_FILE_EXTENSIONS = {'pdf', 'zip', 'rar', 'docx', 'txt', 'png', 'jpg', 'jpeg', 'webp', 'mp4'}
@@ -469,7 +406,7 @@ def _finalizar_envio_pendente(pending_id: str):
 
 
 def _carregar_env_local() -> None:
-    caminho_env = str(ENV_PATH)
+    caminho_env = os.path.join(os.path.dirname(__file__), '.env')
     if not os.path.exists(caminho_env):
         return
 
@@ -485,68 +422,24 @@ def _carregar_env_local() -> None:
                 os.environ[chave] = valor
 
 
-# Load environment variables from .env file (local development)
 _carregar_env_local()
 
-# ZERO-CONFIG VERCEL: Initialize all systems
-try:
-    from zero_config import initialize_gameunexa, get_configured_secret_key
-    if not initialize_gameunexa():
-        print('[STARTUP ERROR] Failed to initialize GameUnexa zero-config system', file=sys.stderr)
-        sys.exit(1)
-    _SECRET_KEY = get_configured_secret_key()
-except ImportError as e:
-    print(f'[STARTUP ERROR] Failed to import zero-config module: {e}', file=sys.stderr)
-    sys.exit(1)
-
-# Configure Flask with zero-config SECRET_KEY
 app.config.update(
-    SECRET_KEY=_SECRET_KEY,
+    SECRET_KEY=os.environ.get('SECRET_KEY') or secrets.token_hex(32),
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE='Lax',
     SESSION_COOKIE_SECURE=(
-        IS_VERCEL
-        or
         os.environ.get('SESSION_COOKIE_SECURE', '0').strip().lower() in {'1', 'true', 'yes', 'on'}
         or os.environ.get('FLASK_ENV', '').strip().lower() in {'production', 'prod'}
     ),
     MAX_CONTENT_LENGTH=5 * 1024 * 1024,
-    UPLOAD_FOLDER=str(SUPPORT_UPLOAD_DIR),
+    UPLOAD_FOLDER=os.path.join(os.path.dirname(__file__), 'static', 'uploads', 'suporte'),
 )
 app.secret_key = app.config['SECRET_KEY']
 app.register_blueprint(soundboard_bp)
 
-
-@app.route('/app-data/uploads/<path:filename>')
-def app_data_upload(filename):
-    return send_from_directory(str(UPLOADS_DIR), filename)
-
-
-@app.route('/app-data/cache/covers/<path:filename>')
-def app_data_cover(filename):
-    return send_from_directory(str(CACHE_DIR / 'covers'), filename)
-
-try:
-    ensure_app_data_dirs()
-except OSError as exc:
-    print(str(exc), file=sys.stderr)
-    if IS_WINDOWS and not IS_VERCEL:
-        try:
-            import tkinter as tk
-            from tkinter import messagebox
-            root = tk.Tk()
-            root.withdraw()
-            messagebox.showerror('GAME-UNEXA', str(exc))
-            root.destroy()
-        except Exception:
-            pass
-    raise SystemExit(1) from exc
-
-# Initialize database schema (already called in zero_config, but kept for compatibility)
-try:
-    init_db()
-except Exception as e:
-    print(f'[DATABASE] Database initialization had issues: {e}', file=sys.stderr)
+# Inicializa o banco de dados SQLite se ainda não existir
+init_db()
 
 
 def _garantir_biblioteca_db_consistente() -> None:
@@ -631,7 +524,7 @@ def _salvar_anexo_chamado(chamado_id: int, mensagem_id: int | None, upload, max_
     return {
         'nome_original': nome_original,
         'nome_arquivo': nome_arquivo,
-        'caminho': os.path.join('app-data', 'uploads', 'suporte', nome_arquivo),
+        'caminho': os.path.join('static', 'uploads', 'suporte', nome_arquivo),
         'tipo_mime': upload.mimetype or 'application/octet-stream',
         'tamanho': tamanho,
         'chamado_id': chamado_id,
@@ -702,19 +595,6 @@ def _normalizar_email(email: str) -> str:
     return (email or '').strip().lower()
 
 
-def _mascarar_email(email: str) -> str:
-    valor = _normalizar_email(email)
-    if not valor or '@' not in valor:
-        return valor
-    local, dominio = valor.split('@', 1)
-    if len(local) <= 1:
-        return f'{local or "*"}@{dominio}'
-    if len(local) == 2:
-        return f'{local[0]}*@{dominio}'
-    mascarado = f'{local[0]}{"*" * min(6, max(1, len(local) - 1))}'
-    return f'{mascarado}@{dominio}'
-
-
 def _gerar_codigo_verificacao() -> str:
     return f'{secrets.randbelow(1000000):06d}'
 
@@ -746,7 +626,6 @@ def _cadastro_pendente_valido() -> dict | None:
         return None
     if pendente.get('expira_em', 0) < time.time():
         session.pop('cadastro_pendente', None)
-        session.pop('cadastro_ultimo_envio', None)
         return None
     return pendente
 
@@ -871,10 +750,10 @@ def _salvar_usuario_no_banco(user) -> None:
 def _garantir_admin_no_banco() -> None:
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute('SELECT COUNT(*) FROM usuarios WHERE email = ?', (ADMIN_EMAIL,))
+    cursor.execute('SELECT COUNT(*) FROM usuarios WHERE email = ?', ('admin@gamelink.com',))
     if cursor.fetchone()[0] == 0:
         senha_admin = obter_senha_admin_padrao()
-        admin_obj = Admin(1, 'Caxa', ADMIN_EMAIL, senha_admin, nivel_acesso=5)
+        admin_obj = Admin(1, 'Caxa', 'admin@gamelink.com', senha_admin, nivel_acesso=5)
         admin_obj.definir_senha(senha_admin)
         cursor.execute(
             'INSERT INTO usuarios (id, nome, email, password, is_admin) VALUES (?, ?, ?, ?, ?)',
@@ -887,8 +766,8 @@ def _garantir_admin_no_banco() -> None:
 _garantir_admin_no_banco()
 _carregar_usuarios_do_banco()
 
-# Configuração de uploads persistentes
-UPLOAD_FOLDER = str(UPLOADS_DIR)
+# Configuração de uploads
+UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'static', 'uploads')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 15 * 1024 * 1024  # 15MB; endpoints menores validam seus próprios limites
@@ -1100,8 +979,8 @@ def _salvar_anexo_chat(upload, tipo: str) -> dict | None:
 
     return {
         'nome': nome_original,
-        'caminho': os.path.join('app-data', 'uploads', 'chat', nome_arquivo),
-        'url': url_for('app_data_upload', filename=f'chat/{nome_arquivo}', _external=False),
+        'caminho': os.path.join('static', 'uploads', 'chat', nome_arquivo),
+        'url': url_for('static', filename=f'uploads/chat/{nome_arquivo}', _external=False),
         'tipo': 'image' if tipo == 'image' else 'file',
         'extensao': extensao,
     }
@@ -1124,9 +1003,16 @@ def _proteger_sessoes_e_csrf():
     if request.method in {'POST', 'PUT', 'DELETE', 'PATCH'}:
         token = request.form.get('csrf_token') or request.headers.get('X-CSRF-Token')
         if not token or not secrets.compare_digest(token, session.get('csrf_token', '')):
+            if request.path == '/hydra/detectar-sessao' and session.get('user_email'):
+                app.logger.warning(
+                    '[CSRF] Ignorando validação CSRF para Hydra Cache local em %s: token presente=%s, session_has_token=%s',
+                    request.path,
+                    bool(token),
+                    'csrf_token' in session,
+                )
+                return None
             app.logger.warning(
-                '[CSRF] Requisição inválida: method=%s path=%s token presente=%s, session_has_token=%s',
-                request.method,
+                '[CSRF] Requisição inválida para %s: token presente=%s, session_has_token=%s',
                 request.path,
                 bool(token),
                 'csrf_token' in session,
@@ -1203,7 +1089,7 @@ def _obter_appid_steam_indice_local(titulo: str) -> int | None:
     termo = _normalizar_busca(titulo)
     if not termo:
         return None
-    caminho = str(CACHE_DIR / 'steam_local_index.json')
+    caminho = os.path.join(os.path.dirname(__file__), 'cache', 'steam_local_index.json')
     try:
         with open(caminho, 'r', encoding='utf-8') as arquivo:
             payload = json.load(arquivo)
@@ -1343,7 +1229,7 @@ def _preencher_capas_biblioteca(email: str) -> None:
             if not jogo:
                 continue
             origem = (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or 'manual').strip().lower()
-            if origem not in {'steam', 'hydra', 'manual'}:
+            if origem not in {'steam', 'hydra', 'epic', 'manual'}:
                 origem = 'manual'
             capa_atual = getattr(item, 'cover_url', '') or ''
             if _usar_capa_armazenada(capa_atual, origem):
@@ -1539,11 +1425,11 @@ def _obter_capa_rawg(titulo: str, ano: int | None = None) -> str | None:
 
 def _caminho_cache_capa(chave: str) -> str:
     nome_arquivo = f"{re.sub(r'[^a-zA-Z0-9._-]+', '_', chave).strip('_') or 'cover'}.webp"
-    return str(CACHE_DIR / 'covers' / nome_arquivo)
+    return os.path.join(os.path.dirname(__file__), 'static', 'cache', 'covers', nome_arquivo)
 
 
 def _caminho_cache_url(chave: str) -> str:
-    return f"/app-data/cache/covers/{os.path.basename(_caminho_cache_capa(chave))}"
+    return f"/static/cache/covers/{os.path.basename(_caminho_cache_capa(chave))}"
 
 
 def _extrair_urls_imagem_html(html: str) -> list[str]:
@@ -1606,7 +1492,7 @@ def _usar_capa_armazenada(url: str | None, origem: str | None = None, appid: int
         return False
     if url_normalizada.startswith('data:image'):
         return False
-    if url_normalizada.startswith('/app-data/cache/covers/'):
+    if url_normalizada.startswith('/static/cache/covers/'):
         caminho = os.path.join(os.path.dirname(__file__), url_normalizada.lstrip('/').replace('/', os.sep))
         if not _is_valid_cached_cover(caminho):
             return False
@@ -2140,7 +2026,7 @@ _BLACKLIST_PROCESSOS_SISTEMA = {
     'vmwareplayer.exe', 'vmware.exe', 'vboxheadless.exe', 'virtualbox.exe',
     
     # Game Launchers/Platform Utilities (não são jogos)
-    'steam.exe', 'launcher.exe',
+    'steam.exe', 'epicgameslauncher.exe', 'launcher.exe', 'egl-launcher.exe',
     'gog galaxy.exe', 'bethesdanet.exe', 'uplay.exe', 'ubisoft.exe',
     'playnite.exe', 'lutris.exe', 'wineserver.exe', 'proton.exe',
     'steamruntime.exe', 'steamwebhelper.exe', 'steamclient.exe',
@@ -3809,7 +3695,7 @@ def _escolher_executavel_principal(installdir: str, nome_jogo: str | None = None
                 continue
             if _deve_ignorar_path(caminho):
                 continue
-            if any(token in nome_baixo for token in ['launcher', 'crashreport', 'easyanticheat', 'eosoverlay', 'bootstrap', 'steamworks', 'steamhelper', 'updater', 'installer', 'setup', 'uninstall', 'benchmark', 'editor', 'shippingserver', 'dedicatedserver', 'shadercompiler', 'steam', 'unitycrashhandler', 'vc_redist', 'dxsetup', 'eac']):
+            if any(token in nome_baixo for token in ['launcher', 'crashreport', 'easyanticheat', 'eosoverlay', 'bootstrap', 'steamworks', 'steamhelper', 'updater', 'installer', 'setup', 'uninstall', 'benchmark', 'editor', 'shippingserver', 'dedicatedserver', 'shadercompiler', 'steam', 'epicwebhelper', 'unitycrashhandler', 'vc_redist', 'dxsetup', 'eac']):
                 continue
 
             if not fallback_caminho:
@@ -3863,9 +3749,54 @@ LAUNCHER_MANAGER = LauncherManager(logger=_registrar_log)
 
 
 def _escolher_pasta_windows() -> str:
-    """Compatibilidade interna para o seletor Win32 SHBrowseForFolderW/SHGetPathFromIDListW."""
-    return select_folder()
+    try:
+        if os.name == 'nt' and webview is not None:
+            if getattr(webview, 'windows', None):
+                resultado = webview.windows[0].create_file_dialog(webview.FOLDER_DIALOG)
+                if isinstance(resultado, (list, tuple)):
+                    return resultado[0] if resultado else ''
+                if resultado:
+                    return str(resultado)
+    except Exception as exc:
+        _registrar_log(f'Erro ao abrir diálogo pywebview: {exc}')
 
+    try:
+        if os.name == 'nt':
+            import json
+            import sys
+            import tempfile
+            import time
+            from pathlib import Path
+
+            temp_dir = Path(tempfile.mkdtemp(prefix='gamelink-picker-', dir=os.path.dirname(__file__)))
+            temp_file = temp_dir / 'selection.json'
+            script = r'''
+import json
+import os
+import sys
+import tkinter as tk
+from tkinter import filedialog
+
+root = tk.Tk()
+root.withdraw()
+root.attributes("-topmost", True)
+pasta = filedialog.askdirectory(title="Selecionar pasta")
+root.destroy()
+with open(sys.argv[1], "w", encoding="utf-8") as handle:
+    json.dump({"path": pasta or ""}, handle)
+'''
+            subprocess.run([sys.executable, '-c', script, str(temp_file)], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            for _ in range(40):
+                if temp_file.exists():
+                    break
+                time.sleep(0.1)
+            if temp_file.exists():
+                with temp_file.open('r', encoding='utf-8') as handle:
+                    data = json.load(handle)
+                return str(data.get('path') or '')
+    except Exception as exc:
+        _registrar_log(f'Erro ao abrir seletor de pasta: {exc}')
+    return ''
 
 def _escolher_executavel_windows() -> str:
     """Abre o seletor nativo para escolher somente um executável."""
@@ -3884,22 +3815,38 @@ def _escolher_executavel_windows() -> str:
 
     try:
         if os.name == 'nt':
-            import tkinter as tk
-            from tkinter import filedialog
+            import json
+            import sys
+            import tempfile
+            import time
+            from pathlib import Path
 
-            root = tk.Tk()
-            root.withdraw()
-            root.attributes('-topmost', True)
-            try:
-                arquivo = filedialog.askopenfilename(
-                    title='Selecionar executável',
-                    filetypes=[('Executáveis', '*.exe')],
-                )
-            finally:
-                root.destroy()
-            return str(arquivo or '').strip()
+            temp_dir = Path(tempfile.mkdtemp(prefix='gamelink-picker-', dir=os.path.dirname(__file__)))
+            temp_file = temp_dir / 'selection.json'
+            script = r'''
+import json
+import sys
+import tkinter as tk
+from tkinter import filedialog
+
+root = tk.Tk()
+root.withdraw()
+root.attributes("-topmost", True)
+arquivo = filedialog.askopenfilename(title="Selecionar executável", filetypes=[("Executáveis", "*.exe")])
+root.destroy()
+with open(sys.argv[1], "w", encoding="utf-8") as handle:
+    json.dump({"path": arquivo or ""}, handle)
+'''
+            subprocess.run([sys.executable, '-c', script, str(temp_file)], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            for _ in range(40):
+                if temp_file.exists():
+                    break
+                time.sleep(0.1)
+            if temp_file.exists():
+                with temp_file.open('r', encoding='utf-8') as handle:
+                    return str(json.load(handle).get('path') or '')
     except Exception as exc:
-        _registrar_log(f'Erro ao abrir seletor de executável via Tk: {exc}')
+        _registrar_log(f'Erro ao abrir seletor de executável: {exc}')
     return ''
 
 
@@ -3942,7 +3889,7 @@ def _listar_executaveis_em_pasta(base_dir: str) -> list[str]:
                 continue
             if _deve_ignorar_path(caminho):
                 continue
-            if any(token in nome_baixo for token in ['launcher', 'crashreport', 'easyanticheat', 'eosoverlay', 'bootstrap', 'steamworks', 'steamhelper', 'updater', 'installer', 'setup', 'uninstall', 'benchmark', 'editor', 'shippingserver', 'dedicatedserver', 'shadercompiler', 'steam', 'unitycrashhandler', 'vc_redist', 'dxsetup', 'eac']):
+            if any(token in nome_baixo for token in ['launcher', 'crashreport', 'easyanticheat', 'eosoverlay', 'bootstrap', 'steamworks', 'steamhelper', 'updater', 'installer', 'setup', 'uninstall', 'benchmark', 'editor', 'shippingserver', 'dedicatedserver', 'shadercompiler', 'steam', 'epicwebhelper', 'unitycrashhandler', 'vc_redist', 'dxsetup', 'eac']):
                 continue
             executaveis.append(caminho)
     return executaveis
@@ -4187,14 +4134,18 @@ def _limpar_registros_automaticos(email: str, launcher: str, registros: list[dic
 def _sincronizar_biblioteca_launcher(email: str, steam_root: str | None = None, hydra_root: str | None = None, force: bool = False) -> dict:
     user = USUARIOS_DB.get((email or '').strip().lower())
     if not user:
-        return {'steam': 0, 'hydra': 0, 'total': 0}
+        return {'steam': 0, 'hydra': 0, 'epic': 0, 'total': 0}
 
     steam_path = (steam_root or getattr(user, 'steam_library_path', '') or '').strip()
     hydra_path = (hydra_root or getattr(user, 'hydra_library_path', '') or '').strip()
+    epic_path = (getattr(user, 'epic_library_path', '') or '').strip()
+
     if steam_path:
         user.steam_library_path = steam_path
     if hydra_path:
         user.hydra_library_path = hydra_path
+    if epic_path:
+        user.epic_library_path = epic_path
     persistir_usuario(user)
 
     total = 0
@@ -4210,7 +4161,13 @@ def _sincronizar_biblioteca_launcher(email: str, steam_root: str | None = None, 
         _registrar_log(f"[REINDEX] Hydra encontrados={len(registros_hydra)} removidos_launcher={limpeza['launcher']} removidos_biblioteca={limpeza['biblioteca']}")
         total += persistir_registros_instalados(email, registros_hydra, 'hydra')
         total += _persistir_jogos_descobertos(email, registros_hydra, 'hydra')
-    return {'steam': int(bool(steam_path)), 'hydra': int(bool(hydra_path)), 'total': total}
+    registros_epic = listar_jogos_epic(epic_path or None)
+    if epic_path or registros_epic:
+        limpeza = _limpar_registros_automaticos(email, 'epic', registros_epic)
+        _registrar_log(f"[REINDEX] Epic encontrados={len(registros_epic)} removidos_launcher={limpeza['launcher']} removidos_biblioteca={limpeza['biblioteca']}")
+        total += persistir_registros_instalados(email, registros_epic, 'epic')
+        total += _persistir_jogos_descobertos(email, registros_epic, 'epic')
+    return {'steam': int(bool(steam_path)), 'hydra': int(bool(hydra_path)), 'epic': len(registros_epic), 'total': total}
 
 
 def _montar_cards_jogar(email: str) -> list:
@@ -4222,7 +4179,7 @@ def _montar_cards_jogar(email: str) -> list:
         if not jogo:
             continue
         origem = (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower()
-        if origem not in {'steam', 'hydra', 'manual'}:
+        if origem not in {'steam', 'hydra', 'epic', 'manual'}:
             origem = 'manual'
         if origem == 'manual' and (getattr(jogo, 'desenvolvedora', '') or '').strip().lower() == 'steam' and str(getattr(jogo, 'id', '')).isdigit():
             origem = 'steam'
@@ -4241,14 +4198,14 @@ def _montar_cards_jogar(email: str) -> list:
             'capa_fallback': _capa_fallback(jogo.titulo),
             'origem': origem,
             'favorito': bool(getattr(item, 'favorito', False)),
-            'pode_jogar': origem in {'steam', 'hydra', 'manual'},
+            'pode_jogar': origem in {'steam', 'hydra', 'epic', 'manual'},
             'status': getattr(item, 'status', 'offline') or 'offline',
             'executavel': getattr(item, 'executable_path', '') or metadata.get('executavel', ''),
             'pasta_instalacao': getattr(item, 'pasta_instalacao', '') or metadata.get('pasta', ''),
             'manual_override': bool(getattr(item, 'manual_override', False)),
             'executable_name': getattr(item, 'executable_name', '') or os.path.basename(getattr(item, 'executable_path', '') or ''),
             'launcher_display': (
-                ('Steam' if origem == 'steam' else 'Hydra' if origem == 'hydra' else 'Local')
+                ('Steam' if origem == 'steam' else 'Hydra' if origem == 'hydra' else 'Epic Games' if origem == 'epic' else 'Local')
                 + (' · Executável local' if getattr(item, 'executable_path', '') else '')
             ),
             'ultima_vez': _formatar_hora_resumida(getattr(item, 'last_launched_at', None)),
@@ -4304,10 +4261,10 @@ def montar_biblioteca_cards(email: str, launcher: str | None = None) -> list:
             continue
 
         origem = (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower()
-        if origem not in {'steam', 'hydra', 'manual'}:
+        if origem not in {'steam', 'hydra', 'epic', 'manual'}:
             origem = 'manual'
 
-        fonte = origem if origem in {'steam', 'hydra', 'manual'} else 'manual'
+        fonte = origem if origem in {'steam', 'hydra', 'epic', 'manual'} else 'manual'
         appid = None
         codigo = str(getattr(item, 'codigo_origem', '') or '').strip()
         if codigo.isdigit():
@@ -4337,6 +4294,7 @@ def montar_biblioteca_cards(email: str, launcher: str | None = None) -> list:
     contagem_origens = {
         'steam': sum(1 for card in cards if card['origem'] == 'steam'),
         'hydra': sum(1 for card in cards if card['origem'] == 'hydra'),
+        'epic': sum(1 for card in cards if card['origem'] == 'epic'),
         'manual': sum(1 for card in cards if card['origem'] == 'manual'),
     }
     print(f'[Library Debug] usuário={email} total_cards={len(cards)} steam={contagem_origens["steam"]} hydra={contagem_origens["hydra"]} manual={contagem_origens["manual"]}')
@@ -4514,6 +4472,15 @@ def _iniciar_jogo(item) -> dict:
     jogo = JOGOS_DB.get(getattr(item, 'jogo_id', 0))
     titulo = getattr(jogo, 'titulo', '') if jogo else ''
     origem = (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower()
+    if origem == 'epic':
+        app_name = (getattr(item, 'codigo_origem', '') or '').strip() or None
+        executavel_epic = (getattr(item, 'executable_path', '') or '').strip()
+        if not executavel_epic or not os.path.isfile(executavel_epic):
+            resultado_epic = abrir_epic_launcher(app_name=app_name)
+            if resultado_epic.get('ok'):
+                _atualizar_status_jogo(item, 'playing', titulo)
+                return {'ok': True, 'success': True, 'modo': 'epic'}
+            return {'ok': False, 'success': False, 'modo': 'epic', 'error': resultado_epic.get('error', 'Epic Games Launcher não encontrado.')}
     appid = getattr(item, 'codigo_origem', '') if origem == 'steam' else None
     detector.registrar_jogo_esperado(titulo, appid, getattr(item, 'executable_path', '') or '')
     resultado = LAUNCHER_MANAGER.iniciar_jogo(item)
@@ -4522,16 +4489,6 @@ def _iniciar_jogo(item) -> dict:
     else:
         detector.limpar_jogo_esperado()
     return resultado
-
-
-def _steam_normalizar_appid(valor) -> str:
-    texto = str(valor or '').strip()
-    if not texto:
-        return ''
-    try:
-        return str(int(float(texto)))
-    except (TypeError, ValueError):
-        return ''
 
 
 def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str | None]:
@@ -4544,66 +4501,37 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
     raiz_steam = (getattr(user, 'steam_library_path', '') or '').strip() or None
     jogos_manifest = listar_jogos_instalados(steam_root=raiz_steam, force=True)
     jogos_api = steam_contexto.get('jogos', []) or []
-
-    jogos_por_appid: dict[str, dict] = {}
-    for jogo in jogos_manifest + jogos_api:
-        appid = _steam_normalizar_appid(jogo.get('appid') or jogo.get('id'))
-        if not appid:
-            continue
-        atual = jogos_por_appid.get(appid) or {}
-        jogos_por_appid[appid] = {**atual, **jogo, 'appid': int(appid)}
-
-    jogos_conectados = list(jogos_por_appid.values())
+    api_por_appid = {
+        str(jogo.get('appid') or ''): jogo
+        for jogo in jogos_api
+        if str(jogo.get('appid') or '').strip()
+    }
+    jogos_conectados = []
+    for jogo_local in jogos_manifest:
+        appid = str(jogo_local.get('appid') or '').strip()
+        jogo_api = api_por_appid.get(appid, {})
+        jogos_conectados.append({**jogo_api, **jogo_local})
+    appids_manifest = {str(jogo.get('appid') or '') for jogo in jogos_manifest}
+    jogos_conectados.extend(
+        jogo for jogo in jogos_api
+        if str(jogo.get('appid') or '') not in appids_manifest
+    )
     steam_contexto['jogos'] = jogos_conectados
-
     if not jogos_conectados:
         return 0, 0, steam_contexto.get('erro') or 'Nenhum jogo encontrado nos manifests locais ou na biblioteca Steam.'
 
     steam_id64 = steam_contexto.get('steam_id64', '')
     jogos_encontrados = len(jogos_conectados)
-    current_appids = {str(jogo.get('appid') or '').strip() for jogo in jogos_conectados if str(jogo.get('appid') or '').strip()}
-
-    print(f'[STEAM IMPORT] user={meu_email} steam_id64={steam_id64} api={len(jogos_api)} manifest={len(jogos_manifest)} unidos={len(jogos_conectados)}')
-    print(f'[STEAM IMPORT] AppIDs atuais: {sorted(map(int, current_appids))[:10]} ... total={len(current_appids)}')
-
-    removidos_steam = 0
-    for item in list(BIBLIOTECA_DB.values()):
-        if item.email_usuario != meu_email:
-            continue
-
-        origem = (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower()
-        codigo = _steam_normalizar_appid(getattr(item, 'codigo_origem', '') or getattr(item, 'jogo_id', ''))
-        if getattr(item, 'manual_override', False) and not codigo:
-            continue
-
-        if origem == 'steam' or codigo:
-            if codigo and codigo not in current_appids:
-                BIBLIOTECA_DB.pop(f"{meu_email}_{item.jogo_id}", None)
-                try:
-                    remover_biblioteca_item(meu_email, item.jogo_id)
-                except Exception:
-                    pass
-                removidos_steam += 1
-                continue
-
-            if not codigo and origem == 'steam' and not str(item.jogo_id).strip().isdigit():
-                BIBLIOTECA_DB.pop(f"{meu_email}_{item.jogo_id}", None)
-                try:
-                    remover_biblioteca_item(meu_email, item.jogo_id)
-                except Exception:
-                    pass
-                removidos_steam += 1
-    print(f'[STEAM IMPORT] removidos_stale={removidos_steam}')
-
+    
     log_import_iniciado(meu_email, steam_id64, jogos_encontrados)
 
     jogos_importados = 0
     jogos_ja_existiam = 0
-    produtos_validos = []
+    jogos_com_erro = 0
     appids_importados = []
     appids_atualizados = []
 
-    for jogo_steam in jogos_conectados:
+    for jogo_steam in steam_contexto.get('jogos', []):
         appid = int(jogo_steam.get('appid') or 0)
         if not appid:
             continue
@@ -4619,14 +4547,7 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
 
             chave_biblioteca = f"{meu_email}_{appid}"
             item_existente = BIBLIOTECA_DB.get(chave_biblioteca)
-            if item_existente is None:
-                item_existente = next(
-                    (item for item in BIBLIOTECA_DB.values()
-                     if item.email_usuario == meu_email and str(getattr(item, 'codigo_origem', '') or '').strip() == str(appid)
-                     and (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower() == 'steam'),
-                    None,
-                )
-
+            
             if item_existente is not None:
                 jogos_ja_existiam += 1
                 horas_jogadas = int(round((jogo_steam.get('playtime_forever') or 0) / 60))
@@ -4635,12 +4556,9 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
                 item_existente.origem = 'steam'
                 item_existente.launcher = 'steam'
                 item_existente.codigo_origem = str(appid)
-                item_existente.jogo_id = appid
-                item_existente.email_usuario = meu_email
                 persistir_biblioteca_item(item_existente)
                 log_jogo_atualizado_biblioteca(meu_email, appid, jogo_steam.get('name', 'Desconhecido'), horas_jogadas)
                 appids_atualizados.append(appid)
-                produtos_validos.append(appid)
                 continue
 
             novo_id_biblioteca = max([b.id for b in BIBLIOTECA_DB.values()], default=0) + 1
@@ -4655,28 +4573,25 @@ def importar_steam_para_biblioteca_local(meu_email: str) -> tuple[int, int, str 
             jogos_importados += 1
             log_jogo_adicionado_biblioteca(meu_email, appid, jogo_steam.get('name', 'Desconhecido'), horas_jogadas)
             appids_importados.append(appid)
-            produtos_validos.append(appid)
-
+            
         except Exception as e:
+            jogos_com_erro += 1
             log_jogo_import_erro(meu_email, appid, str(e))
             continue
 
+    # Valida o resultado final no banco
     biblioteca_usuario = GerenciadorBiblioteca.obter_biblioteca(meu_email)
-    biblioteca_steam = [
-        item for item in biblioteca_usuario
-        if (getattr(item, 'launcher', '') or getattr(item, 'origem', '') or '').strip().lower() == 'steam'
-    ]
-    quantidade_banco = len(biblioteca_steam)
-    appids_banco = [int(str(getattr(item, 'codigo_origem', '') or getattr(item, 'jogo_id', '')).strip()) for item in biblioteca_steam if str(getattr(item, 'codigo_origem', '') or getattr(item, 'jogo_id', '')).strip().isdigit()]
-
-    print(f'[STEAM IMPORT] banco_steam_final={quantidade_banco} appids={appids_banco[:10]}')
+    quantidade_banco = len(biblioteca_usuario)
+    appids_banco = [item.jogo_id for item in biblioteca_usuario]
+    
     log_validacao_banco_dados(meu_email, steam_id64, quantidade_banco, appids_banco)
 
-    jogos_perdidos = max(0, jogos_encontrados - len(set(appids_banco) | set(produtos_validos)))
+    # Calcula discrepâncias
+    jogos_perdidos = jogos_encontrados - jogos_importados - jogos_ja_existiam
     if jogos_perdidos > 0:
-        appids_encontrados = [int(j.get('appid', 0)) for j in jogos_conectados if str(j.get('appid', 0)).strip()]
+        appids_encontrados = [int(j.get('appid', 0)) for j in steam_contexto.get('jogos', [])]
         appids_nao_importados = [aid for aid in appids_encontrados if aid not in appids_importados and aid not in appids_atualizados]
-        log_discrepancia('ENCONTRADOS', jogos_encontrados, 'IMPORTADOS', len(set(appids_banco) | set(produtos_validos)), appids_nao_importados)
+        log_discrepancia('ENCONTRADOS', jogos_encontrados, 'IMPORTADOS', jogos_importados + jogos_ja_existiam, appids_nao_importados)
 
     log_import_finalizado(meu_email, steam_id64, jogos_encontrados, jogos_importados, jogos_ja_existiam, jogos_perdidos)
 
@@ -5191,9 +5106,8 @@ if not JOGOS_DB:
     persistir_jogo(j2, [c1])
     persistir_jogo(j3, [c2])
 
-    if ADMIN_EMAIL not in USUARIOS_DB:
-        admin_password = obter_senha_admin_padrao()
-        admin = Admin(1, "Caxa", ADMIN_EMAIL, admin_password, nivel_acesso=5)
+    if "admin@gamelink.com" not in USUARIOS_DB:
+        admin = Admin(1, "Caxa", "admin@gamelink.com", "admin123", nivel_acesso=5)
         USUARIOS_DB[admin.email.lower()] = admin
         persistir_usuario(admin)
 
@@ -5210,26 +5124,14 @@ def cadastro():
         if acao in {'verificar', 'reenviar'}:
             pendente = _cadastro_pendente_valido()
             if not pendente:
-                flash('Este código expirou. Solicite um novo código.', 'warning')
+                flash('Sua verificação expirou. Faça o cadastro novamente.', 'warning')
                 return render_template('cadastro.html', verificacao_pendente=False)
 
             if acao == 'reenviar':
-                agora = time.time()
-                ultimo_envio = float(session.get('cadastro_ultimo_envio', 0) or 0)
-                if agora - ultimo_envio < 30:
-                    flash('Aguarde alguns segundos antes de solicitar outro código.', 'warning')
-                    return render_template(
-                        'cadastro.html',
-                        verificacao_pendente=True,
-                        email_pendente=pendente['email'],
-                        email_pendente_mascarado=_mascarar_email(pendente['email']),
-                    )
-
                 novo_codigo = _gerar_codigo_verificacao()
                 pendente['codigo'] = novo_codigo
-                pendente['expira_em'] = agora + 600
+                pendente['expira_em'] = time.time() + 600
                 session['cadastro_pendente'] = pendente
-                session['cadastro_ultimo_envio'] = agora
                 try:
                     if _enviar_codigo_verificacao_email(pendente['email'], novo_codigo, pendente['nome']):
                         flash('Novo código enviado para seu e-mail.', 'info')
@@ -5240,30 +5142,18 @@ def cadastro():
                 except Exception as exc:
                     flash(f'Não foi possível reenviar o código: {exc}', 'danger')
                     codigo_local = pendente.get('codigo')
-                return render_template(
-                    'cadastro.html',
-                    verificacao_pendente=True,
-                    email_pendente=pendente['email'],
-                    email_pendente_mascarado=_mascarar_email(pendente['email']),
-                    codigo_local=codigo_local,
-                )
+                return render_template('cadastro.html', verificacao_pendente=True, email_pendente=pendente['email'], codigo_local=codigo_local)
 
             codigo_informado = (request.form.get('codigo_verificacao') or '').strip()
             if codigo_informado != pendente.get('codigo'):
                 flash('Código de verificação inválido.', 'danger')
-                return render_template(
-                    'cadastro.html',
-                    verificacao_pendente=True,
-                    email_pendente=pendente['email'],
-                    email_pendente_mascarado=_mascarar_email(pendente['email']),
-                )
+                return render_template('cadastro.html', verificacao_pendente=True, email_pendente=pendente['email'])
 
-            email = _normalizar_email(pendente['email'])
+            email = pendente['email']
             nome = pendente['nome']
             senha = pendente['senha']
             if email in USUARIOS_DB:
                 session.pop('cadastro_pendente', None)
-                session.pop('cadastro_ultimo_envio', None)
                 flash('E-mail já cadastrado!', 'danger')
                 return render_template('cadastro.html', verificacao_pendente=False)
 
@@ -5289,73 +5179,44 @@ def cadastro():
                 background=True,
             )
             session.pop('cadastro_pendente', None)
-            session.pop('cadastro_ultimo_envio', None)
             flash('E-mail verificado. Cadastro concluído!', 'success')
             return redirect(url_for('login'))
 
-        nome = request.form.get('nome', '').strip()
-        email = _normalizar_email(request.form.get('email', ''))
-        senha = request.form.get('senha', '')
-        if not nome or not email or not senha:
-            flash('Preencha nome, e-mail e senha para continuar.', 'danger')
-            return render_template('cadastro.html', verificacao_pendente=False)
+        nome = request.form['nome'].strip()
+        email = _normalizar_email(request.form['email'])
+        senha = request.form['senha']
         if email in USUARIOS_DB:
-            flash('E-mail já cadastrado!', 'danger')
-            return render_template('cadastro.html', verificacao_pendente=False)
-
-        codigo = _gerar_codigo_verificacao()
-        session['cadastro_pendente'] = {
-            'nome': nome,
-            'email': email,
-            'senha': senha,
-            'codigo': codigo,
-            'expira_em': time.time() + 600,
-        }
-        session['cadastro_ultimo_envio'] = time.time()
-        try:
-            if _enviar_codigo_verificacao_email(email, codigo, nome):
-                flash('Enviamos um código de verificação para seu e-mail.', 'info')
-                codigo_local = None
-            else:
-                flash('SMTP não configurado. O código foi exibido localmente para teste.', 'warning')
-                codigo_local = codigo
-            return render_template(
-                'cadastro.html',
-                verificacao_pendente=True,
-                email_pendente=email,
-                email_pendente_mascarado=_mascarar_email(email),
-                codigo_local=codigo_local,
-            )
-        except Exception as exc:
-            flash(f'Não foi possível enviar o e-mail de verificação: {exc}', 'danger')
-            return render_template(
-                'cadastro.html',
-                verificacao_pendente=True,
-                email_pendente=email,
-                email_pendente_mascarado=_mascarar_email(email),
-                codigo_local=codigo,
-            )
+            flash("E-mail já cadastrado!", "danger")
+        else:
+            codigo = _gerar_codigo_verificacao()
+            session['cadastro_pendente'] = {
+                'nome': nome,
+                'email': email,
+                'senha': senha,
+                'codigo': codigo,
+                'expira_em': time.time() + 600,
+            }
+            try:
+                if _enviar_codigo_verificacao_email(email, codigo, nome):
+                    flash('Enviamos um código de verificação para o seu e-mail.', 'info')
+                    codigo_local = None
+                else:
+                    flash('SMTP não configurado. O código foi exibido localmente para teste.', 'warning')
+                    codigo_local = codigo
+                return render_template('cadastro.html', verificacao_pendente=True, email_pendente=email, codigo_local=codigo_local)
+            except Exception as exc:
+                flash(f'Não foi possível enviar o e-mail de verificação: {exc}', 'danger')
+                return render_template('cadastro.html', verificacao_pendente=True, email_pendente=email, codigo_local=codigo)
     pendente = _cadastro_pendente_valido()
-    return render_template(
-        'cadastro.html',
-        verificacao_pendente=bool(pendente),
-        email_pendente=(pendente or {}).get('email'),
-        email_pendente_mascarado=_mascarar_email((pendente or {}).get('email') or ''),
-        codigo_local=(pendente or {}).get('codigo'),
-    )
+    return render_template('cadastro.html', verificacao_pendente=bool(pendente), email_pendente=(pendente or {}).get('email'), codigo_local=(pendente or {}).get('codigo'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = _normalizar_email(request.form['email'])
         senha = request.form['senha']
-        app.logger.info('[AUTH] Login iniciado: email=%s', email)
         user = USUARIOS_DB.get(email)
-        app.logger.info('[AUTH] Usuário encontrado: %s', 'SIM' if user else 'NÃO')
-        if user:
-            app.logger.info('[AUTH] Hash encontrado: %s', 'SIM' if user.senha_esta_hasheada() else 'NÃO')
         if user and user.verificar_senha(senha):
-            app.logger.info('[AUTH] Verificação da senha: OK')
             if not user.senha_esta_hasheada():
                 user.definir_senha(senha)
                 persistir_usuario(user)
@@ -5363,11 +5224,9 @@ def login():
             session['user_email'] = user.email
             session['user_nome'] = user.nome
             session['is_admin'] = isinstance(user, Admin)
-            session['csrf_token'] = secrets.token_hex(32)
+            session['csrf_token'] = _gerar_csrf_token()
             ONLINE_USERS.add(user.email)
-            app.logger.info('[AUTH] Sessão criada: SIM')
             return redirect(url_for('dashboard'))
-        app.logger.warning('[AUTH] Verificação da senha: FALHOU')
         flash("Credenciais inválidas.", "danger")
     return render_template('login.html')
 
@@ -5756,7 +5615,7 @@ def dashboard():
     _agendar_capas_biblioteca(meu_email)
     totais_por_origem = {
         origem: sum(1 for card in biblioteca_cards_todos if card.get('origem') == origem)
-        for origem in ('steam', 'hydra', 'manual')
+        for origem in ('steam', 'hydra', 'epic', 'manual')
     }
     biblioteca_pagina_atual, biblioteca_total_paginas, _, biblioteca_cards = paginar_itens(
         biblioteca_cards_todos,
@@ -6037,7 +5896,7 @@ def salvar_perfil():
             os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
             filename = secure_filename(f"{session['user_email']}_{int(datetime.now().timestamp())}_{file.filename}")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            user.foto_perfil = f"/app-data/uploads/{filename}"
+            user.foto_perfil = f"/static/uploads/{filename}"
     if 'steam_id64' in request.form:
         user.steam_id64 = request.form.get('steam_id64', '').strip()
     if 'steam_api_key' in request.form:
@@ -7540,6 +7399,13 @@ def biblioteca_hydra():
         return redirect(url_for('login'))
     return _render_biblioteca_view(meu_email, 'hydra', 'hydra')
 
+@app.route('/biblioteca/epic')
+def biblioteca_epic():
+    meu_email = session.get('user_email')
+    if not meu_email:
+        return redirect(url_for('login'))
+    return _render_biblioteca_view(meu_email, 'epic', 'epic')
+
 @app.route('/biblioteca/manual')
 def biblioteca_manual():
     meu_email = session.get('user_email')
@@ -7553,7 +7419,7 @@ def minha_biblioteca():
     if not meu_email: 
         return redirect(url_for('login'))
     filtro = request.args.get('filtro', 'all').strip().lower()
-    launcher_filter = filtro if filtro in {'steam', 'hydra', 'manual'} else None
+    launcher_filter = filtro if filtro in {'steam', 'hydra', 'epic', 'manual'} else None
     return _render_biblioteca_view(meu_email, launcher_filter, filtro)
 
 @app.route('/jogar')
@@ -7695,7 +7561,7 @@ def api_library_covers():
         item = items_by_game.get(game_id)
         origem = (getattr(item, 'launcher', '') if item else '') or (getattr(item, 'origem', '') if item else '') or 'manual'
         origem = origem.strip().lower()
-        if origem not in {'steam', 'hydra', 'manual'}:
+        if origem not in {'steam', 'hydra', 'epic', 'manual'}:
             origem = 'manual'
         stored_cover = getattr(item, 'cover_url', '') if item else ''
         appid = None
@@ -7743,7 +7609,7 @@ def configurar_estilo_biblioteca_jogar():
 
 def _processar_selecao_pasta(meu_email: str, launcher: str, pasta: str | None = None) -> dict:
     launcher = (launcher or '').strip().lower()
-    if launcher not in {'steam', 'hydra'}:
+    if launcher not in {'steam', 'hydra', 'epic'}:
         return {'ok': False, 'erro': 'launcher-invalido'}
 
     pasta = (pasta or '').strip()
@@ -7758,6 +7624,8 @@ def _processar_selecao_pasta(meu_email: str, launcher: str, pasta: str | None = 
             user.steam_library_path = pasta
         elif launcher == 'hydra':
             user.hydra_library_path = pasta
+        else:
+            user.epic_library_path = pasta
         persistir_usuario(user)
 
     _registrar_log(f'Pasta {launcher.upper()} selecionada: {pasta}')
@@ -7842,6 +7710,14 @@ def atualizar_biblioteca_jogar():
     )
     return jsonify({'ok': True})
 
+@app.route('/epic/abrir', methods=['POST'])
+def abrir_epic():
+    if not session.get('user_email'):
+        return jsonify({'ok': False, 'erro': 'login'}), 401
+    app_name = (request.form.get('app_name') or '').strip() or None
+    return jsonify(abrir_epic_launcher(app_name=app_name))
+
+
 def _scan_biblioteca_automatica(email: str) -> None:
     user = USUARIOS_DB.get((email or '').strip().lower())
     if not user:
@@ -7849,12 +7725,8 @@ def _scan_biblioteca_automatica(email: str) -> None:
     with _AUTO_LIBRARY_STATUS_LOCK:
         _AUTO_LIBRARY_STATUS[email] = {'status': 'scanning', 'found': 0, 'error': ''}
     try:
-        server_folders = [
-            folder for folder in (getattr(user, 'auto_library_folders', []) or [])
-            if not str(folder).strip().lower().startswith('browser:')
-        ]
         registros = scan_automatic_library(
-            server_folders,
+            getattr(user, 'auto_library_folders', []) or [],
             include_steam=True,
             steam_root=getattr(user, 'steam_library_path', '') or '',
         )
@@ -7917,8 +7789,6 @@ def biblioteca_automatica_config():
         'scan_status': scan_status.get('status', 'idle'),
         'scan_found': scan_status.get('found', 0),
         'scan_error': scan_status.get('error', ''),
-        'desktop_mode': is_desktop_gameunexa(),
-        'web_mode': is_web_gameunexa(),
     })
 
 
@@ -7926,77 +7796,10 @@ def biblioteca_automatica_config():
 def selecionar_pasta_biblioteca_automatica():
     if not session.get('user_email'):
         return jsonify({'ok': False, 'erro': 'login'}), 401
-    try:
-        if is_desktop_gameunexa():
-            pasta = _escolher_pasta_windows()
-            if not pasta:
-                return jsonify({'ok': False, 'erro': 'Seleção cancelada.'}), 400
-            return jsonify({'ok': True, 'pasta': pasta, 'mode': 'desktop'})
-        return jsonify({'ok': False, 'erro': 'Seleção direta de pasta não está disponível no navegador. Use o seletor do navegador.', 'mode': 'web'}), 400
-    except Exception as exc:
-        app.logger.warning('[auto-library] selecionar_pasta_biblioteca_automatica: %s', exc)
-        return jsonify({'ok': False, 'erro': 'Não foi possível abrir o seletor de pasta.'}), 400
-
-
-@app.route('/api/library/select-folder', methods=['POST'])
-def api_library_select_folder():
-    if not session.get('user_email'):
-        return jsonify({'ok': False, 'erro': 'login'}), 401
-    if is_desktop_gameunexa():
-        pasta = _escolher_pasta_windows()
-        if not pasta:
-            return jsonify({'ok': False, 'erro': 'Seleção cancelada.'}), 400
-        return jsonify({'ok': True, 'folder': pasta, 'display': format_folder_label('Pasta selecionada', pasta), 'mode': 'desktop'})
-    return jsonify({'ok': False, 'erro': 'Seleção de pasta do navegador deve ocorrer no frontend com showDirectoryPicker().', 'mode': 'web'}), 400
-
-
-@app.route('/api/library/local/import', methods=['POST'])
-def api_library_local_import():
-    meu_email = session.get('user_email')
-    if not meu_email:
-        return jsonify({'ok': False, 'erro': 'login'}), 401
-
-    payload = request.get_json(silent=True) or {}
-    games = payload.get('games') if isinstance(payload, dict) else None
-    if not isinstance(games, list):
-        return jsonify({'ok': False, 'erro': 'Lista de jogos inválida.'}), 400
-
-    registros = []
-    for item in games:
-        if not isinstance(item, dict):
-            continue
-        nome = (item.get('name') or item.get('nome') or '').strip()
-        if not nome:
-            continue
-
-        library_root = (item.get('path') or item.get('library_root') or item.get('folder') or '').strip()
-        exe_name = (item.get('executable') or item.get('exe_name') or item.get('executable_name') or '').strip()
-        exe_path = (item.get('executable_path') or item.get('exe_path') or exe_name).strip()
-
-        registros.append({
-            'nome': nome,
-            'launcher': 'manual',
-            'appid': str(item.get('appid') or '').strip(),
-            'library_root': library_root,
-            'game_folder': library_root,
-            'exe_name': exe_name,
-            'exe_path': exe_path,
-            'installed': True,
-            'favorite': bool(item.get('favorite')),
-            'last_scan': datetime.now().isoformat(timespec='seconds'),
-            'hash': '',
-        })
-
-    if not registros:
-        return jsonify({'ok': False, 'erro': 'Nenhum jogo válido foi encontrado para importação.'}), 400
-
-    total_biblioteca = _persistir_jogos_descobertos(meu_email, registros, 'manual')
-    total_installed = persistir_registros_instalados(meu_email, registros, 'manual')
-    user = USUARIOS_DB.get((meu_email or '').strip().lower())
-    if user is not None:
-        user.auto_last_scan = datetime.now().isoformat(timespec='seconds')
-        persistir_usuario(user)
-    return jsonify({'ok': True, 'imported': total_biblioteca, 'installed': total_installed, 'total': max(total_biblioteca, total_installed)})
+    pasta = _escolher_pasta_windows()
+    if not pasta:
+        return jsonify({'ok': False, 'erro': 'pasta-nao-selecionada'}), 400
+    return jsonify({'ok': True, 'pasta': pasta})
 
 
 @app.route('/jogar/biblioteca-automatica/scan', methods=['POST'])
@@ -8815,7 +8618,7 @@ def novo_post():
             filename = secure_filename(f"{session['user_email']}_{int(datetime.now().timestamp())}_{file.filename}")
             os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            imagem_url = f"/app-data/uploads/{filename}"
+            imagem_url = f"/static/uploads/{filename}"
     
     novo_id = max(POSTS_DB.keys(), default=0) + 1
     novo_post_obj = Post(novo_id, session['user_email'], titulo, conteudo, imagem_url)
@@ -9113,24 +8916,15 @@ def api_amigos(email):
 from threading import Event, Thread
 import webbrowser
 
-if IS_WINDOWS and not IS_VERCEL:
-    try:
-        import webview
-    except Exception as exc:
-        webview = None
-        WEBVIEW_IMPORT_ERROR = exc
-else:
+try:
+    import webview
+except Exception as exc:
     webview = None
-    WEBVIEW_IMPORT_ERROR = None
+    WEBVIEW_IMPORT_ERROR = exc
 
 
 def iniciar_flask():
     app.run(host='127.0.0.1', port=5000, debug=False, use_reloader=False)
-
-
-class DesktopApi:
-    def select_folder(self) -> str:
-        return select_folder()
 
 
 if __name__ == '__main__':
@@ -9156,8 +8950,7 @@ if __name__ == '__main__':
                 'GameUnexa',
                 'http://127.0.0.1:5000/login',
                 width=1400,
-                height=900,
-                js_api=DesktopApi(),
+                height=900
             )
             webview.start()
         except Exception as exc:

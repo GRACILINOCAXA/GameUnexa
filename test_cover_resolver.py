@@ -34,8 +34,7 @@ print("=" * 70)
 
 # Test 1: Verify _is_valid_cached_cover function
 print("\n[TEST 1] Validating cache files...")
-from paths import CACHE_DIR
-cache_dir = CACHE_DIR / "covers"
+cache_dir = Path(__file__).parent / "static" / "cache" / "covers"
 
 if not cache_dir.exists():
     print(f"❌ Cache directory not found: {cache_dir}")
@@ -95,7 +94,7 @@ if test_games:
         
         # Check if it's a real cover or placeholder
         is_placeholder = cover_url.startswith('data:image/svg')
-        is_cached = '/app-data/cache' in cover_url
+        is_cached = '/static/cache' in cover_url
         is_steam_cdn = 'cdn.cloudflare.steamstatic.com' in cover_url
         
         status_icon = "📦" if is_placeholder else "✓"

@@ -8,9 +8,9 @@ exatamente em qual etapa os jogos estão sendo perdidos.
 import sys
 from datetime import datetime
 from typing import Any, Dict, List
-from paths import LOGS_DIR
 
-LOG_FILE = str(LOGS_DIR / 'steam_audit.log')
+# Arquivo de log global
+LOG_FILE = 'steam_audit.log'
 
 def _log_audit(etapa: str, mensagem: str, dados: Dict[str, Any] = None, level: str = 'INFO') -> None:
     """

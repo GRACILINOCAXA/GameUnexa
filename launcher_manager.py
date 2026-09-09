@@ -24,6 +24,7 @@ IGNORAR_NOMES = {
     'installer.exe',
     'uninstall.exe',
     'steam.exe',
+    'epicwebhelper.exe',
     'unitycrashhandler.exe',
     'eac.exe',
 }
@@ -59,7 +60,7 @@ PRIORIDADE_NOMES = [
 def iniciar_executavel(executavel: str, cwd: str | None = None, logger=None) -> dict:
     """Inicia um jogo normal ou com elevação quando o executável exigir UAC."""
     caminho = (executavel or '').strip()
-    diretorio = cwd or os.path.dirname(os.path.abspath(caminho))
+    diretorio = cwd or os.path.dirname(caminho) or os.getcwd()
     try:
         processo = subprocess.Popen([caminho], cwd=diretorio, shell=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         return {'ok': True, 'pid': getattr(processo, 'pid', None), 'elevated': False}
@@ -231,7 +232,7 @@ class LauncherManager:
         if not executavel or not os.path.exists(executavel):
             return {'ok': False, 'success': False, 'modo': origem or 'manual', 'error': 'Executável não encontrado ou origem inválida.'}
 
-        cwd = os.path.dirname(executavel) or os.path.dirname(os.path.abspath(executavel))
+        cwd = os.path.dirname(executavel) or os.getcwd()
         try:
             resultado = iniciar_executavel(executavel, cwd=cwd, logger=self.log)
             pid = resultado.get('pid')

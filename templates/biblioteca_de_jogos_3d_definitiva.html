@@ -142,6 +142,7 @@
                 <button class="genre-pill px-3.5 py-1.5 rounded-lg text-xs font-medium glass-card hover:bg-slate-800 text-slate-300 transition-all" data-genre="Terror">Terror</button>
                 <button class="genre-pill px-3.5 py-1.5 rounded-lg text-xs font-medium glass-card hover:bg-slate-800 text-slate-300 transition-all" data-genre="steam">Steam</button>
                 <button class="genre-pill px-3.5 py-1.5 rounded-lg text-xs font-medium glass-card hover:bg-slate-800 text-slate-300 transition-all" data-genre="hydra">Hydra</button>
+                <button class="genre-pill px-3.5 py-1.5 rounded-lg text-xs font-medium glass-card hover:bg-slate-800 text-slate-300 transition-all" data-genre="epic">Epic Games</button>
                 <button class="genre-pill px-3.5 py-1.5 rounded-lg text-xs font-medium glass-card hover:bg-slate-800 text-slate-300 transition-all" data-genre="manual">Manual</button>
                 <button class="genre-pill px-3.5 py-1.5 rounded-lg text-xs font-medium glass-card hover:bg-slate-800 text-slate-300 transition-all" data-genre="favoritos">Favoritos</button>
                 <button class="genre-pill px-3.5 py-1.5 rounded-lg text-xs font-medium glass-card hover:bg-slate-800 text-slate-300 transition-all" data-genre="recentes">Recentes</button>
@@ -961,7 +962,7 @@
 
         function matchesActiveFilter(game) {
             if (activeFilter === 'todos') return true;
-            if (['steam', 'hydra', 'manual'].includes(activeFilter)) return game.origem === activeFilter;
+            if (['steam', 'hydra', 'epic', 'manual'].includes(activeFilter)) return game.origem === activeFilter;
             if (activeFilter === 'favoritos') return Boolean(game.favorito);
             if (activeFilter === 'recentes') return Boolean(game.recente);
             return game.genre.toLowerCase() === activeFilter.toLowerCase();

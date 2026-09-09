@@ -10,8 +10,10 @@ from PIL import Image
 from werkzeug.utils import secure_filename
 
 from database import get_connection
-from paths import BACKGROUND_DIR
 
+BASE_DIR = Path(__file__).resolve().parent
+BACKGROUND_DIR = BASE_DIR / 'userdata' / 'backgrounds'
+BACKGROUND_DIR.mkdir(parents=True, exist_ok=True)
 
 IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp', 'bmp', 'gif'}
 VIDEO_EXTENSIONS = {'mp4', 'webm', 'mov', 'm4v'}

@@ -277,30 +277,6 @@ def test_error_handling():
         print(f"❌ TEST 6 FAILED: {e}")
         return False
 
-
-def test_desktop_browser_library_split():
-    """TEST 7: Verify the desktop vs browser folder selection contracts."""
-    print("\n" + "="*70)
-    print("TEST 7: Desktop Browser Library Split")
-    print("="*70)
-
-    try:
-        from app import is_desktop_gameunexa, is_web_gameunexa, format_folder_label, build_browser_library_reference
-
-        assert callable(is_desktop_gameunexa)
-        assert callable(is_web_gameunexa)
-        label = format_folder_label('Jogos', 'D:/Jogos')
-        assert 'Jogos' in label and 'D:/Jogos' in label
-        assert 'Pasta selecionada no computador' in format_folder_label('Jogos', '')
-        browser_ref = build_browser_library_reference('Jogos', 'browser:Jogos')
-        assert 'browser:' in browser_ref
-
-        print("✅ TEST 7 PASSED")
-        return True
-    except Exception as exc:
-        print(f"❌ TEST 7 FAILED: {exc}")
-        return False
-
 # Run all tests
 if __name__ == '__main__':
     print("\n" + "="*70)

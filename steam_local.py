@@ -12,8 +12,10 @@ import re
 import time
 from pathlib import Path
 from typing import Dict, List
-from paths import CACHE_DIR
 
+BASE_DIR = Path(__file__).resolve().parent
+CACHE_DIR = BASE_DIR / "cache"
+CACHE_DIR.mkdir(exist_ok=True)
 STEAM_LOCAL_INDEX_CACHE = CACHE_DIR / "steam_local_index.json"
 
 

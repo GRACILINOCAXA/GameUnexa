@@ -1,0 +1,211 @@
+{
+  "timestamp": 1787795262.6881456,
+  "data": {
+    "40990": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "Mafia",
+        "steam_appid": 40990,
+        "required_age": 0,
+        "is_free": false,
+        "detailed_description": "O ano é 1930. Após um encontro inesperado com mafiosos, o taxista Tommy Angelo é relutantemente introduzido ao mundo do crime organizado. Ele começa preocupado em fazer parte da família Salieri, mas logo as recompensas se tornam grandes demais para ignorar. À medida em que ele sobe na hierarquia, os pagamentos ficam maiores, mas o trabalho se torna ainda mais sujo. Tommy pode ser capaz de conquistar o respeito dos Salieri, mas tornar-se um &quot;&quot;homem feito&quot;&quot; irá deixá-lo ainda mais em conflito com a nova vida que escolheu.<h2 class=\"bb_tag\" >Vivencie New Heaven</h2>Explore as mais de 20 quilômetros quadrados de New Heaven, uma típica cidade americana dos anos 30 baseada na cultura e arquitetura histórica da era da Depressão.<h2 class=\"bb_tag\" >Um história autêntica e jogabilidade cheia de ação</h2>Jogue em mais de 20 missões emocionantes inspiradas em eventos da década de 30. Suba na hierarquia da família Salieri, de soldado raso até se tornar um homem feito, participando de assassinatos, perseguições de carro, contrabando, tiroteios, assaltos a banco e muito mais.<h2 class=\"bb_tag\" >Armas e veículos inspirados na era</h2>No papel de um ousado motorista de fugas, pegue no volante de mais de 60 carros de inspiração histórica com física realista e dano em tempo real.<br><br>Complete os serviços mais brutos com mais de uma dúzia de armas à sua disposição. Escolha entre tacos de beisebol, espingardas serradas, pistolas Magnum e a renomada submetralhadora Thompson para dar um jeito em qualquer malandro que ouse te contrariar.<br> <br><i>Observação: este relançamento de Mafia possui uma trilha sonora editada e não inclui nenhuma música licenciada.</i>",
+        "about_the_game": "O ano é 1930. Após um encontro inesperado com mafiosos, o taxista Tommy Angelo é relutantemente introduzido ao mundo do crime organizado. Ele começa preocupado em fazer parte da família Salieri, mas logo as recompensas se tornam grandes demais para ignorar. À medida em que ele sobe na hierarquia, os pagamentos ficam maiores, mas o trabalho se torna ainda mais sujo. Tommy pode ser capaz de conquistar o respeito dos Salieri, mas tornar-se um &quot;&quot;homem feito&quot;&quot; irá deixá-lo ainda mais em conflito com a nova vida que escolheu.<h2 class=\"bb_tag\" >Vivencie New Heaven</h2>Explore as mais de 20 quilômetros quadrados de New Heaven, uma típica cidade americana dos anos 30 baseada na cultura e arquitetura histórica da era da Depressão.<h2 class=\"bb_tag\" >Um história autêntica e jogabilidade cheia de ação</h2>Jogue em mais de 20 missões emocionantes inspiradas em eventos da década de 30. Suba na hierarquia da família Salieri, de soldado raso até se tornar um homem feito, participando de assassinatos, perseguições de carro, contrabando, tiroteios, assaltos a banco e muito mais.<h2 class=\"bb_tag\" >Armas e veículos inspirados na era</h2>No papel de um ousado motorista de fugas, pegue no volante de mais de 60 carros de inspiração histórica com física realista e dano em tempo real.<br><br>Complete os serviços mais brutos com mais de uma dúzia de armas à sua disposição. Escolha entre tacos de beisebol, espingardas serradas, pistolas Magnum e a renomada submetralhadora Thompson para dar um jeito em qualquer malandro que ouse te contrariar.<br> <br><i>Observação: este relançamento de Mafia possui uma trilha sonora editada e não inclui nenhuma música licenciada.</i>",
+        "short_description": "O ano é 1930. Após um encontro inesperado com mafiosos, o taxista Tommy Angelo é relutantemente introduzido ao mundo do crime organizado. Ele começa preocupado em fazer parte da família Salieri, mas logo as recompensas se tornam grandes demais para ignorar.",
+        "supported_languages": "Inglês<strong>*</strong>, Francês<strong>*</strong>, Alemão<strong>*</strong>, Italiano<strong>*</strong>, Espanhol (Espanha)<strong>*</strong>, Tcheco<strong>*</strong>, Polonês, Russo<strong>*</strong><br><strong>*</strong>idiomas com suporte total de áudio",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/header.jpg?t=1746716619",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/capsule_231x87.jpg?t=1746716619",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/capsule_184x69.jpg?t=1746716619",
+        "website": "https://mafia.2k.com/",
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li><strong>SO *:</strong> Windows XP / Vista / 7 / 8 / 10<br></li><li><strong>Processador:</strong> 1.4 GHz or faster<br></li><li><strong>Memória:</strong> 2 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> 3D Graphics card compatible with DirectX 9.0<br></li><li><strong>DirectX:</strong> Versão 9.0<br></li><li><strong>Armazenamento:</strong> 3 GB de espaço disponível<br></li><li><strong>Placa de som:</strong> DirectX 9.0c compatible sound card <ul class=\"bb_ul\"></ul><strong>Compatibility notice:</strong> Windows 8 and above require DirectPlay. Windows XP 64-bit is not supported.</li></ul>"
+        },
+        "mac_requirements": [],
+        "linux_requirements": [],
+        "legal_notice": "Copyright 2002-2017 Illusion Softworks. Mafia, the Mafia logo, Illusion Softworks, and the Illusion Softworks logo are trademarks of Illusion Softworks. All rights reserved. Published by Gathering of Developers. Gathering of Developers, the Gathering of the Developers logo, Take-Two Interactive Software, Inc. and the A Take-Two Company logo are trademarks of Take-Two Interactive Software, Inc. All rights reserved. All other trademarks and copyrights are properties of their respective owners. Made in the USA.",
+        "developers": [
+          "Illusion Softworks"
+        ],
+        "publishers": [
+          "2K"
+        ],
+        "price_overview": {
+          "currency": "BRL",
+          "initial": 2490,
+          "final": 821,
+          "discount_percent": 67,
+          "initial_formatted": "R$ 24,90",
+          "final_formatted": "R$ 8,21"
+        },
+        "packages": [
+          219044
+        ],
+        "package_groups": [
+          {
+            "name": "default",
+            "title": "Comprar Mafia",
+            "description": "",
+            "selection_text": "Selecione uma opção de compra",
+            "save_text": "",
+            "display_type": 0,
+            "is_recurring_subscription": "false",
+            "subs": [
+              {
+                "packageid": 219044,
+                "percent_savings_text": "-67% ",
+                "percent_savings": 0,
+                "option_text": "Mafia - <span class=\"discount_original_price\">R$ 24,90</span> R$ 8,21",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 821
+              }
+            ]
+          }
+        ],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "metacritic": {
+          "score": 88,
+          "url": "https://www.metacritic.com/game/pc/mafia?ftag=MCD-06-10aaa1f"
+        },
+        "categories": [
+          {
+            "id": 2,
+            "description": "Um jogador"
+          },
+          {
+            "id": 62,
+            "description": "Compartilhamento em família"
+          }
+        ],
+        "genres": [
+          {
+            "id": "1",
+            "description": "Ação"
+          },
+          {
+            "id": "25",
+            "description": "Aventura"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_0f77fc326636cfeed6b7a71e7658427520b6ac04.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_0f77fc326636cfeed6b7a71e7658427520b6ac04.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_1e931637026169f5f72d9171b4ea6cc88bdbe97d.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_1e931637026169f5f72d9171b4ea6cc88bdbe97d.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_b9fc2a0dcbf37124eaa31eaced914f0cf5d43071.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_b9fc2a0dcbf37124eaa31eaced914f0cf5d43071.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_fb424f0623d9f14c48d0e1af7ccc504a0d97f74b.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_fb424f0623d9f14c48d0e1af7ccc504a0d97f74b.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_b4fd4ae97faf7ee09f7d542fa933a371858dec69.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_b4fd4ae97faf7ee09f7d542fa933a371858dec69.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 5,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_89d889813dfbcca3c3177e554b0c1e6134dcee34.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_89d889813dfbcca3c3177e554b0c1e6134dcee34.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 6,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_ae0e237a63d7939ca3adcdc3dca12db2ee50b0d6.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_ae0e237a63d7939ca3adcdc3dca12db2ee50b0d6.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 7,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_ea8ed607c75a88f17d9c24f6132a570216d6f328.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_ea8ed607c75a88f17d9c24f6132a570216d6f328.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 8,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_2a8ac225339270fca6c7d40db6905ca8bba41849.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_2a8ac225339270fca6c7d40db6905ca8bba41849.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 9,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_56c4f5dded59148187491cda772ca70b46c5cff0.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_56c4f5dded59148187491cda772ca70b46c5cff0.1920x1080.jpg?t=1746716619"
+          },
+          {
+            "id": 10,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_0e0a128c7456614ff7992670f3bf056e54547fd2.600x338.jpg?t=1746716619",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40990/ss_0e0a128c7456614ff7992670f3bf056e54547fd2.1920x1080.jpg?t=1746716619"
+          }
+        ],
+        "movies": [
+          {
+            "id": 256701735,
+            "name": "Mafia",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256701735/movie.293x165.jpg?t=1511321248",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/40990/134596/15d3badc5b3d458f25e26a8503982b5a3637d76f/1751248640/dash_av1.mpd?t=1511321248",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/40990/134596/15d3badc5b3d458f25e26a8503982b5a3637d76f/1751248640/dash_h264.mpd?t=1511321248",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/40990/134596/15d3badc5b3d458f25e26a8503982b5a3637d76f/1751248640/hls_264_master.m3u8?t=1511321248",
+            "highlight": true
+          }
+        ],
+        "recommendations": {
+          "total": 8859
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": "28/ago./2002"
+        },
+        "support_info": {
+          "url": "support.2k.com",
+          "email": ""
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/40990?t=1746716619",
+        "background_raw": "https://store.akamai.steamstatic.com/images/storepagebackground/app/40990?t=1746716619",
+        "content_descriptors": {
+          "ids": [
+            2,
+            5
+          ],
+          "notes": null
+        },
+        "ratings": {
+          "esrb": {
+            "rating": "m",
+            "descriptors": "Blood\r\n\r\nViolence",
+            "use_age_gate": "1",
+            "required_age": "17"
+          },
+          "bbfc": {
+            "rating": "18"
+          },
+          "oflc": {
+            "rating": "ma15",
+            "descriptors": "Medium level animated violence"
+          },
+          "nzoflc": {
+            "rating": "ma15",
+            "descriptors": "Medium level animated violence"
+          },
+          "usk": {
+            "rating": "16"
+          },
+          "pegi": {
+            "rating": "18"
+          }
+        }
+      }
+    }
+  }
+}

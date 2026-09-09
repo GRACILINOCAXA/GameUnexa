@@ -15,11 +15,14 @@ from pathlib import Path
 from typing import Any, Dict, List
 from urllib.parse import quote
 from urllib.request import Request, urlopen
-from paths import CACHE_DIR
+
+BASE_DIR = Path(__file__).resolve().parent
+CACHE_DIR = BASE_DIR / "cache"
+CACHE_DIR.mkdir(exist_ok=True)
 
 
 def _ensure_cache_dir() -> None:
-    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    CACHE_DIR.mkdir(exist_ok=True)
 
 
 def _cache_path(name: str) -> Path:
@@ -212,19 +215,6 @@ def obter_perfil(steam_id64: str, api_key: str = "") -> Dict[str, Any]:
     }
 
 
-def _steam_app_type(appid: int) -> str:
-    if not appid:
-        return ""
-
-    url = f"https://store.steampowered.com/api/appdetails?appids={appid}&cc=br&l=pt"
-    dados = _steam_fetch_json(url, cache_key=f"store_{appid}", cache_ttl=86400)
-    item = (dados or {}).get(str(appid), {}) or {}
-    if not item.get("success"):
-        return ""
-    dados_jogo = item.get("data", {}) or {}
-    return str(dados_jogo.get("type") or "").strip().lower()
-
-
 def obter_jogos(steam_id64: str, api_key: str = "", force_refresh: bool = False) -> List[Dict[str, Any]]:
     if not steam_id64:
         return []
@@ -247,9 +237,6 @@ def obter_jogos(steam_id64: str, api_key: str = "", force_refresh: bool = False)
         for jogo in root.findall(".//game"):
             appid = jogo.findtext("appID")
             if not str(appid or "").isdigit():
-                continue
-            tipo = _steam_app_type(int(appid))
-            if tipo and tipo != "game":
                 continue
             horas = jogo.findtext("hoursOnRecord") or "0"
             try:
@@ -278,13 +265,9 @@ def obter_jogos(steam_id64: str, api_key: str = "", force_refresh: bool = False)
         appid = jogo.get("appid")
         if not appid:
             continue
-        appid_int = int(appid)
-        tipo = _steam_app_type(appid_int)
-        if tipo and tipo != "game":
-            continue
         resultado.append(
             {
-                "appid": appid_int,
+                "appid": int(appid),
                 "name": jogo.get("name") or f"App {appid}",
                 "playtime_forever": int(jogo.get("playtime_forever") or 0),
                 "playtime_2weeks": int(jogo.get("playtime_2weeks") or 0),

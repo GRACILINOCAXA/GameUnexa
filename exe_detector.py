@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import os
 import re
-import sys
 from difflib import SequenceMatcher
 from pathlib import Path
 
@@ -21,6 +20,7 @@ IGNORAR_NOMES = {
     'installer.exe',
     'uninstall.exe',
     'steam.exe',
+    'epicwebhelper.exe',
     'unitycrashhandler.exe',
     'eac.exe',
 }
@@ -54,8 +54,6 @@ def classify_executable(exe_path: str, folder_name: str = '', manifest: bool = F
     nome = os.path.basename(exe_path or '').lower()
     base = Path(nome).stem
     contexto = f'{base} {Path(folder_name or "").name}'.lower()
-    if exe_path and os.path.normcase(os.path.abspath(exe_path)) == os.path.normcase(os.path.abspath(sys.executable)):
-        return {'classification': 'NON_GAME', 'confidence': 100, 'reason': 'GAMEUNEXA_EXECUTABLE'}
     if not exe_path or not os.path.isfile(exe_path) or nome in IGNORAR_NOMES:
         return {'classification': 'NON_GAME', 'confidence': 100, 'reason': 'GAME_AUXILIARY'}
     if any(token in contexto for token in (

@@ -3,15 +3,15 @@ import json
 import sqlite3
 from datetime import datetime
 from werkzeug.security import generate_password_hash
-from modelos.usuario import normalizar_email, obter_senha_admin_padrao
+from modelos.usuario import obter_senha_admin_padrao
 from modelos.suporte import CATEGORIAS_SUPORTE, STATUS_SUPORTE_INICIAIS
-from paths import DB_PATH, SUPPORT_UPLOAD_DIR
 
 
 def gerar_hash_senha(password: str) -> str:
     return generate_password_hash(password)
 
 BASE_DIR = os.path.dirname(__file__)
+DB_PATH = os.path.join(BASE_DIR, 'gamelink.db')
 
 SCHEMA = """
 PRAGMA foreign_keys = ON;
@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     steam_api_key TEXT,
     steam_library_path TEXT,
     hydra_library_path TEXT,
+    epic_library_path TEXT,
     hydra_account_email TEXT,
     hydra_usuario TEXT,
     hydra_pin TEXT,
@@ -427,6 +428,7 @@ def _ensure_usuario_columns(conn):
         ('steam_api_key', 'TEXT'),
         ('steam_library_path', 'TEXT'),
         ('hydra_library_path', 'TEXT'),
+        ('epic_library_path', 'TEXT'),
         ('steam_online', 'INTEGER'),
         ('steam_current_game', 'TEXT'),
         ('steam_current_game_appid', 'INTEGER'),
@@ -595,11 +597,7 @@ def init_db():
     print(f'Arquivo SQLite: {os.path.abspath(DB_PATH)}')
     print('================================')
     conn = get_connection()
-    try:
-        conn.execute('PRAGMA journal_mode = WAL;')
-    except sqlite3.OperationalError:
-        # Alguns filesystems serverless nao permitem alterar o journal.
-        conn.execute('PRAGMA journal_mode = DELETE;')
+    conn.execute('PRAGMA journal_mode = WAL;')
     conn.executescript(SCHEMA)
     _ensure_usuario_columns(conn)
     _ensure_biblioteca_columns(conn)
@@ -803,6 +801,7 @@ def carregar_estado_persistido():
         usuario.steam_id64 = row['steam_id64'] or ''
         usuario.steam_api_key = row['steam_api_key'] or ''
         usuario.steam_library_path = row['steam_library_path'] if 'steam_library_path' in row.keys() else ''
+        usuario.epic_library_path = row['epic_library_path'] if 'epic_library_path' in row.keys() else ''
         usuario.hydra_library_path = row['hydra_library_path'] if 'hydra_library_path' in row.keys() else ''
         usuario.hydra_account_email = row['hydra_account_email'] or ''
         usuario.hydra_usuario = row['hydra_usuario'] or ''
@@ -971,12 +970,9 @@ def persistir_usuario(user):
         cursor = conn.cursor()
         cursor.execute('PRAGMA table_info(usuarios)')
         colunas = {row[1] for row in cursor.fetchall()}
-        email_normalizado = normalizar_email(getattr(user, 'email', ''))
-        if hasattr(user, 'email'):
-            user.email = email_normalizado
 
         campos_insert = ['nome', 'email', 'password']
-        valores_insert = [user.nome, email_normalizado, user._Usuario__password if hasattr(user, '_Usuario__password') else '']
+        valores_insert = [user.nome, user.email, user._Usuario__password if hasattr(user, '_Usuario__password') else '']
 
         if 'token_recuperacao' in colunas:
             campos_insert.append('token_recuperacao')
@@ -999,6 +995,9 @@ def persistir_usuario(user):
         if 'steam_library_path' in colunas:
             campos_insert.append('steam_library_path')
             valores_insert.append(getattr(user, 'steam_library_path', ''))
+        if 'epic_library_path' in colunas:
+            campos_insert.append('epic_library_path')
+            valores_insert.append(getattr(user, 'epic_library_path', ''))
         if 'hydra_library_path' in colunas:
             campos_insert.append('hydra_library_path')
             valores_insert.append(getattr(user, 'hydra_library_path', ''))
@@ -1120,11 +1119,11 @@ def excluir_usuario_completo(email: str):
         if foto_relativa:
             if foto_relativa.startswith('/static/uploads/'):
                 nome_arquivo = foto_relativa.split('/static/uploads/', 1)[1]
-                caminho_arquivo = str(SUPPORT_UPLOAD_DIR.parent / nome_arquivo)
+                caminho_arquivo = os.path.join(BASE_DIR, 'static', 'uploads', nome_arquivo)
                 if os.path.exists(caminho_arquivo):
                     os.remove(caminho_arquivo)
             elif foto_relativa.startswith('static/uploads/'):
-                caminho_arquivo = str(SUPPORT_UPLOAD_DIR.parent / foto_relativa.split('static/uploads/', 1)[-1])
+                caminho_arquivo = os.path.join(BASE_DIR, foto_relativa)
                 if os.path.exists(caminho_arquivo):
                     os.remove(caminho_arquivo)
 

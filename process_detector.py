@@ -19,7 +19,6 @@ from difflib import SequenceMatcher
 from modelos.jogo import JOGOS_DB
 from modelos.amigos_biblioteca import BIBLIOTECA_DB
 from steam_local import carregar_indice_steam_local, listar_jogos_instalados
-from paths import CACHE_DIR
 
 try:
     import psutil
@@ -44,7 +43,7 @@ _BLACKLISTED_EXES = {
     'easyanticheat.exe', 'battleye.exe', 'launcher.exe', 'updater.exe',
     'update.exe', 'helper.exe', 'bootstrapper.exe', 'eabackgroundservice.exe',
     'helperservice.exe', 'fdm.exe', 'pservice.exe', 'wallpaperservice32_c.exe',
-    'discord.exe', 'chrome.exe', 'brave.exe',
+    'epiconlineservices.exe', 'discord.exe', 'chrome.exe', 'brave.exe',
     'msedge.exe', 'firefox.exe', 'opera.exe', 'explorer.exe', 'dwm.exe',
     'runtimebroker.exe', 'searchhost.exe', 'widgets.exe', 'systemsettings.exe',
     'taskhostw.exe', 'taskhost.exe', 'conhost.exe', 'dllhost.exe',
@@ -67,7 +66,7 @@ _KNOWN_SYSTEM_EXES = {
 }
 
 _KNOWN_GAME_PATH_TOKENS = (
-    'steamapps', 'steamapps\\common', 'gog games',
+    'steamapps', 'steamapps\\common', 'epic games', 'gog games',
     'origin games', 'ubisoft', 'battle.net', 'battle.net launcher',
     'ea games', 'ea app', 'xbox games', 'windowsapps', 'games', 'jogos',
     'gog galaxy', 'steam', 'uplay', 'rockstar games', 'bethesda',
@@ -111,7 +110,7 @@ class DetectorPresenca:
         self._ultimo_caminho = ''
         self._validacao_continua = 0
         self._sem_ultimo_jogo = False
-        self._caminho_cache_aprendizado = str(CACHE_DIR / 'executaveis_aprendidos.json')
+        self._caminho_cache_aprendizado = os.path.join(os.path.dirname(__file__), 'cache', 'executaveis_aprendidos.json')
         self._jogo_esperado: dict = {}
 
     def registrar_jogo_esperado(self, titulo: str, appid: int | str | None = None, caminho: str = '') -> None:

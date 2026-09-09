@@ -47,46 +47,6 @@
         cursor: not-allowed;
         opacity: 0.4;
     }
-    .jogar-modal-config {
-        max-width: 760px;
-    }
-    .jogar-modal-config .modal-body {
-        padding: 1.1rem 1.1rem 0.85rem;
-    }
-    .jogar-config-block {
-        background: rgba(15, 23, 42, 0.68);
-        border: 1px solid rgba(34, 197, 94, 0.24);
-        border-radius: 0.9rem;
-        padding: 1rem;
-        margin-bottom: 1rem;
-    }
-    .jogar-config-header {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-        margin-bottom: 0.75rem;
-    }
-    .jogar-config-header .form-check.form-switch {
-        margin-left: auto;
-        margin-bottom: 0;
-    }
-    .jogar-config-input {
-        min-width: 0;
-        flex: 1 1 auto;
-    }
-    .jogar-config-link {
-        display: inline-block;
-        margin-top: 0.5rem;
-        padding: 0;
-        font-size: 0.8rem;
-        text-align: left;
-        text-decoration: none;
-    }
-    .jogar-config-link:hover {
-        text-decoration: underline;
-    }
     @media (max-width: 640px) {
         .jogar-pagination {
             align-items: stretch;
@@ -97,9 +57,6 @@
         }
         .jogar-page-list {
             justify-content: center;
-        }
-        .jogar-config-header {
-            align-items: flex-start;
         }
     }
 </style>
@@ -137,6 +94,7 @@
                     <button type="button" class="btn btn-sm btn-outline-light active" data-jogar-filter="all">Todos</button>
                     <button type="button" class="btn btn-sm btn-outline-info" data-jogar-filter="steam">Steam</button>
                     <button type="button" class="btn btn-sm btn-outline-primary" data-jogar-filter="hydra">Hydra</button>
+                    <button type="button" class="btn btn-sm btn-outline-warning" data-jogar-filter="epic">Epic Games</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary" data-jogar-filter="manual">Manual</button>
                     <button type="button" class="btn btn-sm btn-outline-warning" data-jogar-filter="favoritos">Favoritos</button>
                     <button type="button" class="btn btn-sm btn-outline-success" data-jogar-filter="recentes">Recentes</button>
@@ -146,15 +104,15 @@
     </div>
 
     <div class="modal fade" id="configuracoesLauncherModal" tabindex="-1" aria-labelledby="configuracoesLauncherModalLabel" aria-hidden="true">
-        <div class="modal-dialog jogar-modal-config">
+        <div class="modal-dialog">
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="configuracoesLauncherModalLabel">Bibliotecas automáticas</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="jogar-config-block" id="biblioteca-automatica-config">
-                        <div class="jogar-config-header">
+                    <div class="border border-success rounded p-3 mb-3" id="biblioteca-automatica-config">
+                        <div class="d-flex justify-content-between align-items-start gap-3">
                             <div>
                                 <h6 class="text-success mb-1">Biblioteca Automática</h6>
                                 <p class="text-white-50 small mb-0">Detecta instalações Steam e jogos nas pastas escolhidas.</p>
@@ -166,10 +124,10 @@
                         </div>
                         <label class="form-label mt-3" for="auto-library-folder">Pasta local</label>
                         <div class="input-group input-group-sm">
-                            <input type="text" class="form-control jogar-config-input" id="auto-library-folder" placeholder="Selecione uma pasta" readonly>
+                            <input type="text" class="form-control" id="auto-library-folder" placeholder="D:/Jogos">
                             <button type="button" class="btn btn-outline-success" id="auto-library-add-folder">Adicionar</button>
                         </div>
-                        <button type="button" class="btn btn-link btn-sm text-success px-0 mt-1 jogar-config-link" id="auto-library-choose-folder">Escolher pelo Windows</button>
+                           <button type="button" class="btn btn-link btn-sm text-success px-0 mt-1" id="auto-library-choose-folder">Escolher pelo Windows</button>
                         <div class="small text-white-50 mt-2" id="auto-library-folders">Nenhuma pasta local adicionada.</div>
                         <div class="d-flex flex-wrap gap-3 small mt-3" id="auto-library-status">Nenhum scan realizado.</div>
                         <button type="button" class="btn btn-success btn-sm mt-3" id="auto-library-scan">Escanear agora</button>
@@ -185,6 +143,12 @@
                         <label class="form-label">Biblioteca Hydra</label>
                         <input type="text" id="hydra-library-path" class="form-control" value="{{ user.hydra_library_path or '' }}" placeholder="Ex.: C:/Games/Hydra" readonly>
                         <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-configure-launcher="hydra">Selecionar pasta da Hydra</button>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Biblioteca Epic Games</label>
+                        <input type="text" id="epic-library-path" class="form-control" value="{{ user.epic_library_path or '' }}" placeholder="Pasta de manifests Epic" readonly>
+                        <button type="button" class="btn btn-outline-warning btn-sm mt-2" data-configure-launcher="epic">Selecionar pasta da Epic</button>
+                        <button type="button" class="btn btn-warning btn-sm mt-2" id="epic-open-button">Abrir no Epic Games</button>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -407,9 +371,9 @@
         document.querySelectorAll('[data-configure-launcher]').forEach(btn => {
             btn.addEventListener('click', async () => {
                 const launcher = btn.dataset.configureLauncher;
-                const inputId = launcher === 'steam' ? 'steam-library-path' : 'hydra-library-path';
+                const inputId = launcher === 'steam' ? 'steam-library-path' : launcher === 'hydra' ? 'hydra-library-path' : 'epic-library-path';
                 const input = document.getElementById(inputId);
-                const endpoint = launcher === 'steam' ? '/selecionar_pasta_steam' : '/selecionar_pasta_hydra';
+                const endpoint = launcher === 'steam' ? '/selecionar_pasta_steam' : launcher === 'hydra' ? '/selecionar_pasta_hydra' : '/jogar/pasta/epic';
                 const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrfToken },
@@ -421,9 +385,15 @@
                         input.value = result.pasta || '';
                     }
                     btn.textContent = '✓ Salvo';
-                    setTimeout(() => btn.textContent = launcher === 'steam' ? 'Selecionar pasta da Steam' : 'Selecionar pasta da Hydra', 1500);
+                    setTimeout(() => btn.textContent = launcher === 'steam' ? 'Selecionar pasta da Steam' : launcher === 'hydra' ? 'Selecionar pasta da Hydra' : 'Selecionar pasta da Epic', 1500);
                 }
             });
+        });
+
+        document.getElementById('epic-open-button')?.addEventListener('click', async () => {
+            const response = await fetch('/epic/abrir', { method: 'POST', headers: { 'X-CSRF-Token': csrfToken } });
+            const result = await response.json();
+            if (!result.ok) window.alert(result.error || 'Epic Games Launcher não encontrado.');
         });
 
         const steamLocalList = document.getElementById('steam-local-list');
@@ -459,180 +429,41 @@
         const autoFolders = document.getElementById('auto-library-folders');
         const autoStatus = document.getElementById('auto-library-status');
         let configuredAutoFolders = [];
-
-        const normalizeBrowserFolderEntry = (value) => {
-            const raw = String(value || '').trim();
-            if (!raw) return '';
-            if (raw.startsWith('browser:')) return raw;
-            return raw;
-        };
-
-        const formatBrowserFolderDisplay = (value) => {
-            const raw = normalizeBrowserFolderEntry(value);
-            if (!raw) return { name: 'Pasta', path: 'Pasta selecionada no computador' };
-            if (!raw.startsWith('browser:')) return { name: 'Pasta', path: raw };
-            const payload = raw.replace(/^browser:/, '').split('|');
-            const name = payload[0] || 'Pasta';
-            const path = payload.slice(1).join('|') || 'Pasta selecionada no computador';
-            return { name, path };
-        };
-
-        const openAutoLibraryDatabase = async () => {
-            if (!('indexedDB' in window)) {
-                throw new Error('Seu navegador não suporta armazenamento local para pastas.');
-            }
-            return new Promise((resolve, reject) => {
-                const request = window.indexedDB.open('gameunexa-auto-library', 1);
-                request.onupgradeneeded = () => {
-                    const db = request.result;
-                    if (!db.objectStoreNames.contains('folders')) {
-                        const store = db.createObjectStore('folders', { keyPath: 'id' });
-                        store.createIndex('source', 'source', { unique: false });
-                    }
-                };
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error || new Error('IndexedDB indisponível.'));
-            });
-        };
-
-        const saveAutoLibraryHandle = async (folderKey, handle) => {
-            const db = await openAutoLibraryDatabase();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('folders', 'readwrite');
-                const store = tx.objectStore('folders');
-                const request = store.put({
-                    id: folderKey,
-                    source: 'browser',
-                    handle,
-                    name: folderKey.replace(/^browser:/, '').split('|')[0] || 'Pasta',
-                    createdAt: new Date().toISOString(),
-                });
-                request.onsuccess = () => resolve(true);
-                request.onerror = () => reject(request.error || new Error('Não foi possível salvar a pasta local.'));
-            });
-        };
-
-        const readAutoLibraryHandle = async (folderKey) => {
-            const db = await openAutoLibraryDatabase();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('folders', 'readonly');
-                const request = tx.objectStore('folders').get(folderKey);
-                request.onsuccess = () => resolve(request.result ? request.result.handle : null);
-                request.onerror = () => reject(request.error || new Error('Não foi possível recuperar a pasta salva.'));
-            });
-        };
-
-        const deleteAutoLibraryHandle = async (folderKey) => {
-            const db = await openAutoLibraryDatabase();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('folders', 'readwrite');
-                const request = tx.objectStore('folders').delete(folderKey);
-                request.onsuccess = () => resolve(true);
-                request.onerror = () => reject(request.error || new Error('Não foi possível remover a pasta salva.'));
-            });
-        };
-
-        const scanBrowserDirectory = async (rootHandle, rootName = 'Pasta') => {
-            const ignoredFiles = new Set(['uninstall.exe', 'unins000.exe', 'setup.exe', 'installer.exe', 'update.exe', 'launcher_helper.exe', 'crash_reporter.exe']);
-            const games = [];
-            const walk = async (dirHandle, relativePath = '') => {
-                for await (const entry of dirHandle.values()) {
-                    if (entry.kind === 'file') {
-                        const lowerName = String(entry.name || '').toLowerCase();
-                        if (!lowerName.endsWith('.exe') && !lowerName.endsWith('.lnk')) continue;
-                        if (ignoredFiles.has(lowerName)) continue;
-                        const fileName = entry.name || 'Jogo';
-                        const gameName = fileName.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim() || rootName;
-                        games.push({
-                            name: gameName,
-                            source: 'local',
-                            path: relativePath || rootName,
-                            executable: fileName,
-                            file: fileName,
-                        });
-                    } else if (entry.kind === 'directory') {
-                        await walk(entry, `${relativePath ? relativePath + '/' : ''}${entry.name}`);
-                    }
-                }
-            };
-            await walk(rootHandle, rootName);
-            return games;
-        };
-
-        const persistLocalLibraryImport = async (games) => {
-            if (!Array.isArray(games) || !games.length) return;
-            try {
-                const response = await fetch('/api/library/local/import', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken },
-                    body: JSON.stringify({ games }),
-                });
-                const result = await response.json();
-                if (!response.ok || !result.ok) {
-                    throw new Error(result.erro || 'Os jogos foram encontrados, mas não foi possível sincronizar a biblioteca.');
-                }
-                return result;
-            } catch (error) {
-                console.warn('[auto-library] import local:', error);
-                autoStatus.textContent = error.message || 'Os jogos foram encontrados, mas não foi possível sincronizar a biblioteca.';
-            }
-        };
-
         const renderAutoFolders = () => {
             autoFolders.innerHTML = '';
             if (!configuredAutoFolders.length) {
                 autoFolders.textContent = 'Nenhuma pasta local adicionada.';
                 return;
             }
-            configuredAutoFolders.forEach((folderValue, index) => {
-                const display = formatBrowserFolderDisplay(folderValue);
+            configuredAutoFolders.forEach((folder, index) => {
                 const row = document.createElement('div');
-                row.className = 'd-flex flex-column gap-1 border rounded p-2 mt-2';
-                const name = document.createElement('div');
-                name.className = 'text-white';
-                name.textContent = `📁 ${display.name}`;
-                const path = document.createElement('div');
-                path.className = 'text-white-50 small';
-                path.textContent = display.path;
-                const controls = document.createElement('div');
-                controls.className = 'd-flex gap-2 mt-2';
-                const scanBtn = document.createElement('button');
-                scanBtn.type = 'button';
-                scanBtn.className = 'btn btn-sm btn-outline-success';
-                scanBtn.textContent = 'Escanear';
-                scanBtn.addEventListener('click', async () => {
-                    await scanSelectedAutoFolder(folderValue);
-                });
-                const removeBtn = document.createElement('button');
-                removeBtn.type = 'button';
-                removeBtn.className = 'btn btn-sm btn-outline-danger';
-                removeBtn.textContent = 'Remover';
-                removeBtn.addEventListener('click', async () => {
+                row.className = 'd-flex justify-content-between align-items-center gap-2 mb-1';
+                const label = document.createElement('span');
+                label.textContent = folder;
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'btn btn-link btn-sm text-danger p-0';
+                remove.textContent = 'Remover';
+                remove.addEventListener('click', async () => {
                     configuredAutoFolders.splice(index, 1);
                     renderAutoFolders();
-                    if (folderValue.startsWith('browser:')) {
-                        await deleteAutoLibraryHandle(folderValue);
-                    }
                     await saveAutoLibrary();
                 });
-                controls.append(scanBtn, removeBtn);
-                row.append(name, path, controls);
+                row.append(label, remove);
                 autoFolders.appendChild(row);
             });
         };
-
         const loadAutoLibrary = async () => {
             const response = await fetch('/jogar/biblioteca-automatica');
             const result = await response.json();
             if (!result.ok) return;
-            configuredAutoFolders = (result.folders || []).map(item => normalizeBrowserFolderEntry(item));
+            configuredAutoFolders = result.folders || [];
             autoEnabled.checked = Boolean(result.enabled);
             renderAutoFolders();
             autoStatus.textContent = result.last_scan
                 ? `${result.games_found} encontrados · Steam: ${result.steam} · Pastas: ${result.folders_games} · Último scan: ${result.last_scan}`
                 : 'Nenhum scan realizado.';
         };
-
         const saveAutoLibrary = async () => {
             const body = new URLSearchParams({ ativar: autoEnabled.checked ? '1' : '0' });
             configuredAutoFolders.forEach(folder => body.append('pastas', folder));
@@ -643,64 +474,12 @@
             });
             const result = await response.json();
             if (!response.ok || !result.ok) throw new Error(result.erro || 'Não foi possível salvar a configuração.');
-            configuredAutoFolders = (result.folders || []).map(item => normalizeBrowserFolderEntry(item));
+            configuredAutoFolders = result.folders || [];
             renderAutoFolders();
             return result;
         };
-
-        const scanSelectedAutoFolder = async (selectedFolder) => {
-            const folderValue = normalizeBrowserFolderEntry(selectedFolder || autoFolder.value || '');
-            if (!folderValue) {
-                autoStatus.textContent = 'Selecione uma pasta antes de escanear.';
-                return;
-            }
-            autoStatus.textContent = '🔎 Escaneando...';
-            try {
-                if (folderValue.startsWith('browser:')) {
-                    const handle = await readAutoLibraryHandle(folderValue);
-                    if (!handle || typeof handle.values !== 'function') {
-                        throw new Error('Permissão para acessar esta pasta não foi concedida.');
-                    }
-                    if (typeof handle.queryPermission === 'function') {
-                        let permission = await handle.queryPermission({ mode: 'read' });
-                        if (permission !== 'granted' && typeof handle.requestPermission === 'function') {
-                            permission = await handle.requestPermission({ mode: 'read' });
-                        }
-                        if (permission !== 'granted') {
-                            throw new Error('Permissão para acessar esta pasta não foi concedida.');
-                        }
-                    }
-                    const games = await scanBrowserDirectory(handle, folderValue.replace(/^browser:/, '').split('|')[0] || 'Pasta');
-                    if (!games.length) {
-                        autoStatus.textContent = '✓ Escaneamento concluído · 0 jogos encontrados';
-                        return;
-                    }
-                    const validGames = games.map((game, index) => ({
-                        name: game.name || `Jogo ${index + 1}`,
-                        source: 'local',
-                        path: game.path || 'pasta-local',
-                        executable: game.executable || '',
-                    }));
-                    await persistLocalLibraryImport(validGames);
-                    autoStatus.textContent = `✓ ${validGames.length} jogos encontrados`;
-                    return;
-                }
-                const response = await fetch('/jogar/biblioteca-automatica/scan', {
-                    method: 'POST',
-                    headers: { 'X-CSRF-Token': csrfToken, 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams({ pasta: folderValue }),
-                });
-                const result = await response.json();
-                if (!response.ok || !result.ok) throw new Error(result.erro || 'Não foi possível concluir o escaneamento.');
-                autoStatus.textContent = `✓ ${result.found || 0} jogos encontrados`;
-            } catch (error) {
-                const message = error && error.message ? error.message : 'Não foi possível concluir o escaneamento.';
-                autoStatus.textContent = message;
-            }
-        };
-
         const addAutoFolder = async () => {
-            const folder = normalizeBrowserFolderEntry(autoFolder.value || '');
+            const folder = (autoFolder.value || '').trim();
             if (!folder || configuredAutoFolders.includes(folder)) return;
             configuredAutoFolders.push(folder);
             autoFolder.value = '';
@@ -714,37 +493,21 @@
                 autoStatus.textContent = error.message;
             }
         };
-
         document.getElementById('auto-library-add-folder')?.addEventListener('click', addAutoFolder);
         document.getElementById('auto-library-choose-folder')?.addEventListener('click', async () => {
             try {
-                if (window.pywebview?.api?.select_folder) {
-                    const pasta = await window.pywebview.api.select_folder();
-                    if (pasta) {
-                        autoFolder.value = pasta;
-                        autoStatus.textContent = `📁 ${pasta}`;
-                    }
-                    return;
-                }
-                if (typeof window.showDirectoryPicker === 'function') {
-                    const handle = await window.showDirectoryPicker({ mode: 'read' });
-                    const folderKey = `browser:${handle.name || 'Pasta'}|${handle.name || 'Pasta'}`;
-                    await saveAutoLibraryHandle(folderKey, handle);
-                    autoFolder.value = folderKey;
-                    autoStatus.textContent = `📁 ${handle.name || 'Pasta'}\nPasta selecionada no computador`;
-                    return;
-                }
-                throw new Error('Seu navegador não suporta seleção direta de pastas. Use Google Chrome, Microsoft Edge ou outro navegador Chromium atualizado.');
+                const response = await fetch('/jogar/biblioteca-automatica/pasta', {
+                    method: 'POST',
+                    headers: { 'X-CSRF-Token': csrfToken },
+                });
+                const result = await response.json();
+                if (!response.ok || !result.ok) throw new Error(result.erro || 'Nenhuma pasta foi selecionada.');
+                autoFolder.value = result.pasta;
+                await addAutoFolder();
             } catch (error) {
-                const message = error && error.message ? error.message : 'Seleção cancelada.';
-                if (/cancel|aborted/i.test(message)) {
-                    autoStatus.textContent = 'Seleção cancelada.';
-                    return;
-                }
-                autoStatus.textContent = message;
+                autoStatus.textContent = error.message;
             }
         });
-
         autoEnabled?.addEventListener('change', async () => {
             try {
                 await saveAutoLibrary();
@@ -753,14 +516,41 @@
                 autoStatus.textContent = error.message;
             }
         });
-
-        document.getElementById('auto-library-scan')?.addEventListener('click', async () => {
-            const folderValue = normalizeBrowserFolderEntry(autoFolder.value || configuredAutoFolders[0] || '');
-            if (!folderValue) {
-                autoStatus.textContent = 'Selecione uma pasta antes de escanear.';
-                return;
+        document.getElementById('auto-library-scan')?.addEventListener('click', async (event) => {
+            const button = event.currentTarget;
+            button.disabled = true;
+            button.textContent = 'Escaneando...';
+            try {
+                await saveAutoLibrary();
+                const response = await fetch('/jogar/biblioteca-automatica/scan', { method: 'POST', headers: { 'X-CSRF-Token': csrfToken } });
+                const result = await response.json();
+                if (!response.ok || !result.ok) throw new Error(result.erro || 'Não foi possível iniciar o scan.');
+                autoStatus.textContent = 'Scan em segundo plano. A biblioteca será atualizada quando terminar.';
+                    let attempts = 0;
+                    const poll = window.setInterval(async () => {
+                        attempts += 1;
+                        try {
+                            const statusResponse = await fetch('/jogar/biblioteca-automatica');
+                            const status = await statusResponse.json();
+                            if (status.scan_status === 'completed') {
+                                window.clearInterval(poll);
+                                window.location.reload();
+                            } else if (status.scan_status === 'error' || attempts >= 120) {
+                                window.clearInterval(poll);
+                                autoStatus.textContent = status.scan_error || 'O scan não foi concluído.';
+                            } else {
+                                autoStatus.textContent = `Escaneando... ${status.scan_found || 0} jogos encontrados.`;
+                            }
+                        } catch (error) {
+                            window.clearInterval(poll);
+                            autoStatus.textContent = error.message;
+                        }
+                    }, 1000);
+            } catch (error) {
+                autoStatus.textContent = error.message;
             }
-            await scanSelectedAutoFolder(folderValue);
+            button.disabled = false;
+            button.textContent = 'Escanear agora';
         });
         loadAutoLibrary().catch(() => {});
 

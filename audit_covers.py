@@ -8,10 +8,10 @@ import re
 import json
 from pathlib import Path
 from PIL import Image
-from paths import CACHE_DIR, DB_PATH
 
 # Configuration
-CACHE_DIR = CACHE_DIR / 'covers'
+CACHE_DIR = Path(__file__).parent / 'static' / 'cache' / 'covers'
+DB_PATH = Path(__file__).parent / 'gamelink.db'
 
 def normalize_title_for_cache(titulo: str) -> str:
     """Normalizes title the same way app.py does."""

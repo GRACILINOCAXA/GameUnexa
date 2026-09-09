@@ -1,0 +1,595 @@
+{
+  "timestamp": 1787787666.2005124,
+  "data": {
+    "1364780": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "Street Fighter™ 6",
+        "steam_appid": 1364780,
+        "required_age": 0,
+        "is_free": false,
+        "dlc": [
+          4412680,
+          4412690,
+          3410460,
+          3410470,
+          2825190,
+          2825200,
+          2224460,
+          2224461,
+          2494130,
+          3594250,
+          3899360
+        ],
+        "detailed_description": "<h1>Years 1-2 Fighters Edition</h1><p><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/23a5d054a2a5edb17394dc14f44d18e0.avif?t=1785737403\" width=616 height=352 /></span><br>Com muito conteúdo solo e multijogador, Street Fighter™ 6 Years 1-2 Fighters Edition é o jeito ideal de jogar a próxima evolução da série.<br><br>Conteúdo<br>・Jogo completo<br>・Year 1 Character Pass<br>・Year 2 Character Pass<br>・Years 1-2 Fighters Edition Stages &amp; Colors</p><br><h1>Sobre o jogo</h1>Aí vem o novo desafiante da Capcom! Street Fighter™ 6 será lançado no mundo inteiro em 2 de junho de 2023 e representa a próxima evolução da série. <br><br>Com o poder do RE ENGINE próprio da Capcom, a experiência de Street Fighter 6 se expande por três modos de jogo distintos, apresentando: World Tour, Fighting Ground e Battle Hub. <br><br>Elenco diverso de 18 lutadores<br>Jogue com mestres lendários e novos favoritos dos fãs como Ryu, Chun-Li, Luke, Jamie, Kimberly e mais nesta mais nova edição, com cada personagens trazendo um novo visual incrível e empolgantes especiais cinemáticos.<br><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/1403cce4f5ee33c3a5cd072aa8ef9a99.avif?t=1785737403\" width=600 height=338 /></span><br><br>Domine o Fighting Ground<br>Street Fighter 6 oferece um sistema de combate muito evoluído, com três tipos de controle - Clássico, Moderno e Dinâmico - permitindo que você jogue rapidamente no seu nível de habilidade.<br>A nova função de Comentários em Tempo Real adiciona à empolgação de uma partida competitiva, assim como em explicações fáceis de entender sobre sua jogabilidade.<br>O Drive Gauge é um novo sistema para gerenciar seus recursos. Use com sabedoria para conquistar a vitória.<br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/65f6053f32d73fd63f096f6e02e2f935.poster.avif?t=1785737403\" width=600 height=254 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/65f6053f32d73fd63f096f6e02e2f935.webm?t=1785737403\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/65f6053f32d73fd63f096f6e02e2f935.mp4?t=1785737403\" type=\"video/mp4\"></video></span><br><br>Explore as Ruas no World Tour<br>Descubra o que significa força no World Tour, um modo história imersivo para um jogador. Leve seu avatar e explore Metro City e além. Encontre Mestres que colocarão você sob sua tutela e te ensinarão seu estilo e técnicas.<br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/0d370e1a388b09d604499934fea56399.poster.avif?t=1785737403\" width=600 height=254 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/0d370e1a388b09d604499934fea56399.webm?t=1785737403\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/0d370e1a388b09d604499934fea56399.mp4?t=1785737403\" type=\"video/mp4\"></video></span><br><br>Busque Rivais no Battle Hub<br>O Battle Hub representa um modo essencial de Street Fighter 6, onde jogadores se reúnem e conversam, e se tornam mais fortes juntos. Use o avatar que você criou no World Tour para conferir máquinas no cenário do Battle Hub e jogar contra outros jogadores, ou vá para o Game Center e divirta-se com clássicos jogos de fliperama da Capcom.<br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/100a45536049ecba1cf3db1def2d0471.poster.avif?t=1785737403\" width=600 height=254 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/100a45536049ecba1cf3db1def2d0471.webm?t=1785737403\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/100a45536049ecba1cf3db1def2d0471.mp4?t=1785737403\" type=\"video/mp4\"></video></span><br><br>Seu caminho para se tornar um World Warrior começa aqui.",
+        "about_the_game": "Aí vem o novo desafiante da Capcom! Street Fighter™ 6 será lançado no mundo inteiro em 2 de junho de 2023 e representa a próxima evolução da série. <br><br>Com o poder do RE ENGINE próprio da Capcom, a experiência de Street Fighter 6 se expande por três modos de jogo distintos, apresentando: World Tour, Fighting Ground e Battle Hub. <br><br>Elenco diverso de 18 lutadores<br>Jogue com mestres lendários e novos favoritos dos fãs como Ryu, Chun-Li, Luke, Jamie, Kimberly e mais nesta mais nova edição, com cada personagens trazendo um novo visual incrível e empolgantes especiais cinemáticos.<br><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/1403cce4f5ee33c3a5cd072aa8ef9a99.avif?t=1785737403\" width=600 height=338 /></span><br><br>Domine o Fighting Ground<br>Street Fighter 6 oferece um sistema de combate muito evoluído, com três tipos de controle - Clássico, Moderno e Dinâmico - permitindo que você jogue rapidamente no seu nível de habilidade.<br>A nova função de Comentários em Tempo Real adiciona à empolgação de uma partida competitiva, assim como em explicações fáceis de entender sobre sua jogabilidade.<br>O Drive Gauge é um novo sistema para gerenciar seus recursos. Use com sabedoria para conquistar a vitória.<br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/65f6053f32d73fd63f096f6e02e2f935.poster.avif?t=1785737403\" width=600 height=254 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/65f6053f32d73fd63f096f6e02e2f935.webm?t=1785737403\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/65f6053f32d73fd63f096f6e02e2f935.mp4?t=1785737403\" type=\"video/mp4\"></video></span><br><br>Explore as Ruas no World Tour<br>Descubra o que significa força no World Tour, um modo história imersivo para um jogador. Leve seu avatar e explore Metro City e além. Encontre Mestres que colocarão você sob sua tutela e te ensinarão seu estilo e técnicas.<br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/0d370e1a388b09d604499934fea56399.poster.avif?t=1785737403\" width=600 height=254 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/0d370e1a388b09d604499934fea56399.webm?t=1785737403\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/0d370e1a388b09d604499934fea56399.mp4?t=1785737403\" type=\"video/mp4\"></video></span><br><br>Busque Rivais no Battle Hub<br>O Battle Hub representa um modo essencial de Street Fighter 6, onde jogadores se reúnem e conversam, e se tornam mais fortes juntos. Use o avatar que você criou no World Tour para conferir máquinas no cenário do Battle Hub e jogar contra outros jogadores, ou vá para o Game Center e divirta-se com clássicos jogos de fliperama da Capcom.<br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/100a45536049ecba1cf3db1def2d0471.poster.avif?t=1785737403\" width=600 height=254 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/100a45536049ecba1cf3db1def2d0471.webm?t=1785737403\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/extras/100a45536049ecba1cf3db1def2d0471.mp4?t=1785737403\" type=\"video/mp4\"></video></span><br><br>Seu caminho para se tornar um World Warrior começa aqui.",
+        "short_description": "Aí vem o mais novo desafiante da Capcom! Street Fighter™ 6 será lançado no mundo inteiro em 2 de junho de 2023 e representa a próxima evolução da série Street Fighter™! Street Fighter 6 engloba três modos de jogo distintos, incluindo World Tour, Fighting Ground e Battle Hub.",
+        "supported_languages": "Inglês<strong>*</strong>, Japonês<strong>*</strong>, Francês, Italiano, Alemão, Espanhol (Espanha), Árabe, Português (Brasil), Polonês, Russo, Chinês simplificado, Chinês tradicional, Coreano, Espanhol (América Latina)<br><strong>*</strong>idiomas com suporte total de áudio",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/header.jpg?t=1785737403",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/3f34c45db4411c3cdbaa95d7bbd296454ad6300a/capsule_231x87_alt_assets_20.jpg?t=1785737403",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/3f34c45db4411c3cdbaa95d7bbd296454ad6300a/capsule_184x69_alt_assets_20.jpg?t=1785737403",
+        "website": "https://www.streetfighter.com/6/en-us/",
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> Windows 10 (64 bit required)<br></li><li><strong>Processador:</strong> Intel Core i5-7500 / AMD Ryzen 3 1200<br></li><li><strong>Memória:</strong> 8 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> GTX1060 (VRAM 6GB) / Radeon RX 580 (VRAM 4GB)<br></li><li><strong>DirectX:</strong> Versão 12<br></li><li><strong>Armazenamento:</strong> 60 GB de espaço disponível<br></li><li><strong>Outras observações:</strong> - The framerate may drop during graphic-intensive scenes. - Additional storage is required for each subsequent update.</li></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> Windows 10 (64 bit)/Windows 11 (64 bit)<br></li><li><strong>Processador:</strong> Intel Core i7 8700 / AMD Ryzen 5 3600<br></li><li><strong>Memória:</strong> 16 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> RTX2070 / Radeon RX 5700XT<br></li><li><strong>DirectX:</strong> Versão 12<br></li><li><strong>Armazenamento:</strong> 60 GB de espaço disponível<br></li><li><strong>Outras observações:</strong> - The framerate may drop during graphic-intensive scenes. - Additional storage is required for each subsequent update.</li></ul>"
+        },
+        "mac_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "linux_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "legal_notice": "Partida Online<br />\r\nA Capcom fornece vários serviços online para este jogo, incluindo conteúdo apenas online.<br />\r\n* Você não pode acessar certos elementos deste jogo sem uma conexão com a internet.<br />\r\n* Uma Capcom ID é necessária para utilizar o conteúdo somente online.<br />\r\n* Para obter informações sobre os serviços relacionados à Capcom ID e como usá-la, visite o site oficial da Capcom ID https://cid.capcom.com/. Por favor, note que pode haver momentos em que o uso da Capcom ID é restrito por idade.<br />\r\n* A Capcom pode suspender temporariamente os serviços online em caso de circunstâncias imprevistas.<br />\r\n<br />\r\n©CAPCOM",
+        "drm_notice": "Denuvo Anti-tamper<br>5 different PC within a day - limite de máquinas que podem ser ativadas",
+        "ext_user_account_notice": "Capcom ID (permite vinculação à conta Steam)",
+        "developers": [
+          "CAPCOM Co., Ltd."
+        ],
+        "publishers": [
+          "CAPCOM Co., Ltd."
+        ],
+        "demos": [
+          {
+            "appid": 2154900,
+            "description": ""
+          }
+        ],
+        "price_overview": {
+          "currency": "BRL",
+          "initial": 17900,
+          "final": 17900,
+          "discount_percent": 0,
+          "initial_formatted": "",
+          "final_formatted": "R$ 179,00"
+        },
+        "packages": [
+          820656,
+          1535191,
+          1313468
+        ],
+        "package_groups": [
+          {
+            "name": "default",
+            "title": "Comprar Street Fighter™ 6",
+            "description": "",
+            "selection_text": "Selecione uma opção de compra",
+            "save_text": "",
+            "display_type": 0,
+            "is_recurring_subscription": "false",
+            "subs": [
+              {
+                "packageid": 820656,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Street Fighter™ 6 - R$ 179,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 17900
+              },
+              {
+                "packageid": 1535191,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Street Fighter™ 6 - Commercial License - R$ 179,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 17900
+              },
+              {
+                "packageid": 1313468,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Street Fighter™ 6 Years 1-2 Fighters Edition - R$ 259,00",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 25900
+              }
+            ]
+          }
+        ],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "metacritic": {
+          "score": 92,
+          "url": "https://www.metacritic.com/game/pc/street-fighter-6?ftag=MCD-06-10aaa1f"
+        },
+        "categories": [
+          {
+            "id": 2,
+            "description": "Um jogador"
+          },
+          {
+            "id": 1,
+            "description": "Multijogador"
+          },
+          {
+            "id": 49,
+            "description": "JxJ"
+          },
+          {
+            "id": 36,
+            "description": "JxJ on-line"
+          },
+          {
+            "id": 37,
+            "description": "JxJ tela dividida/compart."
+          },
+          {
+            "id": 24,
+            "description": "Tela dividida/compartilhada"
+          },
+          {
+            "id": 27,
+            "description": "Multijogador multiplataforma"
+          },
+          {
+            "id": 22,
+            "description": "Conquistas Steam"
+          },
+          {
+            "id": 29,
+            "description": "Cartas Colecionáveis Steam"
+          },
+          {
+            "id": 35,
+            "description": "Compras em aplicativo"
+          },
+          {
+            "id": 67,
+            "description": "Conforto de câmera"
+          },
+          {
+            "id": 68,
+            "description": "Controles de volume independentes"
+          },
+          {
+            "id": 78,
+            "description": "Dificuldade ajustável"
+          },
+          {
+            "id": 75,
+            "description": "Opção apenas com teclado"
+          },
+          {
+            "id": 79,
+            "description": "Salvamento a qualquer momento"
+          },
+          {
+            "id": 69,
+            "description": "Som estéreo"
+          },
+          {
+            "id": 70,
+            "description": "Som surround"
+          },
+          {
+            "id": 18,
+            "description": "Compat. parcial com controle"
+          },
+          {
+            "id": 23,
+            "description": "Nuvem Steam"
+          },
+          {
+            "id": 62,
+            "description": "Compartilhamento em família"
+          }
+        ],
+        "genres": [
+          {
+            "id": "1",
+            "description": "Ação"
+          },
+          {
+            "id": "25",
+            "description": "Aventura"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_387137f8cccb048c35a8685634372e97785d40aa.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_387137f8cccb048c35a8685634372e97785d40aa.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_a381f1b3b450c18900d47b991ce8e7456e9cdba5.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_a381f1b3b450c18900d47b991ce8e7456e9cdba5.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_f62ce93269a6d8e0027853358af4d6368e2c4b93.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_f62ce93269a6d8e0027853358af4d6368e2c4b93.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_d186566a92ada8cdb08b04769a8c95cd1e380006.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_d186566a92ada8cdb08b04769a8c95cd1e380006.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_ed46aaa9ed94dd6f35a703070f8df16cee5aef61.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_ed46aaa9ed94dd6f35a703070f8df16cee5aef61.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 5,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_10191fb5ab48cee99d7a43e636db9202938f143e.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_10191fb5ab48cee99d7a43e636db9202938f143e.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 6,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_449d488d2edbe785c4e6010fede1c3b8dae8e388.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_449d488d2edbe785c4e6010fede1c3b8dae8e388.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 7,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_2cfc2472e7ff99fd354935135d91e36e81951795.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_2cfc2472e7ff99fd354935135d91e36e81951795.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 8,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_3ceb422dbef5f8495e690ed526f684fdcb1022ec.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_3ceb422dbef5f8495e690ed526f684fdcb1022ec.1920x1080.jpg?t=1785737403"
+          },
+          {
+            "id": 9,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_201488fc9f1aa5e29e2fc6d96ef2b66e41ddf32e.600x338.jpg?t=1785737403",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/ss_201488fc9f1aa5e29e2fc6d96ef2b66e41ddf32e.1920x1080.jpg?t=1785737403"
+          }
+        ],
+        "movies": [
+          {
+            "id": 257363387,
+            "name": "SF6_YASMINE_Gameplaytrailer_Multi_EN_ESRB_HD_Steam",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257363387/0f6d1ba33f9dc1377ab18f2be66239197f9b695e/movie_600x337.jpg?t=1782095041",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/164062000/efbde3d3a18847d8f98cc53a96854579b3d0e96d/1782090499/dash_av1.mpd?t=1782095041",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/164062000/efbde3d3a18847d8f98cc53a96854579b3d0e96d/1782090499/dash_h264.mpd?t=1782095041",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/164062000/efbde3d3a18847d8f98cc53a96854579b3d0e96d/1782090499/hls_264_master.m3u8?t=1782095041",
+            "highlight": true
+          },
+          {
+            "id": 257353009,
+            "name": "SF6_Year4_Announce_Multi_EN_ESRB_HD_Steam",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257353009/4bb924fa1df4441fcde6bef1a2e31bae09319ab4/movie_600x337.jpg?t=1780893754",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/2141715486/4884219cddd0030e71c1a62db574b67b6f0d0890/1780884987/dash_av1.mpd?t=1780893754",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/2141715486/4884219cddd0030e71c1a62db574b67b6f0d0890/1780884987/dash_h264.mpd?t=1780893754",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/2141715486/4884219cddd0030e71c1a62db574b67b6f0d0890/1780884987/hls_264_master.m3u8?t=1780893754",
+            "highlight": true
+          },
+          {
+            "id": 257324648,
+            "name": "SF6_INGRID_Gameplaytrailer_Multi_EN_ESRB_HD_Steam",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257324648/f566fefe4f698bcc0155a4cea92ac49aeab3dbb6/movie_600x337.jpg?t=1776917919",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/329401047/bb68a7c02366b50c84817183e9d45959a8f790d9/1776910935/dash_av1.mpd?t=1776917919",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/329401047/bb68a7c02366b50c84817183e9d45959a8f790d9/1776910935/dash_h264.mpd?t=1776917919",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/329401047/bb68a7c02366b50c84817183e9d45959a8f790d9/1776910935/hls_264_master.m3u8?t=1776917919",
+            "highlight": true
+          },
+          {
+            "id": 257298758,
+            "name": "SF6_Outfit4_Elena_DeeJay_Steam_EN_ESRB_HD_Steam",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257298758/fc35a0d4846ccb11bde750c74e8bffb3dcee0d9c/movie_600x337.jpg?t=1773366388",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/1772179895/b31581bc0ad0d540ceb40af9a321b0bcc728f288/1772781449/dash_av1.mpd?t=1773366388",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1772179895/b31581bc0ad0d540ceb40af9a321b0bcc728f288/1772781449/dash_h264.mpd?t=1773366388",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1772179895/b31581bc0ad0d540ceb40af9a321b0bcc728f288/1772781449/hls_264_master.m3u8?t=1773366388",
+            "highlight": true
+          },
+          {
+            "id": 257270651,
+            "name": "SF6_ALEX_Gameplaytrailer_Multi_EN_ESRB_HD_Steam",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257270651/f0f66fda217e3184c1a71057c4c9692287ba2690/movie_600x337.jpg?t=1769142439",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/1659974978/e2cc6b24bc61a2692becfadca7a5687f36d6324b/1769127372/dash_av1.mpd?t=1769142439",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1659974978/e2cc6b24bc61a2692becfadca7a5687f36d6324b/1769127372/dash_h264.mpd?t=1769142439",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1659974978/e2cc6b24bc61a2692becfadca7a5687f36d6324b/1769127372/hls_264_master.m3u8?t=1769142439",
+            "highlight": true
+          },
+          {
+            "id": 257206554,
+            "name": "SF6_C.Viepr_Gameplaytrailer_Multi_EN_ESRB_HD_Steam",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257206554/0d506b75d9cc789e0f98a8822f8ffa3663dc6c9e/movie_600x337.jpg?t=1758859600",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/1203483622/09b491864ab63ad41a5bd7f4cea64a175473e159/1758851990/dash_av1.mpd?t=1758859600",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1203483622/09b491864ab63ad41a5bd7f4cea64a175473e159/1758851990/dash_h264.mpd?t=1758859600",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1203483622/09b491864ab63ad41a5bd7f4cea64a175473e159/1758851990/hls_264_master.m3u8?t=1758859600",
+            "highlight": true
+          },
+          {
+            "id": 257178234,
+            "name": "SF6_Outfit4_7Character_Multi_EN_ESRB_1080P_Steam",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257178234/0ee78ee04f32462ca565019b611006da23b7fd16/movie_600x337.jpg?t=1754370599",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/237504138/5101bf5149356409cba6dc48ff27b2bd2d64a83d/1754355780/dash_av1.mpd?t=1754370599",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/237504138/5101bf5149356409cba6dc48ff27b2bd2d64a83d/1754355780/dash_h264.mpd?t=1754370599",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/237504138/5101bf5149356409cba6dc48ff27b2bd2d64a83d/1754355780/hls_264_master.m3u8?t=1754370599",
+            "highlight": true
+          },
+          {
+            "id": 257170007,
+            "name": "SF6_SAGAT_Gameplaytrailer_Multi_EN_ESRB_HD",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257170007/9c69c84ef08c1b0c08500345f01b3a70261cdcb1/movie_600x337.jpg?t=1752729336",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/1575847105/d85f1d95ebfac16efb684f2f523219583531f396/1752720673/dash_av1.mpd?t=1752729336",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1575847105/d85f1d95ebfac16efb684f2f523219583531f396/1752720673/dash_h264.mpd?t=1752729336",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1575847105/d85f1d95ebfac16efb684f2f523219583531f396/1752720673/hls_264_master.m3u8?t=1752729336",
+            "highlight": true
+          },
+          {
+            "id": 257151474,
+            "name": "HATO_FE_LaunchPV_Multi_EN_ESRB_1080P_FIX_Store_v2",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257151474/9dd37cb3b4e20ed60f9e3f64e68b28727f1bbf02/movie_600x337.jpg?t=1749099731",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/1816352465/610ac3e954e6271510651b9e310ff2949a4447cf/1750678692/dash_av1.mpd?t=1749099731",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1816352465/610ac3e954e6271510651b9e310ff2949a4447cf/1750678692/dash_h264.mpd?t=1749099731",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/1816352465/610ac3e954e6271510651b9e310ff2949a4447cf/1750678692/hls_264_master.m3u8?t=1749099731",
+            "highlight": true
+          },
+          {
+            "id": 257131911,
+            "name": "SF6_ELENA_Gameplaytrailer_Multi_EN_ESRB_HD_Stemstore_FIX",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257131911/efec79808c5705182449cfd9ec9c7a64d022d489/movie_600x337.jpg?t=1745814258",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/879577/cec513f1569b45ff6f6b2c507a0bdeb7de4e0d96/1750678681/dash_av1.mpd?t=1745814258",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/879577/cec513f1569b45ff6f6b2c507a0bdeb7de4e0d96/1750678681/dash_h264.mpd?t=1745814258",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/879577/cec513f1569b45ff6f6b2c507a0bdeb7de4e0d96/1750678681/hls_264_master.m3u8?t=1745814258",
+            "highlight": true
+          },
+          {
+            "id": 257088720,
+            "name": "SF6_MAI_Gameplaytrailer_02_Multi_EN_ESRB_HD_Steamstore_FIX",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257088720/e090a3c6bc7af8e192c9c8a574e0dbcd9930a3b7/movie_600x337.jpg?t=1736904328",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/812197/100efbf7e961abaa62defc5f8368c0230e034a43/1750678700/dash_av1.mpd?t=1736904328",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/812197/100efbf7e961abaa62defc5f8368c0230e034a43/1750678700/dash_h264.mpd?t=1736904328",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/812197/100efbf7e961abaa62defc5f8368c0230e034a43/1750678700/hls_264_master.m3u8?t=1736904328",
+            "highlight": true
+          },
+          {
+            "id": 257048074,
+            "name": "SF6_TERRY_GamePlayTrailer_Multi_EN_ESRB_1080P_Steamstore",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257048074/movie.293x165.jpg?t=1724216001",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/743538/45b3d58ab594a0e1b7e9524d0706ef0330bd4f8e/1750678640/dash_av1.mpd?t=1724216001",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/743538/45b3d58ab594a0e1b7e9524d0706ef0330bd4f8e/1750678640/dash_h264.mpd?t=1724216001",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/743538/45b3d58ab594a0e1b7e9524d0706ef0330bd4f8e/1750678640/hls_264_master.m3u8?t=1724216001",
+            "highlight": true
+          },
+          {
+            "id": 257029847,
+            "name": "SF6_M.Bison_GamePlayTrailer_Multi_EN_ESRB_1080P_Steamstore",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257029847/movie.293x165.jpg?t=1717986914",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/711676/0cdfd8d036f73a75a1838b0bcf2733b52ae394ef/1750678626/dash_av1.mpd?t=1717986914",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/711676/0cdfd8d036f73a75a1838b0bcf2733b52ae394ef/1750678626/dash_h264.mpd?t=1717986914",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/711676/0cdfd8d036f73a75a1838b0bcf2733b52ae394ef/1750678626/hls_264_master.m3u8?t=1717986914",
+            "highlight": true
+          },
+          {
+            "id": 257029842,
+            "name": "SF6_Year2_Announce_Multi_US_ESRB_1080P_FIX_Steam",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257029842/movie.293x165.jpg?t=1717986925",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/711669/d077dd14cfee8d7ce65989fec87a5ce89bd04c57/1750678607/dash_av1.mpd?t=1717986925",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/711669/d077dd14cfee8d7ce65989fec87a5ce89bd04c57/1750678607/dash_h264.mpd?t=1717986925",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/711669/d077dd14cfee8d7ce65989fec87a5ce89bd04c57/1750678607/hls_264_master.m3u8?t=1717986925",
+            "highlight": true
+          },
+          {
+            "id": 257022144,
+            "name": "SF6_Akuma_Gouki_GamePlayTrailer_Multi_EN_ESRB_1080P_Steamstore",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257022144/movie.293x165.jpg?t=1715314192",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/698292/6536a222130677297241cd85bd04b4c0054fcbe4/1750678590/dash_av1.mpd?t=1715314192",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/698292/6536a222130677297241cd85bd04b4c0054fcbe4/1750678590/dash_h264.mpd?t=1715314192",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/698292/6536a222130677297241cd85bd04b4c0054fcbe4/1750678590/hls_264_master.m3u8?t=1715314192",
+            "highlight": true
+          },
+          {
+            "id": 257001257,
+            "name": "SF6_Ed_GamePlay_Trailer_Multi_EN_ESRB_1080P_FIX_Steamstore",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257001257/movie.293x165.jpg?t=1707970757",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/662837/d22be3a86610f1d763c367fbf6b4a2ff3839d188/1750678548/dash_av1.mpd?t=1707970757",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/662837/d22be3a86610f1d763c367fbf6b4a2ff3839d188/1750678548/dash_h264.mpd?t=1707970757",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/662837/d22be3a86610f1d763c367fbf6b4a2ff3839d188/1750678548/hls_264_master.m3u8?t=1707970757",
+            "highlight": true
+          },
+          {
+            "id": 256984090,
+            "name": "SF6_Outfit 3 Showcase Trailer EN",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256984090/movie.293x165.jpg?t=1700629501",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/632323/9211b7bbd389c494f97554fe1d92c3487c3254cd/1750678517/dash_av1.mpd?t=1700629501",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/632323/9211b7bbd389c494f97554fe1d92c3487c3254cd/1750678517/dash_h264.mpd?t=1700629501",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/632323/9211b7bbd389c494f97554fe1d92c3487c3254cd/1750678517/hls_264_master.m3u8?t=1700629501",
+            "highlight": true
+          },
+          {
+            "id": 256950421,
+            "name": "SF6_Launch_AvailableNow_Multi_EN_1080p_FIX",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256950421/movie.293x165.jpg?t=1685677608",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1364780/574060/acace936344ec737668cb6d25eed6d71e171b451/1750678470/dash_av1.mpd?t=1685677608",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/574060/acace936344ec737668cb6d25eed6d71e171b451/1750678470/dash_h264.mpd?t=1685677608",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1364780/574060/acace936344ec737668cb6d25eed6d71e171b451/1750678470/hls_264_master.m3u8?t=1685677608",
+            "highlight": true
+          }
+        ],
+        "recommendations": {
+          "total": 49492
+        },
+        "achievements": {
+          "total": 43,
+          "highlighted": [
+            {
+              "icon": "b2c3883e2cfd25d9477c7681714288cac23d4f76.jpg",
+              "localized_name": "Uma Cara para Quebrar!",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Uma Cara para Quebrar!",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/b2c3883e2cfd25d9477c7681714288cac23d4f76.jpg"
+            },
+            {
+              "icon": "d8556a8160da2bf0d8607032d89963875b208ee3.jpg",
+              "localized_name": "Então este é o Battle Hub...",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Então este é o Battle Hub...",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/d8556a8160da2bf0d8607032d89963875b208ee3.jpg"
+            },
+            {
+              "icon": "198f78e507e128a30bed781a6d46a806d3914c67.jpg",
+              "localized_name": "Primeiros Encontros",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Primeiros Encontros",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/198f78e507e128a30bed781a6d46a806d3914c67.jpg"
+            },
+            {
+              "icon": "d172c69da4ecbde3b249e7924606ff6639379290.jpg",
+              "localized_name": "Sempre Dá Tempo de Treinar!",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Sempre Dá Tempo de Treinar!",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/d172c69da4ecbde3b249e7924606ff6639379290.jpg"
+            },
+            {
+              "icon": "da938ee7ef4474278d14a63ebb232ee64d8fe5c6.jpg",
+              "localized_name": "Rei do Ringue",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Rei do Ringue",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/da938ee7ef4474278d14a63ebb232ee64d8fe5c6.jpg"
+            },
+            {
+              "icon": "33bb1ca85f31bfd12b650f567f4c575069b8100f.jpg",
+              "localized_name": "Surpresa Selvagem",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Surpresa Selvagem",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/33bb1ca85f31bfd12b650f567f4c575069b8100f.jpg"
+            },
+            {
+              "icon": "7decb3be6636ba9b4ae7da514a97bef995523dea.jpg",
+              "localized_name": "Treinamento de Combate Extremo",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Treinamento de Combate Extremo",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/7decb3be6636ba9b4ae7da514a97bef995523dea.jpg"
+            },
+            {
+              "icon": "d08464712419cdd6d5b6e30753411cc257dbc598.jpg",
+              "localized_name": "Vitória Esmagadora",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Vitória Esmagadora",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/d08464712419cdd6d5b6e30753411cc257dbc598.jpg"
+            },
+            {
+              "icon": "95347a8ff38ffb5f98efea3843758c2b4a2e547a.jpg",
+              "localized_name": "Como se Tornar o Avatar",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Como se Tornar o Avatar",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/95347a8ff38ffb5f98efea3843758c2b4a2e547a.jpg"
+            },
+            {
+              "icon": "59cee20c5f1a91a54cb0abe2cf2e6af374fba22f.jpg",
+              "localized_name": "A Fim de Uma Briga",
+              "archived": 0,
+              "hidden": 0,
+              "name": "A Fim de Uma Briga",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1364780/59cee20c5f1a91a54cb0abe2cf2e6af374fba22f.jpg"
+            }
+          ]
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": "1/jun./2023"
+        },
+        "support_info": {
+          "url": "https://www.streetfighter.com/6/support",
+          "email": ""
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/1364780?t=1785737403",
+        "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/page_bg_raw.jpg?t=1785737403",
+        "content_descriptors": {
+          "ids": [],
+          "notes": null
+        },
+        "ratings": {
+          "dejus": {
+            "rating": "12",
+            "descriptors": "Violência\r\nInteração de usuários\r\nCompras on-line"
+          },
+          "esrb": {
+            "rating": "t",
+            "descriptors": "Violence\r\nMild Blood\r\nSuggestive Themes\r\nLanguage\r\nUse of Alcohol and Tobacco",
+            "interactive_elements": "Users Interact\r\nIn-Game Purchases"
+          },
+          "pegi": {
+            "rating": "12",
+            "descriptors": "Violence\r\nBad Language\r\nSex\r\nIn-Game Purchases"
+          },
+          "usk": {
+            "rating": "12"
+          },
+          "oflc": {
+            "rating": "m",
+            "descriptors": "Violence and sexualised imagery\r\nonline interactivity and in-game purchases"
+          },
+          "cero": {
+            "rating": "c",
+            "descriptors": "セクシャル\r\n暴力\r\n犯罪"
+          },
+          "kgrb": {
+            "rating": "15",
+            "descriptors": "Sexuality\r\nViolence\r\nAlcohol, Tobacco, Drug"
+          },
+          "fpb": {
+            "rating": "13",
+            "descriptors": "Language\r\nViolence\r\nCompetitive Intensity"
+          },
+          "crl": {
+            "rating": "12"
+          },
+          "csrr": {
+            "rating": "C15",
+            "descriptors": "暴力,菸酒,不當言語"
+          },
+          "steam_germany": {
+            "rating_generated": "1",
+            "rating": "12",
+            "required_age": "12",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Sexuelle Andeutungen\nGewalt\nAlkohol / Tabak"
+          },
+          "igrs": {
+            "rating_generated": "1",
+            "rating": "18",
+            "required_age": "18",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Penampilan Tokoh\nRokok dan/atau rokok elektronik, minuman beralkohol, narkotika, psikotropika, dan/atau zat adiktif lainnya\nPenggunaan bahasa"
+          }
+        }
+      }
+    }
+  }
+}

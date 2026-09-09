@@ -1,0 +1,67 @@
+{
+  "timestamp": 1787795271.4609876,
+  "data": {
+    "2385860": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "TEKKEN 8 Playtest",
+        "steam_appid": 2385860,
+        "required_age": 0,
+        "is_free": false,
+        "detailed_description": "",
+        "about_the_game": "",
+        "short_description": "",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385860/header.jpg?t=1697426511",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385860/capsule_231x87.jpg?t=1697426511",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385860/capsule_184x69.jpg?t=1697426511",
+        "website": null,
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits</li></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits</li></ul>"
+        },
+        "mac_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "linux_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "package_groups": [],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385860/ss_3f6c943de850b925dc3ae0714cd61fd79826399c.600x338.jpg?t=1697426511",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385860/ss_3f6c943de850b925dc3ae0714cd61fd79826399c.1920x1080.jpg?t=1697426511"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385860/ss_3f6c943de850b925dc3ae0714cd61fd79826399c.600x338.jpg?t=1697426511",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385860/ss_3f6c943de850b925dc3ae0714cd61fd79826399c.1920x1080.jpg?t=1697426511"
+          }
+        ],
+        "release_date": {
+          "coming_soon": false,
+          "date": "31/mai./2023"
+        },
+        "support_info": {
+          "url": "",
+          "email": ""
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/2385860?t=1697426511",
+        "background_raw": "https://store.akamai.steamstatic.com/images/storepagebackground/app/2385860?t=1697426511",
+        "content_descriptors": {
+          "ids": [],
+          "notes": null
+        },
+        "ratings": null
+      }
+    }
+  }
+}

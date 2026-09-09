@@ -3,9 +3,8 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
-from paths import CACHE_DIR
 
-CACHE_PATH = CACHE_DIR / 'launcher_cache.json'
+CACHE_PATH = Path(__file__).with_name('launcher_cache.json')
 
 
 def carregar_cache() -> dict:

@@ -1,0 +1,30 @@
+{
+  "timestamp": 1787839582.5396614,
+  "data": {
+    "response": {
+      "players": [
+        {
+          "steamid": "76561199264361412",
+          "communityvisibilitystate": 3,
+          "profilestate": 1,
+          "personaname": "CAXA",
+          "commentpermission": 1,
+          "profileurl": "https://steamcommunity.com/profiles/76561199264361412/",
+          "avatar": "https://avatars.steamstatic.com/46b0628af3e71aee198ad25ac6a77c8c7a3a128b.jpg",
+          "avatarmedium": "https://avatars.steamstatic.com/46b0628af3e71aee198ad25ac6a77c8c7a3a128b_medium.jpg",
+          "avatarfull": "https://avatars.steamstatic.com/46b0628af3e71aee198ad25ac6a77c8c7a3a128b_full.jpg",
+          "avatarhash": "46b0628af3e71aee198ad25ac6a77c8c7a3a128b",
+          "lastlogoff": 1787798440,
+          "personastate": 1,
+          "realname": "graciliano alves da silva",
+          "primaryclanid": "103582791429521408",
+          "timecreated": 1649720903,
+          "personastateflags": 0,
+          "loccountrycode": "BR",
+          "locstatecode": "17",
+          "loccityid": 8502
+        }
+      ]
+    }
+  }
+}

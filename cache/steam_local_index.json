@@ -1,0 +1,105 @@
+{
+  "timestamp": 1787839565.8040063,
+  "root": "",
+  "data": [
+    {
+      "appid": "228980",
+      "name": "Steamworks Common Redistributables",
+      "install_dir": "Steamworks Shared",
+      "path": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Steamworks Shared",
+      "manifest": "C:\\Program Files (x86)\\Steam\\steamapps\\appmanifest_228980.acf",
+      "library": "C:\\Program Files (x86)\\Steam",
+      "instalado": true
+    },
+    {
+      "appid": "1364780",
+      "name": "Street Fighter™ 6",
+      "install_dir": "Street Fighter 6",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\Street Fighter 6",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_1364780.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "1501750",
+      "name": "Lords of the Fallen",
+      "install_dir": "Lords of the Fallen",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\Lords of the Fallen",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_1501750.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "1593500",
+      "name": "God of War",
+      "install_dir": "GodOfWar",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\GodOfWar",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_1593500.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "1665460",
+      "name": "eFootball™",
+      "install_dir": "eFootball",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\eFootball",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_1665460.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "1778820",
+      "name": "TEKKEN 8",
+      "install_dir": "TEKKEN 8",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\TEKKEN 8",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_1778820.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "1905180",
+      "name": "OBS Studio",
+      "install_dir": "OBS Studio",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\OBS Studio",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_1905180.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "2050650",
+      "name": "Resident Evil 4",
+      "install_dir": "RESIDENT EVIL 4  BIOHAZARD RE4",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\RESIDENT EVIL 4  BIOHAZARD RE4",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_2050650.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "447040",
+      "name": "Watch_Dogs 2",
+      "install_dir": "Watch_Dogs2",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\Watch_Dogs2",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_447040.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "454650",
+      "name": "DRAGON BALL XENOVERSE 2",
+      "install_dir": "DB Xenoverse 2",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\DB Xenoverse 2",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_454650.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    },
+    {
+      "appid": "952060",
+      "name": "Resident Evil 3",
+      "install_dir": "RE3",
+      "path": "D:\\SteamLibrary\\steamapps\\common\\RE3",
+      "manifest": "D:\\SteamLibrary\\steamapps\\appmanifest_952060.acf",
+      "library": "D:\\SteamLibrary",
+      "instalado": true
+    }
+  ]
+}

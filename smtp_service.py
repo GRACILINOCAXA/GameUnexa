@@ -11,10 +11,11 @@ from pathlib import Path
 from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from paths import DB_PATH, ENV_PATH, resource_path
 
 BASE_DIR = os.path.dirname(__file__)
-TEMPLATES_DIR = resource_path('templates')
+DB_PATH = os.path.join(BASE_DIR, 'gamelink.db')
+ENV_PATH = os.path.join(BASE_DIR, '.env')
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATE_ENV = Environment(
     loader=FileSystemLoader(TEMPLATES_DIR),

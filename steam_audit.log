@@ -1,0 +1,1184 @@
+[2026-07-23T17:33:40.389370] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=9
+[2026-07-23T17:33:40.390371] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=9
+[2026-07-23T17:33:40.390371] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-07-23T17:33:40.395372] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Watch_Dogs® 2 | user_email=a@a | appid=447040 | horas_jogadas=0
+[2026-07-23T17:33:40.395372] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-07-23T17:33:40.400373] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: TEKKEN 8 | user_email=a@a | appid=1778820 | horas_jogadas=0
+[2026-07-23T17:33:40.401373] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-07-23T17:33:40.406374] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Street Fighter™ 6 | user_email=a@a | appid=1364780 | horas_jogadas=0
+[2026-07-23T17:33:41.461745] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Steamworks Common Redistributables | appid=228980 | nome=Steamworks Common Redistributables
+[2026-07-23T17:33:41.682298] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Steamworks Common Redistributables | user_email=a@a | appid=228980 | horas_jogadas=0
+[2026-07-23T17:33:41.682298] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-07-23T17:33:41.687299] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Resident Evil 4 | user_email=a@a | appid=2050650 | horas_jogadas=0
+[2026-07-23T17:33:41.687299] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-07-23T17:33:41.691300] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Resident Evil 3 | user_email=a@a | appid=952060 | horas_jogadas=0
+[2026-07-23T17:33:41.691300] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-07-23T17:33:41.696301] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: God of War | user_email=a@a | appid=1593500 | horas_jogadas=0
+[2026-07-23T17:33:41.696301] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-07-23T17:33:41.701302] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DRAGON BALL XENOVERSE 2 | user_email=a@a | appid=454650 | horas_jogadas=0
+[2026-07-23T17:33:41.701302] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=323470
+[2026-07-23T17:33:42.636089] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DRAGON BALL XENOVERSE | user_email=a@a | appid=323470 | horas_jogadas=0
+[2026-07-23T17:33:42.636089] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=a@a | steam_id64=76561199264361412 | quantidade=9 | appids=447040,1778820,1364780,228980,2050650,952060,1593500,454650,323470
+[2026-07-23T17:33:42.637089] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=9 | jogos_importados=9 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-07-23T17:33:42.864139] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=9
+[2026-07-23T17:33:54.849810] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=9
+[2026-07-23T17:33:57.086952] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=9
+[2026-07-23T17:34:00.262314] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=9
+[2026-07-23T17:34:01.176528] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=9
+[2026-07-23T17:34:01.995217] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=9
+[2026-07-23T17:34:02.867011] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=9
+[2026-08-11T15:03:30.928107] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:03:31.824790] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:03:32.545412] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:03:32.746745] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:07:31.415130] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:07:47.907182] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:07:54.612157] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:07:55.120713] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:07:55.292665] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:07:55.523080] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:07.026342] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:08.035532] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:11.854874] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:13.667742] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:17.258819] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:19.118904] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:19.996926] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:20.217040] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:20.459618] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:20.671810] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:21.037280] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:08:26.963484] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:09:03.045364] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:09:03.045658] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=10
+[2026-08-11T15:09:04.936497] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: eFootball™ | appid=1665460 | nome=eFootball™
+[2026-08-11T15:09:04.940467] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=0
+[2026-08-11T15:09:04.940783] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-11T15:09:04.945104] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs® 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-11T15:09:04.945439] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-11T15:09:04.948974] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-11T15:09:04.949248] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-11T15:09:04.952661] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=0
+[2026-08-11T15:09:04.952901] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=228980
+[2026-08-11T15:09:06.194270] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Steamworks Common Redistributables | user_email=admin@gamelink.com | appid=228980 | horas_jogadas=0
+[2026-08-11T15:09:06.194594] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-11T15:09:06.198326] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=0
+[2026-08-11T15:09:06.198625] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-11T15:09:06.202810] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=0
+[2026-08-11T15:09:06.556247] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: OBS Studio | appid=1905180 | nome=OBS Studio
+[2026-08-11T15:09:06.560138] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-11T15:09:06.560426] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-11T15:09:06.564429] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=0
+[2026-08-11T15:09:06.564768] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-11T15:09:06.568238] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-11T15:09:06.568593] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=79 | appids=1778820,323470,1593500,976730,2050650,2050651,2050652,2050654,2050655,2050656,... (+69 mais)
+[2026-08-11T15:09:06.568859] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=10 | jogos_importados=3 | jogos_atualizados=7 | jogos_perdidos=0
+[2026-08-11T15:09:06.686251] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:09:11.011348] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:09:11.011646] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=10
+[2026-08-11T15:09:11.011916] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-11T15:09:11.013568] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=0
+[2026-08-11T15:09:11.013781] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-11T15:09:11.014627] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs® 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-11T15:09:11.014829] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-11T15:09:11.015659] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-11T15:09:11.015860] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-11T15:09:11.016701] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=0
+[2026-08-11T15:09:11.016913] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=228980
+[2026-08-11T15:09:11.235183] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Steamworks Common Redistributables | user_email=admin@gamelink.com | appid=228980 | horas_jogadas=0
+[2026-08-11T15:09:11.235512] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-11T15:09:11.236664] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=0
+[2026-08-11T15:09:11.236936] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-11T15:09:11.237968] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=0
+[2026-08-11T15:09:11.238183] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-11T15:09:11.239209] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-11T15:09:11.239414] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-11T15:09:11.240283] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=0
+[2026-08-11T15:09:11.240526] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-11T15:09:11.241497] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-11T15:09:11.241753] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=79 | appids=1778820,323470,1593500,976730,2050650,2050651,2050652,2050654,2050655,2050656,... (+69 mais)
+[2026-08-11T15:09:11.241974] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=10 | jogos_importados=0 | jogos_atualizados=10 | jogos_perdidos=0
+[2026-08-11T15:09:11.357652] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:09:27.407799] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:09:33.653325] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-11T15:09:45.285558] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:06:22.660543] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:45.117380] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:46.188703] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:46.458163] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:46.519075] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:46.696652] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:46.880385] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:47.134004] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:50.074705] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:50.120685] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:50.482083] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:50.885846] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:51.066559] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:51.155492] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:51.955874] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:52.987043] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:54.283457] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:54.482685] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:54.645795] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:54.847153] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:09:59.519414] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:17:18.237476] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:18:33.289074] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:27:25.817962] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:28:29.524938] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:34:10.580619] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:37:16.005745] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:38:23.549807] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:39:50.035043] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:40:26.035349] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:41:46.038226] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:09.956795] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:10.556201] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:12.336029] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:14.804194] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:17.200083] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:28.583674] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:36.066146] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:44.225809] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:44:48.760766] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T19:59:59.008809] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T20:00:15.933816] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T20:00:18.183700] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T20:05:31.680237] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T20:05:56.854925] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T20:06:03.787599] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T20:06:23.260694] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:17:35.465290] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:17:47.644983] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:18:04.041535] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:18:08.603254] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:24:51.497273] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:25:26.912280] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:25:30.147907] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:31:22.020998] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:31:31.910245] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:32:37.946455] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:32:57.134666] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:33:04.153417] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:35:53.557838] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:36:02.240865] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:37:37.842042] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:37:51.832643] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:38:16.842104] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:38:29.599950] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:38:50.142071] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:39:07.938332] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:39:19.220913] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:39:23.847986] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:39:36.806172] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:11.652268] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:26.038378] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:40.691797] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:51.947717] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:52.653716] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:53.113176] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:53.591465] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:54.054328] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:41:54.491807] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:42:04.628056] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:42:05.284242] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:42:06.602249] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:42:07.483426] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:46:13.330633] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:46:34.899868] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:46:45.627835] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:47:27.609759] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:47:35.095513] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:48:00.522024] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T22:53:03.372422] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T23:50:02.713226] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-19T23:50:14.297581] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:14:01.615476] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:14:18.776471] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:14:19.765782] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:14:31.153367] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:16:44.898493] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:17:03.988044] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:17:25.085117] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:41:27.747513] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:41:34.236734] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:41:34.560873] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:41:38.670886] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:41:39.817545] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:41:41.420355] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:41:54.192627] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:41:57.956278] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:43:29.108833] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T00:50:10.809682] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T01:01:21.619697] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T01:02:01.673816] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T08:53:48.322192] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T08:54:40.699526] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:00:42.758462] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:00:52.716213] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:01:02.094725] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:01:11.648555] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:01:15.376434] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:01:21.949505] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:01:23.754070] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:02:02.241777] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:02:28.256285] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:03:05.167880] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:03:36.250423] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T09:59:39.465200] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T13:39:15.909429] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-20T13:39:15.910430] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_fallback | steam_id64=76561199264361412 | fonte=api_fallback | quantidade_jogos=0
+[2026-08-20T13:39:15.912439] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: most_played_api | steam_id64=76561199264361412 | fonte=most_played_api | quantidade_jogos=0
+[2026-08-20T13:39:15.912439] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-20T16:13:10.550804] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-20T16:13:10.551805] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_fallback | steam_id64=76561199264361412 | fonte=api_fallback | quantidade_jogos=0
+[2026-08-20T16:13:10.564809] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: most_played_api | steam_id64=76561199264361412 | fonte=most_played_api | quantidade_jogos=0
+[2026-08-20T16:13:10.565808] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-20T20:05:58.444356] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T21:03:39.609786] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T21:04:34.982144] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-20T21:04:34.982496] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=10
+[2026-08-20T21:04:34.982761] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-20T21:04:34.987472] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=0
+[2026-08-20T21:04:34.987759] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-20T21:04:34.992676] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs® 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-20T21:04:34.992950] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-20T21:04:34.997979] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-20T21:04:34.998361] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-20T21:04:35.003016] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=0
+[2026-08-20T21:04:35.008348] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Steamworks Common Redistributables | appid=228980 | nome=Steamworks Common Redistributables
+[2026-08-20T21:04:35.013320] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Steamworks Common Redistributables | user_email=admin@gamelink.com | appid=228980 | horas_jogadas=0
+[2026-08-20T21:04:35.013617] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-20T21:04:35.018350] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=0
+[2026-08-20T21:04:35.018607] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-20T21:04:35.023768] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=0
+[2026-08-20T21:04:35.028887] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: OBS Studio | appid=1905180 | nome=OBS Studio
+[2026-08-20T21:04:35.033753] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-20T21:04:35.034043] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-20T21:04:35.039178] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=0
+[2026-08-20T21:04:35.039478] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-20T21:04:35.044076] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-20T21:04:35.044401] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=89 | appids=1778820,323470,1593500,976730,2050650,2050651,2050652,2050654,2050655,2050656,... (+79 mais)
+[2026-08-20T21:04:35.044728] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=10 | jogos_importados=2 | jogos_atualizados=8 | jogos_perdidos=0
+[2026-08-20T21:04:35.171878] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T20:41:08.896504] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T20:53:02.823500] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:02:53.026574] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:04:40.446724] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:05:30.954702] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:05:30.955023] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=10
+[2026-08-26T21:05:30.955284] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T21:05:30.960343] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=0
+[2026-08-26T21:05:30.960679] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T21:05:30.965814] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Watch_Dogs® 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-26T21:05:30.966108] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T21:05:30.970990] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-26T21:05:30.971297] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T21:05:30.992349] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=0
+[2026-08-26T21:05:30.992710] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=228980
+[2026-08-26T21:05:30.997636] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Steamworks Common Redistributables | user_email=admin@gamelink.com | appid=228980 | horas_jogadas=0
+[2026-08-26T21:05:30.997992] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T21:05:31.002697] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=0
+[2026-08-26T21:05:31.003038] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T21:05:31.008689] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=0
+[2026-08-26T21:05:31.009664] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T21:05:31.033879] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-26T21:05:31.034281] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T21:05:31.039322] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=0
+[2026-08-26T21:05:31.039670] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T21:05:31.044906] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-26T21:05:31.045270] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T21:05:31.045609] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=10 | jogos_importados=3 | jogos_atualizados=7 | jogos_perdidos=0
+[2026-08-26T21:05:31.962835] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:05:39.866496] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:14:18.814119] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:15:24.985742] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:15:50.705374] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:15:54.259794] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:15:59.114407] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:16:03.538908] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:16:05.298634] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:16:06.795926] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:19:45.645740] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:19:46.103084] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:19:46.514183] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:19:46.941878] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:19:47.462616] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:21:08.402974] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:21:08.864001] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:22:25.435021] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:22:47.902065] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:23:59.033944] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:25:01.381186] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:25:02.489559] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:25:03.516589] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:25:04.795912] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:25:05.932219] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:25:19.997074] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:25:54.491997] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:26:30.447786] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:29:38.409460] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=10
+[2026-08-26T21:41:10.492573] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:41:10.493270] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:41:42.038283] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:41:42.038602] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:41:49.597427] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:41:49.597842] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:41:54.518706] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:41:54.518940] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:42:27.925356] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:42:27.925677] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:42:41.550824] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:42:41.551344] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:43:48.297434] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:43:48.297757] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:43:48.297999] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0
+[2026-08-26T21:43:48.298343] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T21:43:48.298750] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0 | jogos_importados=0 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-08-26T21:43:48.517606] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:43:48.517958] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:44:45.254210] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:44:45.254549] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:44:45.254870] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0
+[2026-08-26T21:44:45.255176] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T21:44:45.255512] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0 | jogos_importados=0 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-08-26T21:44:45.461671] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:44:45.462082] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:50:26.352864] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:50:26.353186] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:50:59.027687] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:50:59.028105] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:50:59.028408] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0
+[2026-08-26T21:50:59.028723] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T21:50:59.029002] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0 | jogos_importados=0 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-08-26T21:50:59.241414] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:50:59.241782] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:53:22.428066] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:53:22.428391] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:53:39.647539] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:53:39.647877] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:53:39.648182] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0
+[2026-08-26T21:53:39.648518] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T21:53:39.648796] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0 | jogos_importados=0 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-08-26T21:53:39.876549] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:53:39.876914] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:54:00.823080] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:54:00.823378] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:54:00.823625] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0
+[2026-08-26T21:54:00.823865] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T21:54:00.824096] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0 | jogos_importados=0 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-08-26T21:54:01.035527] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:54:01.035969] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:54:18.942479] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:54:18.942820] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:54:18.945100] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=9
+[2026-08-26T21:54:18.945368] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T21:54:18.947581] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=0
+[2026-08-26T21:54:18.947862] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T21:54:18.949815] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=0
+[2026-08-26T21:54:18.950109] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T21:54:18.955491] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=0
+[2026-08-26T21:54:18.955890] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T21:54:18.958592] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-26T21:54:18.958907] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T21:54:18.963750] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-26T21:54:18.964102] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T21:54:18.966948] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=0
+[2026-08-26T21:54:18.967284] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T21:54:18.970042] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-26T21:54:18.970431] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T21:54:18.972972] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-26T21:54:18.973234] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T21:54:18.975185] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=0
+[2026-08-26T21:54:18.975439] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T21:54:18.975655] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=9 | jogos_importados=0 | jogos_atualizados=9 | jogos_perdidos=0
+[2026-08-26T21:54:23.256443] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:54:23.256812] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:54:52.240573] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:54:52.240905] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:55:02.330476] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:55:02.330734] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:59:01.164527] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:59:01.164811] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:59:20.036448] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:59:20.036759] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T21:59:20.037015] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0
+[2026-08-26T21:59:20.037318] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T21:59:20.037572] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=0 | jogos_importados=0 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-08-26T21:59:20.246590] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T21:59:20.246929] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:04:43.524734] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T22:04:43.525013] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:04:57.708158] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T22:04:57.708481] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:04:57.730788] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=9
+[2026-08-26T22:04:57.731144] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T22:04:57.734599] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=0
+[2026-08-26T22:04:57.734963] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T22:04:57.737397] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=0
+[2026-08-26T22:04:57.737725] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T22:04:57.742940] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=0
+[2026-08-26T22:04:57.743275] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T22:04:57.747063] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-26T22:04:57.747448] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T22:04:57.752237] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-26T22:04:57.752614] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T22:04:57.755608] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=0
+[2026-08-26T22:04:57.755850] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T22:04:57.757695] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-26T22:04:57.757998] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T22:04:57.759826] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-26T22:04:57.760037] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T22:04:57.762186] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=0
+[2026-08-26T22:04:57.762492] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=59 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+49 mais)
+[2026-08-26T22:04:57.762799] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=9 | jogos_importados=0 | jogos_atualizados=9 | jogos_perdidos=0
+[2026-08-26T22:04:57.964535] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T22:04:57.964937] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:05:03.881761] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T22:05:03.882055] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:05:30.027833] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T22:05:30.028388] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:05:37.958733] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T22:05:37.959147] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:08:12.383831] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T22:08:12.384114] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:09:55.827534] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T22:09:55.828296] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T22:10:29.132013] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:10:37.623741] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:10:50.304303] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:13:45.845797] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:14:20.671163] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:47:47.727028] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:47:48.128132] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=44
+[2026-08-26T22:47:48.128453] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T22:47:48.133585] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=14
+[2026-08-26T22:47:48.133833] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T22:47:48.138816] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=5
+[2026-08-26T22:47:48.139146] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T22:47:48.143862] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=13
+[2026-08-26T22:47:48.144163] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T22:47:48.146543] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-26T22:47:48.146765] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T22:47:48.151358] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-26T22:47:48.151641] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T22:47:48.156710] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=1
+[2026-08-26T22:47:48.157019] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T22:47:48.159605] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-26T22:47:48.159857] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T22:47:48.161696] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-26T22:47:48.161918] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T22:47:48.166374] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=2
+[2026-08-26T22:47:48.166642] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=323470
+[2026-08-26T22:47:48.172224] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DRAGON BALL XENOVERSE | user_email=admin@gamelink.com | appid=323470 | horas_jogadas=16
+[2026-08-26T22:47:48.435930] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Worms Revolution | appid=200170 | nome=Worms Revolution
+[2026-08-26T22:47:48.441366] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Worms Revolution | user_email=admin@gamelink.com | appid=200170 | horas_jogadas=15
+[2026-08-26T22:47:48.649269] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Marvel Rivals | appid=2767030 | nome=Marvel Rivals
+[2026-08-26T22:47:48.654364] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Marvel Rivals | user_email=admin@gamelink.com | appid=2767030 | horas_jogadas=9
+[2026-08-26T22:47:49.371217] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Cube Racer | appid=705210 | nome=Cube Racer
+[2026-08-26T22:47:49.543532] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Cube Racer | user_email=admin@gamelink.com | appid=705210 | horas_jogadas=7
+[2026-08-26T22:47:49.744862] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: TEKKEN 8 Playtest | appid=2385860 | nome=TEKKEN 8 Playtest
+[2026-08-26T22:47:49.750477] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: TEKKEN 8 Playtest | user_email=admin@gamelink.com | appid=2385860 | horas_jogadas=6
+[2026-08-26T22:47:49.882214] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Lossless Scaling | appid=993090 | nome=Lossless Scaling
+[2026-08-26T22:47:49.887592] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Lossless Scaling | user_email=admin@gamelink.com | appid=993090 | horas_jogadas=6
+[2026-08-26T22:47:50.147099] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Goose Goose Duck | appid=1568590 | nome=Goose Goose Duck
+[2026-08-26T22:47:50.151896] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Goose Goose Duck | user_email=admin@gamelink.com | appid=1568590 | horas_jogadas=4
+[2026-08-26T22:47:50.152193] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=731490
+[2026-08-26T22:47:50.157750] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Crash Bandicoot™ N. Sane Trilogy | user_email=admin@gamelink.com | appid=731490 | horas_jogadas=4
+[2026-08-26T22:47:50.422018] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: No Time to Relax | appid=829660 | nome=No Time to Relax
+[2026-08-26T22:47:50.427151] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: No Time to Relax | user_email=admin@gamelink.com | appid=829660 | horas_jogadas=4
+[2026-08-26T22:47:50.427440] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=976730
+[2026-08-26T22:47:50.432845] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Halo: The Master Chief Collection | user_email=admin@gamelink.com | appid=976730 | horas_jogadas=3
+[2026-08-26T22:47:50.605254] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Business Tour - Online Multiplayer Board Game | appid=397900 | nome=Business Tour - Online Multiplayer Board Game
+[2026-08-26T22:47:50.610707] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Business Tour - Online Multiplayer Board Game | user_email=admin@gamelink.com | appid=397900 | horas_jogadas=3
+[2026-08-26T22:47:50.849382] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Don't Starve Together | appid=322330 | nome=Don't Starve Together
+[2026-08-26T22:47:50.855078] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Don't Starve Together | user_email=admin@gamelink.com | appid=322330 | horas_jogadas=2
+[2026-08-26T22:47:51.004711] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Counter-Strike 2 | appid=730 | nome=Counter-Strike 2
+[2026-08-26T22:47:51.010154] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Counter-Strike 2 | user_email=admin@gamelink.com | appid=730 | horas_jogadas=2
+[2026-08-26T22:47:51.331896] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: MultiVersus | appid=1818750 | nome=MultiVersus
+[2026-08-26T22:47:51.337655] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: MultiVersus | user_email=admin@gamelink.com | appid=1818750 | horas_jogadas=1
+[2026-08-26T22:47:51.971882] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Rubber Bandits | appid=1206610 | nome=Rubber Bandits
+[2026-08-26T22:47:51.977374] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Rubber Bandits | user_email=admin@gamelink.com | appid=1206610 | horas_jogadas=1
+[2026-08-26T22:47:52.265922] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:47:52.289274] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Brawlhalla | appid=291550 | nome=Brawlhalla
+[2026-08-26T22:47:52.294772] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Brawlhalla | user_email=admin@gamelink.com | appid=291550 | horas_jogadas=0
+[2026-08-26T22:47:52.487224] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=44
+[2026-08-26T22:47:52.487535] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T22:47:52.490727] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=14
+[2026-08-26T22:47:52.491020] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T22:47:52.493812] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=5
+[2026-08-26T22:47:52.494081] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T22:47:52.495929] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=13
+[2026-08-26T22:47:52.496158] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T22:47:52.498187] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-26T22:47:52.498412] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T22:47:52.500555] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-26T22:47:52.500832] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T22:47:52.503012] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=1
+[2026-08-26T22:47:52.503319] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T22:47:52.505492] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-26T22:47:52.505738] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T22:47:52.507728] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-26T22:47:52.507985] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T22:47:52.509944] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=2
+[2026-08-26T22:47:52.510188] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=323470
+[2026-08-26T22:47:52.512282] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE | user_email=admin@gamelink.com | appid=323470 | horas_jogadas=16
+[2026-08-26T22:47:52.512518] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=200170
+[2026-08-26T22:47:52.514604] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Worms Revolution | user_email=admin@gamelink.com | appid=200170 | horas_jogadas=15
+[2026-08-26T22:47:52.514861] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2767030
+[2026-08-26T22:47:52.516923] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Marvel Rivals | user_email=admin@gamelink.com | appid=2767030 | horas_jogadas=9
+[2026-08-26T22:47:52.517169] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=705210
+[2026-08-26T22:47:52.582298] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Deceit 2 | appid=2064870 | nome=Deceit 2
+[2026-08-26T22:47:52.593932] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Cube Racer | user_email=admin@gamelink.com | appid=705210 | horas_jogadas=7
+[2026-08-26T22:47:52.594278] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2385860
+[2026-08-26T22:47:52.602135] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 Playtest | user_email=admin@gamelink.com | appid=2385860 | horas_jogadas=6
+[2026-08-26T22:47:52.602589] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=993090
+[2026-08-26T22:47:52.604141] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Lossless Scaling | user_email=admin@gamelink.com | appid=993090 | horas_jogadas=6
+[2026-08-26T22:47:52.604428] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1568590
+[2026-08-26T22:47:52.605790] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Goose Goose Duck | user_email=admin@gamelink.com | appid=1568590 | horas_jogadas=4
+[2026-08-26T22:47:52.606068] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=731490
+[2026-08-26T22:47:52.607693] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Crash Bandicoot™ N. Sane Trilogy | user_email=admin@gamelink.com | appid=731490 | horas_jogadas=4
+[2026-08-26T22:47:52.607985] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=829660
+[2026-08-26T22:47:52.621653] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Deceit 2 | user_email=admin@gamelink.com | appid=2064870 | horas_jogadas=0
+[2026-08-26T22:47:52.637532] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: No Time to Relax | user_email=admin@gamelink.com | appid=829660 | horas_jogadas=4
+[2026-08-26T22:47:52.637956] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=976730
+[2026-08-26T22:47:52.640646] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Halo: The Master Chief Collection | user_email=admin@gamelink.com | appid=976730 | horas_jogadas=3
+[2026-08-26T22:47:52.640912] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=397900
+[2026-08-26T22:47:52.642777] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Business Tour - Online Multiplayer Board Game | user_email=admin@gamelink.com | appid=397900 | horas_jogadas=3
+[2026-08-26T22:47:52.643038] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=322330
+[2026-08-26T22:47:52.644853] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Don't Starve Together | user_email=admin@gamelink.com | appid=322330 | horas_jogadas=2
+[2026-08-26T22:47:52.645149] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=730
+[2026-08-26T22:47:52.647221] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Counter-Strike 2 | user_email=admin@gamelink.com | appid=730 | horas_jogadas=2
+[2026-08-26T22:47:52.647488] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1818750
+[2026-08-26T22:47:52.649833] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: MultiVersus | user_email=admin@gamelink.com | appid=1818750 | horas_jogadas=1
+[2026-08-26T22:47:52.650109] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1206610
+[2026-08-26T22:47:52.652088] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Rubber Bandits | user_email=admin@gamelink.com | appid=1206610 | horas_jogadas=1
+[2026-08-26T22:47:52.652348] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=291550
+[2026-08-26T22:47:52.654855] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Brawlhalla | user_email=admin@gamelink.com | appid=291550 | horas_jogadas=0
+[2026-08-26T22:47:52.655223] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2064870
+[2026-08-26T22:47:52.657462] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Deceit 2 | user_email=admin@gamelink.com | appid=2064870 | horas_jogadas=0
+[2026-08-26T22:47:52.820454] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Left 4 Dead 2 | appid=550 | nome=Left 4 Dead 2
+[2026-08-26T22:47:52.850667] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Left 4 Dead 2 | user_email=admin@gamelink.com | appid=550 | horas_jogadas=0
+[2026-08-26T22:47:53.012421] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Left 4 Dead 2 | appid=550 | nome=Left 4 Dead 2
+[2026-08-26T22:47:53.014999] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Left 4 Dead 2 | user_email=admin@gamelink.com | appid=550 | horas_jogadas=0
+[2026-08-26T22:47:53.019834] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Devil May Cry HD Collection | appid=631510 | nome=Devil May Cry HD Collection
+[2026-08-26T22:47:53.024648] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Devil May Cry HD Collection | user_email=admin@gamelink.com | appid=631510 | horas_jogadas=0
+[2026-08-26T22:47:53.032840] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Devil May Cry HD Collection | appid=631510 | nome=Devil May Cry HD Collection
+[2026-08-26T22:47:53.035642] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Devil May Cry HD Collection | user_email=admin@gamelink.com | appid=631510 | horas_jogadas=0
+[2026-08-26T22:47:53.237679] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: DmC Devil May Cry | appid=220440 | nome=DmC Devil May Cry
+[2026-08-26T22:47:53.242777] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DmC Devil May Cry | user_email=admin@gamelink.com | appid=220440 | horas_jogadas=0
+[2026-08-26T22:47:53.462349] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: DmC Devil May Cry | appid=220440 | nome=DmC Devil May Cry
+[2026-08-26T22:47:53.465043] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DmC Devil May Cry | user_email=admin@gamelink.com | appid=220440 | horas_jogadas=0
+[2026-08-26T22:47:53.469774] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life 2 | appid=220 | nome=Half-Life 2
+[2026-08-26T22:47:53.475357] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life 2 | user_email=admin@gamelink.com | appid=220 | horas_jogadas=0
+[2026-08-26T22:47:53.513861] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life 2 | appid=220 | nome=Half-Life 2
+[2026-08-26T22:47:53.516483] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life 2 | user_email=admin@gamelink.com | appid=220 | horas_jogadas=0
+[2026-08-26T22:47:53.743801] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life 2: Deathmatch | appid=320 | nome=Half-Life 2: Deathmatch
+[2026-08-26T22:47:53.748587] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life 2: Deathmatch | user_email=admin@gamelink.com | appid=320 | horas_jogadas=0
+[2026-08-26T22:47:53.781830] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life 2: Deathmatch | appid=320 | nome=Half-Life 2: Deathmatch
+[2026-08-26T22:47:53.784407] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life 2: Deathmatch | user_email=admin@gamelink.com | appid=320 | horas_jogadas=0
+[2026-08-26T22:47:53.956057] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life Deathmatch: Source | appid=360 | nome=Half-Life Deathmatch: Source
+[2026-08-26T22:47:53.961078] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life Deathmatch: Source | user_email=admin@gamelink.com | appid=360 | horas_jogadas=0
+[2026-08-26T22:47:54.040496] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life Deathmatch: Source | appid=360 | nome=Half-Life Deathmatch: Source
+[2026-08-26T22:47:54.043215] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life Deathmatch: Source | user_email=admin@gamelink.com | appid=360 | horas_jogadas=0
+[2026-08-26T22:47:54.221997] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Mafia | appid=40990 | nome=Mafia
+[2026-08-26T22:47:54.227578] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Mafia | user_email=admin@gamelink.com | appid=40990 | horas_jogadas=0
+[2026-08-26T22:47:54.299090] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Mafia | appid=40990 | nome=Mafia
+[2026-08-26T22:47:54.301668] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Mafia | user_email=admin@gamelink.com | appid=40990 | horas_jogadas=0
+[2026-08-26T22:47:54.492631] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Deponia | appid=214340 | nome=Deponia
+[2026-08-26T22:47:54.497406] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Deponia | user_email=admin@gamelink.com | appid=214340 | horas_jogadas=0
+[2026-08-26T22:47:54.545482] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Deponia | appid=214340 | nome=Deponia
+[2026-08-26T22:47:54.548078] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Deponia | user_email=admin@gamelink.com | appid=214340 | horas_jogadas=0
+[2026-08-26T22:47:55.348307] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: RPG Maker XP | appid=235900 | nome=RPG Maker XP
+[2026-08-26T22:47:55.355065] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: RPG Maker XP | appid=235900 | nome=RPG Maker XP
+[2026-08-26T22:47:55.421826] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: RPG Maker XP | user_email=admin@gamelink.com | appid=235900 | horas_jogadas=0
+[2026-08-26T22:47:55.532621] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: RPG Maker XP | user_email=admin@gamelink.com | appid=235900 | horas_jogadas=0
+[2026-08-26T22:47:55.733298] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Dead Island Riptide Definitive Edition | appid=383180 | nome=Dead Island Riptide Definitive Edition
+[2026-08-26T22:47:55.739310] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Dead Island Riptide Definitive Edition | user_email=admin@gamelink.com | appid=383180 | horas_jogadas=0
+[2026-08-26T22:47:55.794688] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Dead Island Riptide Definitive Edition | appid=383180 | nome=Dead Island Riptide Definitive Edition
+[2026-08-26T22:47:55.797246] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Dead Island Riptide Definitive Edition | user_email=admin@gamelink.com | appid=383180 | horas_jogadas=0
+[2026-08-26T22:47:55.916324] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Warhammer 40,000: Gladius - Relics of War | appid=489630 | nome=Warhammer 40,000: Gladius - Relics of War
+[2026-08-26T22:47:55.921264] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Warhammer 40,000: Gladius - Relics of War | user_email=admin@gamelink.com | appid=489630 | horas_jogadas=0
+[2026-08-26T22:47:55.974480] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Warhammer 40,000: Gladius - Relics of War | appid=489630 | nome=Warhammer 40,000: Gladius - Relics of War
+[2026-08-26T22:47:55.977088] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Warhammer 40,000: Gladius - Relics of War | user_email=admin@gamelink.com | appid=489630 | horas_jogadas=0
+[2026-08-26T22:47:56.568252] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Distant Space | appid=569610 | nome=Distant Space
+[2026-08-26T22:47:56.908501] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Distant Space | user_email=admin@gamelink.com | appid=569610 | horas_jogadas=0
+[2026-08-26T22:47:57.463113] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Distant Space | appid=569610 | nome=Distant Space
+[2026-08-26T22:47:57.555784] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Car Mechanic Simulator 2018 | appid=645630 | nome=Car Mechanic Simulator 2018
+[2026-08-26T22:47:57.557148] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Distant Space | user_email=admin@gamelink.com | appid=569610 | horas_jogadas=0
+[2026-08-26T22:47:57.557467] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=645630
+[2026-08-26T22:47:57.584226] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Car Mechanic Simulator 2018 | user_email=admin@gamelink.com | appid=645630 | horas_jogadas=0
+[2026-08-26T22:47:57.595889] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Car Mechanic Simulator 2018 | user_email=admin@gamelink.com | appid=645630 | horas_jogadas=0
+[2026-08-26T22:47:58.287337] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Zomborg | appid=729720 | nome=Zomborg
+[2026-08-26T22:47:58.336481] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Zomborg | appid=729720 | nome=Zomborg
+[2026-08-26T22:47:58.358475] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Zomborg | user_email=admin@gamelink.com | appid=729720 | horas_jogadas=0
+[2026-08-26T22:47:58.404781] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Zomborg | user_email=admin@gamelink.com | appid=729720 | horas_jogadas=0
+[2026-08-26T22:47:58.741546] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Bravery and Greed | appid=943370 | nome=Bravery and Greed
+[2026-08-26T22:47:58.750961] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Bravery and Greed | user_email=admin@gamelink.com | appid=943370 | horas_jogadas=0
+[2026-08-26T22:47:58.763564] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Bravery and Greed | appid=943370 | nome=Bravery and Greed
+[2026-08-26T22:47:58.766617] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Bravery and Greed | user_email=admin@gamelink.com | appid=943370 | horas_jogadas=0
+[2026-08-26T22:47:59.087808] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: RESIDENT EVIL RESISTANCE | appid=952070 | nome=RESIDENT EVIL RESISTANCE
+[2026-08-26T22:47:59.175361] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: RESIDENT EVIL RESISTANCE | user_email=admin@gamelink.com | appid=952070 | horas_jogadas=0
+[2026-08-26T22:47:59.178804] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: RESIDENT EVIL RESISTANCE | appid=952070 | nome=RESIDENT EVIL RESISTANCE
+[2026-08-26T22:47:59.181515] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: RESIDENT EVIL RESISTANCE | user_email=admin@gamelink.com | appid=952070 | horas_jogadas=0
+[2026-08-26T22:47:59.369066] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Catch Me! | appid=1741160 | nome=Catch Me!
+[2026-08-26T22:47:59.378299] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Catch Me! | user_email=admin@gamelink.com | appid=1741160 | horas_jogadas=0
+[2026-08-26T22:47:59.502417] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Catch Me! | appid=1741160 | nome=Catch Me!
+[2026-08-26T22:47:59.505134] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Catch Me! | user_email=admin@gamelink.com | appid=1741160 | horas_jogadas=0
+[2026-08-26T22:47:59.671820] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Bunny Guys! | appid=2218460 | nome=Bunny Guys!
+[2026-08-26T22:47:59.676475] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Bunny Guys! | user_email=admin@gamelink.com | appid=2218460 | horas_jogadas=0
+[2026-08-26T22:47:59.676763] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=94 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+84 mais)
+[2026-08-26T22:47:59.677012] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=44 | jogos_importados=25 | jogos_atualizados=19 | jogos_perdidos=0
+[2026-08-26T22:47:59.683112] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Bunny Guys! | appid=2218460 | nome=Bunny Guys!
+[2026-08-26T22:47:59.685787] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Bunny Guys! | user_email=admin@gamelink.com | appid=2218460 | horas_jogadas=0
+[2026-08-26T22:47:59.686047] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=94 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+84 mais)
+[2026-08-26T22:47:59.686289] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=44 | jogos_importados=10 | jogos_atualizados=34 | jogos_perdidos=0
+[2026-08-26T22:47:59.820125] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:48:16.505615] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:48:32.658738] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:48:58.207480] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:48:58.370589] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=44
+[2026-08-26T22:48:58.370895] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T22:48:58.373896] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=admin@gamelink.com | appid=1364780 | horas_jogadas=14
+[2026-08-26T22:48:58.374172] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T22:48:58.376224] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=admin@gamelink.com | appid=1593500 | horas_jogadas=5
+[2026-08-26T22:48:58.376491] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T22:48:58.381656] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=admin@gamelink.com | appid=1665460 | horas_jogadas=13
+[2026-08-26T22:48:58.381968] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T22:48:58.384461] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=admin@gamelink.com | appid=1778820 | horas_jogadas=0
+[2026-08-26T22:48:58.384697] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T22:48:58.389481] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=admin@gamelink.com | appid=1905180 | horas_jogadas=0
+[2026-08-26T22:48:58.389871] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T22:48:58.392432] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=admin@gamelink.com | appid=2050650 | horas_jogadas=1
+[2026-08-26T22:48:58.392695] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T22:48:58.394671] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=admin@gamelink.com | appid=447040 | horas_jogadas=0
+[2026-08-26T22:48:58.394943] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T22:48:58.396809] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=admin@gamelink.com | appid=454650 | horas_jogadas=0
+[2026-08-26T22:48:58.397032] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T22:48:58.398856] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=admin@gamelink.com | appid=952060 | horas_jogadas=2
+[2026-08-26T22:48:58.399075] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=323470
+[2026-08-26T22:48:58.400874] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE | user_email=admin@gamelink.com | appid=323470 | horas_jogadas=16
+[2026-08-26T22:48:58.401176] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=200170
+[2026-08-26T22:48:58.403609] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Worms Revolution | user_email=admin@gamelink.com | appid=200170 | horas_jogadas=15
+[2026-08-26T22:48:58.403988] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2767030
+[2026-08-26T22:48:58.406366] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Marvel Rivals | user_email=admin@gamelink.com | appid=2767030 | horas_jogadas=9
+[2026-08-26T22:48:58.406672] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=705210
+[2026-08-26T22:48:58.408853] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Cube Racer | user_email=admin@gamelink.com | appid=705210 | horas_jogadas=7
+[2026-08-26T22:48:58.409107] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2385860
+[2026-08-26T22:48:58.411354] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 Playtest | user_email=admin@gamelink.com | appid=2385860 | horas_jogadas=6
+[2026-08-26T22:48:58.411596] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=993090
+[2026-08-26T22:48:58.414085] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Lossless Scaling | user_email=admin@gamelink.com | appid=993090 | horas_jogadas=6
+[2026-08-26T22:48:58.414443] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1568590
+[2026-08-26T22:48:58.416953] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Goose Goose Duck | user_email=admin@gamelink.com | appid=1568590 | horas_jogadas=4
+[2026-08-26T22:48:58.417304] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=731490
+[2026-08-26T22:48:58.419659] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Crash Bandicoot™ N. Sane Trilogy | user_email=admin@gamelink.com | appid=731490 | horas_jogadas=4
+[2026-08-26T22:48:58.420051] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=829660
+[2026-08-26T22:48:58.422342] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: No Time to Relax | user_email=admin@gamelink.com | appid=829660 | horas_jogadas=4
+[2026-08-26T22:48:58.422688] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=976730
+[2026-08-26T22:48:58.424734] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Halo: The Master Chief Collection | user_email=admin@gamelink.com | appid=976730 | horas_jogadas=3
+[2026-08-26T22:48:58.424997] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=397900
+[2026-08-26T22:48:58.426984] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Business Tour - Online Multiplayer Board Game | user_email=admin@gamelink.com | appid=397900 | horas_jogadas=3
+[2026-08-26T22:48:58.427218] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=322330
+[2026-08-26T22:48:58.429159] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Don't Starve Together | user_email=admin@gamelink.com | appid=322330 | horas_jogadas=2
+[2026-08-26T22:48:58.429387] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=730
+[2026-08-26T22:48:58.431319] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Counter-Strike 2 | user_email=admin@gamelink.com | appid=730 | horas_jogadas=2
+[2026-08-26T22:48:58.431561] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1818750
+[2026-08-26T22:48:58.433385] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: MultiVersus | user_email=admin@gamelink.com | appid=1818750 | horas_jogadas=1
+[2026-08-26T22:48:58.433610] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1206610
+[2026-08-26T22:48:58.435571] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Rubber Bandits | user_email=admin@gamelink.com | appid=1206610 | horas_jogadas=1
+[2026-08-26T22:48:58.435831] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=291550
+[2026-08-26T22:48:58.438470] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Brawlhalla | user_email=admin@gamelink.com | appid=291550 | horas_jogadas=0
+[2026-08-26T22:48:58.438834] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2064870
+[2026-08-26T22:48:58.441090] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Deceit 2 | user_email=admin@gamelink.com | appid=2064870 | horas_jogadas=0
+[2026-08-26T22:48:58.441429] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=550
+[2026-08-26T22:48:58.443443] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Left 4 Dead 2 | user_email=admin@gamelink.com | appid=550 | horas_jogadas=0
+[2026-08-26T22:48:58.443693] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=631510
+[2026-08-26T22:48:58.445673] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Devil May Cry HD Collection | user_email=admin@gamelink.com | appid=631510 | horas_jogadas=0
+[2026-08-26T22:48:58.445898] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=220440
+[2026-08-26T22:48:58.447755] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DmC Devil May Cry | user_email=admin@gamelink.com | appid=220440 | horas_jogadas=0
+[2026-08-26T22:48:58.447987] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=220
+[2026-08-26T22:48:58.450122] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life 2 | user_email=admin@gamelink.com | appid=220 | horas_jogadas=0
+[2026-08-26T22:48:58.450407] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=320
+[2026-08-26T22:48:58.452512] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life 2: Deathmatch | user_email=admin@gamelink.com | appid=320 | horas_jogadas=0
+[2026-08-26T22:48:58.452877] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=360
+[2026-08-26T22:48:58.455647] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life Deathmatch: Source | user_email=admin@gamelink.com | appid=360 | horas_jogadas=0
+[2026-08-26T22:48:58.456039] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=40990
+[2026-08-26T22:48:58.458182] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Mafia | user_email=admin@gamelink.com | appid=40990 | horas_jogadas=0
+[2026-08-26T22:48:58.458465] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=214340
+[2026-08-26T22:48:58.460446] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Deponia | user_email=admin@gamelink.com | appid=214340 | horas_jogadas=0
+[2026-08-26T22:48:58.460698] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=235900
+[2026-08-26T22:48:58.462651] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: RPG Maker XP | user_email=admin@gamelink.com | appid=235900 | horas_jogadas=0
+[2026-08-26T22:48:58.462887] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=383180
+[2026-08-26T22:48:58.464788] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Dead Island Riptide Definitive Edition | user_email=admin@gamelink.com | appid=383180 | horas_jogadas=0
+[2026-08-26T22:48:58.465062] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=489630
+[2026-08-26T22:48:58.467242] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Warhammer 40,000: Gladius - Relics of War | user_email=admin@gamelink.com | appid=489630 | horas_jogadas=0
+[2026-08-26T22:48:58.467492] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=569610
+[2026-08-26T22:48:58.469722] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Distant Space | user_email=admin@gamelink.com | appid=569610 | horas_jogadas=0
+[2026-08-26T22:48:58.470115] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=645630
+[2026-08-26T22:48:58.472878] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Car Mechanic Simulator 2018 | user_email=admin@gamelink.com | appid=645630 | horas_jogadas=0
+[2026-08-26T22:48:58.473262] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=729720
+[2026-08-26T22:48:58.475913] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Zomborg | user_email=admin@gamelink.com | appid=729720 | horas_jogadas=0
+[2026-08-26T22:48:58.476360] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=943370
+[2026-08-26T22:48:58.478899] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Bravery and Greed | user_email=admin@gamelink.com | appid=943370 | horas_jogadas=0
+[2026-08-26T22:48:58.479213] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952070
+[2026-08-26T22:48:58.481408] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: RESIDENT EVIL RESISTANCE | user_email=admin@gamelink.com | appid=952070 | horas_jogadas=0
+[2026-08-26T22:48:58.481639] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1741160
+[2026-08-26T22:48:58.483535] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Catch Me! | user_email=admin@gamelink.com | appid=1741160 | horas_jogadas=0
+[2026-08-26T22:48:58.483783] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2218460
+[2026-08-26T22:48:58.485651] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Bunny Guys! | user_email=admin@gamelink.com | appid=2218460 | horas_jogadas=0
+[2026-08-26T22:48:58.485983] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=admin@gamelink.com | steam_id64=76561199264361412 | quantidade=94 | appids=1778820,1593500,2050650,2050651,2050652,2050654,2050655,2050656,2050657,2050658,... (+84 mais)
+[2026-08-26T22:48:58.486276] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=admin@gamelink.com | steam_id64=76561199264361412 | jogos_encontrados=44 | jogos_importados=0 | jogos_atualizados=44 | jogos_perdidos=0
+[2026-08-26T22:49:21.303888] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T22:53:52.837137] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:23:43.415647] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:23:44.031735] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=das@das | steam_id64=76561199264361412 | jogos_encontrados=45
+[2026-08-26T23:23:44.044742] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Steamworks Common Redistributables | appid=228980 | nome=Steamworks Common Redistributables
+[2026-08-26T23:23:44.049704] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Steamworks Common Redistributables | user_email=das@das | appid=228980 | horas_jogadas=0
+[2026-08-26T23:23:44.054443] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Street Fighter™ 6 | appid=1364780 | nome=Street Fighter™ 6
+[2026-08-26T23:23:44.058865] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Street Fighter™ 6 | user_email=das@das | appid=1364780 | horas_jogadas=14
+[2026-08-26T23:23:44.064006] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: God of War | appid=1593500 | nome=God of War
+[2026-08-26T23:23:44.067957] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: God of War | user_email=das@das | appid=1593500 | horas_jogadas=5
+[2026-08-26T23:23:44.072350] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: eFootball™ | appid=1665460 | nome=eFootball™
+[2026-08-26T23:23:44.076743] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: eFootball™ | user_email=das@das | appid=1665460 | horas_jogadas=13
+[2026-08-26T23:23:44.081049] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: TEKKEN 8 | appid=1778820 | nome=TEKKEN 8
+[2026-08-26T23:23:44.085440] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: TEKKEN 8 | user_email=das@das | appid=1778820 | horas_jogadas=0
+[2026-08-26T23:23:44.090013] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: OBS Studio | appid=1905180 | nome=OBS Studio
+[2026-08-26T23:23:44.094232] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: OBS Studio | user_email=das@das | appid=1905180 | horas_jogadas=0
+[2026-08-26T23:23:44.098444] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Resident Evil 4 | appid=2050650 | nome=Resident Evil 4
+[2026-08-26T23:23:44.103900] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Resident Evil 4 | user_email=das@das | appid=2050650 | horas_jogadas=1
+[2026-08-26T23:23:44.108335] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Watch_Dogs 2 | appid=447040 | nome=Watch_Dogs 2
+[2026-08-26T23:23:44.112876] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Watch_Dogs 2 | user_email=das@das | appid=447040 | horas_jogadas=0
+[2026-08-26T23:23:44.118123] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: DRAGON BALL XENOVERSE 2 | appid=454650 | nome=DRAGON BALL XENOVERSE 2
+[2026-08-26T23:23:44.122424] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DRAGON BALL XENOVERSE 2 | user_email=das@das | appid=454650 | horas_jogadas=0
+[2026-08-26T23:23:44.127151] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Resident Evil 3 | appid=952060 | nome=Resident Evil 3
+[2026-08-26T23:23:44.131733] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Resident Evil 3 | user_email=das@das | appid=952060 | horas_jogadas=2
+[2026-08-26T23:23:44.136306] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: DRAGON BALL XENOVERSE | appid=323470 | nome=DRAGON BALL XENOVERSE
+[2026-08-26T23:23:44.140654] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DRAGON BALL XENOVERSE | user_email=das@das | appid=323470 | horas_jogadas=16
+[2026-08-26T23:23:44.145022] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Worms Revolution | appid=200170 | nome=Worms Revolution
+[2026-08-26T23:23:44.149731] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Worms Revolution | user_email=das@das | appid=200170 | horas_jogadas=15
+[2026-08-26T23:23:44.154486] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Marvel Rivals | appid=2767030 | nome=Marvel Rivals
+[2026-08-26T23:23:44.158836] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Marvel Rivals | user_email=das@das | appid=2767030 | horas_jogadas=9
+[2026-08-26T23:23:44.165170] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Cube Racer | appid=705210 | nome=Cube Racer
+[2026-08-26T23:23:44.169740] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Cube Racer | user_email=das@das | appid=705210 | horas_jogadas=7
+[2026-08-26T23:23:44.174278] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: TEKKEN 8 Playtest | appid=2385860 | nome=TEKKEN 8 Playtest
+[2026-08-26T23:23:44.178894] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: TEKKEN 8 Playtest | user_email=das@das | appid=2385860 | horas_jogadas=6
+[2026-08-26T23:23:44.183690] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Lossless Scaling | appid=993090 | nome=Lossless Scaling
+[2026-08-26T23:23:44.187870] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Lossless Scaling | user_email=das@das | appid=993090 | horas_jogadas=6
+[2026-08-26T23:23:44.192581] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Goose Goose Duck | appid=1568590 | nome=Goose Goose Duck
+[2026-08-26T23:23:44.197440] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Goose Goose Duck | user_email=das@das | appid=1568590 | horas_jogadas=4
+[2026-08-26T23:23:44.202537] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Crash Bandicoot™ N. Sane Trilogy | appid=731490 | nome=Crash Bandicoot™ N. Sane Trilogy
+[2026-08-26T23:23:44.207358] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Crash Bandicoot™ N. Sane Trilogy | user_email=das@das | appid=731490 | horas_jogadas=4
+[2026-08-26T23:23:44.211555] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: No Time to Relax | appid=829660 | nome=No Time to Relax
+[2026-08-26T23:23:44.216675] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: No Time to Relax | user_email=das@das | appid=829660 | horas_jogadas=4
+[2026-08-26T23:23:44.220864] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Halo: The Master Chief Collection | appid=976730 | nome=Halo: The Master Chief Collection
+[2026-08-26T23:23:44.225169] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Halo: The Master Chief Collection | user_email=das@das | appid=976730 | horas_jogadas=3
+[2026-08-26T23:23:44.229755] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Business Tour - Online Multiplayer Board Game | appid=397900 | nome=Business Tour - Online Multiplayer Board Game
+[2026-08-26T23:23:44.234170] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Business Tour - Online Multiplayer Board Game | user_email=das@das | appid=397900 | horas_jogadas=3
+[2026-08-26T23:23:44.238698] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Don't Starve Together | appid=322330 | nome=Don't Starve Together
+[2026-08-26T23:23:44.243643] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Don't Starve Together | user_email=das@das | appid=322330 | horas_jogadas=2
+[2026-08-26T23:23:44.248325] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Counter-Strike 2 | appid=730 | nome=Counter-Strike 2
+[2026-08-26T23:23:44.253012] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Counter-Strike 2 | user_email=das@das | appid=730 | horas_jogadas=2
+[2026-08-26T23:23:44.257423] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: MultiVersus | appid=1818750 | nome=MultiVersus
+[2026-08-26T23:23:44.261745] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: MultiVersus | user_email=das@das | appid=1818750 | horas_jogadas=1
+[2026-08-26T23:23:44.266832] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Rubber Bandits | appid=1206610 | nome=Rubber Bandits
+[2026-08-26T23:23:44.271156] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Rubber Bandits | user_email=das@das | appid=1206610 | horas_jogadas=1
+[2026-08-26T23:23:44.275666] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Brawlhalla | appid=291550 | nome=Brawlhalla
+[2026-08-26T23:23:44.280151] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Brawlhalla | user_email=das@das | appid=291550 | horas_jogadas=0
+[2026-08-26T23:23:44.285140] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Deceit 2 | appid=2064870 | nome=Deceit 2
+[2026-08-26T23:23:44.289451] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Deceit 2 | user_email=das@das | appid=2064870 | horas_jogadas=0
+[2026-08-26T23:23:44.294710] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Left 4 Dead 2 | appid=550 | nome=Left 4 Dead 2
+[2026-08-26T23:23:44.299517] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Left 4 Dead 2 | user_email=das@das | appid=550 | horas_jogadas=0
+[2026-08-26T23:23:44.315811] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Devil May Cry HD Collection | appid=631510 | nome=Devil May Cry HD Collection
+[2026-08-26T23:23:44.569197] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Devil May Cry HD Collection | user_email=das@das | appid=631510 | horas_jogadas=0
+[2026-08-26T23:23:44.576897] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: DmC Devil May Cry | appid=220440 | nome=DmC Devil May Cry
+[2026-08-26T23:23:44.581399] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DmC Devil May Cry | user_email=das@das | appid=220440 | horas_jogadas=0
+[2026-08-26T23:23:44.585882] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life 2 | appid=220 | nome=Half-Life 2
+[2026-08-26T23:23:44.590122] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life 2 | user_email=das@das | appid=220 | horas_jogadas=0
+[2026-08-26T23:23:44.594581] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life 2: Deathmatch | appid=320 | nome=Half-Life 2: Deathmatch
+[2026-08-26T23:23:44.599235] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life 2: Deathmatch | user_email=das@das | appid=320 | horas_jogadas=0
+[2026-08-26T23:23:44.603601] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Half-Life Deathmatch: Source | appid=360 | nome=Half-Life Deathmatch: Source
+[2026-08-26T23:23:44.608522] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life Deathmatch: Source | user_email=das@das | appid=360 | horas_jogadas=0
+[2026-08-26T23:23:44.612681] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Mafia | appid=40990 | nome=Mafia
+[2026-08-26T23:23:44.617807] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Mafia | user_email=das@das | appid=40990 | horas_jogadas=0
+[2026-08-26T23:23:44.622053] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Deponia | appid=214340 | nome=Deponia
+[2026-08-26T23:23:44.627118] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Deponia | user_email=das@das | appid=214340 | horas_jogadas=0
+[2026-08-26T23:23:44.631643] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: RPG Maker XP | appid=235900 | nome=RPG Maker XP
+[2026-08-26T23:23:44.635971] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: RPG Maker XP | user_email=das@das | appid=235900 | horas_jogadas=0
+[2026-08-26T23:23:44.640183] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Dead Island Riptide Definitive Edition | appid=383180 | nome=Dead Island Riptide Definitive Edition
+[2026-08-26T23:23:44.644614] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Dead Island Riptide Definitive Edition | user_email=das@das | appid=383180 | horas_jogadas=0
+[2026-08-26T23:23:44.648834] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Warhammer 40,000: Gladius - Relics of War | appid=489630 | nome=Warhammer 40,000: Gladius - Relics of War
+[2026-08-26T23:23:44.653279] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Warhammer 40,000: Gladius - Relics of War | user_email=das@das | appid=489630 | horas_jogadas=0
+[2026-08-26T23:23:44.657885] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Distant Space | appid=569610 | nome=Distant Space
+[2026-08-26T23:23:44.662106] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Distant Space | user_email=das@das | appid=569610 | horas_jogadas=0
+[2026-08-26T23:23:44.666749] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Car Mechanic Simulator 2018 | appid=645630 | nome=Car Mechanic Simulator 2018
+[2026-08-26T23:23:44.671189] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Car Mechanic Simulator 2018 | user_email=das@das | appid=645630 | horas_jogadas=0
+[2026-08-26T23:23:44.675724] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Zomborg | appid=729720 | nome=Zomborg
+[2026-08-26T23:23:44.680641] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Zomborg | user_email=das@das | appid=729720 | horas_jogadas=0
+[2026-08-26T23:23:44.685549] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Bravery and Greed | appid=943370 | nome=Bravery and Greed
+[2026-08-26T23:23:44.689696] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Bravery and Greed | user_email=das@das | appid=943370 | horas_jogadas=0
+[2026-08-26T23:23:44.694094] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: RESIDENT EVIL RESISTANCE | appid=952070 | nome=RESIDENT EVIL RESISTANCE
+[2026-08-26T23:23:44.698229] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: RESIDENT EVIL RESISTANCE | user_email=das@das | appid=952070 | horas_jogadas=0
+[2026-08-26T23:23:44.702410] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Catch Me! | appid=1741160 | nome=Catch Me!
+[2026-08-26T23:23:44.706968] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Catch Me! | user_email=das@das | appid=1741160 | horas_jogadas=0
+[2026-08-26T23:23:44.711317] [INFO    ] [CREATE_CATALOGO     ] Jogo criado no catálogo: Bunny Guys! | appid=2218460 | nome=Bunny Guys!
+[2026-08-26T23:23:44.715819] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Bunny Guys! | user_email=das@das | appid=2218460 | horas_jogadas=0
+[2026-08-26T23:23:44.716207] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=das@das | steam_id64=76561199264361412 | quantidade=45 | appids=228980,1364780,1593500,1665460,1778820,1905180,2050650,447040,454650,952060,... (+35 mais)
+[2026-08-26T23:23:44.716479] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=das@das | steam_id64=76561199264361412 | jogos_encontrados=45 | jogos_importados=45 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-08-26T23:23:44.857573] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:25:30.417745] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:25:30.418000] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:25:30.431409] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=10
+[2026-08-26T23:25:30.431713] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=228980
+[2026-08-26T23:25:30.436467] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Steamworks Common Redistributables | user_email=a@a | appid=228980 | horas_jogadas=0
+[2026-08-26T23:25:30.436734] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T23:25:30.441385] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Street Fighter™ 6 | user_email=a@a | appid=1364780 | horas_jogadas=0
+[2026-08-26T23:25:30.441631] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T23:25:30.445774] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: God of War | user_email=a@a | appid=1593500 | horas_jogadas=0
+[2026-08-26T23:25:30.445983] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T23:25:30.450226] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: eFootball™ | user_email=a@a | appid=1665460 | horas_jogadas=0
+[2026-08-26T23:25:30.450483] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T23:25:30.455193] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: TEKKEN 8 | user_email=a@a | appid=1778820 | horas_jogadas=0
+[2026-08-26T23:25:30.455401] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T23:25:30.459722] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: OBS Studio | user_email=a@a | appid=1905180 | horas_jogadas=0
+[2026-08-26T23:25:30.459952] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T23:25:30.464270] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Resident Evil 4 | user_email=a@a | appid=2050650 | horas_jogadas=0
+[2026-08-26T23:25:30.464559] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T23:25:30.469402] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Watch_Dogs 2 | user_email=a@a | appid=447040 | horas_jogadas=0
+[2026-08-26T23:25:30.469674] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T23:25:30.473957] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DRAGON BALL XENOVERSE 2 | user_email=a@a | appid=454650 | horas_jogadas=0
+[2026-08-26T23:25:30.474180] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T23:25:30.478222] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Resident Evil 3 | user_email=a@a | appid=952060 | horas_jogadas=0
+[2026-08-26T23:25:30.478437] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=a@a | steam_id64=76561199264361412 | quantidade=10 | appids=228980,1364780,1593500,1665460,1778820,1905180,2050650,447040,454650,952060
+[2026-08-26T23:25:30.478617] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=10 | jogos_importados=10 | jogos_atualizados=0 | jogos_perdidos=0
+[2026-08-26T23:25:30.598603] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:25:30.598833] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:28:33.748486] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:28:33.748721] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:28:33.761176] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=10
+[2026-08-26T23:28:33.761385] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=228980
+[2026-08-26T23:28:33.763518] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Steamworks Common Redistributables | user_email=a@a | appid=228980 | horas_jogadas=0
+[2026-08-26T23:28:33.763738] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T23:28:33.765462] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=a@a | appid=1364780 | horas_jogadas=0
+[2026-08-26T23:28:33.765677] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T23:28:33.767337] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=a@a | appid=1593500 | horas_jogadas=0
+[2026-08-26T23:28:33.767567] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T23:28:33.772115] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=a@a | appid=1665460 | horas_jogadas=0
+[2026-08-26T23:28:33.772394] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T23:28:33.774125] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=a@a | appid=1778820 | horas_jogadas=0
+[2026-08-26T23:28:33.774320] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T23:28:33.778247] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=a@a | appid=1905180 | horas_jogadas=0
+[2026-08-26T23:28:33.778503] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T23:28:33.780419] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=a@a | appid=2050650 | horas_jogadas=0
+[2026-08-26T23:28:33.780633] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T23:28:33.782678] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=a@a | appid=447040 | horas_jogadas=0
+[2026-08-26T23:28:33.782877] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T23:28:33.784576] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=a@a | appid=454650 | horas_jogadas=0
+[2026-08-26T23:28:33.784766] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T23:28:33.786410] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=a@a | appid=952060 | horas_jogadas=0
+[2026-08-26T23:28:33.786602] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=a@a | steam_id64=76561199264361412 | quantidade=10 | appids=228980,1364780,1593500,1665460,1778820,1905180,2050650,447040,454650,952060
+[2026-08-26T23:28:33.786785] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=10 | jogos_importados=0 | jogos_atualizados=10 | jogos_perdidos=0
+[2026-08-26T23:28:33.926926] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:28:33.927126] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:31:36.832393] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:31:36.832628] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:31:37.985876] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:31:37.986082] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:31:39.310675] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:31:39.310899] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:31:41.001808] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:31:41.002043] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:32:00.158217] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=0
+[2026-08-26T23:32:00.158497] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: vazia | steam_id64=76561199264361412 | fonte=vazia | quantidade_jogos=0
+[2026-08-26T23:32:27.146471] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:32:27.571621] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=45
+[2026-08-26T23:32:27.571819] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=228980
+[2026-08-26T23:32:27.573582] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Steamworks Common Redistributables | user_email=a@a | appid=228980 | horas_jogadas=0
+[2026-08-26T23:32:27.573773] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T23:32:27.578142] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=a@a | appid=1364780 | horas_jogadas=14
+[2026-08-26T23:32:27.578369] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T23:32:27.582420] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=a@a | appid=1593500 | horas_jogadas=5
+[2026-08-26T23:32:27.582638] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T23:32:27.586779] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=a@a | appid=1665460 | horas_jogadas=13
+[2026-08-26T23:32:27.586981] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T23:32:27.588650] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=a@a | appid=1778820 | horas_jogadas=0
+[2026-08-26T23:32:27.588841] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T23:32:27.593058] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=a@a | appid=1905180 | horas_jogadas=0
+[2026-08-26T23:32:27.593257] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T23:32:27.597453] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=a@a | appid=2050650 | horas_jogadas=1
+[2026-08-26T23:32:27.597664] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T23:32:27.599450] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=a@a | appid=447040 | horas_jogadas=0
+[2026-08-26T23:32:27.599648] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T23:32:27.601286] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=a@a | appid=454650 | horas_jogadas=0
+[2026-08-26T23:32:27.601494] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T23:32:27.605757] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=a@a | appid=952060 | horas_jogadas=2
+[2026-08-26T23:32:27.605950] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=323470
+[2026-08-26T23:32:27.609924] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DRAGON BALL XENOVERSE | user_email=a@a | appid=323470 | horas_jogadas=16
+[2026-08-26T23:32:27.610122] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=200170
+[2026-08-26T23:32:27.614177] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Worms Revolution | user_email=a@a | appid=200170 | horas_jogadas=15
+[2026-08-26T23:32:27.614396] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2767030
+[2026-08-26T23:32:27.618966] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Marvel Rivals | user_email=a@a | appid=2767030 | horas_jogadas=9
+[2026-08-26T23:32:27.619191] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=705210
+[2026-08-26T23:32:27.623127] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Cube Racer | user_email=a@a | appid=705210 | horas_jogadas=7
+[2026-08-26T23:32:27.623319] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2385860
+[2026-08-26T23:32:27.628104] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: TEKKEN 8 Playtest | user_email=a@a | appid=2385860 | horas_jogadas=6
+[2026-08-26T23:32:27.628370] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=993090
+[2026-08-26T23:32:27.632947] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Lossless Scaling | user_email=a@a | appid=993090 | horas_jogadas=6
+[2026-08-26T23:32:27.633156] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1568590
+[2026-08-26T23:32:27.637289] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Goose Goose Duck | user_email=a@a | appid=1568590 | horas_jogadas=4
+[2026-08-26T23:32:27.637483] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=731490
+[2026-08-26T23:32:27.641552] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Crash Bandicoot™ N. Sane Trilogy | user_email=a@a | appid=731490 | horas_jogadas=4
+[2026-08-26T23:32:27.641801] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=829660
+[2026-08-26T23:32:27.646534] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: No Time to Relax | user_email=a@a | appid=829660 | horas_jogadas=4
+[2026-08-26T23:32:27.646788] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=976730
+[2026-08-26T23:32:27.651294] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Halo: The Master Chief Collection | user_email=a@a | appid=976730 | horas_jogadas=3
+[2026-08-26T23:32:27.651528] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=397900
+[2026-08-26T23:32:27.656039] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Business Tour - Online Multiplayer Board Game | user_email=a@a | appid=397900 | horas_jogadas=3
+[2026-08-26T23:32:27.656347] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=322330
+[2026-08-26T23:32:27.660488] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Don't Starve Together | user_email=a@a | appid=322330 | horas_jogadas=2
+[2026-08-26T23:32:27.660728] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=730
+[2026-08-26T23:32:27.665693] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Counter-Strike 2 | user_email=a@a | appid=730 | horas_jogadas=2
+[2026-08-26T23:32:27.665934] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1818750
+[2026-08-26T23:32:27.670196] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: MultiVersus | user_email=a@a | appid=1818750 | horas_jogadas=1
+[2026-08-26T23:32:27.670450] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1206610
+[2026-08-26T23:32:27.674995] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Rubber Bandits | user_email=a@a | appid=1206610 | horas_jogadas=1
+[2026-08-26T23:32:27.675244] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=291550
+[2026-08-26T23:32:27.680358] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Brawlhalla | user_email=a@a | appid=291550 | horas_jogadas=0
+[2026-08-26T23:32:27.680613] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2064870
+[2026-08-26T23:32:27.684887] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Deceit 2 | user_email=a@a | appid=2064870 | horas_jogadas=0
+[2026-08-26T23:32:27.685134] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=550
+[2026-08-26T23:32:27.689470] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Left 4 Dead 2 | user_email=a@a | appid=550 | horas_jogadas=0
+[2026-08-26T23:32:27.689735] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=631510
+[2026-08-26T23:32:27.694799] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Devil May Cry HD Collection | user_email=a@a | appid=631510 | horas_jogadas=0
+[2026-08-26T23:32:27.695114] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=220440
+[2026-08-26T23:32:27.699804] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: DmC Devil May Cry | user_email=a@a | appid=220440 | horas_jogadas=0
+[2026-08-26T23:32:27.700169] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=220
+[2026-08-26T23:32:27.705125] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life 2 | user_email=a@a | appid=220 | horas_jogadas=0
+[2026-08-26T23:32:27.705376] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=320
+[2026-08-26T23:32:27.709907] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life 2: Deathmatch | user_email=a@a | appid=320 | horas_jogadas=0
+[2026-08-26T23:32:27.710202] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=360
+[2026-08-26T23:32:27.714786] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Half-Life Deathmatch: Source | user_email=a@a | appid=360 | horas_jogadas=0
+[2026-08-26T23:32:27.715065] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=40990
+[2026-08-26T23:32:27.719969] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Mafia | user_email=a@a | appid=40990 | horas_jogadas=0
+[2026-08-26T23:32:27.720302] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=214340
+[2026-08-26T23:32:27.724665] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Deponia | user_email=a@a | appid=214340 | horas_jogadas=0
+[2026-08-26T23:32:27.724939] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=235900
+[2026-08-26T23:32:27.729374] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: RPG Maker XP | user_email=a@a | appid=235900 | horas_jogadas=0
+[2026-08-26T23:32:27.729630] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=383180
+[2026-08-26T23:32:27.734320] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Dead Island Riptide Definitive Edition | user_email=a@a | appid=383180 | horas_jogadas=0
+[2026-08-26T23:32:27.734551] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=489630
+[2026-08-26T23:32:27.738965] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Warhammer 40,000: Gladius - Relics of War | user_email=a@a | appid=489630 | horas_jogadas=0
+[2026-08-26T23:32:27.739285] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=569610
+[2026-08-26T23:32:27.743582] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Distant Space | user_email=a@a | appid=569610 | horas_jogadas=0
+[2026-08-26T23:32:27.743897] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=645630
+[2026-08-26T23:32:27.748762] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Car Mechanic Simulator 2018 | user_email=a@a | appid=645630 | horas_jogadas=0
+[2026-08-26T23:32:27.749076] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=729720
+[2026-08-26T23:32:27.753782] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Zomborg | user_email=a@a | appid=729720 | horas_jogadas=0
+[2026-08-26T23:32:27.754025] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=943370
+[2026-08-26T23:32:27.758375] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Bravery and Greed | user_email=a@a | appid=943370 | horas_jogadas=0
+[2026-08-26T23:32:27.758681] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952070
+[2026-08-26T23:32:27.763232] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: RESIDENT EVIL RESISTANCE | user_email=a@a | appid=952070 | horas_jogadas=0
+[2026-08-26T23:32:27.763489] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1741160
+[2026-08-26T23:32:27.768277] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Catch Me! | user_email=a@a | appid=1741160 | horas_jogadas=0
+[2026-08-26T23:32:27.768518] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2218460
+[2026-08-26T23:32:27.773442] [INFO    ] [ADD_BIBLIOTECA      ] Jogo adicionado à biblioteca: Bunny Guys! | user_email=a@a | appid=2218460 | horas_jogadas=0
+[2026-08-26T23:32:27.773704] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=a@a | steam_id64=76561199264361412 | quantidade=45 | appids=228980,1364780,1593500,1665460,1778820,1905180,2050650,447040,454650,952060,... (+35 mais)
+[2026-08-26T23:32:27.773940] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=45 | jogos_importados=35 | jogos_atualizados=10 | jogos_perdidos=0
+[2026-08-26T23:32:27.877356] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:32:31.860201] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:32:32.969231] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:32:33.083507] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:32:33.106332] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=45
+[2026-08-26T23:32:33.106538] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=228980
+[2026-08-26T23:32:33.108309] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Steamworks Common Redistributables | user_email=a@a | appid=228980 | horas_jogadas=0
+[2026-08-26T23:32:33.108503] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T23:32:33.110110] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=a@a | appid=1364780 | horas_jogadas=14
+[2026-08-26T23:32:33.110297] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T23:32:33.112565] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=a@a | appid=1593500 | horas_jogadas=5
+[2026-08-26T23:32:33.112789] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T23:32:33.114382] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=a@a | appid=1665460 | horas_jogadas=13
+[2026-08-26T23:32:33.114564] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T23:32:33.116090] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=a@a | appid=1778820 | horas_jogadas=0
+[2026-08-26T23:32:33.116269] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T23:32:33.117786] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=a@a | appid=1905180 | horas_jogadas=0
+[2026-08-26T23:32:33.117963] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T23:32:33.119466] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=a@a | appid=2050650 | horas_jogadas=1
+[2026-08-26T23:32:33.119645] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T23:32:33.121177] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=a@a | appid=447040 | horas_jogadas=0
+[2026-08-26T23:32:33.121358] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T23:32:33.122887] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=a@a | appid=454650 | horas_jogadas=0
+[2026-08-26T23:32:33.123066] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T23:32:33.124570] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=a@a | appid=952060 | horas_jogadas=2
+[2026-08-26T23:32:33.124749] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=323470
+[2026-08-26T23:32:33.126250] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE | user_email=a@a | appid=323470 | horas_jogadas=16
+[2026-08-26T23:32:33.126431] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=200170
+[2026-08-26T23:32:33.128085] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Worms Revolution | user_email=a@a | appid=200170 | horas_jogadas=15
+[2026-08-26T23:32:33.128315] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2767030
+[2026-08-26T23:32:33.129959] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Marvel Rivals | user_email=a@a | appid=2767030 | horas_jogadas=9
+[2026-08-26T23:32:33.130174] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=705210
+[2026-08-26T23:32:33.131708] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Cube Racer | user_email=a@a | appid=705210 | horas_jogadas=7
+[2026-08-26T23:32:33.131888] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2385860
+[2026-08-26T23:32:33.133400] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 Playtest | user_email=a@a | appid=2385860 | horas_jogadas=6
+[2026-08-26T23:32:33.133616] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=993090
+[2026-08-26T23:32:33.135152] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Lossless Scaling | user_email=a@a | appid=993090 | horas_jogadas=6
+[2026-08-26T23:32:33.135332] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1568590
+[2026-08-26T23:32:33.136847] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Goose Goose Duck | user_email=a@a | appid=1568590 | horas_jogadas=4
+[2026-08-26T23:32:33.137027] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=731490
+[2026-08-26T23:32:33.138541] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Crash Bandicoot™ N. Sane Trilogy | user_email=a@a | appid=731490 | horas_jogadas=4
+[2026-08-26T23:32:33.138722] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=829660
+[2026-08-26T23:32:33.140250] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: No Time to Relax | user_email=a@a | appid=829660 | horas_jogadas=4
+[2026-08-26T23:32:33.140428] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=976730
+[2026-08-26T23:32:33.141956] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Halo: The Master Chief Collection | user_email=a@a | appid=976730 | horas_jogadas=3
+[2026-08-26T23:32:33.142133] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=397900
+[2026-08-26T23:32:33.143633] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Business Tour - Online Multiplayer Board Game | user_email=a@a | appid=397900 | horas_jogadas=3
+[2026-08-26T23:32:33.143820] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=322330
+[2026-08-26T23:32:33.145684] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Don't Starve Together | user_email=a@a | appid=322330 | horas_jogadas=2
+[2026-08-26T23:32:33.145913] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=730
+[2026-08-26T23:32:33.147542] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Counter-Strike 2 | user_email=a@a | appid=730 | horas_jogadas=2
+[2026-08-26T23:32:33.147724] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1818750
+[2026-08-26T23:32:33.149253] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: MultiVersus | user_email=a@a | appid=1818750 | horas_jogadas=1
+[2026-08-26T23:32:33.149487] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1206610
+[2026-08-26T23:32:33.151001] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Rubber Bandits | user_email=a@a | appid=1206610 | horas_jogadas=1
+[2026-08-26T23:32:33.151181] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=291550
+[2026-08-26T23:32:33.152714] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Brawlhalla | user_email=a@a | appid=291550 | horas_jogadas=0
+[2026-08-26T23:32:33.152899] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2064870
+[2026-08-26T23:32:33.154454] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Deceit 2 | user_email=a@a | appid=2064870 | horas_jogadas=0
+[2026-08-26T23:32:33.154642] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=550
+[2026-08-26T23:32:33.156191] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Left 4 Dead 2 | user_email=a@a | appid=550 | horas_jogadas=0
+[2026-08-26T23:32:33.156401] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=631510
+[2026-08-26T23:32:33.157921] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Devil May Cry HD Collection | user_email=a@a | appid=631510 | horas_jogadas=0
+[2026-08-26T23:32:33.158100] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=220440
+[2026-08-26T23:32:33.159636] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DmC Devil May Cry | user_email=a@a | appid=220440 | horas_jogadas=0
+[2026-08-26T23:32:33.159822] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=220
+[2026-08-26T23:32:33.161461] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life 2 | user_email=a@a | appid=220 | horas_jogadas=0
+[2026-08-26T23:32:33.161698] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=320
+[2026-08-26T23:32:33.163326] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life 2: Deathmatch | user_email=a@a | appid=320 | horas_jogadas=0
+[2026-08-26T23:32:33.163517] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=360
+[2026-08-26T23:32:33.165073] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life Deathmatch: Source | user_email=a@a | appid=360 | horas_jogadas=0
+[2026-08-26T23:32:33.165254] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=40990
+[2026-08-26T23:32:33.166798] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Mafia | user_email=a@a | appid=40990 | horas_jogadas=0
+[2026-08-26T23:32:33.166979] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=214340
+[2026-08-26T23:32:33.168544] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Deponia | user_email=a@a | appid=214340 | horas_jogadas=0
+[2026-08-26T23:32:33.168726] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=235900
+[2026-08-26T23:32:33.170266] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: RPG Maker XP | user_email=a@a | appid=235900 | horas_jogadas=0
+[2026-08-26T23:32:33.170450] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=383180
+[2026-08-26T23:32:33.171982] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Dead Island Riptide Definitive Edition | user_email=a@a | appid=383180 | horas_jogadas=0
+[2026-08-26T23:32:33.172154] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=489630
+[2026-08-26T23:32:33.173676] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Warhammer 40,000: Gladius - Relics of War | user_email=a@a | appid=489630 | horas_jogadas=0
+[2026-08-26T23:32:33.173873] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=569610
+[2026-08-26T23:32:33.175396] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Distant Space | user_email=a@a | appid=569610 | horas_jogadas=0
+[2026-08-26T23:32:33.175612] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=645630
+[2026-08-26T23:32:33.177138] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Car Mechanic Simulator 2018 | user_email=a@a | appid=645630 | horas_jogadas=0
+[2026-08-26T23:32:33.177319] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=729720
+[2026-08-26T23:32:33.178873] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Zomborg | user_email=a@a | appid=729720 | horas_jogadas=0
+[2026-08-26T23:32:33.179082] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=943370
+[2026-08-26T23:32:33.180659] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Bravery and Greed | user_email=a@a | appid=943370 | horas_jogadas=0
+[2026-08-26T23:32:33.180840] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952070
+[2026-08-26T23:32:33.182358] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: RESIDENT EVIL RESISTANCE | user_email=a@a | appid=952070 | horas_jogadas=0
+[2026-08-26T23:32:33.182565] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1741160
+[2026-08-26T23:32:33.184094] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Catch Me! | user_email=a@a | appid=1741160 | horas_jogadas=0
+[2026-08-26T23:32:33.184275] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2218460
+[2026-08-26T23:32:33.185830] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Bunny Guys! | user_email=a@a | appid=2218460 | horas_jogadas=0
+[2026-08-26T23:32:33.186028] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=a@a | steam_id64=76561199264361412 | quantidade=45 | appids=228980,1364780,1593500,1665460,1778820,1905180,2050650,447040,454650,952060,... (+35 mais)
+[2026-08-26T23:32:33.186193] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=45 | jogos_importados=0 | jogos_atualizados=45 | jogos_perdidos=0
+[2026-08-26T23:32:33.226051] [INFO    ] [IMPORT_START        ] Iniciando importação para banco de dados | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=45
+[2026-08-26T23:32:33.226246] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=228980
+[2026-08-26T23:32:33.228126] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Steamworks Common Redistributables | user_email=a@a | appid=228980 | horas_jogadas=0
+[2026-08-26T23:32:33.228327] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1364780
+[2026-08-26T23:32:33.229930] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Street Fighter™ 6 | user_email=a@a | appid=1364780 | horas_jogadas=14
+[2026-08-26T23:32:33.230114] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1593500
+[2026-08-26T23:32:33.231646] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: God of War | user_email=a@a | appid=1593500 | horas_jogadas=5
+[2026-08-26T23:32:33.231827] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1665460
+[2026-08-26T23:32:33.233381] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: eFootball™ | user_email=a@a | appid=1665460 | horas_jogadas=13
+[2026-08-26T23:32:33.233565] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1778820
+[2026-08-26T23:32:33.235085] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 | user_email=a@a | appid=1778820 | horas_jogadas=0
+[2026-08-26T23:32:33.235265] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1905180
+[2026-08-26T23:32:33.236776] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: OBS Studio | user_email=a@a | appid=1905180 | horas_jogadas=0
+[2026-08-26T23:32:33.236954] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2050650
+[2026-08-26T23:32:33.238464] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 4 | user_email=a@a | appid=2050650 | horas_jogadas=1
+[2026-08-26T23:32:33.238645] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=447040
+[2026-08-26T23:32:33.240202] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Watch_Dogs 2 | user_email=a@a | appid=447040 | horas_jogadas=0
+[2026-08-26T23:32:33.240393] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=454650
+[2026-08-26T23:32:33.241945] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE 2 | user_email=a@a | appid=454650 | horas_jogadas=0
+[2026-08-26T23:32:33.242125] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952060
+[2026-08-26T23:32:33.243634] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Resident Evil 3 | user_email=a@a | appid=952060 | horas_jogadas=2
+[2026-08-26T23:32:33.243813] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=323470
+[2026-08-26T23:32:33.245427] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DRAGON BALL XENOVERSE | user_email=a@a | appid=323470 | horas_jogadas=16
+[2026-08-26T23:32:33.245616] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=200170
+[2026-08-26T23:32:33.247190] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Worms Revolution | user_email=a@a | appid=200170 | horas_jogadas=15
+[2026-08-26T23:32:33.247373] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2767030
+[2026-08-26T23:32:33.248896] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Marvel Rivals | user_email=a@a | appid=2767030 | horas_jogadas=9
+[2026-08-26T23:32:33.249075] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=705210
+[2026-08-26T23:32:33.250581] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Cube Racer | user_email=a@a | appid=705210 | horas_jogadas=7
+[2026-08-26T23:32:33.250761] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2385860
+[2026-08-26T23:32:33.252261] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: TEKKEN 8 Playtest | user_email=a@a | appid=2385860 | horas_jogadas=6
+[2026-08-26T23:32:33.252458] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=993090
+[2026-08-26T23:32:33.253961] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Lossless Scaling | user_email=a@a | appid=993090 | horas_jogadas=6
+[2026-08-26T23:32:33.254137] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1568590
+[2026-08-26T23:32:33.255646] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Goose Goose Duck | user_email=a@a | appid=1568590 | horas_jogadas=4
+[2026-08-26T23:32:33.255826] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=731490
+[2026-08-26T23:32:33.257331] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Crash Bandicoot™ N. Sane Trilogy | user_email=a@a | appid=731490 | horas_jogadas=4
+[2026-08-26T23:32:33.257516] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=829660
+[2026-08-26T23:32:33.259044] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: No Time to Relax | user_email=a@a | appid=829660 | horas_jogadas=4
+[2026-08-26T23:32:33.259222] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=976730
+[2026-08-26T23:32:33.260721] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Halo: The Master Chief Collection | user_email=a@a | appid=976730 | horas_jogadas=3
+[2026-08-26T23:32:33.260902] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=397900
+[2026-08-26T23:32:33.262457] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Business Tour - Online Multiplayer Board Game | user_email=a@a | appid=397900 | horas_jogadas=3
+[2026-08-26T23:32:33.262639] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=322330
+[2026-08-26T23:32:33.264160] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Don't Starve Together | user_email=a@a | appid=322330 | horas_jogadas=2
+[2026-08-26T23:32:33.264352] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=730
+[2026-08-26T23:32:33.265889] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Counter-Strike 2 | user_email=a@a | appid=730 | horas_jogadas=2
+[2026-08-26T23:32:33.266100] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1818750
+[2026-08-26T23:32:33.267607] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: MultiVersus | user_email=a@a | appid=1818750 | horas_jogadas=1
+[2026-08-26T23:32:33.267786] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1206610
+[2026-08-26T23:32:33.269288] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Rubber Bandits | user_email=a@a | appid=1206610 | horas_jogadas=1
+[2026-08-26T23:32:33.269471] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=291550
+[2026-08-26T23:32:33.270994] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Brawlhalla | user_email=a@a | appid=291550 | horas_jogadas=0
+[2026-08-26T23:32:33.271176] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2064870
+[2026-08-26T23:32:33.272710] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Deceit 2 | user_email=a@a | appid=2064870 | horas_jogadas=0
+[2026-08-26T23:32:33.272889] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=550
+[2026-08-26T23:32:33.274386] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Left 4 Dead 2 | user_email=a@a | appid=550 | horas_jogadas=0
+[2026-08-26T23:32:33.274565] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=631510
+[2026-08-26T23:32:33.276078] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Devil May Cry HD Collection | user_email=a@a | appid=631510 | horas_jogadas=0
+[2026-08-26T23:32:33.276263] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=220440
+[2026-08-26T23:32:33.277844] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: DmC Devil May Cry | user_email=a@a | appid=220440 | horas_jogadas=0
+[2026-08-26T23:32:33.278064] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=220
+[2026-08-26T23:32:33.279625] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life 2 | user_email=a@a | appid=220 | horas_jogadas=0
+[2026-08-26T23:32:33.279807] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=320
+[2026-08-26T23:32:33.281319] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life 2: Deathmatch | user_email=a@a | appid=320 | horas_jogadas=0
+[2026-08-26T23:32:33.281500] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=360
+[2026-08-26T23:32:33.283003] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Half-Life Deathmatch: Source | user_email=a@a | appid=360 | horas_jogadas=0
+[2026-08-26T23:32:33.283181] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=40990
+[2026-08-26T23:32:33.284686] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Mafia | user_email=a@a | appid=40990 | horas_jogadas=0
+[2026-08-26T23:32:33.284863] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=214340
+[2026-08-26T23:32:33.286376] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Deponia | user_email=a@a | appid=214340 | horas_jogadas=0
+[2026-08-26T23:32:33.286555] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=235900
+[2026-08-26T23:32:33.288055] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: RPG Maker XP | user_email=a@a | appid=235900 | horas_jogadas=0
+[2026-08-26T23:32:33.288237] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=383180
+[2026-08-26T23:32:33.289747] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Dead Island Riptide Definitive Edition | user_email=a@a | appid=383180 | horas_jogadas=0
+[2026-08-26T23:32:33.289926] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=489630
+[2026-08-26T23:32:33.291468] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Warhammer 40,000: Gladius - Relics of War | user_email=a@a | appid=489630 | horas_jogadas=0
+[2026-08-26T23:32:33.291665] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=569610
+[2026-08-26T23:32:33.293167] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Distant Space | user_email=a@a | appid=569610 | horas_jogadas=0
+[2026-08-26T23:32:33.293344] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=645630
+[2026-08-26T23:32:33.294934] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Car Mechanic Simulator 2018 | user_email=a@a | appid=645630 | horas_jogadas=0
+[2026-08-26T23:32:33.295126] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=729720
+[2026-08-26T23:32:33.296705] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Zomborg | user_email=a@a | appid=729720 | horas_jogadas=0
+[2026-08-26T23:32:33.296885] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=943370
+[2026-08-26T23:32:33.298416] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Bravery and Greed | user_email=a@a | appid=943370 | horas_jogadas=0
+[2026-08-26T23:32:33.298595] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=952070
+[2026-08-26T23:32:33.300100] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: RESIDENT EVIL RESISTANCE | user_email=a@a | appid=952070 | horas_jogadas=0
+[2026-08-26T23:32:33.300278] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=1741160
+[2026-08-26T23:32:33.301784] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Catch Me! | user_email=a@a | appid=1741160 | horas_jogadas=0
+[2026-08-26T23:32:33.301958] [INFO    ] [CATALOGO_EXISTS     ] Jogo já existia no catálogo | appid=2218460
+[2026-08-26T23:32:33.303465] [INFO    ] [UPDATE_BIBLIOTECA   ] Jogo atualizado na biblioteca: Bunny Guys! | user_email=a@a | appid=2218460 | horas_jogadas=0
+[2026-08-26T23:32:33.303658] [INFO    ] [VALIDATE_DB         ] Validação do banco de dados | user_email=a@a | steam_id64=76561199264361412 | quantidade=45 | appids=228980,1364780,1593500,1665460,1778820,1905180,2050650,447040,454650,952060,... (+35 mais)
+[2026-08-26T23:32:33.303821] [INFO    ] [IMPORT_FINAL        ] Importação finalizada | user_email=a@a | steam_id64=76561199264361412 | jogos_encontrados=45 | jogos_importados=0 | jogos_atualizados=45 | jogos_perdidos=0
+[2026-08-26T23:32:35.426421] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:32:39.800620] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-26T23:32:45.382688] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-27T11:06:33.246886] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-27T11:06:36.577666] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-27T11:06:41.613608] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-27T11:06:43.140897] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42
+[2026-08-27T11:06:49.091809] [INFO    ] [GET_BIBLIOTECA      ] Biblioteca obtida da fonte: api_official | steam_id64=76561199264361412 | fonte=api_official | quantidade_jogos=42

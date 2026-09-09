@@ -1,0 +1,366 @@
+{
+  "timestamp": 1787795269.7938643,
+  "data": {
+    "1206610": {
+      "success": true,
+      "data": {
+        "type": "game",
+        "name": "Bandidos de Borracha: Rubber Bandits",
+        "steam_appid": 1206610,
+        "required_age": "10",
+        "is_free": false,
+        "dlc": [
+          1827590,
+          1669300,
+          1744160,
+          2200730
+        ],
+        "detailed_description": "<h1>Oferta especial</h1><p></p><br><h1>Sobre o jogo</h1><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/169b4816de090e789102e3bb15fd3595.poster.avif?t=1772704226\" width=600 height=250 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/169b4816de090e789102e3bb15fd3595.webm?t=1772704226\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/169b4816de090e789102e3bb15fd3595.mp4?t=1772704226\" type=\"video/mp4\"></video></span><br><br>Rubber Bandits lança de 1 a 4 jogadores em uma pancadaria desenfreada para roubar, quebrar e acumular o máximo de dinheiro que você puder! Prepare-se para combates hilários com cálculos reais de física e armas extravagantes, além de um enorme elenco de criminosos para escolher. Esquive de armadilhas mortais, dê uma surra nos bandidos rivais e fuja dos tiras para cometer o assalto perfeito - mas não esqueça o saco de dinheiro!<br><br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/a1df6b137732722fd4a430edc31d3e07.poster.avif?t=1772704226\" width=600 height=250 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/a1df6b137732722fd4a430edc31d3e07.webm?t=1772704226\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/a1df6b137732722fd4a430edc31d3e07.mp4?t=1772704226\" type=\"video/mp4\"></video></span><br><br><strong>Criminosos competitivos</strong>: Jogue com amigos ou contra outros Bandidos do borracha para sair vitorioso! Junte-se a seus parceiros do crime nos modos on-line ou cooperativo local para criar o time criminoso dos sonhos. Batalhe entre plataformas diferentes com crossplay!<br><br><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/d8403fffaeb3bd06d782484a817ff1b3.avif?t=1772704226\" width=600 height=250 /></span><br><br><strong>Fases para Foras da lei</strong>: Desafie as leis da física e liberte seus bandidos do borracha de fases altamente destrutíveis em temas clássicos como o Banco, o Museu, as Docas e muito mais!<br><br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/94f08a09f69fc76499f9a5e771aa3c23.poster.avif?t=1772704226\" width=600 height=250 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/94f08a09f69fc76499f9a5e771aa3c23.webm?t=1772704226\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/94f08a09f69fc76499f9a5e771aa3c23.mp4?t=1772704226\" type=\"video/mp4\"></video></span><br><br><strong>Travessuras caóticas</strong>: Faça valer seu status de Maioral da Bandidagem em vários modos cômicos, incluindo Perseguição Porcina, Caça ao lanchinho, Vale Tudo, Assalto, Carnificina, Bombado e Arcade! Você consegue vencer em todos eles e virar o maior bandido de todos os tempos?<br><br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/47f63dac2de4831be47af086d4fee5cc.poster.avif?t=1772704226\" width=600 height=250 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/47f63dac2de4831be47af086d4fee5cc.webm?t=1772704226\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/47f63dac2de4831be47af086d4fee5cc.mp4?t=1772704226\" type=\"video/mp4\"></video></span><br><br><strong>Moda do crime</strong>: Customize seus estilos criminosos em um dos vários disfarces clássicos de bandidos: de cowboy fora da lei e gatuno a macacão de borracha e roupa de banana. <br><br><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/17c7ace53484ff63747d4c7aaf36bde4.avif?t=1772704226\" width=600 height=250 /></span><br><br><strong>Armas maldosas</strong>: Use tudo ao seu dispor para vencer seus oponentes e ficar com a mercadoria! Escolha dentre 20 armas diferentes, de baguetes e sopradores de folhas a lança-foguetes! Use cada arma a seu dispor para esmagar, fulminar ou transformar seus inimigos em cubos de gelo gigantes!",
+        "about_the_game": "<span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/169b4816de090e789102e3bb15fd3595.poster.avif?t=1772704226\" width=600 height=250 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/169b4816de090e789102e3bb15fd3595.webm?t=1772704226\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/169b4816de090e789102e3bb15fd3595.mp4?t=1772704226\" type=\"video/mp4\"></video></span><br><br>Rubber Bandits lança de 1 a 4 jogadores em uma pancadaria desenfreada para roubar, quebrar e acumular o máximo de dinheiro que você puder! Prepare-se para combates hilários com cálculos reais de física e armas extravagantes, além de um enorme elenco de criminosos para escolher. Esquive de armadilhas mortais, dê uma surra nos bandidos rivais e fuja dos tiras para cometer o assalto perfeito - mas não esqueça o saco de dinheiro!<br><br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/a1df6b137732722fd4a430edc31d3e07.poster.avif?t=1772704226\" width=600 height=250 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/a1df6b137732722fd4a430edc31d3e07.webm?t=1772704226\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/a1df6b137732722fd4a430edc31d3e07.mp4?t=1772704226\" type=\"video/mp4\"></video></span><br><br><strong>Criminosos competitivos</strong>: Jogue com amigos ou contra outros Bandidos do borracha para sair vitorioso! Junte-se a seus parceiros do crime nos modos on-line ou cooperativo local para criar o time criminoso dos sonhos. Batalhe entre plataformas diferentes com crossplay!<br><br><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/d8403fffaeb3bd06d782484a817ff1b3.avif?t=1772704226\" width=600 height=250 /></span><br><br><strong>Fases para Foras da lei</strong>: Desafie as leis da física e liberte seus bandidos do borracha de fases altamente destrutíveis em temas clássicos como o Banco, o Museu, as Docas e muito mais!<br><br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/94f08a09f69fc76499f9a5e771aa3c23.poster.avif?t=1772704226\" width=600 height=250 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/94f08a09f69fc76499f9a5e771aa3c23.webm?t=1772704226\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/94f08a09f69fc76499f9a5e771aa3c23.mp4?t=1772704226\" type=\"video/mp4\"></video></span><br><br><strong>Travessuras caóticas</strong>: Faça valer seu status de Maioral da Bandidagem em vários modos cômicos, incluindo Perseguição Porcina, Caça ao lanchinho, Vale Tudo, Assalto, Carnificina, Bombado e Arcade! Você consegue vencer em todos eles e virar o maior bandido de todos os tempos?<br><br><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/47f63dac2de4831be47af086d4fee5cc.poster.avif?t=1772704226\" width=600 height=250 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/47f63dac2de4831be47af086d4fee5cc.webm?t=1772704226\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/47f63dac2de4831be47af086d4fee5cc.mp4?t=1772704226\" type=\"video/mp4\"></video></span><br><br><strong>Moda do crime</strong>: Customize seus estilos criminosos em um dos vários disfarces clássicos de bandidos: de cowboy fora da lei e gatuno a macacão de borracha e roupa de banana. <br><br><span class=\"bb_img_ctn\"><img class=\"bb_img\" src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/extras/17c7ace53484ff63747d4c7aaf36bde4.avif?t=1772704226\" width=600 height=250 /></span><br><br><strong>Armas maldosas</strong>: Use tudo ao seu dispor para vencer seus oponentes e ficar com a mercadoria! Escolha dentre 20 armas diferentes, de baguetes e sopradores de folhas a lança-foguetes! Use cada arma a seu dispor para esmagar, fulminar ou transformar seus inimigos em cubos de gelo gigantes!",
+        "short_description": "Rubber Bandits é um jogo multiplayer criminosamente divertido para até 4 jogadores. Com 8 modos recheados de ação, os participantes irão roubar, brigar e correr até a linha de chegada com o maior saco de dinheiro para vencer!",
+        "supported_languages": "Inglês, Francês, Italiano, Alemão, Espanhol (Espanha), Chinês simplificado, Chinês tradicional, Coreano, Polonês, Português (Brasil), Russo, Árabe, Português (Portugal), Japonês, Turco",
+        "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/header.jpg?t=1772704226",
+        "capsule_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/capsule_231x87.jpg?t=1772704226",
+        "capsule_imagev5": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/capsule_184x69.jpg?t=1772704226",
+        "website": "https://www.rubberbandits.game/",
+        "pc_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO *:</strong> Windows 7 64 Bit<br></li><li><strong>Processador:</strong> i3 or equivalent<br></li><li><strong>Memória:</strong> 4 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> Integrated Graphics Card will do<br></li><li><strong>Armazenamento:</strong> 1 GB de espaço disponível<br></li><li><strong>Outras observações:</strong> Broadband internet connection is required for online play. Duh.</li></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"><li>Requer um processador e sistema operacional de 64 bits<br></li><li><strong>SO:</strong> Windows 10<br></li><li><strong>Processador:</strong> i5 or equivalent<br></li><li><strong>Memória:</strong> 8 GB de RAM<br></li><li><strong>Placa de vídeo:</strong> Dedicated Graphics Card<br></li><li><strong>Rede:</strong> Conexão de internet banda larga<br></li><li><strong>Armazenamento:</strong> 2 GB de espaço disponível</li></ul>"
+        },
+        "mac_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "linux_requirements": {
+          "minimum": "<strong>Mínimos:</strong><br><ul class=\"bb_ul\"></ul>",
+          "recommended": "<strong>Recomendados:</strong><br><ul class=\"bb_ul\"></ul>"
+        },
+        "developers": [
+          "Flashbulb"
+        ],
+        "publishers": [
+          "Flashbulb"
+        ],
+        "price_overview": {
+          "currency": "BRL",
+          "initial": 2499,
+          "final": 2499,
+          "discount_percent": 0,
+          "initial_formatted": "",
+          "final_formatted": "R$ 24,99"
+        },
+        "packages": [
+          416795
+        ],
+        "package_groups": [
+          {
+            "name": "default",
+            "title": "Comprar Bandidos de Borracha: Rubber Bandits",
+            "description": "",
+            "selection_text": "Selecione uma opção de compra",
+            "save_text": "",
+            "display_type": 0,
+            "is_recurring_subscription": "false",
+            "subs": [
+              {
+                "packageid": 416795,
+                "percent_savings_text": " ",
+                "percent_savings": 0,
+                "option_text": "Rubber Bandits - R$ 24,99",
+                "option_description": "",
+                "can_get_free_license": "0",
+                "is_free_license": false,
+                "price_in_cents_with_discount": 2499
+              }
+            ]
+          }
+        ],
+        "platforms": {
+          "windows": true,
+          "mac": false,
+          "linux": false
+        },
+        "categories": [
+          {
+            "id": 1,
+            "description": "Multijogador"
+          },
+          {
+            "id": 49,
+            "description": "JxJ"
+          },
+          {
+            "id": 36,
+            "description": "JxJ on-line"
+          },
+          {
+            "id": 37,
+            "description": "JxJ tela dividida/compart."
+          },
+          {
+            "id": 9,
+            "description": "Cooperativo"
+          },
+          {
+            "id": 38,
+            "description": "Cooperativo on-line"
+          },
+          {
+            "id": 39,
+            "description": "Coop. tela dividida/compart."
+          },
+          {
+            "id": 24,
+            "description": "Tela dividida/compartilhada"
+          },
+          {
+            "id": 22,
+            "description": "Conquistas Steam"
+          },
+          {
+            "id": 18,
+            "description": "Compat. parcial com controle"
+          },
+          {
+            "id": 23,
+            "description": "Nuvem Steam"
+          },
+          {
+            "id": 44,
+            "description": "Remote Play Together"
+          },
+          {
+            "id": 62,
+            "description": "Compartilhamento em família"
+          }
+        ],
+        "genres": [
+          {
+            "id": "1",
+            "description": "Ação"
+          },
+          {
+            "id": "4",
+            "description": "Casual"
+          },
+          {
+            "id": "23",
+            "description": "Indie"
+          }
+        ],
+        "screenshots": [
+          {
+            "id": 0,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_d34ca50ac1e7a7c0b350a5616e962fb160aa29ac.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_d34ca50ac1e7a7c0b350a5616e962fb160aa29ac.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 1,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_7e4fdf8b8235e03ab2bd57a0436217f639ed5375.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_7e4fdf8b8235e03ab2bd57a0436217f639ed5375.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 2,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_7670136a217f5ea7b4a41e4c5c3006efd9d3e873.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_7670136a217f5ea7b4a41e4c5c3006efd9d3e873.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 3,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_767caefb7bc944ed4d1b71fd5e44bc4b48077573.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_767caefb7bc944ed4d1b71fd5e44bc4b48077573.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 4,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_c99497f07b7c921d186bec3e892d2e2703d7b3b0.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_c99497f07b7c921d186bec3e892d2e2703d7b3b0.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 5,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_8f7b88e72286d9ef8153e25d981eaaec5c93b3ac.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_8f7b88e72286d9ef8153e25d981eaaec5c93b3ac.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 6,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_bb9c03e522c7de944d817f20d330795bcddbf083.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_bb9c03e522c7de944d817f20d330795bcddbf083.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 7,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_a24933dbec2bbab34474c96f651c70a4375a2528.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_a24933dbec2bbab34474c96f651c70a4375a2528.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 8,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_6765858942494b906913d2cfb17aacd4ea2a4616.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_6765858942494b906913d2cfb17aacd4ea2a4616.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 9,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_7f0c523afa3c71bef9133ab7a13dab8b8cc31d54.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_7f0c523afa3c71bef9133ab7a13dab8b8cc31d54.1920x1080.jpg?t=1772704226"
+          },
+          {
+            "id": 10,
+            "path_thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_23ff410a8759490468811d2da8b54367afd67822.600x338.jpg?t=1772704226",
+            "path_full": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/ss_23ff410a8759490468811d2da8b54367afd67822.1920x1080.jpg?t=1772704226"
+          }
+        ],
+        "movies": [
+          {
+            "id": 256892897,
+            "name": "What is Rubber Bandits?",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256892897/movie.293x165.jpg?t=1655826261",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1206610/473735/24e0c775fbd048555449b876f90f035d10ca173c/1750642411/dash_av1.mpd?t=1655826261",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1206610/473735/24e0c775fbd048555449b876f90f035d10ca173c/1750642411/dash_h264.mpd?t=1655826261",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1206610/473735/24e0c775fbd048555449b876f90f035d10ca173c/1750642411/hls_264_master.m3u8?t=1655826261",
+            "highlight": true
+          },
+          {
+            "id": 256855799,
+            "name": "Rubber Bandits Release Date Trailer",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256855799/movie.293x165.jpg?t=1634223678",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1206610/408951/dca4e4d58f611ab3de1eb8b55e35fbd75c0cab8e/1750642402/dash_av1.mpd?t=1634223678",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1206610/408951/dca4e4d58f611ab3de1eb8b55e35fbd75c0cab8e/1750642402/dash_h264.mpd?t=1634223678",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1206610/408951/dca4e4d58f611ab3de1eb8b55e35fbd75c0cab8e/1750642402/hls_264_master.m3u8?t=1634223678",
+            "highlight": true
+          },
+          {
+            "id": 256837290,
+            "name": "Rubber Bandits Cinematic Trailer",
+            "thumbnail": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/256837290/movie.293x165.jpg?t=1655971886",
+            "dash_av1": "https://video.akamai.steamstatic.com/store_trailers/1206610/374376/ec03257cb35028b0ed190679870d9cd9b2c9eb6d/1750642386/dash_av1.mpd?t=1655971886",
+            "dash_h264": "https://video.akamai.steamstatic.com/store_trailers/1206610/374376/ec03257cb35028b0ed190679870d9cd9b2c9eb6d/1750642386/dash_h264.mpd?t=1655971886",
+            "hls_h264": "https://video.akamai.steamstatic.com/store_trailers/1206610/374376/ec03257cb35028b0ed190679870d9cd9b2c9eb6d/1750642386/hls_264_master.m3u8?t=1655971886",
+            "highlight": true
+          }
+        ],
+        "recommendations": {
+          "total": 5623
+        },
+        "achievements": {
+          "total": 19,
+          "highlighted": [
+            {
+              "icon": "c1bb637aa8feef95b2cd1296bb0199491357d9b2.jpg",
+              "localized_name": "Fuga bem-sucedida",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Fuga bem-sucedida",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/c1bb637aa8feef95b2cd1296bb0199491357d9b2.jpg"
+            },
+            {
+              "icon": "5b791626c47e8fc9c4e75a004f30c9bcef28ab68.jpg",
+              "localized_name": "Superando a raiva",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Superando a raiva",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/5b791626c47e8fc9c4e75a004f30c9bcef28ab68.jpg"
+            },
+            {
+              "icon": "61cf4ccd3cbf8da9f803f6e4b7745d2781aa076a.jpg",
+              "localized_name": "O melhor amigo de um ladrão",
+              "archived": 0,
+              "hidden": 0,
+              "name": "O melhor amigo de um ladrão",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/61cf4ccd3cbf8da9f803f6e4b7745d2781aa076a.jpg"
+            },
+            {
+              "icon": "d542022d3d9a004cc70500e4269b73230975c56d.jpg",
+              "localized_name": "Adeus, passarinho!",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Adeus, passarinho!",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/d542022d3d9a004cc70500e4269b73230975c56d.jpg"
+            },
+            {
+              "icon": "f61c5dab745204e7ce4f0b691e572f99149bdb71.jpg",
+              "localized_name": "Varredura completa",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Varredura completa",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/f61c5dab745204e7ce4f0b691e572f99149bdb71.jpg"
+            },
+            {
+              "icon": "fac98155d7ff0f217d309eebe11462809fff90dc.jpg",
+              "localized_name": "Peso morto",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Peso morto",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/fac98155d7ff0f217d309eebe11462809fff90dc.jpg"
+            },
+            {
+              "icon": "dc5017e7757de1410bd89c8ee8d11a478c413ca3.jpg",
+              "localized_name": "Pegando a manha",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Pegando a manha",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/dc5017e7757de1410bd89c8ee8d11a478c413ca3.jpg"
+            },
+            {
+              "icon": "0cf52bcc8727ea0fe3ff9798b8af83f0fb612174.jpg",
+              "localized_name": "5 rodadas bastam",
+              "archived": 0,
+              "hidden": 0,
+              "name": "5 rodadas bastam",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/0cf52bcc8727ea0fe3ff9798b8af83f0fb612174.jpg"
+            },
+            {
+              "icon": "aa505a51e8506305eacb2b6066438ff101e5ba42.jpg",
+              "localized_name": "Ah, valeu!",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Ah, valeu!",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/aa505a51e8506305eacb2b6066438ff101e5ba42.jpg"
+            },
+            {
+              "icon": "990fd3329c43d72ec36cd52e644c3f05f4614bf9.jpg",
+              "localized_name": "Ganância é good",
+              "archived": 0,
+              "hidden": 0,
+              "name": "Ganância é good",
+              "path": "https://shared.akamai.steamstatic.com/community_assets/images/apps/1206610/990fd3329c43d72ec36cd52e644c3f05f4614bf9.jpg"
+            }
+          ]
+        },
+        "release_date": {
+          "coming_soon": false,
+          "date": "2/dez./2021"
+        },
+        "support_info": {
+          "url": "https://www.flashbulbgames.com",
+          "email": "hello@flashbulbgames.com"
+        },
+        "background": "https://store.akamai.steamstatic.com/images/storepagebackground/app/1206610?t=1772704226",
+        "background_raw": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1206610/page_bg_raw.jpg?t=1772704226",
+        "content_descriptors": {
+          "ids": [],
+          "notes": null
+        },
+        "ratings": {
+          "dejus": {
+            "rating": "10",
+            "descriptors": "Violência fantasiosa\r\nViolência\r\nAtos criminosos",
+            "use_age_gate": "true",
+            "required_age": "10"
+          },
+          "steam_germany": {
+            "rating_generated": "1",
+            "rating": "12",
+            "required_age": "12",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Gewalt"
+          },
+          "igrs": {
+            "rating_generated": "1",
+            "rating": "13",
+            "required_age": "13",
+            "banned": "0",
+            "use_age_gate": "0",
+            "descriptors": "Kekerasan\nInteraksi Daring"
+          }
+        }
+      }
+    }
+  }
+}

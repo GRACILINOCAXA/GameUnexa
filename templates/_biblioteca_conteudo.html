@@ -12,6 +12,7 @@
             <button type="button" class="btn btn-outline-light btn-sm{{ ' active' if filtro == 'all' else '' }}" data-library-filter="all" data-library-endpoint="{{ url_for('biblioteca_todos') }}">Todos</button>
             <button type="button" class="btn btn-outline-info btn-sm{{ ' active' if filtro == 'steam' else '' }}" data-library-filter="steam" data-library-endpoint="{{ url_for('biblioteca_steam') }}">Steam</button>
             <button type="button" class="btn btn-outline-primary btn-sm{{ ' active' if filtro == 'hydra' else '' }}" data-library-filter="hydra" data-library-endpoint="{{ url_for('biblioteca_hydra') }}">Hydra <span class="badge bg-info text-dark ms-1">{{ totais_por_origem.hydra|default(0) }}</span></button>
+            <button type="button" class="btn btn-outline-warning btn-sm{{ ' active' if filtro == 'epic' else '' }}" data-library-filter="epic" data-library-endpoint="{{ url_for('biblioteca_epic') }}">Epic Games <span class="badge bg-warning text-dark ms-1">{{ totais_por_origem.epic|default(0) }}</span></button>
             <button type="button" class="btn btn-outline-secondary btn-sm{{ ' active' if filtro == 'manual' else '' }}" data-library-filter="manual" data-library-endpoint="{{ url_for('biblioteca_manual') }}">Manual</button>
         </div>
     </div>
